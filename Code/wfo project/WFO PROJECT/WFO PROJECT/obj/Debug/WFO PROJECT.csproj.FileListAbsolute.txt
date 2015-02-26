@@ -1,0 +1,26 @@
+c:\users\flanaganc\documents\visual studio 2013\Projects\WFO PROJECT\WFO PROJECT\bin\Debug\WFO PROJECT.exe.config
+c:\users\flanaganc\documents\visual studio 2013\Projects\WFO PROJECT\WFO PROJECT\obj\Debug\WFO PROJECT.csprojResolveAssemblyReference.cache
+c:\users\flanaganc\documents\visual studio 2013\Projects\WFO PROJECT\WFO PROJECT\obj\Debug\MainWindow.baml
+c:\users\flanaganc\documents\visual studio 2013\Projects\WFO PROJECT\WFO PROJECT\obj\Debug\MainWindow.g.cs
+c:\users\flanaganc\documents\visual studio 2013\Projects\WFO PROJECT\WFO PROJECT\obj\Debug\App.g.cs
+c:\users\flanaganc\documents\visual studio 2013\Projects\WFO PROJECT\WFO PROJECT\obj\Debug\WFO PROJECT_MarkupCompile.cache
+c:\users\flanaganc\documents\visual studio 2013\Projects\WFO PROJECT\WFO PROJECT\obj\Debug\WFO PROJECT.g.resources
+c:\users\flanaganc\documents\visual studio 2013\Projects\WFO PROJECT\WFO PROJECT\obj\Debug\WFO_PROJECT.Properties.Resources.resources
+c:\users\flanaganc\documents\visual studio 2013\Projects\WFO PROJECT\WFO PROJECT\obj\Debug\WFO PROJECT.csproj.GenerateResource.Cache
+c:\users\flanaganc\documents\visual studio 2013\Projects\WFO PROJECT\WFO PROJECT\bin\Debug\WFO PROJECT.exe
+c:\users\flanaganc\documents\visual studio 2013\Projects\WFO PROJECT\WFO PROJECT\bin\Debug\WFO PROJECT.pdb
+c:\users\flanaganc\documents\visual studio 2013\Projects\WFO PROJECT\WFO PROJECT\obj\Debug\WFO PROJECT.exe
+c:\users\flanaganc\documents\visual studio 2013\Projects\WFO PROJECT\WFO PROJECT\obj\Debug\WFO PROJECT.pdb
+C:\Users\flanaganc\Desktop\WFO PROJECT\WFO PROJECT\bin\Debug\WFO PROJECT.exe.config
+C:\Users\flanaganc\Desktop\WFO PROJECT\WFO PROJECT\obj\Debug\WFO PROJECT.exe
+C:\Users\flanaganc\Desktop\WFO PROJECT\WFO PROJECT\obj\Debug\WFO PROJECT.pdb
+C:\Users\flanaganc\Desktop\WFO PROJECT\WFO PROJECT\bin\Debug\WFO PROJECT.exe
+C:\Users\flanaganc\Desktop\WFO PROJECT\WFO PROJECT\bin\Debug\WFO PROJECT.pdb
+C:\Users\flanaganc\Desktop\WFO PROJECT\WFO PROJECT\obj\Debug\WFO PROJECT.csprojResolveAssemblyReference.cache
+C:\Users\flanaganc\Desktop\WFO PROJECT\WFO PROJECT\obj\Debug\MainWindow.baml
+C:\Users\flanaganc\Desktop\WFO PROJECT\WFO PROJECT\obj\Debug\MainWindow.g.cs
+C:\Users\flanaganc\Desktop\WFO PROJECT\WFO PROJECT\obj\Debug\App.g.cs
+C:\Users\flanaganc\Desktop\WFO PROJECT\WFO PROJECT\obj\Debug\WFO PROJECT_MarkupCompile.cache
+C:\Users\flanaganc\Desktop\WFO PROJECT\WFO PROJECT\obj\Debug\WFO PROJECT.g.resources
+C:\Users\flanaganc\Desktop\WFO PROJECT\WFO PROJECT\obj\Debug\WFO_PROJECT.Properties.Resources.resources
+C:\Users\flanaganc\Desktop\WFO PROJECT\WFO PROJECT\obj\Debug\WFO PROJECT.csproj.GenerateResource.Cache
