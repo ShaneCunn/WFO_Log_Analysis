@@ -1,0 +1,1693 @@
+--
+9:2015-02-12 15:55:31,781 [POM Read Thread] DEBUG com.swhh.cti.m.a.j - 000152<?xml version="1.0" encoding="UTF-8"?><ListAgentsResponse success="false" reasonCode="1"><reasonText> Invalid Request </reasonText></ListAgentsResponse>
+65:2015-02-12 15:55:45,782 [POM Read Thread] DEBUG com.swhh.cti.m.a.j - 000152<?xml version="1.0" encoding="UTF-8"?><ListAgentsResponse success="false" reasonCode="1"><reasonText> Invalid Request </reasonText></ListAgentsResponse>
+174:2015-02-12 15:56:00,782 [POM Read Thread] DEBUG com.swhh.cti.m.a.j - 000152<?xml version="1.0" encoding="UTF-8"?><ListAgentsResponse success="false" reasonCode="1"><reasonText> Invalid Request </reasonText></ListAgentsResponse>
+187:2015-02-12 15:56:14,782 [POM Read Thread] DEBUG com.swhh.cti.m.a.j - 000152<?xml version="1.0" encoding="UTF-8"?><ListAgentsResponse success="false" reasonCode="1"><reasonText> Invalid Request </reasonText></ListAgentsResponse>
+202:2015-02-12 15:56:29,768 [POM Read Thread] DEBUG com.swhh.cti.m.a.j - 000152<?xml version="1.0" encoding="UTF-8"?><ListAgentsResponse success="false" reasonCode="1"><reasonText> Invalid Request </reasonText></ListAgentsResponse>
+262:2015-02-12 15:56:43,783 [POM Read Thread] DEBUG com.swhh.cti.m.a.j - 000152<?xml version="1.0" encoding="UTF-8"?><ListAgentsResponse success="false" reasonCode="1"><reasonText> Invalid Request </reasonText></ListAgentsResponse>
+364:2015-02-12 15:56:57,783 [POM Read Thread] DEBUG com.swhh.cti.m.a.j - 000152<?xml version="1.0" encoding="UTF-8"?><ListAgentsResponse success="false" reasonCode="1"><reasonText> Invalid Request </reasonText></ListAgentsResponse>
+384:2015-02-12 15:57:11,798 [POM Read Thread] DEBUG com.swhh.cti.m.a.j - 000152<?xml version="1.0" encoding="UTF-8"?><ListAgentsResponse success="false" reasonCode="1"><reasonText> Invalid Request </reasonText></ListAgentsResponse>
+395:2015-02-12 15:57:25,799 [POM Read Thread] DEBUG com.swhh.cti.m.a.j - 000152<?xml version="1.0" encoding="UTF-8"?><ListAgentsResponse success="false" reasonCode="1"><reasonText> Invalid Request </reasonText></ListAgentsResponse>
+417:2015-02-12 15:57:40,799 [POM Read Thread] DEBUG com.swhh.cti.m.a.j - 000152<?xml version="1.0" encoding="UTF-8"?><ListAgentsResponse success="false" reasonCode="1"><reasonText> Invalid Request </reasonText></ListAgentsResponse>
+484:2015-02-12 15:57:54,799 [POM Read Thread] DEBUG com.swhh.cti.m.a.j - 000152<?xml version="1.0" encoding="UTF-8"?><ListAgentsResponse success="false" reasonCode="1"><reasonText> Invalid Request </reasonText></ListAgentsResponse>
+575:2015-02-12 15:58:09,785 [POM Read Thread] DEBUG com.swhh.cti.m.a.j - 000152<?xml version="1.0" encoding="UTF-8"?><ListAgentsResponse success="false" reasonCode="1"><reasonText> Invalid Request </reasonText></ListAgentsResponse>
+592:2015-02-12 15:58:23,800 [POM Read Thread] DEBUG com.swhh.cti.m.a.j - 000152<?xml version="1.0" encoding="UTF-8"?><ListAgentsResponse success="false" reasonCode="1"><reasonText> Invalid Request </reasonText></ListAgentsResponse>
+603:2015-02-12 15:58:37,800 [POM Read Thread] DEBUG com.swhh.cti.m.a.j - 000152<?xml version="1.0" encoding="UTF-8"?><ListAgentsResponse success="false" reasonCode="1"><reasonText> Invalid Request </reasonText></ListAgentsResponse>
+
+
+
+
+00FA08000109C454DCCDAF = 00001025001423756719
+
+657:2015-02-12 15:58:42,924 [EventScannerThread] DEBUG com.swhh.i.d.u - INVITE sip:10.134.49.155:5060;user=phone;transport=tcp SIP/2.0
+658-From: "Agent2" <sip:2002@siptraffic.com;user=phone>;tag=038e2ff3dbce411172547c9fe100
+659-To: <sip:10.134.49.155:5060;user=phone;transport=tcp>
+660-CSeq: 2 INVITE
+661-Call-ID: ddb8246eb7b5c755920c607b234f344e
+662-Contact: "Agent2" <sip:10.134.36.3:5060;transport=tcp;user=phone;gsid=0038e2ff-3dbc-4401-9072-547c9fe10000;+sip.src>
+663-Record-Route: <sip:10.134.36.3:5060;ipcs-line=13809;lr;transport=tcp>
+664-Allow: INVITE,ACK,OPTIONS,BYE,CANCEL,SUBSCRIBE,NOTIFY,REFER,INFO,PRACK,PUBLISH,UPDATE
+665-Supported: 100rel,histinfo,join,replaces,sdp-anat,timer
+666-Max-Forwards: 67
+667-Via: SIP/2.0/TCP 10.134.36.3:5060;branch=z9hG4bK-s1632-000523658171-1--s1632-;rport=16332
+668-Accept-Language: en
+669-Require: siprec
+670-P-Asserted-Identity: "Agent2" <sip:2002@siptraffic.com;user=phone>
+671-Session-Expires: 1200;refresher=uac
+672-Min-SE: 1200
+673-History-Info: <sip:00331111@siptraffic.com>;index=1
+674-History-Info: "00331111" <sip:00331111@siptraffic.com>;index=1.1
+675-Content-Type: application/sdp
+676-User-to-User: 00FA08000109C454DCCDAF;encoding=hex, 00FA08000109C454DCCDAF;encoding=hex
+677-P-Charging-Vector: icid-value="0038e2ff-3dbc-4401-9072-547c9fe10000"
+678-P-AV-Message-Id: 1_1
+679-Max-Breadth: 60
+680-Av-Global-Session-ID: 0038e2ff-3dbc-4401-9072-547c9fe10000
+681-P-Location: SM;origlocname="siptraffic";origsiglocname="siptraffic";origmedialocname="siptraffic";termlocname="siptraffic";termsiglocname="siptraffic";smaccounting="true"
+682-Content-Length: 335
+683-
+684-v=0
+685-o=- 13809 1 IN IP4 10.134.36.3
+686-s=-
+687-c=IN IP4 10.134.36.3
+705:2015-02-12 15:58:42,924 [EventScannerThread] DEBUG com.swhh.cs.j.at - onSPMBusy id=8332750033 name=SIPREC@10.134.49.155:12048 state=idle
+707:2015-02-12 15:58:42,940 [EventScannerThread] DEBUG com.swhh.i.d.u - ACK sip:10.134.49.155;transport=tcp SIP/2.0
+708-From: "Agent2" <sip:2002@siptraffic.com;user=phone>;tag=038e2ff3dbce411172547c9fe100
+709-To: <sip:10.134.49.155:5060;user=phone;transport=tcp>;tag=3032_12048
+710-CSeq: 2 ACK
+711-Call-ID: ddb8246eb7b5c755920c607b234f344e
+712-Contact: "Agent2" <sip:10.134.36.3:5060;transport=tcp;user=phone;gsid=0038e2ff-3dbc-4401-9072-547c9fe10000;+sip.src>
+713-Record-Route: <sip:10.134.36.3:5060;ipcs-line=13809;lr;transport=tcp>
+714-Allow: INVITE,ACK,OPTIONS,BYE,CANCEL,SUBSCRIBE,NOTIFY,REFER,INFO,PRACK,PUBLISH,UPDATE
+715-Supported: 100rel,histinfo,join,replaces,sdp-anat,timer
+716-Max-Forwards: 67
+717-Via: SIP/2.0/TCP 10.134.36.3:5060;branch=z9hG4bK-s1632-000823938191-1--s1632-;rport=16332
+718-Accept-Language: en
+719-P-Asserted-Identity: "Agent2" <sip:2002@siptraffic.com;user=phone>
+720-History-Info: <sip:00331111@siptraffic.com>;index=1
+721-History-Info: "00331111" <sip:00331111@siptraffic.com>;index=1.1
+722-User-to-User: 00FA08000109C454DCCDAF;encoding=hex, 00FA08000109C454DCCDAF;encoding=hex
+723-P-Charging-Vector: icid-value="0038e2ff-3dbc-4401-9072-547c9fe10000"
+724-P-AV-Message-Id: 1_1
+725-Max-Breadth: 60
+726-Av-Global-Session-ID: 0038e2ff-3dbc-4401-9072-547c9fe10000
+727-P-Location: SM;origlocname="siptraffic";origsiglocname="siptraffic";origmedialocname="siptraffic";termlocname="siptraffic";termsiglocname="siptraffic";smaccounting="true"
+728-Content-Length: 0
+729-
+730-
+731-2015-02-12 15:58:42,940 [EventScannerThread] DEBUG com.swhh.i.d.u - ACK
+732-2015-02-12 15:58:42,971 [TSAPIread-1] DEBUG com.swhh.cti.r.q - CSTADeliveredEvent
+733- connection=ConnectionID
+734-  callID=4056
+735-  deviceID=8041770
+736-  devIDType=staticId
+737- alertingDevice=ExtendedDeviceID
+769:2015-02-12 15:58:42,971 [TSAPIEvent-1] DEBUG com.swhh.csta.a.k - station 8041770 (Liam Brady) sw=1 onCSTADeliveredEvent=CSTADeliveredEvent
+770- connection=ConnectionID
+771-  callID=4056
+772-  deviceID=8041770
+773-  devIDType=staticId
+774- alertingDevice=ExtendedDeviceID
+775-  deviceID=8041770
+776-  deviceIDType=explicitPrivateLocalNumber
+777-  deviceIDStatus=idProvided
+778- callingDevice=ExtendedDeviceID
+779-  deviceID=2002
+780-  deviceIDType=explicitPrivateUnknown
+781-  deviceIDStatus=idProvided
+782- calledDevice=ExtendedDeviceID
+783-  deviceID=00331111
+784-  deviceIDType=explicitPrivateUnknown
+785-  deviceIDStatus=idProvided
+786- lastRedirectionDevice=ExtendedDeviceID
+787-  deviceID=
+788-  deviceIDType=explicitPublicUnknown
+789-  deviceIDStatus=idNotRequired
+790- localConnectionInfo=csAlerting
+791- cause=ecNewCall
+792-2015-02-12 15:58:42,971 [TSAPIEvent-1] DEBUG com.swhh.csta.a.l - Creating new call id=4056
+793-2015-02-12 15:58:42,971 [TSAPIEvent-1] DEBUG com.swhh.csta.c.c - Pending viaUCID - getPendingConsult 00001025001423756719 returning null
+794-2015-02-12 15:58:42,971 [TSAPIEvent-1] DEBUG com.swhh.csta.c.c - Pending viaUCID - getPendingXfrd 00001025001423756719 returning null
+
+
+875-2015-02-12 15:58:43,018 [Thread-52] DEBUG com.swhh.csta.b.g - station 8041770 (Liam Brady) sw=1 onCallEvent=RINGING - com.swhh.cti.c.a.d
+876-  a=RINGING
+877-  b=DEFAULT
+878:  c=Passive
+879-  d=sip:8041770@pkgappslab.com
+880-  e=39a4cb2f-4189-4626-be31-66aebb65da00
+881-  f=eee647d2-d312-4e68-bb41-6dc59e33fd04
+882-  g={CmfContactID=eee647d2-d312-4e68-bb41-6dc59e33fd04, SIP_CALL_TYPE=Inbound, AD_CLID=2002, ContactType=10000, Provider=Passive, ProviderContactID=37497067}
+
+
+
+1366:2015-02-12 15:58:43,284 [TSAPIEvent-1] DEBUG com.swhh.csta.a.k - station 8041770 (Liam Brady) sw=1 onSnapshotCall=CSTASnapshotCallConfEvent
+1367- info=CSTASnapshotCallResponseInfo
+1368-  deviceOnCall=ExtendedDeviceID
+1369-   deviceID=2002
+1370-   deviceIDType=explicitPrivateUnknown
+1371-   deviceIDStatus=idProvided
+1372-  callIdentifier=ConnectionID
+1373-   callID=4056
+1374-   deviceID=2002
+1375-   devIDType=staticId
+1376-  localConnectionState=csConnect
+1377- info=CSTASnapshotCallResponseInfo
+1378-  deviceOnCall=ExtendedDeviceID
+1379-   deviceID=8041770
+1380-   deviceIDType=explicitPrivateLocalNumber
+1381-   deviceIDStatus=idProvided
+1382-  callIdentifier=ConnectionID
+1383-   callID=4056
+1384-   deviceID=8041770
+1385-   devIDType=staticId
+1386-  localConnectionState=csAlerting
+1387-2015-02-12 15:58:43,284 [TSAPIEvent-1] DEBUG com.swhh.csta.a.l - Conn=ConnectionID
+1388- callID=4056
+1389- deviceID=2002
+1390- devIDType=staticId
+1391-2015-02-12 15:58:43,284 [TSAPIEvent-1] DEBUG com.swhh.csta.d.c.j - No entry for 2002 in switchid 1
+1902:2015-02-12 15:58:47,096 [EventScannerThread] DEBUG com.swhh.i.d.u - UPDATE sip:10.134.49.155:5060;user=phone;transport=tcp SIP/2.0
+1903-From: "Agent2" <sip:2002@siptraffic.com;user=phone>;tag=038e2ff3dbce411172547c9fe100
+1904-To: <sip:10.134.49.155:5060;user=phone;transport=tcp>;tag=3032_12048
+1905-CSeq: 3 UPDATE
+1906-Call-ID: ddb8246eb7b5c755920c607b234f344e
+1907-Contact: "Agent2" <sip:10.134.36.3:5060;transport=tcp;user=phone;gsid=0038e2ff-3dbc-4401-9072-547c9fe10000;+sip.src>
+1908-Record-Route: <sip:10.134.36.3:5060;ipcs-line=13809;lr;transport=tcp>
+1909-Allow: INVITE,ACK,OPTIONS,BYE,CANCEL,SUBSCRIBE,NOTIFY,REFER,INFO,PRACK,PUBLISH,UPDATE
+1910-Supported: 100rel,histinfo,join,replaces,sdp-anat,timer
+1911-Max-Forwards: 67
+1912-Via: SIP/2.0/TCP 10.134.36.3:5060;branch=z9hG4bK-s1632-000930107668-1--s1632-;rport=16332
+1913-Accept-Language: en
+1914-Require: siprec
+1915-P-Asserted-Identity: "Agent2" <sip:2002@siptraffic.com;user=phone>
+1916-Session-Expires: 1200;refresher=uac
+1917-Min-SE: 1200
+1918-History-Info: <sip:00331111@siptraffic.com>;index=1
+1919-History-Info: "00331111" <sip:00331111@siptraffic.com>;index=1.1
+1920-Content-Disposition: recording-session
+1921-Content-Type: application/rs-metadata
+1922-User-to-User: 00FA08000109C454DCCDAF;encoding=hex, 00FA08000109C454DCCDAF;encoding=hex
+1923-P-Charging-Vector: icid-value="0038e2ff-3dbc-4401-9072-547c9fe10000"
+1924-P-AV-Message-Id: 1_1
+1925-Max-Breadth: 60
+1926-Av-Global-Session-ID: 0038e2ff-3dbc-4401-9072-547c9fe10000
+1927-P-Location: SM;origlocname="siptraffic";origsiglocname="siptraffic";origmedialocname="siptraffic";termlocname="siptraffic";termsiglocname="siptraffic";smaccounting="true"
+1928-Content-Length: 1463
+1929-
+1930-<?xml version="1.0" encoding="UTF-8"?>
+1931-<recording xmlns="urn:ietf:params:xml:ns:recording:1">
+1932-<dataMode>complete</dataMode>
+1969:2015-02-12 15:58:47,096 [Read_/127.0.0.1:56589] DEBUG com.swhh.cs.j.ak - SIPREC@10.134.49.155:12048 connected to UCID 00001025001423756719
+1970:2015-02-12 15:58:47,096 [Read_/127.0.0.1:56589] DEBUG com.swhh.cs.j.at - onSPMBusy id=8332750033 name=SIPREC@10.134.49.155:12048 state=setup
+1971:2015-02-12 15:58:47,096 [Read_/127.0.0.1:56589] DEBUG com.swhh.cs.j.aj - 833275/8332750033 (SIPREC@10.134.49.155:12048)ucid=00001025001423756719 leftparty=2002 rightparty=8041770
+2009:2015-02-12 15:58:47,128 [TSAPIEvent-1] DEBUG com.swhh.csta.a.k - station 8041770 (Liam Brady) sw=1 onCSTAEstablishedEvent=CSTAEstablishedEvent
+2010- establishedConnection=ConnectionID
+2011-  callID=4056
+2012-  deviceID=8041770
+2013-  devIDType=staticId
+2014- answeringDevice=ExtendedDeviceID
+2015-  deviceID=8041770
+2016-  deviceIDType=explicitPrivateLocalNumber
+2017-  deviceIDStatus=idProvided
+2018- callingDevice=ExtendedDeviceID
+2019-  deviceID=2002
+2020-  deviceIDType=explicitPrivateUnknown
+2021-  deviceIDStatus=idProvided
+2022- calledDevice=ExtendedDeviceID
+2023-  deviceID=00331111
+2024-  deviceIDType=explicitPrivateUnknown
+2025-  deviceIDStatus=idProvided
+2026- lastRedirectionDevice=ExtendedDeviceID
+2027-  deviceID=
+2028-  deviceIDType=explicitPublicUnknown
+2029-  deviceIDStatus=idNotRequired
+2030- localConnectionInfo=csConnect
+2031- cause=ecNewCall
+2032-2015-02-12 15:58:47,128 [TSAPIEvent-1] DEBUG com.swhh.csta.a.k - UCID = 00001025001423756719
+
+
+
+2033-2015-02-12 15:58:47,128 [TSAPIEvent-1] DEBUG com.swhh.csta.a.l - Not the call's original UCID
+2034-2015-02-12 15:58:47,128 [TSAPIEvent-1] DEBUG com.swhh.csta.d.a.a - Setting eventtype = Connected
+2169-2015-02-12 15:58:47,159 [Thread-52] DEBUG com.swhh.csta.b.g - station 8041770 (Liam Brady) sw=1 onCallEvent=ESTABLISHED - com.swhh.cti.c.a.d
+2170-  a=ESTABLISHED
+2171-  b=DEFAULT
+2172:  c=Passive
+2173-  d=sip:8041770@pkgappslab.com
+2174-  e=39a4cb2f-4189-4626-be31-66aebb65da00
+2175-  f=eee647d2-d312-4e68-bb41-6dc59e33fd04
+2176-  g={CmfContactID=eee647d2-d312-4e68-bb41-6dc59e33fd04, SIP_CALL_TYPE=Inbound, AD_CLID=2002, ContactType=10000, Provider=Passive, ProviderContactID=37497067}
+3434:2015-02-12 15:58:47,753 [TSAPIEvent-1] DEBUG com.swhh.csta.a.k - station 8041770 (Liam Brady) sw=1 onSnapshotCall=CSTASnapshotCallConfEvent
+3435- info=CSTASnapshotCallResponseInfo
+3436-  deviceOnCall=ExtendedDeviceID
+3437-   deviceID=2002
+3438-   deviceIDType=explicitPrivateUnknown
+3439-   deviceIDStatus=idProvided
+3440-  callIdentifier=ConnectionID
+3441-   callID=4056
+3442-   deviceID=2002
+3443-   devIDType=staticId
+3444-  localConnectionState=csConnect
+3445- info=CSTASnapshotCallResponseInfo
+3446-  deviceOnCall=ExtendedDeviceID
+3447-   deviceID=8041770
+3448-   deviceIDType=explicitPrivateLocalNumber
+3449-   deviceIDStatus=idProvided
+3450-  callIdentifier=ConnectionID
+3451-   callID=4056
+3452-   deviceID=8041770
+3453-   devIDType=staticId
+3454-  localConnectionState=csConnect
+3455-2015-02-12 15:58:47,753 [TSAPIEvent-1] DEBUG com.swhh.csta.a.l - Conn=ConnectionID
+3456- callID=4056
+3457- deviceID=2002
+3458- devIDType=staticId
+3459-2015-02-12 15:58:47,753 [TSAPIEvent-1] DEBUG com.swhh.csta.d.c.j - No entry for 2002 in switchid 1
+4072:2015-02-12 15:58:47,768 [TSAPIEvent-1] DEBUG com.swhh.csta.d.a.b - 1-4056 Using 833275/8332750033 (SIPREC@10.134.49.155:12048)
+4075:2015-02-12 15:58:47,768 [TSAPIEvent-1] DEBUG com.swhh.cs.j.aq - 833275/8332750033 (SIPREC@10.134.49.155:12048) set call=1-4056 beep=false maybeep=false mask=false
+4076:2015-02-12 15:58:47,768 [TSAPIEvent-1] DEBUG com.swhh.cs.j.aq - SIPREC@10.134.49.155:12048 to connect to 1-4056 beep=false maybeep=false mask=false
+4083:2015-02-12 15:58:47,768 [Read_/127.0.0.1:56589] DEBUG com.swhh.cs.j.at - onSPMBusy id=8332750033 name=SIPREC@10.134.49.155:12048 state=connected
+4116:2015-02-12 15:58:47,768 [TSAPIEvent-1] DEBUG com.swhh.cs.j.aq - Starting 1-4056(segment=57) 833275000011049 and 1 in parallel  on SIPREC@10.134.49.155:12048
+5389:2015-02-12 15:58:51,815 [POM Read Thread] DEBUG com.swhh.cti.m.a.j - 000152<?xml version="1.0" encoding="UTF-8"?><ListAgentsResponse success="false" reasonCode="1"><reasonText> Invalid Request </reasonText></ListAgentsResponse>
+8150:2015-02-12 15:59:05,815 [POM Read Thread] DEBUG com.swhh.cti.m.a.j - 000152<?xml version="1.0" encoding="UTF-8"?><ListAgentsResponse success="false" reasonCode="1"><reasonText> Invalid Request </reasonText></ListAgentsResponse>
+9634:2015-02-12 15:59:13,143 [TSAPIEvent-1] DEBUG com.swhh.csta.a.k - station 8041770 (Liam Brady) sw=1 onCSTAHeldEvent=CSTAHeldEvent
+9635- heldConnection=ConnectionID
+9636-  callID=4056
+9637-  deviceID=8041770
+9638-  devIDType=staticId
+9639- holdingDevice=ExtendedDeviceID
+9640-  deviceID=8041770
+9641-  deviceIDType=explicitPrivateLocalNumber
+9642-  deviceIDStatus=idProvided
+9643- localConnectionInfo=csHold
+9644- cause=ecNone
+9645-2015-02-12 15:59:13,143 [TSAPIread-1] DEBUG com.swhh.cti.r.q - UnknownMessage
+9646- pduclass=4
+9647- pdu=66
+9648- body=
+9649-  sequence=
+9803:833275/8332750033 (SIPREC@10.134.49.155:12048)</recording>
+
+
+10011-2015-02-12 15:59:13,158 [Thread-52] DEBUG com.swhh.csta.b.g - station 8041770 (Liam Brady) sw=1 onCallEvent=HOLD - com.swhh.cti.c.a.d
+10012-  a=HOLD
+10013-  b=TRANSFER
+10014:  c=Passive
+10015-  d=sip:8041770@pkgappslab.com
+10016-  e=39a4cb2f-4189-4626-be31-66aebb65da00
+10017-  f=eee647d2-d312-4e68-bb41-6dc59e33fd04
+10018-  g={}
+
+
+
+10423-2015-02-12 15:59:13,205 [Thread-52] DEBUG com.swhh.csta.b.g - station 8041770 (Liam Brady) sw=1 onCallEvent=ESTABLISHED - com.swhh.cti.c.a.d
+10424-  a=ESTABLISHED
+10425-  b=DEFAULT
+10426:  c=Passive
+10427-  d=sip:8041770@pkgappslab.com
+10428-  e=a7389666-742f-44b2-bf23-b57305ba4f55
+10429-  f=6383f3f9-479b-4f5d-8d3d-500c114c88c8
+10430-  g={CmfContactID=6383f3f9-479b-4f5d-8d3d-500c114c88c8, SIP_CALL_TYPE=ConsultTransfer, AD_CLID=8041770, SIP_CALLER_DISPLAY=Liam Brady, SIP_MAIN_CONTACT_ID=eee647d2-d312-4e68-bb41-6dc59e33fd04, ContactType=10000, Provider=Passive, ProviderContactID=37497068}
+10814:2015-02-12 15:59:13,252 [EventScannerThread] DEBUG com.swhh.i.d.u - UPDATE sip:10.134.49.155:5060;user=phone;transport=tcp SIP/2.0
+10815-From: "Agent2" <sip:2002@siptraffic.com;user=phone>;tag=038e2ff3dbce411172547c9fe100
+10816-To: <sip:10.134.49.155:5060;user=phone;transport=tcp>;tag=3032_12048
+10817-CSeq: 4 UPDATE
+10818-Call-ID: ddb8246eb7b5c755920c607b234f344e
+10819-Contact: "Agent2" <sip:10.134.36.3:5060;transport=tcp;user=phone;gsid=0038e2ff-3dbc-4401-9072-547c9fe10000;+sip.src>
+10820-Record-Route: <sip:10.134.36.3:5060;ipcs-line=13809;lr;transport=tcp>
+10821-Allow: INVITE,ACK,OPTIONS,BYE,CANCEL,SUBSCRIBE,NOTIFY,REFER,INFO,PRACK,PUBLISH,UPDATE
+10822-Supported: 100rel,histinfo,join,replaces,sdp-anat,timer
+10823-Max-Forwards: 67
+10824-Via: SIP/2.0/TCP 10.134.36.3:5060;branch=z9hG4bK-s1632-001871153340-1--s1632-;rport=16332
+10825-Accept-Language: en
+10826-Require: siprec
+10827-P-Asserted-Identity: "Agent2" <sip:2002@siptraffic.com;user=phone>
+10828-Session-Expires: 1200;refresher=uac
+10829-Min-SE: 1200
+10830-History-Info: <sip:00331111@siptraffic.com>;index=1
+10831-History-Info: "00331111" <sip:00331111@siptraffic.com>;index=1.1
+10832-Content-Disposition: recording-session
+10833-Content-Type: application/rs-metadata
+10834-User-to-User: 00FA08000109C454DCCDAF;encoding=hex, 00FA08000109C454DCCDAF;encoding=hex
+10835-P-Charging-Vector: icid-value="0038e2ff-3dbc-4401-9072-547c9fe10000"
+10836-P-AV-Message-Id: 1_1
+10837-Max-Breadth: 60
+10838-Av-Global-Session-ID: 0038e2ff-3dbc-4401-9072-547c9fe10000
+10839-P-Location: SM;origlocname="siptraffic";origsiglocname="siptraffic";origmedialocname="siptraffic";termlocname="siptraffic";termsiglocname="siptraffic";smaccounting="true"
+10840-Content-Length: 1463
+10841-
+10842-<?xml version="1.0" encoding="UTF-8"?>
+10843-<recording xmlns="urn:ietf:params:xml:ns:recording:1">
+10844-<dataMode>complete</dataMode>
+11908:2015-02-12 15:59:13,705 [SnapTimer] DEBUG com.swhh.csta.d.a.b - 1-4056 not recordable when tograves=0 and realparties=2
+12391:2015-02-12 15:59:16,627 [TSAPIEvent-1] DEBUG com.swhh.csta.a.k - station 8041770 (Liam Brady) sw=1 onCSTADeliveredEvent=CSTADeliveredEvent
+12392- connection=ConnectionID
+12393-  callID=4057
+12394-  deviceID=T4057#2
+12395-  devIDType=dynamicId
+12396- alertingDevice=ExtendedDeviceID
+12397-  deviceID=T4057#2
+12398-  deviceIDType=explicitPublicUnknown
+12399-  deviceIDStatus=idProvided
+12400- callingDevice=ExtendedDeviceID
+12401-  deviceID=8041770
+12402-  deviceIDType=explicitPrivateLocalNumber
+12403-  deviceIDStatus=idProvided
+12404- calledDevice=ExtendedDeviceID
+12405-  deviceID=3041770
+12406-  deviceIDType=explicitPublicNational
+12407-  deviceIDStatus=idProvided
+12408- lastRedirectionDevice=ExtendedDeviceID
+12409-  deviceID=
+12410-  deviceIDType=explicitPublicUnknown
+12411-  deviceIDStatus=idNotRequired
+12412- localConnectionInfo=csConnect
+12413- cause=ecNewCall
+12414-2015-02-12 15:59:16,627 [TSAPIEvent-1] DEBUG com.swhh.csta.d.c.j - Creating new trunkmember 10/255 sw=1
+12415-2015-02-12 15:59:16,627 [TSAPIEvent-1] DEBUG com.swhh.csta.d.c.j - Putting trunkmember 10/255 sw=1 into devtypemap for switchid 1 as 10/255
+12416-2015-02-12 15:59:16,627 [TSAPIEvent-1] DEBUG com.swhh.csta.d.c.j - Putting trunkmember 10/255 sw=1 into devsbyaddressmap for switchid 1 as 10/255
+
+
+CONSULT CALL:
+12571:2015-02-12 15:59:16,674 [TSAPIEvent-1] DEBUG com.swhh.csta.a.k - station 8041770 (Liam Brady) sw=1 onCSTAEstablishedEvent=CSTAEstablishedEvent
+12572- establishedConnection=ConnectionID
+12573-  callID=4057
+12574-  deviceID=T4057#2
+12575-  devIDType=dynamicId
+12576- answeringDevice=ExtendedDeviceID
+12577-  deviceID=3041770
+12578-  deviceIDType=explicitPrivateUnknown
+12579-  deviceIDStatus=idProvided
+12580- callingDevice=ExtendedDeviceID
+12581-  deviceID=8041770
+12582-  deviceIDType=explicitPrivateLocalNumber
+12583-  deviceIDStatus=idProvided
+12584- calledDevice=ExtendedDeviceID
+12585-  deviceID=3041770
+12586-  deviceIDType=explicitPublicNational
+12587-  deviceIDStatus=idProvided
+12588- lastRedirectionDevice=ExtendedDeviceID
+12589-  deviceID=
+12590-  deviceIDType=explicitPublicUnknown
+12591-  deviceIDStatus=idNotRequired
+12592- localConnectionInfo=csConnect
+12593- cause=ecNewCall
+12594-2015-02-12 15:59:16,674 [TSAPIEvent-1] DEBUG com.swhh.csta.a.k - UCID = 00001040571423758308
+
+
+
+12595-2015-02-12 15:59:16,674 [TSAPIEvent-1] DEBUG com.swhh.csta.d.a.a - Setting eventtype = Connected
+12596-2015-02-12 15:59:16,674 [TSAPIEvent-1] DEBUG com.swhh.csta.a.n - Getting dynamic T4057#2
+12891:2015-02-12 15:59:16,987 [TSAPIEvent-1] DEBUG com.swhh.csta.a.k - station 8041770 (Liam Brady) sw=1 onSnapshotCall=CSTASnapshotCallConfEvent
+12892- info=CSTASnapshotCallResponseInfo
+12893-  deviceOnCall=ExtendedDeviceID
+12894-   deviceID=8041770
+12895-   deviceIDType=explicitPrivateLocalNumber
+12896-   deviceIDStatus=idProvided
+12897-  callIdentifier=ConnectionID
+12898-   callID=4057
+12899-   deviceID=8041770
+12900-   devIDType=staticId
+12901-  localConnectionState=csConnect
+12902- info=CSTASnapshotCallResponseInfo
+12903-  deviceOnCall=ExtendedDeviceID
+12904-   deviceID=T4057#2
+12905-   deviceIDType=explicitPublicUnknown
+12906-   deviceIDStatus=idProvided
+12907-  callIdentifier=ConnectionID
+12908-   callID=4057
+12909-   deviceID=T4057#2
+12910-   devIDType=dynamicId
+12911-  localConnectionState=csConnect
+12912-2015-02-12 15:59:16,987 [TSAPIEvent-1] DEBUG com.swhh.csta.a.l - Conn=ConnectionID
+12913- callID=4057
+12914- deviceID=8041770
+12915- devIDType=staticId
+12916-2015-02-12 15:59:16,987 [TSAPIEvent-1] DEBUG com.swhh.csta.a.n - Found station 8041770 (Liam Brady) sw=1
+13466:2015-02-12 15:59:17,018 [queue.name.tsapiconf-0] DEBUG com.swhh.csta.a.n - Attempting to join 833275/8332750001 (DMCC-1 8041803) to 1-4057 Attempt 1
+13557:2015-02-12 15:59:17,049 [TSAPIread-1] DEBUG com.swhh.cti.r.q - CSTAConferencedEvent
+13558- primaryOldCall=ConnectionID
+13559-  callID=0
+13560-  deviceID=0
+13561-  devIDType=dynamicId
+13562- secondaryOldCall=ConnectionID
+13563-  callID=4057
+13564-  deviceID=8041803
+13565-  devIDType=staticId
+13566- confController=ExtendedDeviceID
+13567-  deviceID=8041803
+13568-  deviceIDType=explicitPrivateLocalNumber
+13569-  deviceIDStatus=idProvided
+13570- addedParty=ExtendedDeviceID
+13571-  deviceID=8041803
+13572-  deviceIDType=explicitPrivateLocalNumber
+13573-  deviceIDStatus=idProvided
+13574- conferenceConnection=Connection
+13575-  connectionID=ConnectionID
+13576-   callID=4057
+13577-   deviceID=8041770
+13578-   devIDType=staticId
+13579-  extendedDeviceID=ExtendedDeviceID
+13580-   deviceID=8041770
+13581-   deviceIDType=explicitPrivateLocalNumber
+13582-   deviceIDStatus=idProvided
+13583- conferenceConnection=Connection
+13584-  connectionID=ConnectionID
+13585-   callID=4057
+13586-   deviceID=T4057#2
+13587-   devIDType=dynamicId
+13588-  extendedDeviceID=ExtendedDeviceID
+13589-   deviceID=3041770
+13590-   deviceIDType=explicitPrivateUnknown
+13591-   deviceIDStatus=idProvided
+13592- conferenceConnection=Connection
+13593-  connectionID=ConnectionID
+13594-   callID=4057
+13595-   deviceID=8041803
+13596-   devIDType=staticId
+13597-  extendedDeviceID=ExtendedDeviceID
+13598-   deviceID=8041803
+13599-   deviceIDType=explicitPrivateLocalNumber
+13600-   deviceIDStatus=idProvided
+13601- localConnectionInfo=csConnect
+13602- cause=ecSilentMonitor
+13672:2015-02-12 15:59:17,049 [TSAPIread-1] DEBUG com.swhh.cti.r.q - CSTAConferencedEvent
+13673- primaryOldCall=ConnectionID
+13674-  callID=0
+13675-  deviceID=0
+13676-  devIDType=dynamicId
+13677- secondaryOldCall=ConnectionID
+13678-  callID=4057
+13679-  deviceID=8041803
+13680-  devIDType=staticId
+13681- confController=ExtendedDeviceID
+13682-  deviceID=8041803
+13683-  deviceIDType=explicitPrivateLocalNumber
+13684-  deviceIDStatus=idProvided
+13685- addedParty=ExtendedDeviceID
+13686-  deviceID=8041803
+13687-  deviceIDType=explicitPrivateLocalNumber
+13688-  deviceIDStatus=idProvided
+13689- conferenceConnection=Connection
+13690-  connectionID=ConnectionID
+13691-   callID=4057
+13692-   deviceID=8041770
+13693-   devIDType=staticId
+13694-  extendedDeviceID=ExtendedDeviceID
+13695-   deviceID=8041770
+13696-   deviceIDType=explicitPrivateLocalNumber
+13697-   deviceIDStatus=idProvided
+13698- conferenceConnection=Connection
+13699-  connectionID=ConnectionID
+13700-   callID=4057
+13701-   deviceID=T4057#2
+13702-   devIDType=dynamicId
+13703-  extendedDeviceID=ExtendedDeviceID
+13704-   deviceID=3041770
+13705-   deviceIDType=explicitPrivateUnknown
+13706-   deviceIDStatus=idProvided
+13707- conferenceConnection=Connection
+13708-  connectionID=ConnectionID
+13709-   callID=4057
+13710-   deviceID=8041803
+13711-   devIDType=staticId
+13712-  extendedDeviceID=ExtendedDeviceID
+13713-   deviceID=8041803
+13714-   deviceIDType=explicitPrivateLocalNumber
+13715-   deviceIDStatus=idProvided
+13716- localConnectionInfo=csConnect
+13717- cause=ecSilentMonitor
+13991:2015-02-12 15:59:17,049 [TSAPIEvent-1] DEBUG com.swhh.csta.a.k - dmcc 8041803 sw=1 onCSTAConferencedEvent observer/silent monitor
+13993:2015-02-12 15:59:17,049 [TSAPIEvent-1] DEBUG com.swhh.csta.a.k - Recording port joining call. Ignoring
+13998:2015-02-12 15:59:17,049 [TSAPIEvent-1] DEBUG com.swhh.csta.a.k - station 8041770 (Liam Brady) sw=1 onCSTAConferencedEvent observer/silent monitor
+14000:2015-02-12 15:59:17,049 [TSAPIEvent-1] DEBUG com.swhh.csta.a.k - Recording port joining call. Ignoring
+14686:2015-02-12 15:59:19,816 [POM Read Thread] DEBUG com.swhh.cti.m.a.j - 000152<?xml version="1.0" encoding="UTF-8"?><ListAgentsResponse success="false" reasonCode="1"><reasonText> Invalid Request </reasonText></ListAgentsResponse>
+
+
+15267:2015-02-12 15:59:23,800 [TSAPIEvent-1] DEBUG com.swhh.csta.a.k - station 8041774 (Chris Hughton) sw=1 onCSTADeliveredEvent=CSTADeliveredEvent
+15268- connection=ConnectionID
+15269-  callID=4060
+15270-  deviceID=8041774
+15271-  devIDType=staticId
+15272- alertingDevice=ExtendedDeviceID
+15273-  deviceID=8041774
+15274-  deviceIDType=explicitPrivateLocalNumber
+15275-  deviceIDStatus=idProvided
+15276- callingDevice=ExtendedDeviceID
+15277-  deviceID=3041770
+15278-  deviceIDType=explicitPrivateUnknown
+15279-  deviceIDStatus=idProvided
+15280- calledDevice=ExtendedDeviceID
+15281-  deviceID=8041774
+15282-  deviceIDType=explicitPrivateLocalNumber
+15283-  deviceIDStatus=idProvided
+15284- lastRedirectionDevice=ExtendedDeviceID
+15285-  deviceID=
+15286-  deviceIDType=explicitPublicUnknown
+15287-  deviceIDStatus=idNotRequired
+15288- localConnectionInfo=csAlerting
+15289- cause=ecNewCall
+15290-2015-02-12 15:59:23,800 [TSAPIEvent-1] DEBUG com.swhh.csta.d.c.j - Creating new trunkmember 10/125 sw=1
+15291-2015-02-12 15:59:23,800 [TSAPIEvent-1] DEBUG com.swhh.csta.d.c.j - Putting trunkmember 10/125 sw=1 into devtypemap for switchid 1 as 10/125
+15292-2015-02-12 15:59:23,800 [TSAPIEvent-1] DEBUG com.swhh.csta.d.c.j - Putting trunkmember 10/125 sw=1 into devsbyaddressmap for switchid 1 as 10/125
+
+
+
+
+
+SGM Message:
+00FA0800010FD954DCD3E4  = 00001040571423758308
+
+00FB08000109C454DCCDAF = 00001025001423756719
+
+
+12/02/2015-15:59:16.590 [0x000037b4] - <-- Message Received (Sender Address IP: 10.134.49.143:56137):$$begin_record
+Direction: incoming
+Start-Line: INVITE sips:3041770@pkgappslab.com;user=phone SIP/2.0
+P-AV-Message-Id: 4_3
+Route: <sips:10.134.52.3;lr;phase=terminating>
+Max-Breadth: 60
+P-Charging-Vector: icid-value="AAS:4057-b267ca801e4bc417c544ec921a4"
+User-to-User: 00FA0800010FD954DCD3E4FB08000109C454DCCDAF;encoding=hex
+
+
+
+
+15379-2015-02-12 15:59:23,832 [Thread-52] DEBUG com.swhh.csta.b.g - station 8041774 (Chris Hughton) sw=1 onCallEvent=RINGING - com.swhh.cti.c.a.d
+15380-  a=RINGING
+15381-  b=TRANSFER
+15382:  c=Passive
+15383-  d=sip:8041774@pkgappslab.com
+15384-  e=dc686d52-916d-45c5-93b6-aeb372ee32aa
+15385-  f=6383f3f9-479b-4f5d-8d3d-500c114c88c8
+15386-  g={Skillset=Sky, SIP_CALL_ID=80ca67b241bce41d34e547ca42100, CmfContactID=6383f3f9-479b-4f5d-8d3d-500c114c88c8, AD_CDN=3041770, AD_CLID=8041770, SIP_PREFERRED_LANGUAGE=None chosen, SIP_LOCATION=SM;origlocname="Former";origsiglocname="Former";termlocname="Former";termsiglocn, SIP_SUBJECT= , SIP_USER_AGENT=Avaya CM/R016x.03.0.124.0 AVAYA-SM-6.3.9.0.639011 Avaya CM/R016x.03.0.124.0 AVAY, SIP_TO_ADDRESS=sips:3041770@pkgappslab.com;user=phone, History=Created:15:59:16 12/02/15;Queued:15:59:23 12/02/15, SIP_CALL_TYPE=ConsultTransfer, SIP_CALLER_DISPLAY="Liam Brady", SIP_MAIN_CONTACT_ID=eee647d2-d312-4e68-bb41-6dc59e33fd04, ContactType=10000, SIP_FROM_ADDRESS=8041770@pkgappslab.com, SIP_REQUEST_URI=sips:3041770@pkgappslab.com;user=phone, Provider=Passive, SIP_CALLSUPER_AGENT=-, ProviderContactID=37497068}
+
+
+
+
+
+
+
+
+
+
+16539:2015-02-12 15:59:24,113 [TSAPIEvent-1] DEBUG com.swhh.csta.a.k - station 8041774 (Chris Hughton) sw=1 onSnapshotCall=CSTASnapshotCallConfEvent
+16540- info=CSTASnapshotCallResponseInfo
+16541-  deviceOnCall=ExtendedDeviceID
+16542-   deviceID=3041770
+16543-   deviceIDType=explicitPrivateUnknown
+16544-   deviceIDStatus=idProvided
+16545-  callIdentifier=ConnectionID
+16546-   callID=4060
+16547-   deviceID=3041770
+16548-   devIDType=staticId
+16549-  localConnectionState=csConnect
+16550- info=CSTASnapshotCallResponseInfo
+16551-  deviceOnCall=ExtendedDeviceID
+16552-   deviceID=8041774
+16553-   deviceIDType=explicitPrivateLocalNumber
+16554-   deviceIDStatus=idProvided
+16555-  callIdentifier=ConnectionID
+16556-   callID=4060
+16557-   deviceID=8041774
+16558-   devIDType=staticId
+16559-  localConnectionState=csAlerting
+16560-2015-02-12 15:59:24,113 [TSAPIEvent-1] DEBUG com.swhh.csta.a.l - Conn=ConnectionID
+16561- callID=4060
+16562- deviceID=3041770
+16563- devIDType=staticId
+16564-2015-02-12 15:59:24,113 [TSAPIEvent-1] DEBUG com.swhh.csta.d.c.j - No entry for 3041770 in switchid 1
+23842:2015-02-12 15:59:24,769 [SnapTimer] DEBUG com.swhh.csta.d.a.b - 1-4057 not recordable when tograves=0 and realparties=2
+24343:2015-02-12 15:59:24,785 [TSAPIEvent-1] DEBUG com.swhh.csta.a.l - dmcc 8041803 sw=1 onCSTAConnectionClearedEvent=CSTAConnectionClearedEvent
+24344- droppedConnection=ConnectionID
+24345-  callID=4057
+24346-  deviceID=8041803
+24347-  devIDType=staticId
+24348- releasingDevice=ExtendedDeviceID
+24349-  deviceID=8041803
+24350-  deviceIDType=explicitPrivateLocalNumber
+24351-  deviceIDStatus=idProvided
+24352- localConnectionInfo=csNull
+24353- cause=ecNone
+24354-2015-02-12 15:59:24,785 [SnapTimer] DEBUG com.swhh.csta.d.a.b - 1-4057 connected to: 2-2251818417311185/D 1-4056  (ah=true)  Testing station 8041770 (Liam Brady) sw=1 isObserved=truestation 8041770 (Liam Brady) sw=1? on 2-2251814122343859/Sstate=92 Testing dynamic T4057#2 sw=1 isObserved=false
+24355-2015-02-12 15:59:24,785 [SnapTimer] DEBUG com.swhh.csta.d.a.b - 2-2251818417311185/D has station 8041770 (Liam Brady) sw=1 in state 88 is recordable
+24356-2015-02-12 15:59:24,785 [SnapTimer] DEBUG com.swhh.csta.d.a.b - 2-2251818417311185/D connected to: 1-4056 1-4057  (ah=true)  Testing station 8041770 (Liam Brady) sw=1 isObserved=truestation 8041770 (Liam Brady) sw=1? on 1-4056state=92 Happy to try...1-4056 (via station 8041770 (Liam Brady) sw=1) station 8041770 (Liam Brady) sw=1? on 2-2251814122343859/Sstate=92station 8041770 (Liam Brady) sw=1? on 1-4057state=88 Same type of call 1-4057  Happy to try...1-4057 (via station 8041770 (Liam Brady) sw=1) 
+24357-2015-02-12 15:59:24,785 [TSAPIread-1] DEBUG com.swhh.cti.r.q - CSTAConnectionClearedEvent
+24358- droppedConnection=ConnectionID
+24359-  callID=4057
+24360-  deviceID=8041803
+24361-  devIDType=staticId
+24362- releasingDevice=ExtendedDeviceID
+24363-  deviceID=8041803
+24364-  deviceIDType=explicitPrivateLocalNumber
+24365-  deviceIDStatus=idProvided
+24366- localConnectionInfo=csConnect
+24367- cause=ecNone
+24368-2015-02-12 15:59:24,785 [TSAPIEvent-1] DEBUG com.swhh.csta.a.n - Found dmcc 8041803 sw=1
+24369-2015-02-12 15:59:24,785 [TSAPIread-1] DEBUG com.swhh.cti.r.q - AvayaConnectionClearedEvent
+24370- uui=UserToUserInfo
+24371-  type=-1
+24372-  data=
+24373-2015-02-12 15:59:24,785 [SnapTimer] DEBUG com.swhh.csta.d.a.b - 1-4060 getCurrentRealConns= 87[station 8041774 (Chris Hughton) sw=1:ALERTING@15:59:23, 85[aacccdn 3041770 sw=2:ESTABLISHED@15:59:24 REC, 
+24374-2015-02-12 15:59:24,800 [SnapTimer] DEBUG com.swhh.csta.d.a.b - 1-4060 segment number bumped to 45
+24375-2015-02-12 15:59:24,785 [TSAPIEvent-1] DEBUG com.swhh.csta.a.n - Found dmcc 8041803 sw=1
+24376-2015-02-12 15:59:24,800 [TSAPIEvent-1] DEBUG com.swhh.csta.a.l - Recording port cleared.
+24377-2015-02-12 15:59:24,800 [SnapTimer] DEBUG com.swhh.csta.d.a.b - 1-4060 getCurrentDevs= 87[station 8041774 (Chris Hughton) sw=1:ALERTING@15:59:23 85[aacccdn 3041770 sw=2:ESTABLISHED@15:59:24 REC 
+24378-2015-02-12 15:59:24,800 [SnapTimer] DEBUG com.swhh.csta.d.a.b - 1-4060 has aacccdn 3041770 sw=2 in state 88 is recordable
+24379:2015-02-12 15:59:24,800 [TSAPIEvent-1] DEBUG com.swhh.csta.a.l - station 8041770 (Liam Brady) sw=1 onCSTAConnectionClearedEvent=CSTAConnectionClearedEvent
+24380- droppedConnection=ConnectionID
+24381-  callID=4057
+24382-  deviceID=8041803
+24383-  devIDType=staticId
+24384- releasingDevice=ExtendedDeviceID
+24385-  deviceID=8041803
+24386-  deviceIDType=explicitPrivateLocalNumber
+24387-  deviceIDStatus=idProvided
+24388- localConnectionInfo=csConnect
+24389- cause=ecNone
+24390-2015-02-12 15:59:24,800 [SnapTimer] DEBUG com.swhh.csta.d.a.b - 1-4060 Standalone  (ah=false)  Testing aacccdn 3041770 sw=2 isObserved=false
+24391-2015-02-12 15:59:24,800 [TSAPIEvent-1] DEBUG com.swhh.csta.a.n - Found dmcc 8041803 sw=1
+24392-2015-02-12 15:59:24,800 [SnapTimer] DEBUG com.swhh.csta.d.a.b - 1-4060 getCurrentRealConns= 87[station 8041774 (Chris Hughton) sw=1:ALERTING@15:59:23, 85[aacccdn 3041770 sw=2:ESTABLISHED@15:59:24 REC, 
+24393-2015-02-12 15:59:24,800 [TSAPIEvent-1] DEBUG com.swhh.csta.a.n - Found dmcc 8041803 sw=1
+24394-2015-02-12 15:59:24,800 [TSAPIEvent-1] DEBUG com.swhh.csta.a.l - Recording port cleared.
+24395-2015-02-12 15:59:24,800 [SnapTimer] DEBUG com.swhh.csta.d.a.b - 1-4060 getCurrentRealDevs= 87[station 8041774 (Chris Hughton) sw=1:ALERTING@15:59:23 85[aacccdn 3041770 sw=2:ESTABLISHED@15:59:24 REC 
+24396-2015-02-12 15:59:24,800 [SnapTimer] DEBUG com.swhh.csta.d.a.b - 1-4060 getCurrentRealDevs= 87[station 8041774 (Chris Hughton) sw=1:ALERTING@15:59:23 85[aacccdn 3041770 sw=2:ESTABLISHED@15:59:24 REC 
+24397-2015-02-12 15:59:24,800 [SnapTimer] DEBUG com.swhh.csta.d.a.b - 2-2251818417311185/D getCurrentRealConns= 74[station 8041770 (Liam Brady) sw=1:ESTABLISHED@15:59:13 REC, 91[station 8041774 (Chris Hughton) sw=1:ALERTING@15:59:23, 
+24398-2015-02-12 15:59:24,800 [SnapTimer] DEBUG com.swhh.csta.d.a.b - 2-2251818417311185/D segment number bumped to 193
+24399-2015-02-12 15:59:24,800 [SnapTimer] DEBUG com.swhh.csta.d.a.b - 2-2251818417311185/D getCurrentDevs= 74[station 8041770 (Liam Brady) sw=1:ESTABLISHED@15:59:13 REC 91[station 8041774 (Chris Hughton) sw=1:ALERTING@15:59:23 
+24400-2015-02-12 15:59:24,800 [SnapTimer] DEBUG com.swhh.csta.d.a.b - 1-4057 getCurrentDevs= 78[trunkmember 10/255 sw=1:ESTABLISHED@15:59:16 REC 75[station 8041770 (Liam Brady) sw=1:ESTABLISHED@15:59:16 REC 77[dynamic T4057#2 sw=1:ESTABLISHED@15:59:16 REC 
+24401-2015-02-12 15:59:24,800 [SnapTimer] DEBUG com.swhh.csta.d.a.b - 1-4057 has station 8041770 (Liam Brady) sw=1 in state 88 is recordable
+24402-2015-02-12 15:59:24,800 [SnapTimer] DEBUG com.swhh.csta.d.a.b - 1-4057 has dynamic T4057#2 sw=1 in state 88 is recordable
+24403-2015-02-12 15:59:24,800 [SnapTimer] DEBUG com.swhh.csta.d.a.b - 1-4057 So call IS recordable
+24404-2015-02-12 15:59:24,800 [SnapTimer] DEBUG com.swhh.csta.d.a.b - 1-4057 connected to: 2-2251818417311185/D  (ah=false)  Testing station 8041770 (Liam Brady) sw=1 isObserved=truestation 8041770 (Liam Brady) sw=1? on 1-4056state=92 Same type of call 1-4056  held - and that's not enough.station 8041770 (Liam Brady) sw=1? on 2-2251814122343859/Sstate=92 Testing dynamic T4057#2 sw=1 isObserved=false
+24405-2015-02-12 15:59:24,800 [SnapTimer] DEBUG com.swhh.csta.d.a.b - 2-2251818417311185/D has station 8041770 (Liam Brady) sw=1 in state 88 is recordable
+24406-2015-02-12 15:59:24,800 [SnapTimer] DEBUG com.swhh.csta.d.a.b - 2-2251818417311185/D connected to: 1-4057  (ah=false)  Testing station 8041770 (Liam Brady) sw=1 isObserved=truestation 8041770 (Liam Brady) sw=1? on 1-4056state=92 held - and that's not enough.station 8041770 (Liam Brady) sw=1? on 2-2251814122343859/Sstate=92station 8041770 (Liam Brady) sw=1? on 1-4057state=88 Happy to try...1-4057 (via station 8041770 (Liam Brady) sw=1) 
+24407-2015-02-12 15:59:24,800 [SnapTimer] DEBUG com.swhh.csta.d.a.b - 2-2251818417311185/D getCurrentRealConns= 74[station 8041770 (Liam Brady) sw=1:ESTABLISHED@15:59:13 REC, 91[station 8041774 (Chris Hughton) sw=1:ALERTING@15:59:23, 
+24408-2015-02-12 15:59:24,800 [SnapTimer] DEBUG com.swhh.csta.d.a.b - 2-2251818417311185/D getCurrentRealDevs= 74[station 8041770 (Liam Brady) sw=1:ESTABLISHED@15:59:13 REC 91[station 8041774 (Chris Hughton) sw=1:ALERTING@15:59:23 
+24409-2015-02-12 15:59:24,800 [SnapTimer] DEBUG com.swhh.csta.d.a.b - 2-2251818417311185/D getCurrentRealDevs= 74[station 8041770 (Liam Brady) sw=1:ESTABLISHED@15:59:13 REC 91[station 8041774 (Chris Hughton) sw=1:ALERTING@15:59:23 
+24410-2015-02-12 15:59:24,800 [SnapTimer] DEBUG com.swhh.csta.d.a.b - 1-4057 getCurrentRealConns= 75[station 8041770 (Liam Brady) sw=1:ESTABLISHED@15:59:16 REC, 77[dynamic T4057#2 sw=1:ESTABLISHED@15:59:16 REC, 
+24411-2015-02-12 15:59:24,800 [SnapTimer] DEBUG com.swhh.csta.d.a.b - 2-2251818417311185/D getCurrentRealDevs= 74[station 8041770 (Liam Brady) sw=1:ESTABLISHED@15:59:13 REC 91[station 8041774 (Chris Hughton) sw=1:ALERTING@15:59:23 
+24412-2015-02-12 15:59:24,800 [SnapTimer] DEBUG com.swhh.csta.d.a.b - 2-2251818417311185/D getCurrentRealDevs= 74[station 8041770 (Liam Brady) sw=1:ESTABLISHED@15:59:13 REC 91[station 8041774 (Chris Hughton) sw=1:ALERTING@15:59:23 
+24413-2015-02-12 15:59:24,800 [SnapTimer] DEBUG com.swhh.cti.u.r - Adding session conn for 8041774 (Chris Hughton) agent 1004 mystate=83 with state=ALERTING
+24414-2015-02-12 15:59:24,800 [SnapTimer] DEBUG com.swhh.csta.d.a.b - 2-2251818417311185/D getCurrentRealDevs= 74[station 8041770 (Liam Brady) sw=1:ESTABLISHED@15:59:13 REC 91[station 8041774 (Chris Hughton) sw=1:ALERTING@15:59:23 
+24415-2015-02-12 15:59:24,800 [SnapTimer] DEBUG com.swhh.cs.j.al - getScreensForDevs considering station 8041774 (Chris Hughton) sw=1 so far 0 screens
+24416-2015-02-12 15:59:24,800 [SnapTimer] DEBUG com.swhh.cs.j.al - Rules set
+24417-2015-02-12 15:59:24,800 [SnapTimer] DEBUG com.swhh.cs.j.al - getScreenForAgent for aaccagent 1004 sw=2 username=wfolab\chughton location=Screen Capture Info: port=4001, Server=paclient99.wfolab.local/10.134.137.8 User=WFOLAB\chughton Session=1004
+24418-2015-02-12 15:59:24,800 [SnapTimer] DEBUG com.swhh.cs.j.al - Added screen paclient99.wfolab.local:10.134.137.8::::4001:WFOLAB\chughton:1004
+24419-2015-02-12 15:59:24,800 [SnapTimer] DEBUG com.swhh.cs.j.al - getScreensForDevs considering aaccagent 1004 sw=2 so far 1 screens
+24420-2015-02-12 15:59:24,800 [SnapTimer] DEBUG com.swhh.cs.j.al - getScreenForAgent for aaccagent 1004 sw=2 username=wfolab\chughton location=Screen Capture Info: port=4001, Server=paclient99.wfolab.local/10.134.137.8 User=WFOLAB\chughton Session=1004
+24421-2015-02-12 15:59:24,800 [SnapTimer] DEBUG com.swhh.csta.d.a.b - 1-4060 getCurrentDevs= 87[station 8041774 (Chris Hughton) sw=1:ALERTING@15:59:23 85[aacccdn 3041770 sw=2:ESTABLISHED@15:59:24 REC 
+24422-2015-02-12 15:59:24,800 [SnapTimer] DEBUG com.swhh.csta.d.a.b - 1-4060 has aacccdn 3041770 sw=2 in state 88 is recordable
+24423-2015-02-12 15:59:24,800 [SnapTimer] DEBUG com.swhh.csta.d.a.b - 1-4060 Standalone  (ah=true)  Testing aacccdn 3041770 sw=2 isObserved=false
+24424-2015-02-12 15:59:24,800 [SnapTimer] DEBUG com.swhh.csta.d.a.b - 2-2251818417311185/D getCurrentDevs= 74[station 8041770 (Liam Brady) sw=1:ESTABLISHED@15:59:13 REC 91[station 8041774 (Chris Hughton) sw=1:ALERTING@15:59:23 
+26012:2015-02-12 15:59:25,097 [TSAPIEvent-1] DEBUG com.swhh.csta.a.k - station 8041774 (Chris Hughton) sw=1 onCSTAEstablishedEvent=CSTAEstablishedEvent
+26013- establishedConnection=ConnectionID
+26014-  callID=4060
+26015-  deviceID=8041774
+26016-  devIDType=staticId
+26017- answeringDevice=ExtendedDeviceID
+26018-  deviceID=8041774
+26019-  deviceIDType=explicitPrivateLocalNumber
+26020-  deviceIDStatus=idProvided
+26021- callingDevice=ExtendedDeviceID
+26022-  deviceID=3041770
+26023-  deviceIDType=explicitPrivateUnknown
+26024-  deviceIDStatus=idProvided
+26025- calledDevice=ExtendedDeviceID
+26026-  deviceID=8041774
+26027-  deviceIDType=explicitPrivateLocalNumber
+26028-  deviceIDStatus=idProvided
+26029- lastRedirectionDevice=ExtendedDeviceID
+26030-  deviceID=
+26031-  deviceIDType=explicitPublicUnknown
+26032-  deviceIDStatus=idNotRequired
+26033- localConnectionInfo=csConnect
+26034- cause=ecNewCall
+26035-2015-02-12 15:59:25,097 [TSAPIEvent-1] DEBUG com.swhh.csta.a.k - UCID = 00001040571423758308
+26036-2015-02-12 15:59:25,097 [TSAPIEvent-1] DEBUG com.swhh.csta.a.l - Not the call's original UCID
+26037-2015-02-12 15:59:25,097 [TSAPIEvent-1] DEBUG com.swhh.csta.d.a.a - Setting eventtype = Connected
+26249-2015-02-12 15:59:25,128 [Thread-52] DEBUG com.swhh.csta.b.g - station 8041774 (Chris Hughton) sw=1 onCallEvent=ESTABLISHED - com.swhh.cti.c.a.d
+26250-  a=ESTABLISHED
+26251-  b=DEFAULT
+26252:  c=Passive
+26253-  d=sip:8041774@pkgappslab.com
+26254-  e=dc686d52-916d-45c5-93b6-aeb372ee32aa
+26255-  f=6383f3f9-479b-4f5d-8d3d-500c114c88c8
+26256-  g={Skillset=Sky, SIP_CALL_ID=80ca67b241bce41d34e547ca42100, CmfContactID=6383f3f9-479b-4f5d-8d3d-500c114c88c8, AD_CDN=3041770, AD_CLID=8041770, SIP_PREFERRED_LANGUAGE=None chosen, SIP_LOCATION=SM;origlocname="Former";origsiglocname="Former";termlocname="Former";termsiglocn, SIP_SUBJECT= , SIP_USER_AGENT=Avaya CM/R016x.03.0.124.0 AVAYA-SM-6.3.9.0.639011 Avaya CM/R016x.03.0.124.0 AVAY, SIP_TO_ADDRESS=sips:3041770@pkgappslab.com;user=phone, History=Created:15:59:16 12/02/15;Queued:15:59:23 12/02/15;Answered:15:59:25 12/02/15, SIP_CALL_TYPE=ConsultTransfer, SIP_CALLER_DISPLAY="Liam Brady", SIP_MAIN_CONTACT_ID=eee647d2-d312-4e68-bb41-6dc59e33fd04, ContactType=10000, SIP_CALLSUPER_AGENT=-, Provider=Passive, SIP_REQUEST_URI=sips:3041770@pkgappslab.com;user=phone, SIP_FROM_ADDRESS=8041770@pkgappslab.com, ProviderContactID=37497068}
+37087:2015-02-12 15:59:25,832 [TSAPIEvent-1] DEBUG com.swhh.csta.a.k - station 8041774 (Chris Hughton) sw=1 onSnapshotCall=CSTASnapshotCallConfEvent
+37088- info=CSTASnapshotCallResponseInfo
+37089-  deviceOnCall=ExtendedDeviceID
+37090-   deviceID=3041770
+37091-   deviceIDType=explicitPrivateUnknown
+37092-   deviceIDStatus=idProvided
+37093-  callIdentifier=ConnectionID
+37094-   callID=4060
+37095-   deviceID=3041770
+37096-   devIDType=staticId
+37097-  localConnectionState=csConnect
+37098- info=CSTASnapshotCallResponseInfo
+37099-  deviceOnCall=ExtendedDeviceID
+37100-   deviceID=8041774
+37101-   deviceIDType=explicitPrivateLocalNumber
+37102-   deviceIDStatus=idProvided
+37103-  callIdentifier=ConnectionID
+37104-   callID=4060
+37105-   deviceID=8041774
+37106-   devIDType=staticId
+37107-  localConnectionState=csConnect
+37108-2015-02-12 15:59:25,832 [TSAPIEvent-1] DEBUG com.swhh.csta.a.l - Conn=ConnectionID
+37109- callID=4060
+37110- deviceID=3041770
+37111- devIDType=staticId
+37112-2015-02-12 15:59:25,832 [TSAPIEvent-1] DEBUG com.swhh.csta.d.c.j - No entry for 3041770 in switchid 1
+44693:2015-02-12 15:59:26,222 [SnapTimer] DEBUG com.swhh.cs.j.ah - SIP start request: recordingid=6383f3f9-479b-4f5d-8d3d-500c114c88c8 connid=a7389666-742f-44b2-bf23-b57305ba4f55 recuri=sip:12036@10.134.49.155
+53095:2015-02-12 15:59:33,832 [POM Read Thread] DEBUG com.swhh.cti.m.a.j - 000152<?xml version="1.0" encoding="UTF-8"?><ListAgentsResponse success="false" reasonCode="1"><reasonText> Invalid Request </reasonText></ListAgentsResponse>
+55503:2015-02-12 15:59:47,832 [POM Read Thread] DEBUG com.swhh.cti.m.a.j - 000152<?xml version="1.0" encoding="UTF-8"?><ListAgentsResponse success="false" reasonCode="1"><reasonText> Invalid Request </reasonText></ListAgentsResponse>
+58216:2015-02-12 16:00:01,847 [POM Read Thread] DEBUG com.swhh.cti.m.a.j - 000152<?xml version="1.0" encoding="UTF-8"?><ListAgentsResponse success="false" reasonCode="1"><reasonText> Invalid Request </reasonText></ListAgentsResponse>
+58974:2015-02-12 16:00:06,925 [TSAPIEvent-1] DEBUG com.swhh.csta.a.k - station 8041770 (Liam Brady) sw=1 onCSTAHeldEvent=CSTAHeldEvent
+58975- heldConnection=ConnectionID
+58976-  callID=4057
+58977-  deviceID=8041770
+58978-  devIDType=staticId
+58979- holdingDevice=ExtendedDeviceID
+58980-  deviceID=8041770
+58981-  deviceIDType=explicitPrivateLocalNumber
+58982-  deviceIDStatus=idProvided
+58983- localConnectionInfo=csHold
+58984- cause=ecNone
+58985-2015-02-12 16:00:06,925 [TSAPIEvent-1] DEBUG com.swhh.csta.d.a.a - Setting eventtype = Held
+58986-2015-02-12 16:00:06,925 [TSAPIEvent-1] DEBUG com.swhh.csta.a.n - Found station 8041770 (Liam Brady) sw=1
+58987-2015-02-12 16:00:06,925 [TSAPIEvent-1] DEBUG com.swhh.csta.d.a.j - New Conn: Conn:99, call=4057 station 8041770 (Liam Brady) sw=1 /HELD 12-Feb-2015 16:00:06
+58988-2015-02-12 16:00:06,925 [TSAPIEvent-1] DEBUG com.swhh.csta.a.n - Found station 8041770 (Liam Brady) sw=1
+58989-2015-02-12 16:00:06,925 [TSAPIEvent-1] DEBUG com.swhh.csta.d.a.b - 1-4057 getCurrentRealConns= 75[station 8041770 (Liam Brady) sw=1:ESTABLISHED@15:59:16 REC, 77[dynamic T4057#2 sw=1:ESTABLISHED@15:59:16 REC, 
+60053-2015-02-12 16:00:06,972 [Thread-52] DEBUG com.swhh.csta.b.g - station 8041770 (Liam Brady) sw=1 onCallEvent=HOLD - com.swhh.cti.c.a.d
+60054-  a=HOLD
+60055-  b=DEFAULT
+60056:  c=Passive
+60057-  d=sip:8041770@pkgappslab.com
+60058-  e=a7389666-742f-44b2-bf23-b57305ba4f55
+60059-  f=6383f3f9-479b-4f5d-8d3d-500c114c88c8
+60060-  g={}
+74382:2015-02-12 16:00:07,957 [SnapTimer] DEBUG com.swhh.csta.d.a.b - 2-2251818417311185/D not recordable when tograves=0 and realparties=2
+74554:2015-02-12 16:00:07,972 [SnapTimer] DEBUG com.swhh.cs.j.ah - SIP stop request: connid=a7389666-742f-44b2-bf23-b57305ba4f55 recuri=sip:12036@10.134.49.155
+80300:2015-02-12 16:00:08,222 [EventScannerThread] DEBUG com.swhh.i.d.s - Sent SIP OK
+82686-2015-02-12 16:00:09,307 [Thread-52] DEBUG com.swhh.csta.b.g - station 8041770 (Liam Brady) sw=1 onCallEvent=ESTABLISHED - com.swhh.cti.c.a.d
+82687-  a=ESTABLISHED
+82688-  b=DEFAULT
+82689:  c=Passive
+82690-  d=sip:8041770@pkgappslab.com
+82691-  e=91ee872b-b123-4afd-810e-8df53cf645e7
+82692-  f=4bbe20bc-42c4-4a1a-b6cd-688ac3d6e3ec
+82693-  g={CmfContactID=4bbe20bc-42c4-4a1a-b6cd-688ac3d6e3ec, SIP_CALL_TYPE=ConsultTransfer, AD_CLID=8041770, SIP_CALLER_DISPLAY=Liam Brady, SIP_MAIN_CONTACT_ID=eee647d2-d312-4e68-bb41-6dc59e33fd04, ContactType=10000, Provider=Passive, ProviderContactID=37497069}
+94936:2015-02-12 16:00:15,847 [POM Read Thread] DEBUG com.swhh.cti.m.a.j - 000152<?xml version="1.0" encoding="UTF-8"?><ListAgentsResponse success="false" reasonCode="1"><reasonText> Invalid Request </reasonText></ListAgentsResponse>
+94973:2015-02-12 16:00:16,207 [EventScannerThread] DEBUG com.swhh.i.d.u - INVITE sip:10.134.49.155:5060;user=phone;transport=tcp SIP/2.0
+94974-From: "Liam Brady" <sip:+8041770@pkgappslab.com;user=phone>;tag=80102bd641bce41fd4e547ca42100
+94975-To: <sip:10.134.49.155:5060;user=phone;transport=tcp>
+94976-CSeq: 2 INVITE
+94977-Call-ID: 3037ec5c4dd1525c47868e1083bbfc56
+94978-Contact: "Liam Brady" <sip:10.134.36.3:5060;user=phone;gsid=80102bd6-41bc-4401-b74e-547ca4210000;+sip.src;transport=tcp>
+94979-Record-Route: <sip:10.134.36.3:5060;ipcs-line=13836;lr;transport=tcp>
+94980-Allow: INVITE,ACK,OPTIONS,BYE,CANCEL,SUBSCRIBE,NOTIFY,REFER,INFO,PRACK,PUBLISH,UPDATE
+94981-Supported: 100rel,histinfo,join,replaces,sdp-anat,timer
+94982-Max-Forwards: 66
+94983-Via: SIP/2.0/TCP 10.134.36.3:5060;branch=z9hG4bK-s1632-001794289675-1--s1632-;rport=16332
+94984-Require: siprec
+94985-P-Asserted-Identity: "Liam Brady" <sip:+8041770@pkgappslab.com;user=phone>
+94986-Session-Expires: 1200;refresher=uac
+94987-Min-SE: 1200
+94988-History-Info: <sip:00221111@pkgappslab.com>;index=1
+94989-History-Info: "00221111" <sip:00221111@pkgappslab.com>;index=1.1
+94990-Content-Type: application/sdp
+94991-User-to-User: 00FA0800010FDD54DCD41CFB0800010FD954DCD3E4;encoding=hex, 00FA0800010FDD54DCD41CFB0800010FD954DCD3E4;encoding=hex
+94992-P-Charging-Vector: icid-value="AAS:4061-d62b10801e4bc417c544ef821a4"
+94993-P-AV-Message-Id: 4_1
+94994-Max-Breadth: 60
+94995-Av-Global-Session-ID: 80102bd6-41bc-4401-b74e-547ca4210000
+94996-P-Location: SM;origlocname="Former";origsiglocname="Former";origmedialocname="Former";termlocname="Former";termsiglocname="Former";smaccounting="true"
+94997-Content-Length: 335
+94998-
+94999-v=0
+95000-o=- 13836 1 IN IP4 10.134.36.3
+95001-s=-
+95002-c=IN IP4 10.134.36.3
+95003-b=AS:64
+95027:2015-02-12 16:00:16,207 [EventScannerThread] DEBUG com.swhh.cs.j.at - onSPMBusy id=8332750038 name=SIPREC@10.134.49.155:12060 state=idle
+95031:2015-02-12 16:00:16,207 [EventScannerThread] DEBUG com.swhh.i.d.u - ACK sip:10.134.49.155;transport=tcp SIP/2.0
+95032-From: "Liam Brady" <sip:+8041770@pkgappslab.com;user=phone>;tag=80102bd641bce41fd4e547ca42100
+95033-To: <sip:10.134.49.155:5060;user=phone;transport=tcp>;tag=54448_12060
+95034-CSeq: 2 ACK
+95035-Call-ID: 3037ec5c4dd1525c47868e1083bbfc56
+95036-Contact: "Liam Brady" <sip:10.134.36.3:5060;user=phone;gsid=80102bd6-41bc-4401-b74e-547ca4210000;+sip.src;transport=tcp>
+95037-Record-Route: <sip:10.134.36.3:5060;ipcs-line=13836;lr;transport=tcp>
+95038-Allow: INVITE,ACK,OPTIONS,BYE,CANCEL,SUBSCRIBE,NOTIFY,REFER,INFO,PRACK,PUBLISH,UPDATE
+95039-Supported: 100rel,histinfo,join,replaces,sdp-anat,timer
+95040-Max-Forwards: 66
+95041-Via: SIP/2.0/TCP 10.134.36.3:5060;branch=z9hG4bK-s1632-000317183868-1--s1632-;rport=16332
+95042-P-Asserted-Identity: "Liam Brady" <sip:+8041770@pkgappslab.com;user=phone>
+95043-History-Info: <sip:00221111@pkgappslab.com>;index=1
+95044-History-Info: "00221111" <sip:00221111@pkgappslab.com>;index=1.1
+95045-User-to-User: 00FA0800010FDD54DCD41CFB0800010FD954DCD3E4;encoding=hex, 00FA0800010FDD54DCD41CFB0800010FD954DCD3E4;encoding=hex
+95046-P-Charging-Vector: icid-value="AAS:4061-d62b10801e4bc417c544ef821a4"
+95047-P-AV-Message-Id: 4_1
+95048-Max-Breadth: 60
+95049-Av-Global-Session-ID: 80102bd6-41bc-4401-b74e-547ca4210000
+95050-P-Location: SM;origlocname="Former";origsiglocname="Former";origmedialocname="Former";termlocname="Former";termsiglocname="Former";smaccounting="true"
+95051-Content-Length: 0
+95052-
+95053-
+95054-2015-02-12 16:00:16,207 [EventScannerThread] DEBUG com.swhh.i.d.u - ACK
+95055-2015-02-12 16:00:16,222 [RTP-12048] DEBUG com.swhh.cs.h.o - L 0:160:19910:3152:504160
+95056-2015-02-12 16:00:16,238 [TSAPIread-1] DEBUG com.swhh.cti.r.q - CSTADeliveredEvent
+95057- connection=ConnectionID
+95058-  callID=4061
+95059-  deviceID=T4061#2
+95060-  devIDType=dynamicId
+95061- alertingDevice=ExtendedDeviceID
+95093:2015-02-12 16:00:16,238 [TSAPIEvent-1] DEBUG com.swhh.csta.a.k - station 8041770 (Liam Brady) sw=1 onCSTADeliveredEvent=CSTADeliveredEvent
+95094- connection=ConnectionID
+95095-  callID=4061
+95096-  deviceID=T4061#2
+95097-  devIDType=dynamicId
+95098- alertingDevice=ExtendedDeviceID
+95099-  deviceID=T4061#2
+95100-  deviceIDType=explicitPublicUnknown
+95101-  deviceIDStatus=idProvided
+95102- callingDevice=ExtendedDeviceID
+95103-  deviceID=8041770
+95104-  deviceIDType=explicitPrivateLocalNumber
+95105-  deviceIDStatus=idProvided
+95106- calledDevice=ExtendedDeviceID
+95107-  deviceID=00221111
+95108-  deviceIDType=explicitPublicInternational
+95109-  deviceIDStatus=idProvided
+95110- lastRedirectionDevice=ExtendedDeviceID
+95111-  deviceID=
+95112-  deviceIDType=explicitPublicUnknown
+95113-  deviceIDStatus=idNotRequired
+95114- localConnectionInfo=csConnect
+95115- cause=ecNewCall
+95116-2015-02-12 16:00:16,238 [TSAPIEvent-1] DEBUG com.swhh.csta.d.c.j - Creating new trunkmember 10/3 sw=1
+95117-2015-02-12 16:00:16,238 [TSAPIEvent-1] DEBUG com.swhh.csta.d.c.j - Putting trunkmember 10/3 sw=1 into devtypemap for switchid 1 as 10/3
+95118-2015-02-12 16:00:16,238 [TSAPIEvent-1] DEBUG com.swhh.csta.d.c.j - Putting trunkmember 10/3 sw=1 into devsbyaddressmap for switchid 1 as 10/3
+96903:2015-02-12 16:00:16,550 [TSAPIEvent-1] DEBUG com.swhh.csta.a.k - station 8041770 (Liam Brady) sw=1 onSnapshotCall=CSTASnapshotCallConfEvent
+96904- info=CSTASnapshotCallResponseInfo
+96905-  deviceOnCall=ExtendedDeviceID
+96906-   deviceID=8041770
+96907-   deviceIDType=explicitPrivateLocalNumber
+96908-   deviceIDStatus=idProvided
+96909-  callIdentifier=ConnectionID
+96910-   callID=4061
+96911-   deviceID=8041770
+96912-   devIDType=staticId
+96913-  localConnectionState=csConnect
+96914- info=CSTASnapshotCallResponseInfo
+96915-  deviceOnCall=ExtendedDeviceID
+96916-   deviceID=T4061#2
+96917-   deviceIDType=explicitPublicUnknown
+96918-   deviceIDStatus=idProvided
+96919-  callIdentifier=ConnectionID
+96920-   callID=4061
+96921-   deviceID=T4061#2
+96922-   devIDType=dynamicId
+96923-  localConnectionState=csAlerting
+96924-2015-02-12 16:00:16,550 [TSAPIEvent-1] DEBUG com.swhh.csta.a.l - Conn=ConnectionID
+96925- callID=4061
+96926- deviceID=8041770
+96927- devIDType=staticId
+96928-2015-02-12 16:00:16,550 [TSAPIEvent-1] DEBUG com.swhh.csta.a.n - Found station 8041770 (Liam Brady) sw=1
+101718:2015-02-12 16:00:18,947 [EventScannerThread] DEBUG com.swhh.i.d.u - UPDATE sip:10.134.49.155:5060;user=phone;transport=tcp SIP/2.0
+101719-From: "Liam Brady" <sip:+8041770@pkgappslab.com;user=phone>;tag=80102bd641bce41fd4e547ca42100
+101720-To: <sip:10.134.49.155:5060;user=phone;transport=tcp>;tag=54448_12060
+101721-CSeq: 3 UPDATE
+101722-Call-ID: 3037ec5c4dd1525c47868e1083bbfc56
+101723-Contact: "Liam Brady" <sip:10.134.36.3:5060;user=phone;gsid=80102bd6-41bc-4401-b74e-547ca4210000;+sip.src;transport=tcp>
+101724-Record-Route: <sip:10.134.36.3:5060;ipcs-line=13836;lr;transport=tcp>
+101725-Allow: INVITE,ACK,OPTIONS,BYE,CANCEL,SUBSCRIBE,NOTIFY,REFER,INFO,PRACK,PUBLISH,UPDATE
+101726-Supported: 100rel,histinfo,join,replaces,sdp-anat,timer
+101727-Max-Forwards: 66
+101728-Via: SIP/2.0/TCP 10.134.36.3:5060;branch=z9hG4bK-s1632-001551803349-1--s1632-;rport=16332
+101729-Require: siprec
+101730-P-Asserted-Identity: "Liam Brady" <sip:+8041770@pkgappslab.com;user=phone>
+101731-Session-Expires: 1200;refresher=uac
+101732-Min-SE: 1200
+101733-History-Info: <sip:00221111@pkgappslab.com>;index=1
+101734-History-Info: "00221111" <sip:00221111@pkgappslab.com>;index=1.1
+101735-Content-Disposition: recording-session
+101736-Content-Type: application/rs-metadata
+101737-User-to-User: 00FA0800010FDD54DCD41CFB0800010FD954DCD3E4;encoding=hex, 00FA0800010FDD54DCD41CFB0800010FD954DCD3E4;encoding=hex
+101738-P-Charging-Vector: icid-value="AAS:4061-d62b10801e4bc417c544ef821a4"
+101739-P-AV-Message-Id: 4_1
+101740-Max-Breadth: 60
+101741-Av-Global-Session-ID: 80102bd6-41bc-4401-b74e-547ca4210000
+101742-P-Location: SM;origlocname="Former";origsiglocname="Former";origmedialocname="Former";termlocname="Former";termsiglocname="Former";smaccounting="true"
+101743-Content-Length: 1580
+101744-
+101745-<?xml version="1.0" encoding="UTF-8"?>
+101746-<recording xmlns="urn:ietf:params:xml:ns:recording:1">
+101747-<dataMode>complete</dataMode>
+101748-<associate-time>2015-2-12T16:0:28</associate-time>
+101784:2015-02-12 16:00:18,950 [Read_/127.0.0.1:56589] DEBUG com.swhh.cs.j.ak - SIPREC@10.134.49.155:12060 connected to UCID 00001040611423758364
+101785:2015-02-12 16:00:18,950 [Read_/127.0.0.1:56589] DEBUG com.swhh.cs.j.at - onSPMBusy id=8332750038 name=SIPREC@10.134.49.155:12060 state=setup
+101786:2015-02-12 16:00:18,950 [Read_/127.0.0.1:56589] DEBUG com.swhh.cs.j.aj - 833275/8332750038 (SIPREC@10.134.49.155:12060)ucid=00001040611423758364 leftparty=8041770 rightparty=2005
+101831:2015-02-12 16:00:18,990 [TSAPIEvent-1] DEBUG com.swhh.csta.a.k - station 8041770 (Liam Brady) sw=1 onCSTAEstablishedEvent=CSTAEstablishedEvent
+101832- establishedConnection=ConnectionID
+101833-  callID=4061
+101834-  deviceID=T4061#2
+101835-  devIDType=dynamicId
+101836- answeringDevice=ExtendedDeviceID
+101837-  deviceID=2005
+101838-  deviceIDType=explicitPrivateUnknown
+101839-  deviceIDStatus=idProvided
+101840- callingDevice=ExtendedDeviceID
+101841-  deviceID=8041770
+101842-  deviceIDType=explicitPrivateLocalNumber
+101843-  deviceIDStatus=idProvided
+101844- calledDevice=ExtendedDeviceID
+101845-  deviceID=00221111
+101846-  deviceIDType=explicitPublicInternational
+101847-  deviceIDStatus=idProvided
+101848- lastRedirectionDevice=ExtendedDeviceID
+101849-  deviceID=
+101850-  deviceIDType=explicitPublicUnknown
+101851-  deviceIDStatus=idNotRequired
+101852- localConnectionInfo=csConnect
+101853- cause=ecNewCall
+101854-2015-02-12 16:00:18,990 [TSAPIEvent-1] DEBUG com.swhh.csta.a.k - UCID = 00001040611423758364
+101855-2015-02-12 16:00:18,990 [TSAPIEvent-1] DEBUG com.swhh.csta.d.a.a - Setting eventtype = Connected
+101856-2015-02-12 16:00:18,990 [TSAPIEvent-1] DEBUG com.swhh.csta.a.n - Getting dynamic T4061#2
+103968:2015-02-12 16:00:19,353 [TSAPIEvent-1] DEBUG com.swhh.csta.a.k - station 8041770 (Liam Brady) sw=1 onSnapshotCall=CSTASnapshotCallConfEvent
+103969- info=CSTASnapshotCallResponseInfo
+103970-  deviceOnCall=ExtendedDeviceID
+103971-   deviceID=8041770
+103972-   deviceIDType=explicitPrivateLocalNumber
+103973-   deviceIDStatus=idProvided
+103974-  callIdentifier=ConnectionID
+103975-   callID=4061
+103976-   deviceID=8041770
+103977-   devIDType=staticId
+103978-  localConnectionState=csConnect
+103979- info=CSTASnapshotCallResponseInfo
+103980-  deviceOnCall=ExtendedDeviceID
+103981-   deviceID=T4061#2
+103982-   deviceIDType=explicitPublicUnknown
+103983-   deviceIDStatus=idProvided
+103984-  callIdentifier=ConnectionID
+103985-   callID=4061
+103986-   deviceID=T4061#2
+103987-   devIDType=dynamicId
+103988-  localConnectionState=csConnect
+103989-2015-02-12 16:00:19,353 [TSAPIEvent-1] DEBUG com.swhh.csta.a.l - Conn=ConnectionID
+103990- callID=4061
+103991- deviceID=8041770
+103992- devIDType=staticId
+103993-2015-02-12 16:00:19,353 [TSAPIEvent-1] DEBUG com.swhh.csta.a.n - Found station 8041770 (Liam Brady) sw=1
+107458:2015-02-12 16:00:19,427 [TSAPIEvent-1] DEBUG com.swhh.csta.d.a.b - 1-4061 Using 833275/8332750038 (SIPREC@10.134.49.155:12060)
+107461:2015-02-12 16:00:19,427 [TSAPIEvent-1] DEBUG com.swhh.cs.j.aq - 833275/8332750038 (SIPREC@10.134.49.155:12060) set call=1-4061 beep=false maybeep=false mask=false
+107462:2015-02-12 16:00:19,427 [TSAPIEvent-1] DEBUG com.swhh.cs.j.aq - SIPREC@10.134.49.155:12060 to connect to 1-4061 beep=false maybeep=false mask=false
+107514:2015-02-12 16:00:19,427 [TSAPIEvent-1] DEBUG com.swhh.cs.j.aq - Starting 1-4061(segment=81) 833275000011058 on SIPREC@10.134.49.155:12060
+107530:2015-02-12 16:00:19,428 [Read_/127.0.0.1:56589] DEBUG com.swhh.cs.j.at - onSPMBusy id=8332750038 name=SIPREC@10.134.49.155:12060 state=connected
+112718:2015-02-12 16:00:30,848 [POM Read Thread] DEBUG com.swhh.cti.m.a.j - 000152<?xml version="1.0" encoding="UTF-8"?><ListAgentsResponse success="false" reasonCode="1"><reasonText> Invalid Request </reasonText></ListAgentsResponse>
+116790:2015-02-12 16:00:44,863 [POM Read Thread] DEBUG com.swhh.cti.m.a.j - 000152<?xml version="1.0" encoding="UTF-8"?><ListAgentsResponse success="false" reasonCode="1"><reasonText> Invalid Request </reasonText></ListAgentsResponse>
+121604:2015-02-12 16:00:59,848 [POM Read Thread] DEBUG com.swhh.cti.m.a.j - 000152<?xml version="1.0" encoding="UTF-8"?><ListAgentsResponse success="false" reasonCode="1"><reasonText> Invalid Request </reasonText></ListAgentsResponse>
+123597:2015-02-12 16:01:06,894 [TSAPIEvent-1] DEBUG com.swhh.csta.a.k - station 8041770 (Liam Brady) sw=1 onCSTAHeldEvent=CSTAHeldEvent
+123598- heldConnection=ConnectionID
+123599-  callID=4061
+123600-  deviceID=8041770
+123601-  devIDType=staticId
+123602- holdingDevice=ExtendedDeviceID
+123603-  deviceID=8041770
+123604-  deviceIDType=explicitPrivateLocalNumber
+123605-  deviceIDStatus=idProvided
+123606- localConnectionInfo=csHold
+123607- cause=ecNone
+123608-2015-02-12 16:01:06,894 [TSAPIEvent-1] DEBUG com.swhh.csta.d.a.a - Setting eventtype = Held
+123609-2015-02-12 16:01:06,894 [TSAPIEvent-1] DEBUG com.swhh.csta.a.n - Found station 8041770 (Liam Brady) sw=1
+123610-2015-02-12 16:01:06,894 [TSAPIEvent-1] DEBUG com.swhh.csta.d.a.j - New Conn: Conn:113, call=4061 station 8041770 (Liam Brady) sw=1 /HELD 12-Feb-2015 16:01:06
+123611-2015-02-12 16:01:06,894 [TSAPIEvent-1] DEBUG com.swhh.csta.a.n - Found station 8041770 (Liam Brady) sw=1
+123612-2015-02-12 16:01:06,894 [TSAPIEvent-1] DEBUG com.swhh.csta.d.a.b - 1-4061 getCurrentRealConns= 102[station 8041770 (Liam Brady) sw=1:ESTABLISHED@16:00:16 REC, 104[dynamic T4061#2 sw=1:ESTABLISHED@16:00:18 REC, 
+124705-2015-02-12 16:01:06,926 [Thread-52] DEBUG com.swhh.csta.b.g - station 8041770 (Liam Brady) sw=1 onCallEvent=HOLD - com.swhh.cti.c.a.d
+124706-  a=HOLD
+124707-  b=DEFAULT
+124708:  c=Passive
+124709-  d=sip:8041770@pkgappslab.com
+124710-  e=91ee872b-b123-4afd-810e-8df53cf645e7
+124711-  f=4bbe20bc-42c4-4a1a-b6cd-688ac3d6e3ec
+124712-  g={}
+124865:833275/8332750038 (SIPREC@10.134.49.155:12060)</recording>
+125115:2015-02-12 16:01:06,926 [TSAPIEvent-1] DEBUG com.swhh.csta.a.k - station 8041770 (Liam Brady) sw=1 onCSTARetrievedEvent=CSTARetrievedEvent
+125116- retrievedConnection=ConnectionID
+125117-  callID=4057
+125118-  deviceID=8041770
+125119-  devIDType=staticId
+125120- retrievingDevice=ExtendedDeviceID
+125121-  deviceID=8041770
+125122-  deviceIDType=explicitPrivateLocalNumber
+125123-  deviceIDStatus=idProvided
+125124- localConnectionInfo=csConnect
+125125- cause=ecNone
+125126-2015-02-12 16:01:06,926 [Thread-52] DEBUG com.swhh.csta.d.a.b - 1-4060 connected to: 2-2251822712278537/S 1-4056 2-2251818417311185/D  (ah=true)  Testing aacccdn 3041770 sw=2 isObserved=false Testing station 8041774 (Chris Hughton) sw=1 isObserved=true
+125127-2015-02-12 16:01:06,926 [TSAPIEvent-1] DEBUG com.swhh.csta.d.a.a - Setting eventtype = Retrieved
+125128-2015-02-12 16:01:06,926 [Thread-52] DEBUG com.swhh.csta.d.a.b - 1-4057 getCurrentDevs= 78[trunkmember 10/255 sw=1:ESTABLISHED@15:59:16 REC 77[dynamic T4057#2 sw=1:ESTABLISHED@15:59:16 REC 75[station 8041770 (Liam Brady) sw=1:HELD@16:00:06 
+125129-2015-02-12 16:01:06,926 [TSAPIEvent-1] DEBUG com.swhh.csta.a.n - Found station 8041770 (Liam Brady) sw=1
+125130-2015-02-12 16:01:06,926 [Thread-52] DEBUG com.swhh.csta.d.a.b - 1-4057 has dynamic T4057#2 sw=1 in state 88 is recordable
+127371:2015-02-12 16:01:06,988 [EventScannerThread] DEBUG com.swhh.i.d.u - UPDATE sip:10.134.49.155:5060;user=phone;transport=tcp SIP/2.0
+127372-From: "Liam Brady" <sip:+8041770@pkgappslab.com;user=phone>;tag=80102bd641bce41fd4e547ca42100
+127373-To: <sip:10.134.49.155:5060;user=phone;transport=tcp>;tag=54448_12060
+127374-CSeq: 4 UPDATE
+127375-Call-ID: 3037ec5c4dd1525c47868e1083bbfc56
+127376-Contact: "Liam Brady" <sip:10.134.36.3:5060;user=phone;gsid=80102bd6-41bc-4401-b74e-547ca4210000;+sip.src;transport=tcp>
+127377-Record-Route: <sip:10.134.36.3:5060;ipcs-line=13836;lr;transport=tcp>
+127378-Allow: INVITE,ACK,OPTIONS,BYE,CANCEL,SUBSCRIBE,NOTIFY,REFER,INFO,PRACK,PUBLISH,UPDATE
+127379-Supported: 100rel,histinfo,join,replaces,sdp-anat,timer
+127380-Max-Forwards: 66
+127381-Via: SIP/2.0/TCP 10.134.36.3:5060;branch=z9hG4bK-s1632-000379131086-1--s1632-;rport=16332
+127382-Require: siprec
+127383-P-Asserted-Identity: "Liam Brady" <sip:+8041770@pkgappslab.com;user=phone>
+127384-Session-Expires: 1200;refresher=uac
+127385-Min-SE: 1200
+127386-History-Info: <sip:00221111@pkgappslab.com>;index=1
+127387-History-Info: "00221111" <sip:00221111@pkgappslab.com>;index=1.1
+127388-Content-Disposition: recording-session
+127389-Content-Type: application/rs-metadata
+127390-User-to-User: 00FA0800010FDD54DCD41CFB0800010FD954DCD3E4;encoding=hex, 00FA0800010FDD54DCD41CFB0800010FD954DCD3E4;encoding=hex
+127391-P-Charging-Vector: icid-value="AAS:4061-d62b10801e4bc417c544ef821a4"
+127392-P-AV-Message-Id: 4_1
+127393-Max-Breadth: 60
+127394-Av-Global-Session-ID: 80102bd6-41bc-4401-b74e-547ca4210000
+127395-P-Location: SM;origlocname="Former";origsiglocname="Former";origmedialocname="Former";termlocname="Former";termsiglocname="Former";smaccounting="true"
+127396-Content-Length: 1580
+127397-
+127398-<?xml version="1.0" encoding="UTF-8"?>
+127399-<recording xmlns="urn:ietf:params:xml:ns:recording:1">
+127400-<dataMode>complete</dataMode>
+127401-<associate-time>2015-2-12T16:0:28</associate-time>
+128616-2015-02-12 16:01:07,019 [Thread-52] DEBUG com.swhh.csta.b.g - station 8041770 (Liam Brady) sw=1 onCallEvent=ESTABLISHED - com.swhh.cti.c.a.d
+128617-  a=ESTABLISHED
+128618-  b=UNHOLD
+128619:  c=Passive
+128620-  d=sip:8041770@pkgappslab.com
+128621-  e=a7389666-742f-44b2-bf23-b57305ba4f55
+128622-  f=6383f3f9-479b-4f5d-8d3d-500c114c88c8
+128623-  g={Skillset=Sky, SIP_CALL_ID=80ca67b241bce41d34e547ca42100, CmfContactID=6383f3f9-479b-4f5d-8d3d-500c114c88c8, AD_CDN=3041770, AD_CLID=8041770, SIP_PREFERRED_LANGUAGE=None chosen, SIP_LOCATION=SM;origlocname="Former";origsiglocname="Former";termlocname="Former";termsiglocn, SIP_SUBJECT= , SIP_USER_AGENT=Avaya CM/R016x.03.0.124.0 AVAYA-SM-6.3.9.0.639011 Avaya CM/R016x.03.0.124.0 AVAY, SIP_TO_ADDRESS=sips:3041770@pkgappslab.com;user=phone, History=Created:15:59:16 12/02/15;Queued:15:59:23 12/02/15;Answered:15:59:25 12/02/15, SIP_CALL_TYPE=ConsultTransfer, SIP_CALLER_DISPLAY="Liam Brady", SIP_MAIN_CONTACT_ID=eee647d2-d312-4e68-bb41-6dc59e33fd04, ContactType=10000, SIP_CALLSUPER_AGENT=-, Provider=Passive, SIP_REQUEST_URI=sips:3041770@pkgappslab.com;user=phone, SIP_FROM_ADDRESS=8041770@pkgappslab.com, ProviderContactID=37497068}
+155629:2015-02-12 16:01:08,098 [SnapTimer] DEBUG com.swhh.csta.d.a.b - 1-4061 not recordable when tograves=0 and realparties=2
+162894:2015-02-12 16:01:08,508 [SnapTimer] DEBUG com.swhh.cs.j.ah - SIP start request: recordingid=6383f3f9-479b-4f5d-8d3d-500c114c88c8 connid=dc686d52-916d-45c5-93b6-aeb372ee32aa recuri=sip:12040@10.134.49.155
+165189:2015-02-12 16:01:09,122 [TSAPIEvent-1] DEBUG com.swhh.csta.a.k - station 8041770 (Liam Brady) sw=1 onCSTATransferredEvent=CSTATransferredEvent
+165190- primaryOldCall=ConnectionID
+165191-  callID=4056
+165192-  deviceID=8041770
+165193-  devIDType=staticId
+165194- secondaryOldCall=ConnectionID
+165195-  callID=4057
+165196-  deviceID=8041770
+165197-  devIDType=staticId
+165198- transferringDevice=ExtendedDeviceID
+165199-  deviceID=8041770
+165200-  deviceIDType=explicitPrivateLocalNumber
+165201-  deviceIDStatus=idProvided
+165202- transferredDevice=ExtendedDeviceID
+165203-  deviceID=
+165204-  deviceIDType=explicitPublicUnknown
+165205-  deviceIDStatus=idNotKnown
+165206- transferredConnection=Connection
+165207-  connectionID=ConnectionID
+165208-   callID=4057
+165209-   deviceID=2002
+165210-   devIDType=staticId
+165211-  extendedDeviceID=ExtendedDeviceID
+165212-   deviceID=2002
+165213-   deviceIDType=explicitPrivateUnknown
+165214-   deviceIDStatus=idProvided
+165215- transferredConnection=Connection
+165216-  connectionID=ConnectionID
+165217-   callID=4057
+165218-   deviceID=T4057#2
+165219-   devIDType=dynamicId
+165220-  extendedDeviceID=ExtendedDeviceID
+165221-   deviceID=3041770
+165222-   deviceIDType=explicitPrivateUnknown
+165223-   deviceIDStatus=idProvided
+165224- localConnectionInfo=csNull
+165225- cause=ecTransfer
+165226-2015-02-12 16:01:09,123 [TSAPIEvent-1] DEBUG com.swhh.csta.d.b.a - CON:9202246111230002751 oc=1-4056 a=2002 d=8041770 - 6/6 s=true blockupdates = true
+165227-2015-02-12 16:01:09,123 [TSAPIEvent-1] DEBUG com.swhh.csta.a.n - Found station 8041770 (Liam Brady) sw=1
+165228-2015-02-12 16:01:09,123 [TSAPIEvent-1] DEBUG com.swhh.csta.d.a.a - Setting eventtype = Transferred
+165229-2015-02-12 16:01:09,123 [TSAPIEvent-1] DEBUG com.swhh.csta.d.a.b - 1-4056 teardown persisting to 1-4057
+165230-2015-02-12 16:01:09,123 [TSAPIEvent-1] DEBUG com.swhh.csta.d.a.j - New Conn: Conn:120, call=4056 phone 2002 sw=2 /DISCONNECTED 12-Feb-2015 16:01:09
+165231-2015-02-12 16:01:09,123 [TSAPIEvent-1] DEBUG com.swhh.csta.d.a.j - New Conn: Conn:121, call=4056 station 8041770 (Liam Brady) sw=1 /DISCONNECTED 12-Feb-2015 16:01:09
+165232-2015-02-12 16:01:09,123 [TSAPIEvent-1] DEBUG com.swhh.csta.d.a.b - 1-4056 updateConns 2 dosnapshot=false additive=false
+165233-2015-02-12 16:01:09,123 [TSAPIEvent-1] DEBUG com.swhh.csta.d.a.b - 1-4056 getCurrentDevs= 59[phone 2002 sw=2:ESTABLISHED@15:58:43 REC 61[station 8041770 (Liam Brady) sw=1:HELD@15:59:13 
+165234-2015-02-12 16:01:09,123 [TSAPIEvent-1] DEBUG com.swhh.csta.d.a.b - 1-4056 has phone 2002 sw=2 in state 88 is recordable
+165235-2015-02-12 16:01:09,123 [TSAPIEvent-1] DEBUG com.swhh.csta.d.a.b - 1-4056 Standalone  (ah=false)  Testing phone 2002 sw=2 isObserved=false
+165236-2015-02-12 16:01:09,123 [TSAPIEvent-1] DEBUG com.swhh.csta.d.a.b - 1-4056removing  conn. phone 2002 sw=2/ESTABLISHED
+165237-2015-02-12 16:01:09,123 [TSAPIEvent-1] DEBUG com.swhh.csta.d.a.b - 2-2251814122343859/S getCurrentDevs= 63[phone 2002 sw=2:ESTABLISHED@15:58:43 REC 64[station 8041770 (Liam Brady) sw=1:HELD@15:59:13 
+165238-2015-02-12 16:01:09,123 [TSAPIEvent-1] DEBUG com.swhh.csta.d.a.b - 2-2251814122343859/S has phone 2002 sw=2 in state 88 is recordable
+165239-2015-02-12 16:01:09,123 [TSAPIEvent-1] DEBUG com.swhh.csta.d.a.b - 2-2251814122343859/S Standalone  (ah=false)  Testing phone 2002 sw=2 isObserved=false
+166178-2015-02-12 16:01:09,176 [Thread-52] DEBUG com.swhh.csta.b.g - station 8041774 (Chris Hughton) sw=1 onCallEvent=ESTABLISHED - com.swhh.cti.c.a.d
+166179-  a=ESTABLISHED
+166180-  b=TRANSFER
+166181:  c=Passive
+166182-  d=sip:8041774@pkgappslab.com
+166183-  e=750edde5-bbe5-4928-ad83-5ed02923104e
+166184-  f=eee647d2-d312-4e68-bb41-6dc59e33fd04
+166185-  g={Skillset=Sky, SIP_CALL_ID=80ca67b241bce41d34e547ca42100, CmfContactID=eee647d2-d312-4e68-bb41-6dc59e33fd04, AD_CDN=3041770, AD_CLID=2002, SIP_PREFERRED_LANGUAGE=None chosen, SIP_LOCATION=SM;origlocname="Former";origsiglocname="Former";termlocname="Former";termsiglocn, SIP_SUBJECT= , SIP_TO_ADDRESS=sips:3041770@pkgappslab.com;user=phone, SIP_USER_AGENT=Avaya CM/R016x.03.0.124.0 AVAYA-SM-6.3.9.0.639011 Avaya CM/R016x.03.0.124.0 AVAY, History=Created:15:59:16 12/02/15;Queued:15:59:23 12/02/15;Answered:15:59:25 12/02/15, SIP_CALL_TYPE=Inbound, ContactType=10000, SIP_CALLSUPER_AGENT=-, SIP_REQUEST_URI=sips:3041770@pkgappslab.com;user=phone, SIP_FROM_ADDRESS=8041770@pkgappslab.com, Provider=Passive, ProviderContactID=37497067}
+168324-2015-02-12 16:01:09,225 [Thread-52] DEBUG com.swhh.csta.b.g - station 8041774 (Chris Hughton) sw=1 onCallEvent=DISCONNECTED - com.swhh.cti.c.a.d
+168325-  a=DISCONNECTED
+168326-  b=DEFAULT
+168327:  c=Passive
+168328-  d=sip:8041774@pkgappslab.com
+168329-  e=dc686d52-916d-45c5-93b6-aeb372ee32aa
+168330-  f=6383f3f9-479b-4f5d-8d3d-500c114c88c8
+168331-  g={}
+170347-2015-02-12 16:01:09,271 [Thread-52] DEBUG com.swhh.csta.b.g - station 8041770 (Liam Brady) sw=1 onCallEvent=DISCONNECTED - com.swhh.cti.c.a.d
+170348-  a=DISCONNECTED
+170349-  b=DEFAULT
+170350:  c=Passive
+170351-  d=sip:8041770@pkgappslab.com
+170352-  e=39a4cb2f-4189-4626-be31-66aebb65da00
+170353-  f=eee647d2-d312-4e68-bb41-6dc59e33fd04
+170354-  g={}
+171187-2015-02-12 16:01:09,290 [Thread-52] DEBUG com.swhh.csta.b.g - station 8041770 (Liam Brady) sw=1 onCallEvent=DISCONNECTED - com.swhh.cti.c.a.d
+171188-  a=DISCONNECTED
+171189-  b=DEFAULT
+171190:  c=Passive
+171191-  d=sip:8041770@pkgappslab.com
+171192-  e=a7389666-742f-44b2-bf23-b57305ba4f55
+171193-  f=6383f3f9-479b-4f5d-8d3d-500c114c88c8
+171194-  g={}
+171335:2015-02-12 16:01:09,331 [EventScannerThread] DEBUG com.swhh.i.d.u - UPDATE sip:10.134.49.155:5060;user=phone;transport=tcp SIP/2.0
+171336-From: "Agent2" <sip:2002@siptraffic.com;user=phone>;tag=038e2ff3dbce411172547c9fe100
+171337-To: <sip:10.134.49.155:5060;user=phone;transport=tcp>;tag=3032_12048
+171338-CSeq: 5 UPDATE
+171339-Call-ID: ddb8246eb7b5c755920c607b234f344e
+171340-Contact: "Agent2" <sip:10.134.36.3:5060;transport=tcp;user=phone;gsid=0038e2ff-3dbc-4401-9072-547c9fe10000;+sip.src>
+171341-Record-Route: <sip:10.134.36.3:5060;ipcs-line=13809;lr;transport=tcp>
+171342-Allow: INVITE,ACK,OPTIONS,BYE,CANCEL,SUBSCRIBE,NOTIFY,REFER,INFO,PRACK,PUBLISH,UPDATE
+171343-Supported: 100rel,histinfo,join,replaces,sdp-anat,timer
+171344-Max-Forwards: 67
+171345-Via: SIP/2.0/TCP 10.134.36.3:5060;branch=z9hG4bK-s1632-000837990069-1--s1632-;rport=16332
+171346-Accept-Language: en
+171347-Require: siprec
+171348-P-Asserted-Identity: "Agent2" <sip:2002@siptraffic.com;user=phone>
+171349-Session-Expires: 1200;refresher=uac
+171350-Min-SE: 1200
+171351-History-Info: <sip:00331111@siptraffic.com>;index=1
+171352-History-Info: "00331111" <sip:00331111@siptraffic.com>;index=1.1
+171353-Content-Disposition: recording-session
+171354-Content-Type: application/rs-metadata
+171355-User-to-User: 00FA08000109C454DCCDAF;encoding=hex, 00FA08000109C454DCCDAF;encoding=hex
+171356-P-Charging-Vector: icid-value="0038e2ff-3dbc-4401-9072-547c9fe10000"
+171357-P-AV-Message-Id: 1_1
+171358-Max-Breadth: 60
+171359-Av-Global-Session-ID: 0038e2ff-3dbc-4401-9072-547c9fe10000
+171360-P-Location: SM;origlocname="siptraffic";origsiglocname="siptraffic";origmedialocname="siptraffic";termlocname="siptraffic";termsiglocname="siptraffic";smaccounting="true"
+171361-Content-Length: 1463
+171362-
+171363-<?xml version="1.0" encoding="UTF-8"?>
+171364-<recording xmlns="urn:ietf:params:xml:ns:recording:1">
+171365-<dataMode>complete</dataMode>
+171593:2015-02-12 16:01:09,431 [EventScannerThread] DEBUG com.swhh.i.d.u - UPDATE sip:10.134.49.155:5060;user=phone;transport=tcp SIP/2.0
+171594-From: "Agent2" <sip:2002@siptraffic.com;user=phone>;tag=038e2ff3dbce411172547c9fe100
+171595-To: <sip:10.134.49.155:5060;user=phone;transport=tcp>;tag=3032_12048
+171596-CSeq: 6 UPDATE
+171597-Call-ID: ddb8246eb7b5c755920c607b234f344e
+171598-Contact: "Agent2" <sip:10.134.36.3:5060;transport=tcp;user=phone;gsid=0038e2ff-3dbc-4401-9072-547c9fe10000;+sip.src>
+171599-Record-Route: <sip:10.134.36.3:5060;ipcs-line=13809;lr;transport=tcp>
+171600-Allow: INVITE,ACK,OPTIONS,BYE,CANCEL,SUBSCRIBE,NOTIFY,REFER,INFO,PRACK,PUBLISH,UPDATE
+171601-Supported: 100rel,histinfo,join,replaces,sdp-anat,timer
+171602-Max-Forwards: 67
+171603-Via: SIP/2.0/TCP 10.134.36.3:5060;branch=z9hG4bK-s1632-000654726170-1--s1632-;rport=16332
+171604-Accept-Language: en
+171605-Require: siprec
+171606-P-Asserted-Identity: "Agent2" <sip:2002@siptraffic.com;user=phone>
+171607-Session-Expires: 1200;refresher=uac
+171608-Min-SE: 1200
+171609-History-Info: <sip:00331111@siptraffic.com>;index=1
+171610-History-Info: "00331111" <sip:00331111@siptraffic.com>;index=1.1
+171611-Content-Disposition: recording-session
+171612-Content-Type: application/rs-metadata
+171613-User-to-User: 00FA08000109C454DCCDAF;encoding=hex, 00FA08000109C454DCCDAF;encoding=hex
+171614-P-Charging-Vector: icid-value="0038e2ff-3dbc-4401-9072-547c9fe10000"
+171615-P-AV-Message-Id: 1_1
+171616-Max-Breadth: 60
+171617-Av-Global-Session-ID: 0038e2ff-3dbc-4401-9072-547c9fe10000
+171618-P-Location: SM;origlocname="siptraffic";origsiglocname="siptraffic";origmedialocname="siptraffic";termlocname="siptraffic";termsiglocname="siptraffic";smaccounting="true"
+171619-Content-Length: 1463
+171620-
+171621-<?xml version="1.0" encoding="UTF-8"?>
+171622-<recording xmlns="urn:ietf:params:xml:ns:recording:1">
+171623-<dataMode>complete</dataMode>
+171905:2015-02-12 16:01:09,486 [TSAPIEvent-1] DEBUG com.swhh.csta.a.k - station 8041770 (Liam Brady) sw=1 onSnapshotCall=CSTASnapshotCallConfEvent
+171906- info=CSTASnapshotCallResponseInfo
+171907-  deviceOnCall=ExtendedDeviceID
+171908-   deviceID=T4057#2
+171909-   deviceIDType=explicitPublicUnknown
+171910-   deviceIDStatus=idProvided
+171911-  callIdentifier=ConnectionID
+171912-   callID=4057
+171913-   deviceID=T4057#2
+171914-   devIDType=dynamicId
+171915-  localConnectionState=csConnect
+171916- info=CSTASnapshotCallResponseInfo
+171917-  deviceOnCall=ExtendedDeviceID
+171918-   deviceID=T4057#1
+171919-   deviceIDType=explicitPublicUnknown
+171920-   deviceIDStatus=idProvided
+171921-  callIdentifier=ConnectionID
+171922-   callID=4057
+171923-   deviceID=T4057#1
+171924-   devIDType=dynamicId
+171925-  localConnectionState=csConnect
+171926-2015-02-12 16:01:09,486 [TSAPIEvent-1] DEBUG com.swhh.csta.a.l - Conn=ConnectionID
+171927- callID=4057
+171928- deviceID=T4057#2
+171929- devIDType=dynamicId
+171930-2015-02-12 16:01:09,486 [TSAPIEvent-1] DEBUG com.swhh.csta.a.n - Getting dynamic T4057#2
+172488:2015-02-12 16:01:09,526 [EventScannerThread] DEBUG com.swhh.i.d.u - UPDATE sip:10.134.49.155:5060;user=phone;transport=tcp SIP/2.0
+172489-From: "Agent2" <sip:2002@siptraffic.com;user=phone>;tag=038e2ff3dbce411172547c9fe100
+172490-To: <sip:10.134.49.155:5060;user=phone;transport=tcp>;tag=3032_12048
+172491-CSeq: 7 UPDATE
+172492-Call-ID: ddb8246eb7b5c755920c607b234f344e
+172493-Contact: "Agent2" <sip:10.134.36.3:5060;transport=tcp;user=phone;gsid=0038e2ff-3dbc-4401-9072-547c9fe10000;+sip.src>
+172494-Record-Route: <sip:10.134.36.3:5060;ipcs-line=13809;lr;transport=tcp>
+172495-Allow: INVITE,ACK,OPTIONS,BYE,CANCEL,SUBSCRIBE,NOTIFY,REFER,INFO,PRACK,PUBLISH,UPDATE
+172496-Supported: 100rel,histinfo,join,replaces,sdp-anat,timer
+172497-Max-Forwards: 67
+172498-Via: SIP/2.0/TCP 10.134.36.3:5060;branch=z9hG4bK-s1632-001498120358-1--s1632-;rport=16332
+172499-Accept-Language: en
+172500-Require: siprec
+172501-P-Asserted-Identity: "Agent2" <sip:2002@siptraffic.com;user=phone>
+172502-Session-Expires: 1200;refresher=uac
+172503-Min-SE: 1200
+172504-History-Info: <sip:00331111@siptraffic.com>;index=1
+172505-History-Info: "00331111" <sip:00331111@siptraffic.com>;index=1.1
+172506-Content-Disposition: recording-session
+172507-Content-Type: application/rs-metadata
+172508-User-to-User: 00FA08000109C454DCCDAF;encoding=hex, 00FA08000109C454DCCDAF;encoding=hex
+172509-P-Charging-Vector: icid-value="0038e2ff-3dbc-4401-9072-547c9fe10000"
+172510-P-AV-Message-Id: 1_1
+172511-Max-Breadth: 60
+172512-Av-Global-Session-ID: 0038e2ff-3dbc-4401-9072-547c9fe10000
+172513-P-Location: SM;origlocname="siptraffic";origsiglocname="siptraffic";origmedialocname="siptraffic";termlocname="siptraffic";termsiglocname="siptraffic";smaccounting="true"
+172514-Content-Length: 1463
+172515-
+172516-<?xml version="1.0" encoding="UTF-8"?>
+172517-<recording xmlns="urn:ietf:params:xml:ns:recording:1">
+172518-<dataMode>complete</dataMode>
+173050:2015-02-12 16:01:09,739 [SnapTimer] DEBUG com.swhh.csta.d.a.b - 2-2251818417311185/D not recordable when tograves=0 and realparties=0
+173152:2015-02-12 16:01:09,772 [SnapTimer] DEBUG com.swhh.cs.j.ah - SIP stop request: connid=dc686d52-916d-45c5-93b6-aeb372ee32aa recuri=sip:12040@10.134.49.155
+173260:2015-02-12 16:01:09,796 [EventScannerThread] DEBUG com.swhh.i.d.s - Sent SIP OK
+175982:2015-02-12 16:01:10,285 [SnapTimer] DEBUG com.swhh.cs.j.ah - SIP start request: recordingid=eee647d2-d312-4e68-bb41-6dc59e33fd04 connid=750edde5-bbe5-4928-ad83-5ed02923104e recuri=sip:12044@10.134.49.155
+178942:2015-02-12 16:01:13,863 [POM Read Thread] DEBUG com.swhh.cti.m.a.j - 000152<?xml version="1.0" encoding="UTF-8"?><ListAgentsResponse success="false" reasonCode="1"><reasonText> Invalid Request </reasonText></ListAgentsResponse>
+182967:2015-02-12 16:01:27,864 [POM Read Thread] DEBUG com.swhh.cti.m.a.j - 000152<?xml version="1.0" encoding="UTF-8"?><ListAgentsResponse success="false" reasonCode="1"><reasonText> Invalid Request </reasonText></ListAgentsResponse>
+187336:2015-02-12 16:01:41,869 [POM Read Thread] DEBUG com.swhh.cti.m.a.j - 000152<?xml version="1.0" encoding="UTF-8"?><ListAgentsResponse success="false" reasonCode="1"><reasonText> Invalid Request </reasonText></ListAgentsResponse>
+191648:2015-02-12 16:01:55,880 [POM Read Thread] DEBUG com.swhh.cti.m.a.j - 000152<?xml version="1.0" encoding="UTF-8"?><ListAgentsResponse success="false" reasonCode="1"><reasonText> Invalid Request </reasonText></ListAgentsResponse>
+195168:2015-02-12 16:02:07,849 [EventScannerThread] DEBUG com.swhh.i.d.u - UPDATE sip:10.134.49.155:5060;user=phone;transport=tcp SIP/2.0
+195169-From: "Liam Brady" <sip:+8041770@pkgappslab.com;user=phone>;tag=80102bd641bce41fd4e547ca42100
+195170-To: <sip:10.134.49.155:5060;user=phone;transport=tcp>;tag=54448_12060
+195171-CSeq: 5 UPDATE
+195172-Call-ID: 3037ec5c4dd1525c47868e1083bbfc56
+195173-Contact: "Liam Brady" <sip:10.134.36.3:5060;user=phone;gsid=80102bd6-41bc-4401-b74e-547ca4210000;+sip.src;transport=tcp>
+195174-Record-Route: <sip:10.134.36.3:5060;ipcs-line=13836;lr;transport=tcp>
+195175-Allow: INVITE,ACK,OPTIONS,BYE,CANCEL,SUBSCRIBE,NOTIFY,REFER,INFO,PRACK,PUBLISH,UPDATE
+195176-Supported: 100rel,histinfo,join,replaces,sdp-anat,timer
+195177-Max-Forwards: 66
+195178-Via: SIP/2.0/TCP 10.134.36.3:5060;branch=z9hG4bK-s1632-001752671116-1--s1632-;rport=16332
+195179-Require: siprec
+195180-P-Asserted-Identity: "Liam Brady" <sip:+8041770@pkgappslab.com;user=phone>
+195181-Session-Expires: 1200;refresher=uac
+195182-Min-SE: 1200
+195183-History-Info: <sip:00221111@pkgappslab.com>;index=1
+195184-History-Info: "00221111" <sip:00221111@pkgappslab.com>;index=1.1
+195185-Content-Disposition: recording-session
+195186-Content-Type: application/rs-metadata
+195187-User-to-User: 00FA0800010FDD54DCD41CFB0800010FD954DCD3E4;encoding=hex, 00FA0800010FDD54DCD41CFB0800010FD954DCD3E4;encoding=hex
+195188-P-Charging-Vector: icid-value="AAS:4061-d62b10801e4bc417c544ef821a4"
+195189-P-AV-Message-Id: 4_1
+195190-Max-Breadth: 60
+195191-Av-Global-Session-ID: 80102bd6-41bc-4401-b74e-547ca4210000
+195192-P-Location: SM;origlocname="Former";origsiglocname="Former";origmedialocname="Former";termlocname="Former";termsiglocname="Former";smaccounting="true"
+195193-Content-Length: 1580
+195194-
+195195-<?xml version="1.0" encoding="UTF-8"?>
+195196-<recording xmlns="urn:ietf:params:xml:ns:recording:1">
+195197-<dataMode>complete</dataMode>
+195198-<associate-time>2015-2-12T16:0:28</associate-time>
+195244:2015-02-12 16:02:07,864 [TSAPIEvent-1] DEBUG com.swhh.csta.a.k - station 8041770 (Liam Brady) sw=1 onCSTARetrievedEvent=CSTARetrievedEvent
+195245- retrievedConnection=ConnectionID
+195246-  callID=4061
+195247-  deviceID=8041770
+195248-  devIDType=staticId
+195249- retrievingDevice=ExtendedDeviceID
+195250-  deviceID=8041770
+195251-  deviceIDType=explicitPrivateLocalNumber
+195252-  deviceIDStatus=idProvided
+195253- localConnectionInfo=csConnect
+195254- cause=ecNone
+195255-2015-02-12 16:02:07,864 [TSAPIEvent-1] DEBUG com.swhh.csta.d.a.a - Setting eventtype = Retrieved
+195256-2015-02-12 16:02:07,864 [TSAPIEvent-1] DEBUG com.swhh.csta.a.n - Found station 8041770 (Liam Brady) sw=1
+195257-2015-02-12 16:02:07,864 [TSAPIEvent-1] DEBUG com.swhh.csta.d.a.j - New Conn: Conn:133, call=4061 station 8041770 (Liam Brady) sw=1 /ESTABLISHED 12-Feb-2015 16:02:07 REC
+195258-2015-02-12 16:02:07,864 [TSAPIEvent-1] DEBUG com.swhh.csta.a.n - Found station 8041770 (Liam Brady) sw=1
+195259-2015-02-12 16:02:07,864 [TSAPIEvent-1] DEBUG com.swhh.csta.d.a.j - New Conn: Conn:134, call=4061 station 8041770 (Liam Brady) sw=1 /ESTABLISHED 12-Feb-2015 16:02:07 REC
+195727-2015-02-12 16:02:07,880 [Thread-52] DEBUG com.swhh.csta.b.g - station 8041770 (Liam Brady) sw=1 onCallEvent=ESTABLISHED - com.swhh.cti.c.a.d
+195728-  a=ESTABLISHED
+195729-  b=UNHOLD
+195730:  c=Passive
+195731-  d=sip:8041770@pkgappslab.com
+195732-  e=91ee872b-b123-4afd-810e-8df53cf645e7
+195733-  f=4bbe20bc-42c4-4a1a-b6cd-688ac3d6e3ec
+195734-  g={CmfContactID=4bbe20bc-42c4-4a1a-b6cd-688ac3d6e3ec, SIP_CALL_TYPE=ConsultTransfer, AD_CLID=8041770, SIP_CALLER_DISPLAY=Liam Brady, SIP_MAIN_CONTACT_ID=eee647d2-d312-4e68-bb41-6dc59e33fd04, ContactType=10000, Provider=Passive, ProviderContactID=37497069}
+198122:2015-02-12 16:02:08,443 [SnapTimer] DEBUG com.swhh.csta.d.a.b - 1-4061 Using 833275/8332750038 (SIPREC@10.134.49.155:12060)
+198125:2015-02-12 16:02:08,443 [SnapTimer] DEBUG com.swhh.cs.j.aq - 833275/8332750038 (SIPREC@10.134.49.155:12060) set call=1-4061 beep=false maybeep=false mask=false
+198126:2015-02-12 16:02:08,443 [SnapTimer] DEBUG com.swhh.cs.j.aq - SIPREC@10.134.49.155:12060 to connect to 1-4061 beep=false maybeep=false mask=false
+198162:2015-02-12 16:02:08,443 [SnapTimer] DEBUG com.swhh.cs.j.aq - Starting 1-4061(segment=156) 833275000011063 on SIPREC@10.134.49.155:12060
+199698:2015-02-12 16:02:10,895 [POM Read Thread] DEBUG com.swhh.cti.m.a.j - 000152<?xml version="1.0" encoding="UTF-8"?><ListAgentsResponse success="false" reasonCode="1"><reasonText> Invalid Request </reasonText></ListAgentsResponse>
+205240:2015-02-12 16:02:24,895 [POM Read Thread] DEBUG com.swhh.cti.m.a.j - 000152<?xml version="1.0" encoding="UTF-8"?><ListAgentsResponse success="false" reasonCode="1"><reasonText> Invalid Request </reasonText></ListAgentsResponse>
+211352:2015-02-12 16:02:39,881 [POM Read Thread] DEBUG com.swhh.cti.m.a.j - 000152<?xml version="1.0" encoding="UTF-8"?><ListAgentsResponse success="false" reasonCode="1"><reasonText> Invalid Request </reasonText></ListAgentsResponse>
+216961:2015-02-12 16:02:53,911 [POM Read Thread] DEBUG com.swhh.cti.m.a.j - 000152<?xml version="1.0" encoding="UTF-8"?><ListAgentsResponse success="false" reasonCode="1"><reasonText> Invalid Request </reasonText></ListAgentsResponse>
+222580:2015-02-12 16:03:07,912 [POM Read Thread] DEBUG com.swhh.cti.m.a.j - 000152<?xml version="1.0" encoding="UTF-8"?><ListAgentsResponse success="false" reasonCode="1"><reasonText> Invalid Request </reasonText></ListAgentsResponse>
+224755:2015-02-12 16:03:13,131 [TSAPIEvent-1] DEBUG com.swhh.csta.a.l - station 8041770 (Liam Brady) sw=1 onCSTAConnectionClearedEvent=CSTAConnectionClearedEvent
+224756- droppedConnection=ConnectionID
+224757-  callID=4061
+224758-  deviceID=8041770
+224759-  devIDType=staticId
+224760- releasingDevice=ExtendedDeviceID
+224761-  deviceID=8041770
+224762-  deviceIDType=explicitPrivateLocalNumber
+224763-  deviceIDStatus=idProvided
+224764- localConnectionInfo=csNull
+224765- cause=ecNone
+224766-2015-02-12 16:03:13,131 [TSAPIEvent-1] DEBUG com.swhh.csta.a.n - Found station 8041770 (Liam Brady) sw=1
+224767-2015-02-12 16:03:13,131 [TSAPIEvent-1] DEBUG com.swhh.csta.a.n - Found station 8041770 (Liam Brady) sw=1
+224768-2015-02-12 16:03:13,131 [TSAPIEvent-1] DEBUG com.swhh.csta.d.a.j - New Conn: Conn:136, call=4061 station 8041770 (Liam Brady) sw=1 /DISCONNECTED 12-Feb-2015 16:03:13
+224769-2015-02-12 16:03:13,131 [TSAPIEvent-1] DEBUG com.swhh.csta.d.a.b - 1-4061 updateConns 1 dosnapshot=false additive=true
+224770-2015-02-12 16:03:13,131 [TSAPIEvent-1] DEBUG com.swhh.csta.d.a.b - 2-2251822712278537/S getCurrentDevs= 101[station 8041770 (Liam Brady) sw=1:ESTABLISHED@16:02:07 REC 
+224771-2015-02-12 16:03:13,131 [TSAPIEvent-1] DEBUG com.swhh.csta.d.a.b - 1-4061 getCurrentDevs= 105[trunkmember 10/3 sw=1:ESTABLISHED@16:00:16 REC 104[dynamic T4061#2 sw=1:ESTABLISHED@16:00:18 REC 102[station 8041770 (Liam Brady) sw=1:ESTABLISHED@16:02:07 REC 
+224772-2015-02-12 16:03:13,131 [TSAPIEvent-1] DEBUG com.swhh.csta.d.a.b - 1-4061 has dynamic T4061#2 sw=1 in state 88 is recordable
+224773-2015-02-12 16:03:13,131 [TSAPIEvent-1] DEBUG com.swhh.csta.d.a.b - 1-4061 has station 8041770 (Liam Brady) sw=1 in state 88 is recordable
+224774-2015-02-12 16:03:13,131 [TSAPIEvent-1] DEBUG com.swhh.csta.d.a.b - 1-4061 So call IS recordable
+224775-2015-02-12 16:03:13,131 [TSAPIEvent-1] DEBUG com.swhh.csta.d.a.b - 1-4061 connected to: 2-2251822712278537/S  (ah=false)  Testing dynamic T4061#2 sw=1 isObserved=false Testing station 8041770 (Liam Brady) sw=1 isObserved=true
+224776-2015-02-12 16:03:13,131 [TSAPIEvent-1] DEBUG com.swhh.csta.d.a.b - 2-2251822712278537/S has station 8041770 (Liam Brady) sw=1 in state 88 is recordable
+224777-2015-02-12 16:03:13,131 [TSAPIEvent-1] DEBUG com.swhh.csta.d.a.b - 2-2251822712278537/S connected to: 1-4061  (ah=false)  Testing station 8041770 (Liam Brady) sw=1 isObserved=truestation 8041770 (Liam Brady) sw=1? on 1-4061state=88 Happy to try...1-4061 (via station 8041770 (Liam Brady) sw=1) 
+224778-2015-02-12 16:03:13,131 [TSAPIEvent-1] DEBUG com.swhh.csta.d.a.b - 1-4061removing  conn. station 8041770 (Liam Brady) sw=1/ESTABLISHED
+224779-2015-02-12 16:03:13,131 [TSAPIEvent-1] DEBUG com.swhh.csta.d.a.b - 2-2251822712278537/S getCurrentDevs= 101[station 8041770 (Liam Brady) sw=1:ESTABLISHED@16:02:07 REC 
+224780-2015-02-12 16:03:13,131 [TSAPIEvent-1] DEBUG com.swhh.csta.d.a.b - 2-2251822712278537/S has station 8041770 (Liam Brady) sw=1 in state 88 is recordable
+224781-2015-02-12 16:03:13,131 [TSAPIEvent-1] DEBUG com.swhh.csta.d.a.b - 2-2251822712278537/S Standalone  (ah=false)  Testing station 8041770 (Liam Brady) sw=1 isObserved=true
+224782-2015-02-12 16:03:13,131 [TSAPIEvent-1] INFO  com.swhh.csta.d.a.b - getDominantCall returns NULL
+224783-2015-02-12 16:03:13,131 [TSAPIEvent-1] DEBUG com.swhh.csta.d.a.b - 1-4061 checkCTI for updateconns on NULL dosnapshot=false msdelay=250 snapshotpending= true
+224784-2015-02-12 16:03:13,131 [TSAPIEvent-1] DEBUG com.swhh.csta.d.c.j - station 8041770 (Liam Brady) sw=1 onCallChanged m=null
+224785-2015-02-12 16:03:13,131 [TSAPIEvent-1] DEBUG com.swhh.csta.d.a.b - 2-2251822712278537/S getCurrentDevs= 101[station 8041770 (Liam Brady) sw=1:ESTABLISHED@16:02:07 REC 
+224786-2015-02-12 16:03:13,131 [TSAPIEvent-1] DEBUG com.swhh.csta.d.a.b - 2-2251822712278537/S has station 8041770 (Liam Brady) sw=1 in state 88 is recordable
+224787-2015-02-12 16:03:13,131 [TSAPIEvent-1] DEBUG com.swhh.csta.d.a.b - 2-2251822712278537/S Standalone  (ah=true)  Testing station 8041770 (Liam Brady) sw=1 isObserved=true
+224788-2015-02-12 16:03:13,131 [TSAPIEvent-1] INFO  com.swhh.csta.d.a.b - getDominantCall returns NULL
+224789-2015-02-12 16:03:13,131 [TSAPIEvent-1] DEBUG com.swhh.csta.d.a.b - 2-2251822712278537/S getCurrentRealConns= 101[station 8041770 (Liam Brady) sw=1:ESTABLISHED@16:02:07 REC, 
+224790-2015-02-12 16:03:13,131 [TSAPIEvent-1] DEBUG com.swhh.csta.d.a.b - 2-2251822712278537/S segment number bumped to 263
+224791-2015-02-12 16:03:13,131 [TSAPIEvent-1] DEBUG com.swhh.csta.d.a.b - 2-2251822712278537/S getCurrentDevs= 101[station 8041770 (Liam Brady) sw=1:ESTABLISHED@16:02:07 REC 
+224792-2015-02-12 16:03:13,131 [TSAPIEvent-1] DEBUG com.swhh.csta.d.a.b - 2-2251822712278537/S has station 8041770 (Liam Brady) sw=1 in state 88 is recordable
+224793-2015-02-12 16:03:13,131 [TSAPIEvent-1] DEBUG com.swhh.csta.d.a.b - 2-2251822712278537/S Standalone  (ah=false)  Testing station 8041770 (Liam Brady) sw=1 isObserved=true
+224794-2015-02-12 16:03:13,131 [TSAPIEvent-1] DEBUG com.swhh.csta.d.a.b - 2-2251822712278537/S getCurrentRealConns= 101[station 8041770 (Liam Brady) sw=1:ESTABLISHED@16:02:07 REC, 
+224795-2015-02-12 16:03:13,131 [TSAPIEvent-1] DEBUG com.swhh.csta.d.a.b - 2-2251822712278537/S getCurrentRealDevs= 101[station 8041770 (Liam Brady) sw=1:ESTABLISHED@16:02:07 REC 
+224796-2015-02-12 16:03:13,131 [TSAPIEvent-1] DEBUG com.swhh.csta.d.a.b - 2-2251822712278537/S getCurrentRealDevs= 101[station 8041770 (Liam Brady) sw=1:ESTABLISHED@16:02:07 REC 
+224797-2015-02-12 16:03:13,131 [TSAPIEvent-1] DEBUG com.swhh.cti.u.r - Adding session conn for 8041770 (Liam Brady) agent 1000 mystate=88 with state=CONNECTED
+224798-2015-02-12 16:03:13,131 [TSAPIEvent-1] DEBUG com.swhh.cs.j.al - getScreensForDevs considering station 8041770 (Liam Brady) sw=1 so far 0 screens
+224799-2015-02-12 16:03:13,131 [TSAPIEvent-1] DEBUG com.swhh.cs.j.al - Rules set
+224800-2015-02-12 16:03:13,131 [TSAPIEvent-1] DEBUG com.swhh.cs.j.al - getScreenForAgent for aaccagent 1000 sw=2 username=wfolab\lbrady location=Screen Capture Info: port=4001, Server=paclient97.wfolab.local/10.134.137.7 User=WFOLAB\lbrady Session=1000
+224883:833275/8332750038 (SIPREC@10.134.49.155:12060)</recording>
+225258:2015-02-12 16:03:13,146 [EventScannerThread] DEBUG com.swhh.i.d.s - Sent SIP OK
+225365:2015-02-12 16:03:13,146 [Read_/127.0.0.1:56589] DEBUG com.swhh.cs.j.ak - SIPREC@10.134.49.155:12060 disconnected from UCID 
+225367:2015-02-12 16:03:13,146 [Read_/127.0.0.1:56589] DEBUG com.swhh.csta.d.a.b - 1-4061 Externally clearing spm 833275/8332750038 (SIPREC@10.134.49.155:12060)
+225397-2015-02-12 16:03:13,193 [Thread-52] DEBUG com.swhh.csta.b.g - station 8041770 (Liam Brady) sw=1 onCallEvent=DISCONNECTED - com.swhh.cti.c.a.d
+225398-  a=DISCONNECTED
+225399-  b=DEFAULT
+225400:  c=Passive
+225401-  d=sip:8041770@pkgappslab.com
+225402-  e=91ee872b-b123-4afd-810e-8df53cf645e7
+225403-  f=4bbe20bc-42c4-4a1a-b6cd-688ac3d6e3ec
+225404-  g={}
+225509-2015-02-12 16:03:13,209 [Thread-52] DEBUG com.swhh.csta.b.g - station 8041770 (Liam Brady) sw=1 onCallEvent=ESTABLISHED - com.swhh.cti.c.a.d
+225510-  a=ESTABLISHED
+225511-  b=DEFAULT
+225512:  c=Passive
+225513-  d=sip:8041770@pkgappslab.com
+225514-  e=a14c0b0e-7cc4-47a6-b148-731ba74ee9a8
+225515-  f=2c652c5c-82c5-4ea7-95c7-81f67f18a0a1
+225516-  g={CmfContactID=2c652c5c-82c5-4ea7-95c7-81f67f18a0a1, SIP_CALL_TYPE=Outbound, AD_CLID=8041770, SIP_CALLER_DISPLAY=Liam Brady, ContactType=10000, Provider=Passive, ProviderContactID=37497070}
+225805:2015-02-12 16:03:13,443 [TSAPIEvent-1] DEBUG com.swhh.csta.a.k - station 8041770 (Liam Brady) sw=1 onSnapshotCall=CSTASnapshotCallConfEvent
+225806- info=CSTASnapshotCallResponseInfo
+225807-  deviceOnCall=ExtendedDeviceID
+225808-   deviceID=8041770
+225809-   deviceIDType=explicitPrivateLocalNumber
+225810-   deviceIDStatus=idProvided
+225811-  callIdentifier=ConnectionID
+225812-   callID=4061
+225813-   deviceID=8041770
+225814-   devIDType=staticId
+225815-  localConnectionState=csInitiate
+225816-2015-02-12 16:03:13,443 [TSAPIEvent-1] DEBUG com.swhh.csta.a.l - Conn=ConnectionID
+225817- callID=4061
+225818- deviceID=8041770
+225819- devIDType=staticId
+225820-2015-02-12 16:03:13,443 [TSAPIEvent-1] DEBUG com.swhh.csta.a.n - Found station 8041770 (Liam Brady) sw=1
+225821-2015-02-12 16:03:13,443 [TSAPIEvent-1] DEBUG com.swhh.csta.d.a.j - New Conn: Conn:139, call=4061 station 8041770 (Liam Brady) sw=1 /INITIATED 12-Feb-2015 16:03:13
+225822-2015-02-12 16:03:13,443 [TSAPIEvent-1] DEBUG com.swhh.csta.a.l - 1-4061 processSnapshot - snapshotpending was true and now false
+225823-2015-02-12 16:03:13,443 [TSAPIEvent-1] DEBUG com.swhh.csta.d.a.b - 1-4061 updateConns 1 dosnapshot=true additive=false
+225824-2015-02-12 16:03:13,443 [TSAPIEvent-1] DEBUG com.swhh.csta.d.a.j - Changed Conn: Conn:104, call=4061 dynamic T4061#2 sw=1 /DISCONNECTED 12-Feb-2015 16:03:13
+225825-2015-02-12 16:03:13,443 [TSAPIEvent-1] DEBUG com.swhh.csta.d.a.b - 1-4061 getCurrentDevs= 105[trunkmember 10/3 sw=1:ESTABLISHED@16:00:16 REC 104[dynamic T4061#2 sw=1:ESTABLISHED@16:00:18 - 16:03:13 
+225826-2015-02-12 16:03:13,443 [TSAPIEvent-1] DEBUG com.swhh.csta.d.a.b - 1-4061 Standalone  (ah=false) 
+225827-2015-02-12 16:03:13,443 [TSAPIEvent-1] DEBUG com.swhh.csta.d.a.b - 1-4061removing  conn. dynamic T4061#2 sw=1/ESTABLISHED
+225828-2015-02-12 16:03:13,443 [TSAPIEvent-1] DEBUG com.swhh.csta.d.a.b - 2-2251827007246017/S getCurrentDevs= 138[station 8041770 (Liam Brady) sw=1:ESTABLISHED@16:03:13 REC 
+225829-2015-02-12 16:03:13,443 [TSAPIEvent-1] DEBUG com.swhh.csta.d.a.b - 2-2251827007246017/S has station 8041770 (Liam Brady) sw=1 in state 88 is recordable
+225830-2015-02-12 16:03:13,443 [TSAPIEvent-1] DEBUG com.swhh.csta.d.a.b - 2-2251827007246017/S Standalone  (ah=false)  Testing station 8041770 (Liam Brady) sw=1 isObserved=true
+225848:833275/8332750038 (SIPREC@10.134.49.155:12060)</recording>
+226470:2015-02-12 16:03:13,459 [TSAPIEvent-1] DEBUG com.swhh.csta.d.a.b - 1-4061 not recordable when tograves=0 and realparties=1
+227179:2015-02-12 16:03:13,818 [TSAPIEvent-1] DEBUG com.swhh.csta.a.k - station 8041770 (Liam Brady) sw=1 onSnapshotCall=CSTASnapshotCallConfEvent
+227180- info=CSTASnapshotCallResponseInfo
+227181-  deviceOnCall=ExtendedDeviceID
+227182-   deviceID=8041770
+227183-   deviceIDType=explicitPrivateLocalNumber
+227184-   deviceIDStatus=idProvided
+227185-  callIdentifier=ConnectionID
+227186-   callID=4061
+227187-   deviceID=8041770
+227188-   devIDType=staticId
+227189-  localConnectionState=csInitiate
+227190-2015-02-12 16:03:13,818 [TSAPIEvent-1] DEBUG com.swhh.csta.d.a.b - 1-4061 dropped to zero 359ms ago
+227191-2015-02-12 16:03:13,818 [TSAPIEvent-1] WARN  com.swhh.csta.d.a.b - 1-4061 dropped to zero pushed out.
+227192-2015-02-12 16:03:13,818 [TSAPIEvent-1] DEBUG com.swhh.csta.a.l - Conn=ConnectionID
+227193- callID=4061
+227194- deviceID=8041770
+227195- devIDType=staticId
+227196-2015-02-12 16:03:13,818 [TSAPIEvent-1] DEBUG com.swhh.csta.a.n - Found station 8041770 (Liam Brady) sw=1
+227197-2015-02-12 16:03:13,818 [TSAPIEvent-1] DEBUG com.swhh.csta.d.a.j - New Conn: Conn:141, call=4061 station 8041770 (Liam Brady) sw=1 /INITIATED 12-Feb-2015 16:03:13
+227198-2015-02-12 16:03:13,818 [TSAPIEvent-1] DEBUG com.swhh.csta.a.l - 1-4061 processSnapshot - snapshotpending was true and now false
+227199-2015-02-12 16:03:13,818 [TSAPIEvent-1] DEBUG com.swhh.csta.d.a.b - 1-4061 updateConns 1 dosnapshot=true additive=false
+227200-2015-02-12 16:03:13,818 [TSAPIEvent-1] DEBUG com.swhh.csta.d.a.b - 2-2251827007246017/S getCurrentDevs= 138[station 8041770 (Liam Brady) sw=1:ESTABLISHED@16:03:13 REC 
+227201-2015-02-12 16:03:13,818 [TSAPIEvent-1] DEBUG com.swhh.csta.d.a.b - 2-2251827007246017/S has station 8041770 (Liam Brady) sw=1 in state 88 is recordable
+227202-2015-02-12 16:03:13,818 [TSAPIEvent-1] DEBUG com.swhh.csta.d.a.b - 2-2251827007246017/S Standalone  (ah=false)  Testing station 8041770 (Liam Brady) sw=1 isObserved=true
+227203-2015-02-12 16:03:13,818 [TSAPIEvent-1] INFO  com.swhh.csta.d.a.b - getDominantCall returns NULL
+227204-2015-02-12 16:03:13,818 [TSAPIEvent-1] DEBUG com.swhh.csta.d.a.b - 1-4061 ADDING Conn:141, call=4061 station 8041770 (Liam Brady) sw=1 /INITIATED 12-Feb-2015 16:03:13
+227649:2015-02-12 16:03:14,381 [TSAPIEvent-1] DEBUG com.swhh.csta.a.k - station 8041770 (Liam Brady) sw=1 onSnapshotCall=CSTASnapshotCallConfEvent
+227650- info=CSTASnapshotCallResponseInfo
+227651-  deviceOnCall=ExtendedDeviceID
+227652-   deviceID=8041770
+227653-   deviceIDType=explicitPrivateLocalNumber
+227654-   deviceIDStatus=idProvided
+227655-  callIdentifier=ConnectionID
+227656-   callID=4061
+227657-   deviceID=8041770
+227658-   devIDType=staticId
+227659-  localConnectionState=csInitiate
+227660-2015-02-12 16:03:14,381 [TSAPIEvent-1] DEBUG com.swhh.csta.a.l - Conn=ConnectionID
+227661- callID=4061
+227662- deviceID=8041770
+227663- devIDType=staticId
+227664-2015-02-12 16:03:14,381 [TSAPIEvent-1] DEBUG com.swhh.csta.a.n - Found station 8041770 (Liam Brady) sw=1
+227665-2015-02-12 16:03:14,381 [TSAPIEvent-1] DEBUG com.swhh.csta.d.a.j - New Conn: Conn:142, call=4061 station 8041770 (Liam Brady) sw=1 /INITIATED 12-Feb-2015 16:03:14
+227666-2015-02-12 16:03:14,381 [TSAPIEvent-1] DEBUG com.swhh.csta.a.l - 1-4061 processSnapshot - snapshotpending was true and now false
+227667-2015-02-12 16:03:14,381 [TSAPIEvent-1] DEBUG com.swhh.csta.d.a.b - 1-4061 updateConns 1 dosnapshot=true additive=false
+227668-2015-02-12 16:03:14,381 [TSAPIEvent-1] DEBUG com.swhh.csta.d.a.b - 2-2251827007246017/S getCurrentDevs= 138[station 8041770 (Liam Brady) sw=1:ESTABLISHED@16:03:13 REC 
+227669-2015-02-12 16:03:14,381 [TSAPIEvent-1] DEBUG com.swhh.csta.d.a.b - 2-2251827007246017/S has station 8041770 (Liam Brady) sw=1 in state 88 is recordable
+227670-2015-02-12 16:03:14,381 [TSAPIEvent-1] DEBUG com.swhh.csta.d.a.b - 2-2251827007246017/S Standalone  (ah=false)  Testing station 8041770 (Liam Brady) sw=1 isObserved=true
+227671-2015-02-12 16:03:14,381 [TSAPIEvent-1] INFO  com.swhh.csta.d.a.b - getDominantCall returns NULL
+227672-2015-02-12 16:03:14,381 [TSAPIEvent-1] DEBUG com.swhh.csta.d.a.b - 1-4061 REDUNDANT conn. station 8041770 (Liam Brady) sw=1/INITIATED
+227673-2015-02-12 16:03:14,381 [TSAPIEvent-1] DEBUG com.swhh.csta.d.a.b - 2-2251827007246017/S getCurrentDevs= 138[station 8041770 (Liam Brady) sw=1:ESTABLISHED@16:03:13 REC 
+227674-2015-02-12 16:03:14,381 [TSAPIEvent-1] DEBUG com.swhh.csta.d.a.b - 2-2251827007246017/S has station 8041770 (Liam Brady) sw=1 in state 88 is recordable
+228017:2015-02-12 16:03:14,803 [TSAPIEvent-1] DEBUG com.swhh.csta.a.l - station 8041770 (Liam Brady) sw=1 onCSTAConnectionClearedEvent=CSTAConnectionClearedEvent
+228018- droppedConnection=ConnectionID
+228019-  callID=4061
+228020-  deviceID=8041770
+228021-  devIDType=staticId
+228022- releasingDevice=ExtendedDeviceID
+228023-  deviceID=8041770
+228024-  deviceIDType=explicitPrivateLocalNumber
+228025-  deviceIDStatus=idProvided
+228026- localConnectionInfo=csNull
+228027- cause=ecNone
+228028-2015-02-12 16:03:14,803 [TSAPIEvent-1] DEBUG com.swhh.csta.a.n - Found station 8041770 (Liam Brady) sw=1
+228029-2015-02-12 16:03:14,803 [TSAPIEvent-1] DEBUG com.swhh.csta.a.n - Found station 8041770 (Liam Brady) sw=1
+228030-2015-02-12 16:03:14,803 [TSAPIEvent-1] DEBUG com.swhh.csta.d.a.j - New Conn: Conn:143, call=4061 station 8041770 (Liam Brady) sw=1 /DISCONNECTED 12-Feb-2015 16:03:14
+228031-2015-02-12 16:03:14,803 [TSAPIEvent-1] DEBUG com.swhh.csta.d.a.b - 1-4061 updateConns 1 dosnapshot=false additive=true
+228032-2015-02-12 16:03:14,803 [TSAPIEvent-1] DEBUG com.swhh.csta.d.a.b - 2-2251827007246017/S getCurrentDevs= 138[station 8041770 (Liam Brady) sw=1:ESTABLISHED@16:03:13 REC 
+228033-2015-02-12 16:03:14,803 [TSAPIEvent-1] DEBUG com.swhh.csta.d.a.b - 2-2251827007246017/S has station 8041770 (Liam Brady) sw=1 in state 88 is recordable
+228034-2015-02-12 16:03:14,803 [TSAPIEvent-1] DEBUG com.swhh.csta.d.a.b - 2-2251827007246017/S Standalone  (ah=false)  Testing station 8041770 (Liam Brady) sw=1 isObserved=true
+228035-2015-02-12 16:03:14,803 [TSAPIEvent-1] INFO  com.swhh.csta.d.a.b - getDominantCall returns NULL
+228036-2015-02-12 16:03:14,803 [TSAPIEvent-1] DEBUG com.swhh.csta.d.a.b - 1-4061removing  conn. station 8041770 (Liam Brady) sw=1/INITIATED
+228037-2015-02-12 16:03:14,803 [TSAPIEvent-1] DEBUG com.swhh.csta.d.a.b - 2-2251827007246017/S getCurrentDevs= 138[station 8041770 (Liam Brady) sw=1:ESTABLISHED@16:03:13 REC 
+228038-2015-02-12 16:03:14,803 [TSAPIEvent-1] DEBUG com.swhh.csta.d.a.b - 2-2251827007246017/S has station 8041770 (Liam Brady) sw=1 in state 88 is recordable
+228039-2015-02-12 16:03:14,803 [TSAPIEvent-1] DEBUG com.swhh.csta.d.a.b - 2-2251827007246017/S Standalone  (ah=false)  Testing station 8041770 (Liam Brady) sw=1 isObserved=true
+228040-2015-02-12 16:03:14,803 [TSAPIEvent-1] INFO  com.swhh.csta.d.a.b - getDominantCall returns NULL
+228041-2015-02-12 16:03:14,803 [TSAPIEvent-1] DEBUG com.swhh.csta.d.a.b - 1-4061 dropped to zero parties
+228042-2015-02-12 16:03:14,803 [TSAPIEvent-1] DEBUG com.swhh.csta.d.a.b - 1-4061 contact forced from CON:9202246113932002751 oc=1-4061 a=8041770 d=null - 1/1 s=null to null
+228043-2015-02-12 16:03:14,803 [TSAPIEvent-1] DEBUG com.swhh.csta.d.b.e - 9202246113932002751-1 dev=station 8041770 (Liam Brady) sw=1 agent=aaccagent 1000 sw=2 updating: 
+228044-2015-02-12 16:03:14,803 [TSAPIEvent-1] DEBUG com.swhh.csta.d.b.e - 9202246113932002751-1 dev=station 8041770 (Liam Brady) sw=1 agent=aaccagent 1000 sw=2 Checking if ready. F=false m=84 obs=true r=com.swhh.cs.a.k@5c44263f qm=8041770 tg=0
+228045-2015-02-12 16:03:14,803 [TSAPIEvent-1] DEBUG com.swhh.csta.d.b.e - 9202246113932002751-1 dev=station 8041770 (Liam Brady) sw=1 agent=aaccagent 1000 sw=2 NOT ready. s=84 r=com.swhh.cs.a.k@5c44263f qm=8041770
+228046-2015-02-12 16:03:14,803 [TSAPIEvent-1] DEBUG com.swhh.csta.d.b.e - 9202246113932002751-1 dev=station 8041770 (Liam Brady) sw=1 agent=aaccagent 1000 sw=2 updating from  NO CALLS - 
+228047-2015-02-12 16:03:14,803 [TSAPIEvent-1] DEBUG com.swhh.csta.d.b.e - 9202246113932002751-1 dev=station 8041770 (Liam Brady) sw=1 agent=aaccagent 1000 sw=2 Party Summary: mystate=89 numothers=0 scs=[0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ]
+228048-2015-02-12 16:03:14,803 [TSAPIEvent-1] DEBUG com.swhh.csta.d.b.e - 9202246113932002751-1 dev=station 8041770 (Liam Brady) sw=1 agent=aaccagent 1000 sw=2 noting mystate change to 89
+228049-2015-02-12 16:03:14,803 [TSAPIEvent-1] DEBUG com.swhh.cs.j.al - paclient97.wfolab.local wasn't recording. Now 1
+228050-2015-02-12 16:03:14,803 [TSAPIEvent-1] DEBUG com.swhh.csta.d.b.e - 9202246113932002751-1 dev=station 8041770 (Liam Brady) sw=1 agent=aaccagent 1000 sw=2 Checking if ready. F=false m=89 obs=true r=com.swhh.cs.a.k@5c44263f qm=8041770 tg=0
+228051-2015-02-12 16:03:14,803 [TSAPIEvent-1] DEBUG com.swhh.csta.d.b.a - CON:9202246113932002751 oc=1-4061 a=8041770 d=null - 1/1 s=null Checking if ready to send to core
+228052-2015-02-12 16:03:14,803 [TSAPIEvent-1] DEBUG com.swhh.csta.d.b.a - CON:9202246113932002751 oc=1-4061 a=8041770 d=null - 1/1 s=null Have m_sessions lock
+228053-2015-02-12 16:03:14,803 [TSAPIEvent-1] DEBUG com.swhh.csta.d.b.e - 9202246113932002751-1 dev=station 8041770 (Liam Brady) sw=1 agent=aaccagent 1000 sw=2 Checking if ready. F=false m=89 obs=true r=com.swhh.cs.a.k@5c44263f qm=8041770 tg=0
+228054-2015-02-12 16:03:14,803 [TSAPIEvent-1] DEBUG com.swhh.csta.d.b.a - Removing unwanted session 9202246113932002751-1 dev=station 8041770 (Liam Brady) sw=1 agent=aaccagent 1000 sw=2
+228055-2015-02-12 16:03:14,803 [TSAPIEvent-1] DEBUG com.swhh.csta.d.b.e - 9202246113932002751-1 dev=station 8041770 (Liam Brady) sw=1 agent=aaccagent 1000 sw=2 destroyed
+228056-2015-02-12 16:03:14,803 [TSAPIEvent-1] DEBUG com.swhh.csta.d.b.a - CON:9202246113932002751 oc=1-4061 a=8041770 d=null - 1/0 s=null not worth saving
+228057-2015-02-12 16:03:14,803 [TSAPIEvent-1] DEBUG com.swhh.csta.d.b.a - CON:9202246113932002751 oc=1-4061 a=8041770 d=null - 1/0 s=null Released m_sessions lock
+228058-2015-02-12 16:03:14,803 [TSAPIEvent-1] DEBUG com.swhh.csta.d.b.a - CON:9202246113932002751 oc=1-4061 a=8041770 d=null - 1/0 s=null Checking if ready to send to core
+228059-2015-02-12 16:03:14,803 [TSAPIEvent-1] DEBUG com.swhh.csta.d.b.a - CON:9202246113932002751 oc=1-4061 a=8041770 d=null - 1/0 s=null Have m_sessions lock
+228060-2015-02-12 16:03:14,803 [TSAPIEvent-1] DEBUG com.swhh.csta.d.b.a - CON:9202246113932002751 oc=1-4061 a=8041770 d=null - 1/0 s=null No sessions
+228061-2015-02-12 16:03:14,803 [TSAPIEvent-1] DEBUG com.swhh.csta.d.b.a - Contact 9202246113932002751 terminated
+228062-2015-02-12 16:03:14,803 [TSAPIEvent-1] DEBUG com.swhh.csta.d.a.b - 1-4061 checkCTI for updateconns on NULL dosnapshot=false msdelay=250 snapshotpending= true
+228096-2015-02-12 16:03:14,834 [Thread-52] DEBUG com.swhh.csta.b.g - station 8041770 (Liam Brady) sw=1 onCallEvent=DISCONNECTED - com.swhh.cti.c.a.d
+228097-  a=DISCONNECTED
+228098-  b=DEFAULT
+228099:  c=Passive
+228100-  d=sip:8041770@pkgappslab.com
+228101-  e=a14c0b0e-7cc4-47a6-b148-731ba74ee9a8
+228102-  f=2c652c5c-82c5-4ea7-95c7-81f67f18a0a1
+228103-  g={}
+228396:2015-02-12 16:03:15,162 [SnapTimer] DEBUG com.swhh.cs.j.at - onSPMFree id=8332750038 name=SIPREC@10.134.49.155:12060 state=connected
+228911-2015-02-12 16:03:17,068 [Thread-52] DEBUG com.swhh.csta.b.g - station 8041770 (Liam Brady) sw=1 onCallEvent=ESTABLISHED - com.swhh.cti.c.a.d
+228912-  a=ESTABLISHED
+228913-  b=DEFAULT
+228914:  c=Passive
+228915-  d=sip:8041770@pkgappslab.com
+228916-  e=b2ab86d5-8c16-40d0-811d-e7a87a7073eb
+228917-  f=f89b452d-782b-4f6e-81a4-071046ba7943
+228918-  g={CmfContactID=f89b452d-782b-4f6e-81a4-071046ba7943, SIP_CALL_TYPE=Outbound, AD_CLID=8041770, SIP_CALLER_DISPLAY=Liam Brady, ContactType=10000, Provider=Passive, ProviderContactID=37497071}
+229457:2015-02-12 16:03:18,848 [TSAPIEvent-1] DEBUG com.swhh.csta.a.l - station 8041770 (Liam Brady) sw=1 onCSTAConnectionClearedEvent=CSTAConnectionClearedEvent
+229458- droppedConnection=ConnectionID
+229459-  callID=4062
+229460-  deviceID=8041770
+229461-  devIDType=staticId
+229462- releasingDevice=ExtendedDeviceID
+229463-  deviceID=8041770
+229464-  deviceIDType=explicitPrivateLocalNumber
+229465-  deviceIDStatus=idProvided
+229466- localConnectionInfo=csNull
+229467- cause=ecNone
+229468-2015-02-12 16:03:18,848 [TSAPIEvent-1] DEBUG com.swhh.csta.a.l - 1-4062Redundant clear: already zero connections.
+229469-2015-02-12 16:03:18,856 [RTP-12048] DEBUG com.swhh.cs.h.o - L 0:160:14355:15892:-1592995872
+229470-2015-02-12 16:03:18,866 [RTP-12048] DEBUG com.swhh.cs.h.o - R 0:160:640688459:-29102:1020115997
+229471-2015-02-12 16:03:18,866 [RTP-12048] DEBUG com.swhh.cs.h.o - R -29202
+229472-2015-02-12 16:03:18,866 [RTP-12048] DEBUG com.swhh.cs.h.o - R -29201
+229473-2015-02-12 16:03:18,866 [RTP-12048] DEBUG com.swhh.cs.h.o - R -29200
+229474-2015-02-12 16:03:18,866 [RTP-12048] DEBUG com.swhh.cs.h.o - R -29199
+229475-2015-02-12 16:03:18,866 [RTP-12048] DEBUG com.swhh.cs.h.o - R -29198
+229476-2015-02-12 16:03:18,866 [RTP-12048] DEBUG com.swhh.cs.h.o - R -29197
+229477-2015-02-12 16:03:18,866 [RTP-12048] DEBUG com.swhh.cs.h.o - R -29196
+229478-2015-02-12 16:03:18,866 [RTP-12048] DEBUG com.swhh.cs.h.o - R -29195
+229479-2015-02-12 16:03:18,866 [RTP-12048] DEBUG com.swhh.cs.h.o - R -29194
+229480-2015-02-12 16:03:18,866 [RTP-12048] DEBUG com.swhh.cs.h.o - R -29193
+229481-2015-02-12 16:03:18,866 [RTP-12048] DEBUG com.swhh.cs.h.o - R -29192
+229482-2015-02-12 16:03:18,866 [RTP-12048] DEBUG com.swhh.cs.h.o - R -29191
+229483-2015-02-12 16:03:18,866 [RTP-12048] DEBUG com.swhh.cs.h.o - R -29190
+229484-2015-02-12 16:03:18,866 [RTP-12048] DEBUG com.swhh.cs.h.o - R -29189
+229485-2015-02-12 16:03:18,866 [RTP-12048] DEBUG com.swhh.cs.h.o - R -29188
+229486-2015-02-12 16:03:18,866 [RTP-12048] DEBUG com.swhh.cs.h.o - R -29187
+229487-2015-02-12 16:03:18,867 [RTP-12048] DEBUG com.swhh.cs.h.o - R -29186
+229488-2015-02-12 16:03:18,867 [RTP-12048] DEBUG com.swhh.cs.h.o - R -29185
+229489-2015-02-12 16:03:18,867 [RTP-12048] DEBUG com.swhh.cs.h.o - R -29184
+229490-2015-02-12 16:03:18,867 [RTP-12048] DEBUG com.swhh.cs.h.o - R -29183
+229491-2015-02-12 16:03:18,867 [RTP-12048] DEBUG com.swhh.cs.h.o - R -29182
+229492-2015-02-12 16:03:18,867 [RTP-12048] DEBUG com.swhh.cs.h.o - R -29181
+229493-2015-02-12 16:03:18,867 [RTP-12048] DEBUG com.swhh.cs.h.o - R -29180
+229494-2015-02-12 16:03:18,867 [RTP-12048] DEBUG com.swhh.cs.h.o - R -29179
+229495-2015-02-12 16:03:18,867 [RTP-12048] DEBUG com.swhh.cs.h.o - R -29178
+229496-2015-02-12 16:03:18,867 [RTP-12048] DEBUG com.swhh.cs.h.o - R -29177
+229497-2015-02-12 16:03:18,867 [RTP-12048] DEBUG com.swhh.cs.h.o - R -29176
+229498-2015-02-12 16:03:18,867 [RTP-12048] DEBUG com.swhh.cs.h.o - R -29175
+229499-2015-02-12 16:03:18,867 [RTP-12048] DEBUG com.swhh.cs.h.o - R -29174
+229500-2015-02-12 16:03:18,867 [RTP-12048] DEBUG com.swhh.cs.h.o - R -29173
+229501-2015-02-12 16:03:18,867 [RTP-12048] DEBUG com.swhh.cs.h.o - R -29172
+229502-2015-02-12 16:03:18,867 [RTP-12048] DEBUG com.swhh.cs.h.o - R -29171
+229562-2015-02-12 16:03:18,874 [Thread-52] DEBUG com.swhh.csta.b.g - station 8041770 (Liam Brady) sw=1 onCallEvent=DISCONNECTED - com.swhh.cti.c.a.d
+229563-  a=DISCONNECTED
+229564-  b=DEFAULT
+229565:  c=Passive
+229566-  d=sip:8041770@pkgappslab.com
+229567-  e=b2ab86d5-8c16-40d0-811d-e7a87a7073eb
+229568-  f=f89b452d-782b-4f6e-81a4-071046ba7943
+229569-  g={}
+230269:2015-02-12 16:03:21,912 [POM Read Thread] DEBUG com.swhh.cti.m.a.j - 000152<?xml version="1.0" encoding="UTF-8"?><ListAgentsResponse success="false" reasonCode="1"><reasonText> Invalid Request </reasonText></ListAgentsResponse>
+233137:2015-02-12 16:03:35,912 [POM Read Thread] DEBUG com.swhh.cti.m.a.j - 000152<?xml version="1.0" encoding="UTF-8"?><ListAgentsResponse success="false" reasonCode="1"><reasonText> Invalid Request </reasonText></ListAgentsResponse>
+236198:2015-02-12 16:03:50,928 [POM Read Thread] DEBUG com.swhh.cti.m.a.j - 000152<?xml version="1.0" encoding="UTF-8"?><ListAgentsResponse success="false" reasonCode="1"><reasonText> Invalid Request </reasonText></ListAgentsResponse>
+239143:2015-02-12 16:04:04,929 [POM Read Thread] DEBUG com.swhh.cti.m.a.j - 000152<?xml version="1.0" encoding="UTF-8"?><ListAgentsResponse success="false" reasonCode="1"><reasonText> Invalid Request </reasonText></ListAgentsResponse>
+239883:2015-02-12 16:04:08,516 [TSAPIEvent-1] DEBUG com.swhh.csta.a.l - station 8041774 (Chris Hughton) sw=1 onCSTAConnectionClearedEvent=CSTAConnectionClearedEvent
+239884- droppedConnection=ConnectionID
+239885-  callID=4060
+239886-  deviceID=8041774
+239887-  devIDType=staticId
+239888- releasingDevice=ExtendedDeviceID
+239889-  deviceID=8041774
+239890-  deviceIDType=explicitPrivateLocalNumber
+239891-  deviceIDStatus=idProvided
+239892- localConnectionInfo=csNone
+239893- cause=ecNone
+239894-2015-02-12 16:04:08,516 [TSAPIEvent-1] DEBUG com.swhh.csta.a.n - Found station 8041774 (Chris Hughton) sw=1
+239895-2015-02-12 16:04:08,516 [TSAPIEvent-1] DEBUG com.swhh.csta.a.n - Found station 8041774 (Chris Hughton) sw=1
+239896-2015-02-12 16:04:08,516 [TSAPIEvent-1] DEBUG com.swhh.csta.d.a.j - New Conn: Conn:147, call=4060 station 8041774 (Chris Hughton) sw=1 /DISCONNECTED 12-Feb-2015 16:04:08
+239897-2015-02-12 16:04:08,517 [TSAPIEvent-1] DEBUG com.swhh.csta.d.a.b - 1-4060 updateConns 1 dosnapshot=false additive=true
+239898-2015-02-12 16:04:08,517 [TSAPIEvent-1] DEBUG com.swhh.csta.d.a.b - 1-4060 getCurrentDevs= 85[aacccdn 3041770 sw=2:ESTABLISHED@15:59:24 REC 87[station 8041774 (Chris Hughton) sw=1:ESTABLISHED@15:59:25 REC 
+239899-2015-02-12 16:04:08,517 [TSAPIEvent-1] DEBUG com.swhh.csta.d.a.b - 2-2251814122343859/D getCurrentDevs= 63[phone 2002 sw=2:ESTABLISHED@15:58:43 REC 126[station 8041774 (Chris Hughton) sw=1:ESTABLISHED@16:01:09 REC 
+239900-2015-02-12 16:04:08,517 [TSAPIEvent-1] DEBUG com.swhh.csta.d.a.b - 2-2251814122343859/D has phone 2002 sw=2 in state 88 is recordable
+239901-2015-02-12 16:04:08,517 [TSAPIEvent-1] DEBUG com.swhh.csta.d.a.b - 2-2251814122343859/D has station 8041774 (Chris Hughton) sw=1 in state 88 is recordable
+239902-2015-02-12 16:04:08,517 [TSAPIEvent-1] DEBUG com.swhh.csta.d.a.b - 2-2251814122343859/D So call IS recordable
+239903-2015-02-12 16:04:08,517 [TSAPIEvent-1] DEBUG com.swhh.csta.d.a.b - 2-2251814122343859/D connected to: 1-4060  (ah=false)  Testing phone 2002 sw=2 isObserved=false Testing station 8041774 (Chris Hughton) sw=1 isObserved=true
+239904-2015-02-12 16:04:08,517 [TSAPIEvent-1] DEBUG com.swhh.csta.d.a.b - 1-4060 has aacccdn 3041770 sw=2 in state 88 is recordable
+239905-2015-02-12 16:04:08,517 [TSAPIEvent-1] DEBUG com.swhh.csta.d.a.b - 1-4060 has station 8041774 (Chris Hughton) sw=1 in state 88 is recordable
+239906-2015-02-12 16:04:08,517 [TSAPIEvent-1] DEBUG com.swhh.csta.d.a.b - 1-4060 So call IS recordable
+239907-2015-02-12 16:04:08,517 [TSAPIEvent-1] DEBUG com.swhh.csta.d.a.b - 1-4060 connected to: 2-2251814122343859/D  (ah=false)  Testing aacccdn 3041770 sw=2 isObserved=false Testing station 8041774 (Chris Hughton) sw=1 isObserved=truestation 8041774 (Chris Hughton) sw=1? on 2-2251814122343859/Dstate=88 Happy to try...2-2251814122343859/D (via station 8041774 (Chris Hughton) sw=1) 
+239908-2015-02-12 16:04:08,517 [TSAPIEvent-1] DEBUG com.swhh.csta.d.a.b - 1-4060removing  conn. station 8041774 (Chris Hughton) sw=1/ESTABLISHED
+239909-2015-02-12 16:04:08,517 [TSAPIEvent-1] DEBUG com.swhh.csta.d.a.b - 2-2251814122343859/D getCurrentDevs= 63[phone 2002 sw=2:ESTABLISHED@15:58:43 REC 126[station 8041774 (Chris Hughton) sw=1:ESTABLISHED@16:01:09 REC 
+239910-2015-02-12 16:04:08,517 [TSAPIEvent-1] DEBUG com.swhh.csta.d.a.b - 2-2251814122343859/D has phone 2002 sw=2 in state 88 is recordable
+239911-2015-02-12 16:04:08,517 [TSAPIEvent-1] DEBUG com.swhh.csta.d.a.b - 2-2251814122343859/D has station 8041774 (Chris Hughton) sw=1 in state 88 is recordable
+239912-2015-02-12 16:04:08,517 [TSAPIEvent-1] DEBUG com.swhh.csta.d.a.b - 2-2251814122343859/D So call IS recordable
+239913-2015-02-12 16:04:08,517 [TSAPIEvent-1] DEBUG com.swhh.csta.d.a.b - 2-2251814122343859/D Standalone  (ah=false)  Testing phone 2002 sw=2 isObserved=false Testing station 8041774 (Chris Hughton) sw=1 isObserved=true
+239914-2015-02-12 16:04:08,517 [TSAPIEvent-1] DEBUG com.swhh.csta.d.a.b - 1-4060 checkCTI for updateconns on NULL dosnapshot=false msdelay=250 snapshotpending= true
+239915-2015-02-12 16:04:08,517 [TSAPIEvent-1] DEBUG com.swhh.csta.d.c.j - station 8041774 (Chris Hughton) sw=1 onCallChanged m=null
+239916-2015-02-12 16:04:08,517 [TSAPIEvent-1] DEBUG com.swhh.csta.d.a.b - 2-2251814122343859/D getCurrentDevs= 63[phone 2002 sw=2:ESTABLISHED@15:58:43 REC 126[station 8041774 (Chris Hughton) sw=1:ESTABLISHED@16:01:09 REC 
+239917-2015-02-12 16:04:08,517 [TSAPIEvent-1] DEBUG com.swhh.csta.d.a.b - 2-2251814122343859/D has phone 2002 sw=2 in state 88 is recordable
+239918-2015-02-12 16:04:08,517 [TSAPIEvent-1] DEBUG com.swhh.csta.d.a.b - 2-2251814122343859/D has station 8041774 (Chris Hughton) sw=1 in state 88 is recordable
+239919-2015-02-12 16:04:08,517 [TSAPIEvent-1] DEBUG com.swhh.csta.d.a.b - 2-2251814122343859/D So call IS recordable
+239920-2015-02-12 16:04:08,517 [TSAPIEvent-1] DEBUG com.swhh.csta.d.a.b - 2-2251814122343859/D Standalone  (ah=true)  Testing phone 2002 sw=2 isObserved=false Testing station 8041774 (Chris Hughton) sw=1 isObserved=true
+239921-2015-02-12 16:04:08,517 [TSAPIEvent-1] DEBUG com.swhh.csta.d.a.b - 2-2251814122343859/D getCurrentRealConns= 63[phone 2002 sw=2:ESTABLISHED@15:58:43 REC, 126[station 8041774 (Chris Hughton) sw=1:ESTABLISHED@16:01:09 REC, 
+239922-2015-02-12 16:04:08,517 [RTP-12048] DEBUG com.swhh.cs.h.o - L 0:160:14355:18375:-1592598592
+239923-2015-02-12 16:04:08,517 [TSAPIEvent-1] DEBUG com.swhh.csta.d.a.b - 2-2251814122343859/D segment number bumped to 268
+239924-2015-02-12 16:04:08,517 [TSAPIEvent-1] DEBUG com.swhh.csta.d.a.b - 2-2251814122343859/D getCurrentDevs= 63[phone 2002 sw=2:ESTABLISHED@15:58:43 REC 126[station 8041774 (Chris Hughton) sw=1:ESTABLISHED@16:01:09 REC 
+239925-2015-02-12 16:04:08,517 [TSAPIEvent-1] DEBUG com.swhh.csta.d.a.b - 2-2251814122343859/D has phone 2002 sw=2 in state 88 is recordable
+239926-2015-02-12 16:04:08,517 [TSAPIEvent-1] DEBUG com.swhh.csta.d.a.b - 2-2251814122343859/D has station 8041774 (Chris Hughton) sw=1 in state 88 is recordable
+239927-2015-02-12 16:04:08,517 [TSAPIEvent-1] DEBUG com.swhh.csta.d.a.b - 2-2251814122343859/D So call IS recordable
+239928-2015-02-12 16:04:08,517 [TSAPIEvent-1] DEBUG com.swhh.csta.d.a.b - 2-2251814122343859/D Standalone  (ah=false)  Testing phone 2002 sw=2 isObserved=false Testing station 8041774 (Chris Hughton) sw=1 isObserved=true
+240390-2015-02-12 16:04:08,572 [Thread-52] DEBUG com.swhh.csta.b.g - station 8041774 (Chris Hughton) sw=1 onCallEvent=DISCONNECTED - com.swhh.cti.c.a.d
+240391-  a=DISCONNECTED
+240392-  b=DEFAULT
+240393:  c=Passive
+240394-  d=sip:8041774@pkgappslab.com
+240395-  e=750edde5-bbe5-4928-ad83-5ed02923104e
+240396-  f=eee647d2-d312-4e68-bb41-6dc59e33fd04
+240397-  g={}
+240958:2015-02-12 16:04:08,594 [EventScannerThread] DEBUG com.swhh.i.d.s - Sent SIP OK
+241036:2015-02-12 16:04:08,596 [Read_/127.0.0.1:56589] DEBUG com.swhh.cs.j.ak - SIPREC@10.134.49.155:12048 disconnected from UCID 
+241038:2015-02-12 16:04:08,596 [Read_/127.0.0.1:56589] DEBUG com.swhh.cs.j.at - onSPMFree id=8332750033 name=SIPREC@10.134.49.155:12048 state=setup
+241079:2015-02-12 16:04:08,826 [SnapTimer] DEBUG com.swhh.csta.d.a.b - 2-2251814122343859/D not recordable when tograves=0 and realparties=0
+241348:2015-02-12 16:04:08,857 [SnapTimer] DEBUG com.swhh.cs.j.ah - SIP stop request: connid=750edde5-bbe5-4928-ad83-5ed02923104e recuri=sip:12044@10.134.49.155
+242676:2015-02-12 16:04:19,942 [POM Read Thread] DEBUG com.swhh.cti.m.a.j - 000152<?xml version="1.0" encoding="UTF-8"?><ListAgentsResponse success="false" reasonCode="1"><reasonText> Invalid Request </reasonText></ListAgentsResponse>
+242695:2015-02-12 16:04:33,962 [POM Read Thread] DEBUG com.swhh.cti.m.a.j - 000152<?xml version="1.0" encoding="UTF-8"?><ListAgentsResponse success="false" reasonCode="1"><reasonText> Invalid Request </reasonText></ListAgentsResponse>
+242856:2015-02-12 16:04:47,981 [POM Read Thread] DEBUG com.swhh.cti.m.a.j - 000152<?xml version="1.0" encoding="UTF-8"?><ListAgentsResponse success="false" reasonCode="1"><reasonText> Invalid Request </reasonText></ListAgentsResponse>
+243024:2015-02-12 16:05:01,994 [POM Read Thread] DEBUG com.swhh.cti.m.a.j - 000152<?xml version="1.0" encoding="UTF-8"?><ListAgentsResponse success="false" reasonCode="1"><reasonText> Invalid Request </reasonText></ListAgentsResponse>
+243474:2015-02-12 16:05:15,996 [POM Read Thread] DEBUG com.swhh.cti.m.a.j - 000152<?xml version="1.0" encoding="UTF-8"?><ListAgentsResponse success="false" reasonCode="1"><reasonText> Invalid Request </reasonText></ListAgentsResponse>
+243597:2015-02-12 16:05:30,012 [POM Read Thread] DEBUG com.swhh.cti.m.a.j - 000152<?xml version="1.0" encoding="UTF-8"?><ListAgentsResponse success="false" reasonCode="1"><reasonText> Invalid Request </reasonText></ListAgentsResponse>
+243765:2015-02-12 16:05:44,013 [POM Read Thread] DEBUG com.swhh.cti.m.a.j - 000152<?xml version="1.0" encoding="UTF-8"?><ListAgentsResponse success="false" reasonCode="1"><reasonText> Invalid Request </reasonText></ListAgentsResponse>
+243869:2015-02-12 16:05:58,028 [POM Read Thread] DEBUG com.swhh.cti.m.a.j - 000152<?xml version="1.0" encoding="UTF-8"?><ListAgentsResponse success="false" reasonCode="1"><reasonText> Invalid Request </reasonText></ListAgentsResponse>
+243889:2015-02-12 16:06:12,029 [POM Read Thread] DEBUG com.swhh.cti.m.a.j - 000152<?xml version="1.0" encoding="UTF-8"?><ListAgentsResponse success="false" reasonCode="1"><reasonText> Invalid Request </reasonText></ListAgentsResponse>
+243900:2015-02-12 16:06:26,031 [POM Read Thread] DEBUG com.swhh.cti.m.a.j - 000152<?xml version="1.0" encoding="UTF-8"?><ListAgentsResponse success="false" reasonCode="1"><reasonText> Invalid Request </reasonText></ListAgentsResponse>
+243922:2015-02-12 16:06:41,031 [POM Read Thread] DEBUG com.swhh.cti.m.a.j - 000152<?xml version="1.0" encoding="UTF-8"?><ListAgentsResponse success="false" reasonCode="1"><reasonText> Invalid Request </reasonText></ListAgentsResponse>
+243997:2015-02-12 16:06:55,047 [POM Read Thread] DEBUG com.swhh.cti.m.a.j - 000152<?xml version="1.0" encoding="UTF-8"?><ListAgentsResponse success="false" reasonCode="1"><reasonText> Invalid Request </reasonText></ListAgentsResponse>
+244165:2015-02-12 16:07:10,034 [POM Read Thread] DEBUG com.swhh.cti.m.a.j - 000152<?xml version="1.0" encoding="UTF-8"?><ListAgentsResponse success="false" reasonCode="1"><reasonText> Invalid Request </reasonText></ListAgentsResponse>
+244181:2015-02-12 16:07:24,049 [POM Read Thread] DEBUG com.swhh.cti.m.a.j - 000152<?xml version="1.0" encoding="UTF-8"?><ListAgentsResponse success="false" reasonCode="1"><reasonText> Invalid Request </reasonText></ListAgentsResponse>
+244193:2015-02-12 16:07:39,034 [POM Read Thread] DEBUG com.swhh.cti.m.a.j - 000152<?xml version="1.0" encoding="UTF-8"?><ListAgentsResponse success="false" reasonCode="1"><reasonText> Invalid Request </reasonText></ListAgentsResponse>
+244270:2015-02-12 16:07:53,067 [POM Read Thread] DEBUG com.swhh.cti.m.a.j - 000152<?xml version="1.0" encoding="UTF-8"?><ListAgentsResponse success="false" reasonCode="1"><reasonText> Invalid Request </reasonText></ListAgentsResponse>
+244358:2015-02-12 16:08:07,067 [POM Read Thread] DEBUG com.swhh.cti.m.a.j - 000152<?xml version="1.0" encoding="UTF-8"?><ListAgentsResponse success="false" reasonCode="1"><reasonText> Invalid Request </reasonText></ListAgentsResponse>
+244377:2015-02-12 16:08:21,084 [POM Read Thread] DEBUG com.swhh.cti.m.a.j - 000152<?xml version="1.0" encoding="UTF-8"?><ListAgentsResponse success="false" reasonCode="1"><reasonText> Invalid Request </reasonText></ListAgentsResponse>
+244390:2015-02-12 16:08:35,085 [POM Read Thread] DEBUG com.swhh.cti.m.a.j - 000152<?xml version="1.0" encoding="UTF-8"?><ListAgentsResponse success="false" reasonCode="1"><reasonText> Invalid Request </reasonText></ListAgentsResponse>
