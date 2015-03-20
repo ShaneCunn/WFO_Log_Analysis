@@ -48,55 +48,65 @@
         <ToolBarPanel HorizontalAlignment="Left" Height="16" VerticalAlignment="Top" Width="394" Margin="0,654,0,0"/>
         <Rectangle Fill="#FFBC0000" HorizontalAlignment="Left" Margin="0,640,0,0" Stroke="Black" VerticalAlignment="Top" Height="1" Width="1"/>
         <Image HorizontalAlignment="Left" Height="36" Margin="425,49,0,0" VerticalAlignment="Top" Width="130"/>
-        <TabControl Margin="0,21,0,5" SelectionChanged="TabControl_SelectionChanged">
-            <TabItem Header="Log Creation" Margin="3,0,-4,-3">
-                <Grid Background="#FFE5E5E5" Margin="-2,-4">
+        <TabControl Margin="1,26,-1,0">
+            <TabItem Header="Log Creation">
+                <Grid Background="#FFE5E5E5" Margin="0,-2,0,0">
                     <Grid.ColumnDefinitions>
 
                         <ColumnDefinition/>
 
                     </Grid.ColumnDefinitions>
-                    <ListView x:Name="ListView1" Margin="25,111,25,60" SelectionChanged="ListView1_SelectionChanged" Loaded="ListView1_Loaded" IsEnabled="False">
+                    <GroupBox x:Name="Selct_log_file_groupbox" Header="Temp select log file group" HorizontalAlignment="Left" Margin="25,26,0,0" VerticalAlignment="Top" Height="106" Width="375"/>
+                    <ListView x:Name="ListView1" Margin="25,208,25,50" Loaded="ListView1_Loaded" IsEnabled="False">
                         <ListView.View>
                             <GridView>
                                 <GridViewColumn/>
                             </GridView>
                         </ListView.View>
                     </ListView>
-                    <Button Content="..." HorizontalAlignment="Left" Margin="352,14,0,0" VerticalAlignment="Top" Width="30" Click="Button_Click" Height="22" ToolTip="Browse for a Log file to parse" RenderTransformOrigin="7,2.091"/>
-                    <Button x:Name="GrepButton" Content="Run" HorizontalAlignment="Left" Margin="25,0,0,10" VerticalAlignment="Bottom" Width="85" RenderTransformOrigin="-0.107,0.227" Click="GrepButton_Click" Height="22" ToolTip="Click to parse a log file">
-                        <Button.Background>
-                            <ImageBrush/>
-                        </Button.Background>
-                    </Button>
-                    <Label x:Name="File_Label" Content="" HorizontalAlignment="Left" Margin="120,14,0,0" VerticalAlignment="Top" Width="220" RenderTransformOrigin="0.5,0.5" Height="26">
+                    <Button Content="..." HorizontalAlignment="Left" Margin="138,60,0,0" VerticalAlignment="Top" Width="26" Click="Button_Click" Height="22" ToolTip="Browse for a Log file to parse" RenderTransformOrigin="7,2.091"/>
+                    <Button x:Name="GrepButton" Content="Run" HorizontalAlignment="Left" Margin="25,0,0,15" VerticalAlignment="Bottom" Width="85" RenderTransformOrigin="-0.107,0.227" Click="GrepButton_Click" Height="22" ToolTip="Click to run a search"/>
+                    <Label x:Name="File_Label" Content="" HorizontalAlignment="Left" Margin="180,60,0,0" VerticalAlignment="Top" Width="193" RenderTransformOrigin="0.5,0.5" Height="26">
                         <Label.RenderTransform>
                             <TransformGroup>
                                 <ScaleTransform/>
-                                <SkewTransform/>
-                                <RotateTransform Angle="0.311"/>
+                                <SkewTransform AngleY="0.087"/>
+                                <RotateTransform Angle="0.271"/>
                                 <TranslateTransform/>
                             </TransformGroup>
                         </Label.RenderTransform>
                     </Label>
                     <!--<Label Content="Start time" HorizontalAlignment="Left" Margin="32,137,0,0" VerticalAlignment="Top"/>
                     <Label Content="End time" HorizontalAlignment="Left" Margin="25,168,0,0" VerticalAlignment="Top" RenderTransformOrigin="-4.561,4.885"/>-->
-                    <xctk:DateTimePicker x:Name="End_time" RenderTransformOrigin="3.596,8.75" Margin="265,80,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" Width="100" ToolTip="Pick a end time" IsReadOnly="True"/>
-                    <xctk:DateTimePicker x:Name="Start_Time_" RenderTransformOrigin="3.596,8.75" Margin="90,80,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" Width="100" ToolTip="Pick a start time" IsReadOnly="True"/>
-                    <Label Content="Start time:" HorizontalAlignment="Left" Margin="25,79,0,0" VerticalAlignment="Top"/>
-                    <Label Content="End time:" HorizontalAlignment="Left" Margin="195,80,0,0" VerticalAlignment="Top"/>
-                    <Label Content="Source file:" HorizontalAlignment="Left" Margin="25,14,0,0" VerticalAlignment="Top"/>
-                    <Button Content="..." HorizontalAlignment="Left" Margin="352,48,0,0" VerticalAlignment="Top" Width="30" Click="Button_Click_4" ToolTip="Select output folder."/>
-                    <Label x:Name="outputFileLabel" Content="" HorizontalAlignment="Left" Margin="120,48,0,0" VerticalAlignment="Top" Width="220" Height="26"/>
-                    <Label Content="Output folder:" HorizontalAlignment="Left" Margin="25,48,0,0" VerticalAlignment="Top" RenderTransformOrigin="-0.237,0.308"/>
-                    <CheckBox x:Name="Checkbox_Time" Content="Enabled" HorizontalAlignment="Left" Margin="396,87,0,0" VerticalAlignment="Top"/>
+                    <Label Content="Select file:" HorizontalAlignment="Left" Margin="43,56,0,0" VerticalAlignment="Top" Width="73"/>
+                    <Button Content="..." HorizontalAlignment="Left" Margin="138,90,0,0" VerticalAlignment="Top" Width="26" Click="Button_Click_4" ToolTip="Select output folder." RenderTransformOrigin="1.231,0.273"/>
+                    <Label x:Name="outputFileLabel" Content="" HorizontalAlignment="Left" Margin="180,90,0,0" VerticalAlignment="Top" Width="192" Height="26" RenderTransformOrigin="0.5,0.5">
+                        <Label.RenderTransform>
+                            <TransformGroup>
+                                <ScaleTransform/>
+                                <SkewTransform/>
+                                <RotateTransform Angle="-0.048"/>
+                                <TranslateTransform/>
+                            </TransformGroup>
+                        </Label.RenderTransform>
+                    </Label>
+                    <Label Content="Output folder:" HorizontalAlignment="Left" Margin="43,90,0,0" VerticalAlignment="Top" RenderTransformOrigin="-0.237,0.308" Width="90"/>
+                    <Button x:Name="BtnCancel" Content="Cancel" HorizontalAlignment="Left" Margin="125,0,0,15" VerticalAlignment="Bottom" Width="75"/>
+                    <GroupBox x:Name="Time_picker_group" Header="Time Picker temp  group label" HorizontalAlignment="Left" Margin="25,137,0,0" VerticalAlignment="Top" Height="64" Width="375">
+                        <Grid Margin="10,10,13,5">
+                            <xctk:DateTimePicker x:Name="End_time" RenderTransformOrigin="3.596,8.75" Margin="240,1,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" Width="100" ToolTip="Pick a end time" IsReadOnly="True"/>
+                            <xctk:DateTimePicker x:Name="Start_Time_" RenderTransformOrigin="3.596,8.75" Margin="65,1,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" Width="100" ToolTip="Pick a start time" IsReadOnly="True"/>
+                            <Label Content="Start time:" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+                            <Label Content="End time:" HorizontalAlignment="Left" Margin="170,1,0,0" VerticalAlignment="Top"/>
+                        </Grid>
+                    </GroupBox>
                     <!--<xctk:DateTimePicker x:Name="Start_Time_" RenderTransformOrigin="3.596,8.75" Margin="0,0,157,0" HorizontalAlignment="Right" VerticalAlignment="Bottom" Width="93" ToolTip="Pick a start time"/>
                     <xctk:DateTimePicker x:Name="End_time" RenderTransformOrigin="3.596,8.75" Margin="0" HorizontalAlignment="Right" VerticalAlignment="Bottom" Width="93" ToolTip="Pick a end time"/>-->
 
                 </Grid>
             </TabItem>
-            <TabItem Header="Edit Script" Margin="5,0,-23,-3">
-                <Grid Background="#FFE5E5E5" RenderTransformOrigin="0.588,0.498" Margin="-2,-4" Height="721" VerticalAlignment="Top">
+            <TabItem Header="Edit Script">
+                <Grid Background="#FFE5E5E5" RenderTransformOrigin="0.588,0.498" Margin="10,-1,-10,1">
                     <Grid.RowDefinitions>
                         <RowDefinition Height="393*"/>
                         <RowDefinition Height="331*"/>
@@ -104,8 +114,8 @@
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition/>
                     </Grid.ColumnDefinitions>
-                    <DataGrid x:Name="dataGridView1" Margin="25,190,25,42" HorizontalGridLinesBrush="#FFAC0E0E" VerticalGridLinesBrush="#FF201C3C" 
-                              AreRowDetailsFrozen="True" IsReadOnly="True" Grid.RowSpan="2" RenderTransformOrigin="0.5,0.5" >
+                    <DataGrid x:Name="dataGridView1" Margin="30,140,18,64" HorizontalGridLinesBrush="#FFAC0E0E" VerticalGridLinesBrush="#FF201C3C" 
+                              AreRowDetailsFrozen="True" IsReadOnly="True" RenderTransformOrigin="0.5,0.5" Grid.Row="1" >
                         <DataGrid.RenderTransform>
                             <TransformGroup>
                                 <ScaleTransform/>
@@ -118,28 +128,28 @@
                             <DataGridTemplateColumn  Width="60" Binding.XmlNamespaceManager="{Binding checkstuff}">
                                 <DataGridTemplateColumn.CellTemplate>
                                     <DataTemplate>
-                                        <CheckBox x:Name="stu" IsChecked="{Binding Path=IsSelected, UpdateSourceTrigger=PropertyChanged}" Checked="CheckBox_Click" IsEnabled="True"/>
+                                        <CheckBox x:Name="stu" Checked="CheckBox_Click" IsEnabled="True"/>
                                     </DataTemplate>
                                 </DataGridTemplateColumn.CellTemplate>
                             </DataGridTemplateColumn>
                         </DataGrid.Columns>
                     </DataGrid>
-                    <Label Content="Select Script:" HorizontalAlignment="Left" Margin="26,30,0,0" VerticalAlignment="Top" Width="378"/>
-                    <ComboBox x:Name="ComboOne" Margin="142,34,0,0" VerticalAlignment="Top" Loaded="ComboBox_Loaded" SelectionChanged="ComboBox_SelectionChanged" PreviewMouseLeftButtonDown="ComboOne_PreviewMouseLeftButtonDown" Height="22" Width="378" HorizontalAlignment="Left"/>
-                    <Button Content="Edit Script" HorizontalAlignment="Left" Margin="112,0,0,10" VerticalAlignment="Bottom" Width="76" Click="edit_Script" Grid.Row="1"/>
-                    <Button Content="Save Script" HorizontalAlignment="Left" Margin="200,0,0,10" VerticalAlignment="Bottom" Width="76" Click="save_Script" Grid.Row="1" RenderTransformOrigin="0.184,0.591"/>
-                    <Button Content="Copy Script" HorizontalAlignment="Left" Margin="25,0,0,10" VerticalAlignment="Bottom" Width="74" Grid.Row="1" IsEnabled="False"/>
-                    <Label x:Name="ScriptNameLabel" Content="Script Name: " HorizontalAlignment="Left" Margin="25,65,0,0" VerticalAlignment="Top" Width="80" IsEnabled="False"/>
-                    <Label x:Name="RegularExpressionLabel" Content="Regular Expression: " HorizontalAlignment="Left" Margin="21,111,0,0" VerticalAlignment="Top" Width="116" IsEnabled="False"/>
-                    <TextBox x:Name="scriptNamebox" Height="22" Margin="142,69,0,0" TextWrapping="Wrap" VerticalAlignment="Top" IsReadOnly = "True" IsEnabled="False" TextChanged="Script_Name_TextChanged" Width="378" HorizontalAlignment="Left"/>
-                    <TextBox x:Name="RegularExpressionbox" Height="22" Margin="142,115,0,0" TextWrapping="Wrap" VerticalAlignment="Top" RenderTransformOrigin="0.283,0" IsReadOnly = "True" IsEnabled="False" HorizontalAlignment="Left" Width="378"/>
-                    <Button x:Name="scriptCreationButton" Content="Create Script" HorizontalAlignment="Left" Margin="25,153,0,0" VerticalAlignment="Top" Width="76" Click="Create_File" IsEnabled="False"/>
+                    <Label Content="Select Script:" HorizontalAlignment="Left" Margin="25,233,0,0" VerticalAlignment="Top" Width="378"/>
+                    <ComboBox x:Name="ComboOne" Margin="140,233,0,0" VerticalAlignment="Top" Loaded="ComboBox_Loaded" SelectionChanged="ComboBox_SelectionChanged" PreviewMouseLeftButtonDown="ComboOne_PreviewMouseLeftButtonDown" Height="22" Width="378" HorizontalAlignment="Left"/>
+                    <Button Content="Edit Script" HorizontalAlignment="Left" Margin="112,0,0,25" VerticalAlignment="Bottom" Width="76" Click="edit_Script" Grid.Row="1"/>
+                    <Button Content="Save Script" HorizontalAlignment="Left" Margin="200,0,0,25" VerticalAlignment="Bottom" Width="76" Click="save_Script" Grid.Row="1" RenderTransformOrigin="0.184,0.591"/>
+                    <Button Content="Copy Script" HorizontalAlignment="Left" Margin="25,0,0,25" VerticalAlignment="Bottom" Width="74" Grid.Row="1" IsEnabled="False"/>
+                    <Label x:Name="ScriptNameLabel" Content="Script Name: " HorizontalAlignment="Left" Margin="25,264,0,0" VerticalAlignment="Top" Width="80" IsEnabled="False"/>
+                    <Label x:Name="RegularExpressionLabel" Content="Regular Expression: " HorizontalAlignment="Left" Margin="24,310,0,0" VerticalAlignment="Top" Width="116" IsEnabled="False"/>
+                    <TextBox x:Name="RegularExpressionbox" Height="22" Margin="140,314,0,0" TextWrapping="Wrap" VerticalAlignment="Top" RenderTransformOrigin="0.283,0" IsReadOnly = "True" IsEnabled="False" HorizontalAlignment="Left" Width="378"/>
+                    <Button x:Name="scriptCreationButton" Content="Create Script" HorizontalAlignment="Left" Margin="29,353,0,0" VerticalAlignment="Top" Width="76" Click="Create_File" IsEnabled="False"/>
+                    <GroupBox Header="Create Script&#xD;&#xA;" HorizontalAlignment="Left" Margin="29,10,0,0" VerticalAlignment="Top" Height="80" Width="419"/>
+                    <Button x:Name="Btn_Save_Script" Content="Create Script" HorizontalAlignment="Left" Margin="255,41,0,0" VerticalAlignment="Top" Width="75"/>
+                    <TextBox x:Name="scriptNamebox" Height="22" Margin="36,41,0,0" TextWrapping="Wrap" VerticalAlignment="Top" IsReadOnly = "True" IsEnabled="False" TextChanged="Script_Name_TextChanged" Width="152" HorizontalAlignment="Left"/>
                 </Grid>
             </TabItem>
-            <TabItem Margin="24,0,-82,-3" HorizontalAlignment="Left" Width="116" Content="" Header="new page"></TabItem>
-            <TabControl Height="100" Width="100">                             
-            </TabControl>
         </TabControl>
+        <GroupBox Header="GroupBox" HorizontalAlignment="Left" VerticalAlignment="Top"/>
 
     </Grid>
 

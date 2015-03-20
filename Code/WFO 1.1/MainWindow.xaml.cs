@@ -29,7 +29,7 @@ namespace WFO_PROJECT
     /// </summary>
     public partial class MainWindow : Window
     {
-        
+
         string value;
         List<string> data = new List<string>();
         string NameValue;
@@ -95,9 +95,6 @@ namespace WFO_PROJECT
             this.Title = belowValue;
         }
 
-        private void ListView1_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
-        }
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
@@ -120,7 +117,7 @@ namespace WFO_PROJECT
         private void GrepButton_Click(object sender, RoutedEventArgs e)
         {
             string searchWord = "";
-            
+
             //searchWord = searchWord.Remove();
             //Console.WriteLine(file_Name);
             //int lineCount = 0;            
@@ -142,22 +139,21 @@ namespace WFO_PROJECT
                     while ((line = file.ReadLine()) != null)
                     {
 
-                        Regex regex = new Regex(Option.Content.ToString());
+                        Regex regex = new Regex("name :");
                         if (regex.IsMatch(line))
                         {
-
                             //writefile.WriteAsync("aaah");
                             string[] script_CheckboxName = line.Split(':');
                             if (script_CheckboxName[1] == Option.Content.ToString())
                             {
-                                
+
                                 while ((nextLine = file.ReadLine()) != "--")
                                 {
 
-                                    string[] words = nextLine.Split('\"');
+                                    string[] words = nextLine.Split('"');
                                     string[] args = (words[0]).Split(' ');
                                     //string arg = args[4];
-                                    
+
                                     searchWord = searchWord + " \"" + words[1] + ":" + args[4] + ":" + args[6] + "\"";
                                     //someText = someText + nextLine + "--";
                                     //    if (nextLine == "-")
@@ -177,12 +173,9 @@ namespace WFO_PROJECT
                 }
 
             }
-            
-            string searchWordEile = searchWord;
-            
-            Console.WriteLine(searchWord);
+            string searchWordEile = searchWord;         
             perlCalled(searchWordEile);
-            searchWord = "ffs";
+           
         }
 
 
@@ -237,12 +230,12 @@ namespace WFO_PROJECT
                 Regex regex = new Regex("name :");
                 if (regex.IsMatch(line))
                 {
-                    
+
                     string[] words = line.Split(':');
                     CheckBox comboBox = new CheckBox();
                     string boxName = words[1];
                     //comboBox.Name = boxName;
-                    comboBox.Content = words[1].ToString();
+                    comboBox.Content = (words[1]).ToString();
                     comboBox.IsChecked = false;
                     OptionsList.Add(comboBox);
                     ListView1.Items.Add(comboBox);
@@ -363,13 +356,8 @@ namespace WFO_PROJECT
             StreamWriter sWriter = File.AppendText(temp_File);
             sWriter.Write("\r\n");
             sWriter.Write("name :" + NameValue);
-
-            sWriter.Write("\r\n");           
-            sWriter.Write("--");           
-
             sWriter.Write("\r\n");
             sWriter.Write("--");
-
             MessageBox.Show("Script created!");
             sWriter.Close();
             data.Add(NameValue);
@@ -492,10 +480,15 @@ namespace WFO_PROJECT
 
         private void Script_Name_TextChanged(object sender, TextChangedEventArgs e)
         {
+<<<<<<< HEAD
             var textBoxLine = sender as TextBox;
+            NameValue = textBoxLine.Text;      
+=======
+            var textBoxLine = sender as TextBox;            
             NameValue = textBoxLine.Text;
-           
-            
+
+
+>>>>>>> ab6ea33e90321b0834f8547a629756c5221fd024
         }
 
 
@@ -601,9 +594,8 @@ namespace WFO_PROJECT
         }
 
         private void CheckBox_Click(object sender, RoutedEventArgs e)
+        {
 
-        {            
-   
 
             currentCell = dataGridView1.SelectedIndex;
 
@@ -658,21 +650,16 @@ namespace WFO_PROJECT
 
 
 
-           
+
 
         private void Button_Click_4(object sender, RoutedEventArgs e)
         {
-             var dlg = new System.Windows.Forms.FolderBrowserDialog();
+            var dlg = new System.Windows.Forms.FolderBrowserDialog();
             System.Windows.Forms.DialogResult fileResult = dlg.ShowDialog();
             // Open folder for output and show in label 
             outputFileName = dlg.SelectedPath;
             string[] splitName = outputFileName.Split('\\');
             outputFileLabel.Content = splitName.Last();
-        }
-
-        private void TabControl_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
-
         }
 
     }
