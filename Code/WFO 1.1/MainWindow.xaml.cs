@@ -657,6 +657,11 @@ namespace WFO_PROJECT
             outputFileLabel.Content = splitName.Last();
         }
 
+        private void TextBox_TextChanged(object sender, TextChangedEventArgs e)
+        {
+
+        }
+
     }
     public class Details
     {

@@ -49,7 +49,7 @@
         <Rectangle Fill="#FFBC0000" HorizontalAlignment="Left" Margin="0,640,0,0" Stroke="Black" VerticalAlignment="Top" Height="1" Width="1"/>
         <Image HorizontalAlignment="Left" Height="36" Margin="425,49,0,0" VerticalAlignment="Top" Width="130"/>
         <TabControl Margin="1,26,-1,0">
-            <TabItem Header="Log Creation">
+            <TabItem Header="Log Creation" ToolTip="Select a log to parse">
                 <Grid Background="#FFE5E5E5" Margin="0,-2,0,0">
                     <Grid.ColumnDefinitions>
 
@@ -105,7 +105,7 @@
 
                 </Grid>
             </TabItem>
-            <TabItem Header="Edit Script">
+            <TabItem Header="Edit Script" ToolTip="Edit or Create a Script">
                 <Grid Background="#FFE5E5E5" RenderTransformOrigin="0.588,0.498" Margin="0,-10,0,10">
                     <Grid.RowDefinitions>
                         <RowDefinition/>
@@ -113,7 +113,9 @@
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition/>
                     </Grid.ColumnDefinitions>
-                    <GroupBox x:Name="Add_new_Line_Groupbox" Header="Add New Line  group" HorizontalAlignment="Left" Margin="25,240,0,0" VerticalAlignment="Top" Height="144" Width="475"/>
+                    <GroupBox x:Name="Add_new_Line_Groupbox" Header="Add New Line  group" HorizontalAlignment="Left" Margin="25,240,0,0" VerticalAlignment="Top" Height="144" Width="475">
+                        <TextBox x:Name="Add_New_Line_Textbox_1" HorizontalAlignment="Left" Height="23" Margin="0,58,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="77"/>
+                    </GroupBox>
                     <GroupBox x:Name="Select_Script_Group_box" Header="Select Script" HorizontalAlignment="Left" Margin="25,109,0,0" VerticalAlignment="Top" Height="110" Width="302"/>
                     <DataGrid x:Name="dataGridView1" Margin="30,528,18,64" HorizontalGridLinesBrush="#FFAC0E0E" VerticalGridLinesBrush="#FF201C3C" 
                               AreRowDetailsFrozen="True" IsReadOnly="True" RenderTransformOrigin="0.5,0.5" >
@@ -148,8 +150,12 @@
                     </GroupBox>
                     <TextBox x:Name="scriptNamebox" Height="22" Margin="42,48,0,0" TextWrapping="Wrap" VerticalAlignment="Top" IsReadOnly = "True" IsEnabled="False" TextChanged="Script_Name_TextChanged" Width="152" HorizontalAlignment="Left"/>
                     <ComboBox x:Name="Delete_File_ComboBox" HorizontalAlignment="Left" Margin="118,167,0,0" VerticalAlignment="Top" Width="120"/>
-                    <Label Content="Add New Line :" HorizontalAlignment="Left" Margin="37,278,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.311,0.09"/>
-                    <ComboBox x:Name="Add_new_Line_Combo_Box" HorizontalAlignment="Left" Margin="137,282,0,0" VerticalAlignment="Top" Width="120"/>
+                    <Label Content="Add New Line:" HorizontalAlignment="Left" Margin="36,264,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.311,0.09"/>
+                    <ComboBox x:Name="Add_new_Line_Combo_Box" HorizontalAlignment="Left" Margin="131,268,0,0" VerticalAlignment="Top" Width="120"/>
+                    <TextBox x:Name="Add_New_Line_Textbox__2" HorizontalAlignment="Left" Height="23" Margin="118,314,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="77"/>
+                    <TextBox x:Name="Add_New_Line_Textbox__4" HorizontalAlignment="Left" Height="23" Margin="306,314,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="77"/>
+                    <TextBox x:Name="Add_New_Line_Textbox__3" HorizontalAlignment="Left" Height="23" Margin="211,314,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="77"/>
+                    <TextBox x:Name="Add_New_Line_Textbox__5" HorizontalAlignment="Left" Height="23" Margin="406,314,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="77" TextChanged="TextBox_TextChanged"/>
                 </Grid>
             </TabItem>
         </TabControl>
