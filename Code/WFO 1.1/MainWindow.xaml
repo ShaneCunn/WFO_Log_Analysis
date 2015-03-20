@@ -113,7 +113,8 @@
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition/>
                     </Grid.ColumnDefinitions>
-                    <GroupBox x:Name="Select_Script_Group_box" Header="Select Script" HorizontalAlignment="Left" Margin="16,109,0,0" VerticalAlignment="Top" Height="110" Width="302"/>
+                    <GroupBox x:Name="Add_new_Line_Groupbox" Header="Add New Line  group" HorizontalAlignment="Left" Margin="25,240,0,0" VerticalAlignment="Top" Height="144" Width="475"/>
+                    <GroupBox x:Name="Select_Script_Group_box" Header="Select Script" HorizontalAlignment="Left" Margin="25,109,0,0" VerticalAlignment="Top" Height="110" Width="302"/>
                     <DataGrid x:Name="dataGridView1" Margin="30,528,18,64" HorizontalGridLinesBrush="#FFAC0E0E" VerticalGridLinesBrush="#FF201C3C" 
                               AreRowDetailsFrozen="True" IsReadOnly="True" RenderTransformOrigin="0.5,0.5" >
                         <DataGrid.RenderTransform>
@@ -134,7 +135,7 @@
                             </DataGridTemplateColumn>
                         </DataGrid.Columns>
                     </DataGrid>
-                    <Label Content="Select Script:" HorizontalAlignment="Left" Margin="30,132,0,0" VerticalAlignment="Top" Width="83" Height="26"/>
+                    <Label x:Name="ScriptNameLabel" Content="Select Script:" HorizontalAlignment="Left" Margin="30,132,0,0" VerticalAlignment="Top" Width="83" Height="26"/>
                     <ComboBox x:Name="ComboOne" Margin="118,136,0,0" VerticalAlignment="Top" Loaded="ComboBox_Loaded" SelectionChanged="ComboBox_SelectionChanged" PreviewMouseLeftButtonDown="ComboOne_PreviewMouseLeftButtonDown" Height="22" Width="120" HorizontalAlignment="Left"/>
                     <Button Content="Edit Script" HorizontalAlignment="Left" Margin="112,0,0,25" VerticalAlignment="Bottom" Width="76" Click="edit_Script"/>
                     <Button Content="Save Script" HorizontalAlignment="Left" Margin="200,0,0,25" VerticalAlignment="Bottom" Width="76" Click="save_Script" RenderTransformOrigin="0.184,0.591"/>
@@ -142,15 +143,16 @@
                     <Label x:Name="DeleteScriptNameLabel" Content="Delete Script" HorizontalAlignment="Left" Margin="30,163,0,0" VerticalAlignment="Top" Width="80" IsEnabled="False"/>
                     <Label x:Name="RegularExpressionLabel" Content="Regular Expression: " HorizontalAlignment="Left" Margin="30,475,0,0" VerticalAlignment="Top" Width="116" IsEnabled="False"/>
                     <TextBox x:Name="RegularExpressionbox" Height="22" Margin="146,479,0,0" TextWrapping="Wrap" VerticalAlignment="Top" RenderTransformOrigin="0.283,0" IsReadOnly = "True" IsEnabled="False" HorizontalAlignment="Left" Width="378"/>
-                    <GroupBox Header="Create Script&#xA;" HorizontalAlignment="Left" Margin="18,16,0,0" VerticalAlignment="Top" Height="80" Width="300">
+                    <GroupBox Header="Create Script&#xA;" HorizontalAlignment="Left" Margin="25,16,0,0" VerticalAlignment="Top" Height="80" Width="300">
                         <Button x:Name="scriptCreationButton" Content="Create Script" HorizontalAlignment="Left" Margin="187,0,0,0" VerticalAlignment="Top" Width="76" Click="Create_File" IsEnabled="False"/>
                     </GroupBox>
                     <TextBox x:Name="scriptNamebox" Height="22" Margin="42,48,0,0" TextWrapping="Wrap" VerticalAlignment="Top" IsReadOnly = "True" IsEnabled="False" TextChanged="Script_Name_TextChanged" Width="152" HorizontalAlignment="Left"/>
                     <ComboBox x:Name="Delete_File_ComboBox" HorizontalAlignment="Left" Margin="118,167,0,0" VerticalAlignment="Top" Width="120"/>
+                    <Label Content="Add New Line :" HorizontalAlignment="Left" Margin="37,278,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.311,0.09"/>
+                    <ComboBox x:Name="Add_new_Line_Combo_Box" HorizontalAlignment="Left" Margin="137,282,0,0" VerticalAlignment="Top" Width="120"/>
                 </Grid>
             </TabItem>
         </TabControl>
-        <GroupBox Header="GroupBox" HorizontalAlignment="Left" VerticalAlignment="Top"/>
 
     </Grid>
 

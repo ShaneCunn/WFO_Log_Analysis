@@ -480,15 +480,10 @@ namespace WFO_PROJECT
 
         private void Script_Name_TextChanged(object sender, TextChangedEventArgs e)
         {
-<<<<<<< HEAD
+
             var textBoxLine = sender as TextBox;
             NameValue = textBoxLine.Text;      
-=======
-            var textBoxLine = sender as TextBox;            
-            NameValue = textBoxLine.Text;
 
-
->>>>>>> ab6ea33e90321b0834f8547a629756c5221fd024
         }
 
 
