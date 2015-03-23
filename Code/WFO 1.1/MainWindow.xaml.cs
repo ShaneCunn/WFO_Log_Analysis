@@ -173,9 +173,9 @@ namespace WFO_PROJECT
                 }
 
             }
-            string searchWordEile = searchWord;         
+            string searchWordEile = searchWord;
             perlCalled(searchWordEile);
-           
+
         }
 
 
@@ -480,10 +480,8 @@ namespace WFO_PROJECT
 
         private void Script_Name_TextChanged(object sender, TextChangedEventArgs e)
         {
-
             var textBoxLine = sender as TextBox;
-            NameValue = textBoxLine.Text;      
-
+            NameValue = textBoxLine.Text;
         }
 
 
@@ -511,19 +509,19 @@ namespace WFO_PROJECT
                     authors.Add(new Details()
                     {
 
-                        singleString = columnsTwo[1].TrimStart(MyCharListTwo).TrimEnd(MyCharListTwo),
+                        Single_String = columnsTwo[1].TrimStart(MyCharListTwo).TrimEnd(MyCharListTwo),
 
-                        linesBelow = Int32.Parse(columns[4]),
+                        Lines_After = Int32.Parse(columns[4]),
 
-                        linesAbove = Int32.Parse(columns[6]),
+                        Lines_Before = Int32.Parse(columns[6]),
 
-                        startTime = "None",
+                        Start_Time = "None",
 
-                        endTime = "None",
+                        End_Time = "None",
 
-                        startString = "None",
+                        Start_String = "None",
 
-                        endString = "None",
+                        End_String = "None",
 
                     });
                 }
@@ -662,17 +660,36 @@ namespace WFO_PROJECT
 
         }
 
+        private void dataGridView1_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+
+        }
+
+        private void Copy_Script_ComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+
+        }
+
+        private void ListView1_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+
+        }
     }
+
+
     public class Details
     {
-        public int linesBelow { get; set; }
-        public int linesAbove { get; set; }
-        public string singleString { get; set; }
-        public string startString { get; set; }
-        public string endString { get; set; }
-        public string startTime { get; set; }
-        public string endTime { get; set; }
+        public int Lines_Before { get; set; }
+        public int Lines_After { get; set; }
+        public string Single_String { get; set; }
+        public string Start_String { get; set; }
+        public string End_String { get; set; }
+        public string Start_Time { get; set; }
+        public string End_Time { get; set; }
 
     }
-
 }
+    
+   
+
+
