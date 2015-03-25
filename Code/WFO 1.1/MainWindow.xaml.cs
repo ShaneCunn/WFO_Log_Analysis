@@ -336,7 +336,7 @@ namespace WFO_PROJECT
             StreamReader file =
             new StreamReader(splitName);
             data.Add("");
-            data.Add("Add new script?");
+            //data.Add("Add new script?");
             while ((line = file.ReadLine()) != null)
             {
                 Regex regex = new Regex("name :");
@@ -534,8 +534,7 @@ namespace WFO_PROJECT
         public void showScriptCreation()
         {
             scriptNamebox.IsEnabled = true;
-            scriptNamebox.IsReadOnly = false;
-            ScriptNameLabel.IsEnabled = true;
+            scriptNamebox.IsReadOnly = false;          
             RegularExpressionLabel.IsEnabled = true;
             RegularExpressionbox.IsReadOnly = false;
             RegularExpressionbox.IsEnabled = true;
@@ -547,8 +546,7 @@ namespace WFO_PROJECT
         public void hideScriptCreation()
         {
             scriptNamebox.IsEnabled = false;
-            scriptNamebox.IsReadOnly = true;
-            ScriptNameLabel.IsEnabled = false;
+            scriptNamebox.IsReadOnly = true;            
             RegularExpressionLabel.IsEnabled = false;
             RegularExpressionbox.IsReadOnly = true;
             RegularExpressionbox.IsEnabled = false;
@@ -667,13 +665,96 @@ namespace WFO_PROJECT
 
         private void Copy_Script_ComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
+             var comboBox = sender as ComboBox;
+            // ... Set SelectedItem as Window Title.           
+            value = comboBox.SelectedItem as string;
+            this.Title = "Selected: " + value;
+            if (value == "Add new script?")
+            {
+                showScriptCreation();
+            }
+            else
+            {
+                File.WriteAllText(Directory.GetCurrentDirectory() + "\\RegScript2DontDelete.txt", string.Empty);
+                var search_Name = Directory.GetCurrentDirectory() + "\\RegScripts.txt";
+                splitName = System.IO.Path.GetFileName(search_Name);
+                StreamReader file = new StreamReader(splitName);
+                temp_copy = Directory.GetCurrentDirectory() + "\\RegScript2DontDelete.txt";
+                StreamWriter sw = File.AppendText(temp_copy);
+                hideScriptCreation();
+                Regex regexx = new Regex("name :");
+                while ((file_Line = file.ReadLine()) != null)
+                {
+                    if (regexx.IsMatch(file_Line))
+                    {
+                        word_GrepLine = file_Line.Split(':');
+                    }
+                    else
+                    {
+                        if (word_GrepLine[1] == value)
+                        {
+                            if (file_Line.StartsWith("grep"))
+                            {
+                                for (int i = 0; i < 999; i++)
+                                {
+                                    if (file_Line.StartsWith("name :") || file_Line.StartsWith("-"))
+                                    {
+                                        break;
+                                    }
+                                    else
+                                    {
+                                        if (file_Line.StartsWith("grep"))
+                                        {
+                                            CheckBox fnsdfn = new CheckBox();
 
+                                            sw.Write(file_Line);
+                                            sw.Write("\r\n");
+                                            file_Line = file.ReadLine();
+                                        }
+                                        else
+                                        {
+                                            break;
+                                        }
+
+                                        count++;
+                                    }
+                                }
+                            }
+
+                            if (regexx.IsMatch(file_Line))
+                            {
+                                break;
+                            }
+                        }
+                    }
+
+                }
+                file.Close();
+                sw.Close();
+                dataGridView1.ItemsSource = LoadCollectionData();
+            }
+        
         }
 
         private void ListView1_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
 
         }
+
+        private void Btn_Delete_Script_Click(object sender, RoutedEventArgs e)
+        {
+            foreach (ListViewItem itemSelected in ListView1.SelectedItems)
+            {
+                ListView1.Items.Remove(itemSelected);
+            }
+        }
+
+        private void ListView1_SelectionChanged_1(object sender, SelectionChangedEventArgs e)
+        {
+
+        }
+
+       
     }
 
 

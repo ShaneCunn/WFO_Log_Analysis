@@ -3,7 +3,7 @@
 	xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
 	xmlns:Properties="clr-namespace:WFO_PROJECT.Properties" x:Name="WFO_Grep_Tool" x:Class="WFO_PROJECT.MainWindow"
     xmlns:xctk="http://schemas.xceed.com/wpf/xaml/toolkit"
-	Title="MainWindow" Height="800" Width="948.125" ToolTip="WFO Grep Tool" Icon="Icon.ico" >
+	Title="MainWindow" Height="800" Width="948.125" Icon="Icon.ico" >
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition/>
@@ -18,8 +18,8 @@
                 </LinearGradientBrush>
             </Menu.Background>
 
-            <MenuItem Header="File" Click="MenuItem_exitBtn">
-                <MenuItem Header="New Window" HorizontalAlignment="Left" Width="169" Margin="0,0,-29,0"/>
+            <MenuItem x:Name="Btn_file_tab" Header="File&#xD;&#xA;" Click="MenuItem_exitBtn">
+                <MenuItem x:Name="Btn_New_Window" Header="New Window" HorizontalAlignment="Left" Width="169" Margin="0,0,-29,0" ToolTip="Open a new window"/>
                 <MenuItem Header="Select Search Path" HorizontalAlignment="Left" Width="162" Margin="0,0,-22,0"/>
                 <MenuItem Header="MenuItem" HorizontalAlignment="Left" Width="157" Margin="0,0,-17,0"/>
                 <MenuItem x:Name="exitBtn" Header="Exit" HorizontalAlignment="Left" Width="140"/>
@@ -56,17 +56,17 @@
                         <ColumnDefinition/>
 
                     </Grid.ColumnDefinitions>
-                    <GroupBox x:Name="Selct_log_file_groupbox" Header="Temp select log file group" HorizontalAlignment="Left" Margin="25,26,0,0" VerticalAlignment="Top" Height="106" Width="375"/>
-                    <ListView x:Name="ListView1" Margin="25,208,530,50" Loaded="ListView1_Loaded" IsEnabled="False">
+                    <GroupBox x:Name="Selct_log_file_groupbox" Header="Temp select log file group" HorizontalAlignment="Left" Margin="25,26,0,0" VerticalAlignment="Top" Height="106" Width="270"/>
+                    <ListView x:Name="ListView1" Margin="25,244,0,50" Loaded="ListView1_Loaded" IsEnabled="False" HorizontalAlignment="Left" Width="270" SelectionChanged="ListView1_SelectionChanged_1">
                         <ListView.View>
                             <GridView>
                                 <GridViewColumn/>
                             </GridView>
                         </ListView.View>
                     </ListView>
-                    <Button Content="..." HorizontalAlignment="Left" Margin="138,60,0,0" VerticalAlignment="Top" Width="26" Click="Button_Click" Height="22" ToolTip="Browse for a Log file to parse" RenderTransformOrigin="7,2.091"/>
+                    <Button Content="Browse" HorizontalAlignment="Left" Margin="138,60,0,0" VerticalAlignment="Top" Width="62" Click="Button_Click" Height="22" ToolTip="Browse for a Log file to parse" RenderTransformOrigin="7,2.091"/>
                     <Button x:Name="GrepButton" Content="Run" HorizontalAlignment="Left" Margin="25,0,0,15" VerticalAlignment="Bottom" Width="85" RenderTransformOrigin="-0.107,0.227" Click="GrepButton_Click" Height="22" ToolTip="Click to run a search"/>
-                    <Label x:Name="File_Label" Content="" HorizontalAlignment="Left" Margin="180,60,0,0" VerticalAlignment="Top" Width="193" RenderTransformOrigin="0.5,0.5" Height="26">
+                    <Label x:Name="File_Label" Content="" HorizontalAlignment="Left" Margin="206,63,0,0" VerticalAlignment="Top" Width="84" RenderTransformOrigin="0.5,0.5" Height="26">
                         <Label.RenderTransform>
                             <TransformGroup>
                                 <ScaleTransform/>
@@ -79,8 +79,8 @@
                     <!--<Label Content="Start time" HorizontalAlignment="Left" Margin="32,137,0,0" VerticalAlignment="Top"/>
                     <Label Content="End time" HorizontalAlignment="Left" Margin="25,168,0,0" VerticalAlignment="Top" RenderTransformOrigin="-4.561,4.885"/>-->
                     <Label Content="Select file:" HorizontalAlignment="Left" Margin="43,56,0,0" VerticalAlignment="Top" Width="73"/>
-                    <Button Content="..." HorizontalAlignment="Left" Margin="138,90,0,0" VerticalAlignment="Top" Width="26" Click="Button_Click_4" ToolTip="Select output folder." RenderTransformOrigin="1.231,0.273"/>
-                    <Label x:Name="outputFileLabel" Content="" HorizontalAlignment="Left" Margin="180,90,0,0" VerticalAlignment="Top" Width="192" Height="26" RenderTransformOrigin="0.5,0.5">
+                    <Button Content="Browse" HorizontalAlignment="Left" Margin="138,90,0,0" VerticalAlignment="Top" Width="62" Click="Button_Click_4" ToolTip="Select output folder." RenderTransformOrigin="1.231,0.273"/>
+                    <Label x:Name="outputFileLabel" Content="" HorizontalAlignment="Left" Margin="208,90,0,0" VerticalAlignment="Top" Width="79" Height="26" RenderTransformOrigin="0.5,0.5">
                         <Label.RenderTransform>
                             <TransformGroup>
                                 <ScaleTransform/>
@@ -92,20 +92,21 @@
                     </Label>
                     <Label Content="Output folder:" HorizontalAlignment="Left" Margin="43,90,0,0" VerticalAlignment="Top" RenderTransformOrigin="-0.237,0.308" Width="90"/>
                     <Button x:Name="BtnCancel" Content="Cancel" HorizontalAlignment="Left" Margin="125,0,0,15" VerticalAlignment="Bottom" Width="75"/>
-                    <GroupBox x:Name="Time_picker_group" Header="Time Picker temp  group label" HorizontalAlignment="Left" Margin="25,137,0,0" VerticalAlignment="Top" Height="64" Width="375">
+                    <GroupBox x:Name="Time_picker_group" Header="Time Picker temp  group label" HorizontalAlignment="Left" Margin="25,132,0,0" VerticalAlignment="Top" Height="98" Width="270">
                         <Grid Margin="10,10,13,5">
-                            <xctk:DateTimePicker x:Name="End_time" RenderTransformOrigin="3.596,8.75" Margin="240,1,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" Width="100" ToolTip="Pick a end time" IsReadOnly="True"/>
+                            <xctk:DateTimePicker x:Name="End_time" RenderTransformOrigin="3.596,8.75" Margin="65,31,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" Width="100" ToolTip="Pick a end time" IsReadOnly="True"/>
                             <xctk:DateTimePicker x:Name="Start_Time_" RenderTransformOrigin="3.596,8.75" Margin="65,1,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" Width="100" ToolTip="Pick a start time" IsReadOnly="True"/>
                             <Label Content="Start time:" HorizontalAlignment="Left" VerticalAlignment="Top"/>
-                            <Label Content="End time:" HorizontalAlignment="Left" Margin="170,1,0,0" VerticalAlignment="Top"/>
+                            <Label Content="End time:" HorizontalAlignment="Left" Margin="0,31,0,0" VerticalAlignment="Top"/>
                         </Grid>
                     </GroupBox>
-                    <GroupBox Header="Copy" HorizontalAlignment="Left" Margin="422,0,0,14" VerticalAlignment="Bottom" Width="500" Height="63"/>
-                    <GroupBox x:Name="Add_new_Line_Groupbox_Copy" Header="Add New Line  group" HorizontalAlignment="Left" Margin="422,178,0,0" VerticalAlignment="Top" Height="215" Width="500">
-                        <Button Content="Save New line" HorizontalAlignment="Left" Margin="10,157,0,0" VerticalAlignment="Top" Width="96" Height="26" RenderTransformOrigin="0.583,2.615"/>
+                    <GroupBox Header="Copy" HorizontalAlignment="Left" Margin="325,0,0,13" VerticalAlignment="Bottom" Width="591" Height="63">
+                        <ComboBox x:Name="ComboOne_Copy" Margin="168,10,0,0" VerticalAlignment="Top" Loaded="ComboBox_Loaded" SelectionChanged="ComboBox_SelectionChanged" PreviewMouseLeftButtonDown="ComboOne_PreviewMouseLeftButtonDown" Height="22" Width="120" HorizontalAlignment="Left" ToolTip="Select script to edit"/>
                     </GroupBox>
-                    <GroupBox x:Name="Select_Script_Group_box_Copy" Header="Select Script" HorizontalAlignment="Left" Margin="422,98,0,0" VerticalAlignment="Top" Height="78" Width="500"/>
-                    <DataGrid x:Name="dataGridView1_Copy" Margin="422,398,12,131" HorizontalGridLinesBrush="#FFAC0E0E" VerticalGridLinesBrush="#FF201C3C" 
+                    <GroupBox x:Name="Add_new_Line_Groupbox" Header="Add New Line  group" HorizontalAlignment="Left" Margin="320,97,0,0" VerticalAlignment="Top" Height="216" Width="604">
+                        <Button x:Name="btn_Save_New_Line" Content="Save" HorizontalAlignment="Left" Margin="10,157,0,0" VerticalAlignment="Top" Width="96" RenderTransformOrigin="0.583,2.615"/>
+                    </GroupBox>
+                    <DataGrid x:Name="dataGridView1" Margin="320,330,12,123" HorizontalGridLinesBrush="#FFAC0E0E" VerticalGridLinesBrush="#FF201C3C" 
                     	AreRowDetailsFrozen="True" IsReadOnly="True" RenderTransformOrigin="0.5,0.5" SelectionChanged="dataGridView1_SelectionChanged" >
                         <DataGrid.RenderTransform>
                             <TransformGroup>
@@ -125,94 +126,30 @@
                             </DataGridTemplateColumn>
                         </DataGrid.Columns>
                     </DataGrid>
-                    <Label x:Name="ScriptNameLabel_Copy" Content="Select script to edit:" HorizontalAlignment="Left" Margin="437,130,0,0" VerticalAlignment="Top" Width="115" Height="26"/>
-                    <ComboBox x:Name="ComboOne_Copy" Margin="557,130,0,0" VerticalAlignment="Top" Loaded="ComboBox_Loaded" SelectionChanged="ComboBox_SelectionChanged" PreviewMouseLeftButtonDown="ComboOne_PreviewMouseLeftButtonDown" Height="22" Width="120" HorizontalAlignment="Left" ToolTip="Select script to edit"/>
-                    <Button Content="Edit Script" HorizontalAlignment="Left" Margin="513,0,0,96" VerticalAlignment="Bottom" Width="76" Click="edit_Script"/>
-                    <Button Content="Save Script" HorizontalAlignment="Left" Margin="601,0,0,96" VerticalAlignment="Bottom" Width="76" Click="save_Script" RenderTransformOrigin="0.184,0.591"/>
-                    <Button Content="Copy Script" HorizontalAlignment="Left" Margin="426,0,0,96" VerticalAlignment="Bottom" Width="76" IsEnabled="False"/>
-                    <Label x:Name="DeleteScriptNameLabel_Copy" Content="Delete script:" HorizontalAlignment="Left" Margin="691,130,0,0" VerticalAlignment="Top" Width="80" IsEnabled="False"/>
-                    <Label x:Name="RegularExpressionLabel_Copy" Content="Regular Expression: " HorizontalAlignment="Left" Margin="437,316,0,0" VerticalAlignment="Top" Width="116" IsEnabled="False" RenderTransformOrigin="0.5,1.423"/>
-                    <TextBox x:Name="RegularExpressionbox_Copy" Height="22" Margin="585,325,0,0" TextWrapping="Wrap" VerticalAlignment="Top" RenderTransformOrigin="0.283,0" IsReadOnly = "True" IsEnabled="False" HorizontalAlignment="Left" Width="229"/>
-                    <GroupBox Header="Create Script&#xA;" HorizontalAlignment="Left" Margin="422,13,0,0" VerticalAlignment="Top" Height="75" Width="500">
-                        <Button x:Name="scriptCreationButton1" Content="Create Script" HorizontalAlignment="Left" Margin="187,0,0,0" VerticalAlignment="Top" Width="76" Click="Create_File" IsEnabled="False" ToolTip="Save Script"/>
+                    <Button Content="Save Script" HorizontalAlignment="Left" Margin="411,0,0,90" VerticalAlignment="Bottom" Width="76" Click="save_Script" RenderTransformOrigin="0.184,0.591"/>
+                    <Button Content="Copy Script" HorizontalAlignment="Left" Margin="326,0,0,90" VerticalAlignment="Bottom" Width="76" IsEnabled="False" RenderTransformOrigin="-0.078,0.649"/>
+                    <Label x:Name="RegularExpressionLabel" Content="Regular Expression: " HorizontalAlignment="Left" Margin="337,240,0,0" VerticalAlignment="Top" Width="116" IsEnabled="False" RenderTransformOrigin="0.5,1.423"/>
+                    <TextBox x:Name="RegularExpressionbox" Height="22" Margin="483,244,0,0" TextWrapping="Wrap" VerticalAlignment="Top" RenderTransformOrigin="0.283,0" IsReadOnly = "True" IsEnabled="False" HorizontalAlignment="Left" Width="229"/>
+                    <GroupBox Header="Create Script&#xA;" HorizontalAlignment="Left" Margin="320,13,0,0" VerticalAlignment="Top" Height="75" Width="604">
+                        <Button x:Name="scriptCreationButton" Content="Create Script" HorizontalAlignment="Left" Margin="187,0,0,0" VerticalAlignment="Top" Width="76" Click="Create_File" IsEnabled="False" ToolTip="Save Script"/>
                     </GroupBox>
-                    <TextBox x:Name="scriptNamebox_Copy" Height="22" Margin="437,46,0,0" TextWrapping="Wrap" VerticalAlignment="Top" IsReadOnly = "True" IsEnabled="False" TextChanged="Script_Name_TextChanged" Width="152" HorizontalAlignment="Left"/>
-                    <ComboBox x:Name="Delete_File_ComboBox_Copy" HorizontalAlignment="Left" Margin="776,130,0,0" VerticalAlignment="Top" Width="120" ToolTip="Select script to delete"/>
-                    <Label Content="Add new line to script:" HorizontalAlignment="Left" Margin="437,203,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.311,0.09" Width="136"/>
-                    <ComboBox x:Name="Add_new_Line_Combo_Box_Copy" HorizontalAlignment="Left" Margin="583,207,0,0" VerticalAlignment="Top" Width="120" ToolTip="Add a line to script"/>
-                    <TextBox x:Name="Add_New_Line_Textbox__2_Copy" HorizontalAlignment="Left" Height="23" Margin="519,250,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="70" RenderTransformOrigin="0.443,0.217"/>
-                    <TextBox x:Name="Add_New_Line_Textbox__4_Copy" HorizontalAlignment="Left" Height="23" Margin="669,250,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="70"/>
-                    <TextBox x:Name="Add_New_Line_Textbox__3_Copy" HorizontalAlignment="Left" Height="23" Margin="594,250,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="70"/>
-                    <TextBox x:Name="Add_New_Line_Textbox__5_Copy" HorizontalAlignment="Left" Height="23" Margin="744,250,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="70" TextChanged="TextBox_TextChanged"/>
-                    <TextBox x:Name="Add_New_Line_Textbox_1_Copy" HorizontalAlignment="Left" Height="23" Margin="444,250,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="70"/>
-                    <ComboBox x:Name="Copy_Script_ComboBox_Copy" HorizontalAlignment="Left" Margin="583,0,0,29" VerticalAlignment="Bottom" Width="120" SelectionChanged="Copy_Script_ComboBox_SelectionChanged" ToolTip="Pick script to copy" Height="22"/>
-                    <Button x:Name="Btn_Save_to_Script_Copy" Content="Save to clipboard" HorizontalAlignment="Left" Margin="728,0,0,29" VerticalAlignment="Bottom" Width="108"/>
-                    <Label x:Name="Select_format_Label_Copy" Content="Select script format:" HorizontalAlignment="Left" Margin="437,285,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.496,-0.038"/>
-                    <ComboBox x:Name="Select_foramt_ComboBox_Copy" HorizontalAlignment="Left" Margin="583,289,0,0" VerticalAlignment="Top" Width="120" ToolTip="Select format of script"/>
-                    <Label Content="Select script to copy:" HorizontalAlignment="Left" Margin="437,0,0,29" VerticalAlignment="Bottom" RenderTransformOrigin="0.478,0.769" Height="26"/>
+                    <TextBox x:Name="scriptNamebox" Height="22" Margin="333,45,0,0" TextWrapping="Wrap" VerticalAlignment="Top" IsReadOnly = "True" IsEnabled="False" TextChanged="Script_Name_TextChanged" Width="152" HorizontalAlignment="Left"/>
+                    <Label Content="Add new line to script:" HorizontalAlignment="Left" Margin="337,204,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.311,0.09" Width="136"/>
+                    <ComboBox x:Name="Add_new_Line_Combo_Box" HorizontalAlignment="Left" Margin="483,208,0,0" VerticalAlignment="Top" Width="120" ToolTip="Add a line to script"/>
+                    <TextBox x:Name="Add_New_Line_Textbox__2" HorizontalAlignment="Left" Height="23" Margin="408,169,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="70" RenderTransformOrigin="0.443,0.217"/>
+                    <TextBox x:Name="Add_New_Line_Textbox__4" HorizontalAlignment="Left" Height="23" Margin="558,169,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="70"/>
+                    <TextBox x:Name="Add_New_Line_Textbox__3" HorizontalAlignment="Left" Height="23" Margin="483,169,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="70"/>
+                    <TextBox x:Name="Add_New_Line_Textbox__5" HorizontalAlignment="Left" Height="23" Margin="633,169,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="70" TextChanged="TextBox_TextChanged"/>
+                    <TextBox x:Name="Add_New_Line_Textbox_1" HorizontalAlignment="Left" Height="23" Margin="333,169,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="70"/>
+                    <Button x:Name="Btn_Save_to_Script" Content="Save to clipboard" HorizontalAlignment="Left" Margin="687,0,0,28" VerticalAlignment="Bottom" Width="127"/>
+                    <Label x:Name="Select_format_Label" Content="Select script format:" HorizontalAlignment="Left" Margin="337,128,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.496,-0.038"/>
+                    <ComboBox x:Name="Select_foramt_ComboBox" HorizontalAlignment="Left" Margin="483,132,0,0" VerticalAlignment="Top" Width="120" ToolTip="Select format of script"/>
+                    <Label Content="Select script to paste:" HorizontalAlignment="Left" Margin="343,0,0,28" VerticalAlignment="Bottom" RenderTransformOrigin="0.478,0.769" Height="26" Width="144"/>
+                    <ComboBox x:Name="ComboOne" Margin="619,45,0,0" VerticalAlignment="Top" Loaded="ComboBox_Loaded" SelectionChanged="ComboBox_SelectionChanged" PreviewMouseLeftButtonDown="ComboOne_PreviewMouseLeftButtonDown" Height="22" Width="120" HorizontalAlignment="Left" ToolTip="Select script to edit"/>
+                    <Button x:Name="Btn_Delete_Script" Content="Delete Script" HorizontalAlignment="Left" Margin="220,0,0,15" VerticalAlignment="Bottom" Width="75" Click="Btn_Delete_Script_Click"/>
                     <!--<xctk:DateTimePicker x:Name="Start_Time_" RenderTransformOrigin="3.596,8.75" Margin="0,0,157,0" HorizontalAlignment="Right" VerticalAlignment="Bottom" Width="93" ToolTip="Pick a start time"/>
                     <xctk:DateTimePicker x:Name="End_time" RenderTransformOrigin="3.596,8.75" Margin="0" HorizontalAlignment="Right" VerticalAlignment="Bottom" Width="93" ToolTip="Pick a end time"/>-->
 
-                </Grid>
-            </TabItem>
-            <TabItem Header="Edit Script" ToolTip="Edit or Create a Script">
-                <Grid Background="#FFE5E5E5" RenderTransformOrigin="0.588,0.498" Margin="0,-10,0,0">
-                    <Grid.RowDefinitions>
-                        <RowDefinition/>
-                    </Grid.RowDefinitions>
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition/>
-                    </Grid.ColumnDefinitions>
-                    <GroupBox Header="Copy" HorizontalAlignment="Left" Margin="25,0,0,20" VerticalAlignment="Bottom" Width="500" Height="63"/>
-                    <GroupBox x:Name="Add_new_Line_Groupbox" Header="Add New Line  group" HorizontalAlignment="Left" Margin="25,180,0,0" VerticalAlignment="Top" Height="215" Width="500">
-                        <Button Content="Save New line" HorizontalAlignment="Left" Margin="10,157,0,0" VerticalAlignment="Top" Width="96" Height="26" RenderTransformOrigin="0.583,2.615"/>
-                    </GroupBox>
-                    <GroupBox x:Name="Select_Script_Group_box" Header="Select Script" HorizontalAlignment="Left" Margin="25,100,0,0" VerticalAlignment="Top" Height="78" Width="500"/>
-                    <DataGrid x:Name="dataGridView1" Margin="25,400,25,137" HorizontalGridLinesBrush="#FFAC0E0E" VerticalGridLinesBrush="#FF201C3C" 
-                              AreRowDetailsFrozen="True" IsReadOnly="True" RenderTransformOrigin="0.5,0.5" SelectionChanged="dataGridView1_SelectionChanged" >
-                        <DataGrid.RenderTransform>
-                            <TransformGroup>
-                                <ScaleTransform/>
-                                <SkewTransform/>
-                                <RotateTransform Angle="0.111"/>
-                                <TranslateTransform/>
-                            </TransformGroup>
-                        </DataGrid.RenderTransform>
-                        <DataGrid.Columns>
-                            <DataGridTemplateColumn  Width="60" Binding.XmlNamespaceManager="{Binding checkstuff}">
-                                <DataGridTemplateColumn.CellTemplate>
-                                    <DataTemplate>
-                                        <CheckBox x:Name="null" Checked="CheckBox_Click" IsEnabled="True"/>
-                                    </DataTemplate>
-                                </DataGridTemplateColumn.CellTemplate>
-                            </DataGridTemplateColumn>
-                        </DataGrid.Columns>
-                    </DataGrid>
-                    <Label x:Name="ScriptNameLabel" Content="Select script to edit:" HorizontalAlignment="Left" Margin="40,132,0,0" VerticalAlignment="Top" Width="115" Height="26"/>
-                    <ComboBox x:Name="ComboOne" Margin="160,132,0,0" VerticalAlignment="Top" Loaded="ComboBox_Loaded" SelectionChanged="ComboBox_SelectionChanged" PreviewMouseLeftButtonDown="ComboOne_PreviewMouseLeftButtonDown" Height="22" Width="120" HorizontalAlignment="Left" ToolTip="Select script to edit"/>
-                    <Button Content="Edit Script" HorizontalAlignment="Left" Margin="116,0,0,102" VerticalAlignment="Bottom" Width="76" Click="edit_Script"/>
-                    <Button Content="Save Script" HorizontalAlignment="Left" Margin="204,0,0,102" VerticalAlignment="Bottom" Width="76" Click="save_Script" RenderTransformOrigin="0.184,0.591"/>
-                    <Button Content="Copy Script" HorizontalAlignment="Left" Margin="29,0,0,102" VerticalAlignment="Bottom" Width="76" IsEnabled="False"/>
-                    <Label x:Name="DeleteScriptNameLabel" Content="Delete script:" HorizontalAlignment="Left" Margin="294,132,0,0" VerticalAlignment="Top" Width="80" IsEnabled="False"/>
-                    <Label x:Name="RegularExpressionLabel" Content="Regular Expression: " HorizontalAlignment="Left" Margin="40,318,0,0" VerticalAlignment="Top" Width="116" IsEnabled="False" RenderTransformOrigin="0.5,1.423"/>
-                    <TextBox x:Name="RegularExpressionbox" Height="22" Margin="188,327,0,0" TextWrapping="Wrap" VerticalAlignment="Top" RenderTransformOrigin="0.283,0" IsReadOnly = "True" IsEnabled="False" HorizontalAlignment="Left" Width="229"/>
-                    <GroupBox Header="Create Script&#xA;" HorizontalAlignment="Left" Margin="25,15,0,0" VerticalAlignment="Top" Height="75" Width="500">
-                        <Button x:Name="scriptCreationButton" Content="Create Script" HorizontalAlignment="Left" Margin="187,0,0,0" VerticalAlignment="Top" Width="76" Click="Create_File" IsEnabled="False" ToolTip="Save Script"/>
-                    </GroupBox>
-                    <TextBox x:Name="scriptNamebox" Height="22" Margin="40,48,0,0" TextWrapping="Wrap" VerticalAlignment="Top" IsReadOnly = "True" IsEnabled="False" TextChanged="Script_Name_TextChanged" Width="152" HorizontalAlignment="Left"/>
-                    <ComboBox x:Name="Delete_File_ComboBox" HorizontalAlignment="Left" Margin="379,132,0,0" VerticalAlignment="Top" Width="120" ToolTip="Select script to delete"/>
-                    <Label Content="Add new line to script:" HorizontalAlignment="Left" Margin="40,205,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.311,0.09" Width="136"/>
-                    <ComboBox x:Name="Add_new_Line_Combo_Box" HorizontalAlignment="Left" Margin="186,209,0,0" VerticalAlignment="Top" Width="120" ToolTip="Add a line to script"/>
-                    <TextBox x:Name="Add_New_Line_Textbox__2" HorizontalAlignment="Left" Height="23" Margin="122,252,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="70" RenderTransformOrigin="0.443,0.217"/>
-                    <TextBox x:Name="Add_New_Line_Textbox__4" HorizontalAlignment="Left" Height="23" Margin="272,252,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="70"/>
-                    <TextBox x:Name="Add_New_Line_Textbox__3" HorizontalAlignment="Left" Height="23" Margin="197,252,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="70"/>
-                    <TextBox x:Name="Add_New_Line_Textbox__5" HorizontalAlignment="Left" Height="23" Margin="347,252,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="70" TextChanged="TextBox_TextChanged"/>
-                    <TextBox x:Name="Add_New_Line_Textbox_1" HorizontalAlignment="Left" Height="23" Margin="47,252,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="70"/>
-                    <ComboBox x:Name="Copy_Script_ComboBox" HorizontalAlignment="Left" Margin="186,667,0,35" VerticalAlignment="Bottom" Width="120" SelectionChanged="Copy_Script_ComboBox_SelectionChanged" ToolTip="Pick script to copy" Height="22"/>
-                    <Button x:Name="Btn_Save_to_Script" Content="Save to clipboard" HorizontalAlignment="Left" Margin="331,667,0,35" VerticalAlignment="Bottom" Width="108"/>
-                    <Label x:Name="Select_format_Label" Content="Select script format:" HorizontalAlignment="Left" Margin="40,287,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.496,-0.038"/>
-                    <ComboBox x:Name="Select_foramt_ComboBox" HorizontalAlignment="Left" Margin="186,291,0,0" VerticalAlignment="Top" Width="120" ToolTip="Select format of script"/>
-                    <Label Content="Select script to copy:" HorizontalAlignment="Left" Margin="40,663,0,35" VerticalAlignment="Bottom" RenderTransformOrigin="0.478,0.769" Height="26"/>
                 </Grid>
             </TabItem>
         </TabControl>
