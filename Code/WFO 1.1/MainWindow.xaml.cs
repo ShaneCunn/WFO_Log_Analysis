@@ -620,6 +620,7 @@ namespace WFO_PROJECT
 
         private void chkSelectHeader_Checked(object sender, RoutedEventArgs e)
         {
+
         }
 
         private void dataGridView1_Selected(object sender, RoutedEventArgs e)
@@ -632,7 +633,7 @@ namespace WFO_PROJECT
 
 
         }
-
+        // Closes application
         private void MenuItem_exitBtn(object sender, RoutedEventArgs e)
         {
             this.Close();
@@ -743,14 +744,37 @@ namespace WFO_PROJECT
 
         private void Btn_Delete_Script_Click(object sender, RoutedEventArgs e)
         {
-            foreach (ListViewItem itemSelected in ListView1.SelectedItems)
-            {
-                ListView1.Items.Remove(itemSelected);
-            }
+            //foreach (ListViewItem itemSelected in ListView1.SelectedItems)
+            //{
+            //    ListView1.Items.Remove(itemSelected);
+            //}
+
+            MessageBox.Show("Delete script Button");
         }
 
         private void ListView1_SelectionChanged_1(object sender, SelectionChangedEventArgs e)
         {
+
+        }
+        // save to new line button
+        private void btn_Save_New_Line_Click(object sender, RoutedEventArgs e)
+        {
+            MessageBox.Show("Save to new line Button");
+        }
+        //Save to script button
+        private void Btn_Save_to_Script_Click(object sender, RoutedEventArgs e)
+        {
+            MessageBox.Show("Save to clipboard Button");
+        }
+
+        private void BtnCancel_Click(object sender, RoutedEventArgs e)
+        {
+            MessageBox.Show("Cancel Button");
+        }
+        // File menu buttons
+        private void File_Menu_click(object sender, RoutedEventArgs e)
+        {
+          Application.Current.Shutdown();
 
         }
 
