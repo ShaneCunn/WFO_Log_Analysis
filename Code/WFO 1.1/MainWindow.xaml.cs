@@ -535,11 +535,6 @@ namespace WFO_PROJECT
         {
             scriptNamebox.IsEnabled = true;
             scriptNamebox.IsReadOnly = false;          
-            RegularExpressionLabel.IsEnabled = true;
-            RegularExpressionbox.IsReadOnly = false;
-            RegularExpressionbox.IsEnabled = true;
-            RegularExpressionbox.IsReadOnly = false;
-            RegularExpressionLabel.IsEnabled = true;
             scriptCreationButton.IsEnabled = true;
         }
 
@@ -547,13 +542,7 @@ namespace WFO_PROJECT
         {
             scriptNamebox.IsEnabled = false;
             scriptNamebox.IsReadOnly = true;            
-            RegularExpressionLabel.IsEnabled = false;
-            RegularExpressionbox.IsReadOnly = true;
-            RegularExpressionbox.IsEnabled = false;
-            RegularExpressionbox.IsReadOnly = true;
-            RegularExpressionLabel.IsEnabled = false;
             scriptCreationButton.IsEnabled = false;
-
         }
 
 
