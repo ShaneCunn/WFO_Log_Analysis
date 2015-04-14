@@ -68,38 +68,29 @@
                     <!--<GroupBox Header="Select a Log File to Parse:" HorizontalAlignment="Left" Height="212.811" Margin="15,15,0,0" VerticalAlignment="Top" Width="267"/>-->
 
                     <Border x:Name="Border_Right" BorderBrush="#FF4A494A" BorderThickness="2" Margin="301,10,5,5" Grid.ColumnSpan="2">
-                    	<Border BorderThickness="1,25,1,1" Margin="-0.655,0,-2,228.723" BorderBrush="#FF4A494A" VerticalAlignment="Bottom"/>
+                        <Border BorderThickness="1,25,1,1" Margin="-0.655,0,-2,200" BorderBrush="#FF4A494A" VerticalAlignment="Bottom"/>
                     </Border>
 
-                    <Border x:Name="border_left" BorderBrush="#FF4A494A" BorderThickness="2,26,2,2" Margin="10,10,0,5" Width="286" HorizontalAlignment="Left" Grid.ColumnSpan="2">
-                    	<ComboBox x:Name="ComboOne" VerticalAlignment="Bottom" Loaded="ComboBox_Loaded" SelectionChanged="ComboBox_SelectionChanged" PreviewMouseLeftButtonDown="ComboOne_PreviewMouseLeftButtonDown" Height="22" Width="160" HorizontalAlignment="Left" ToolTip="Select script to edit" Margin="316,0,-202,194"/>
+                    <Border x:Name="border_left" BorderBrush="#FF4A494A" BorderThickness="2,26,2,30" Margin="5,10,0,5" Width="286" HorizontalAlignment="Left" Grid.ColumnSpan="2">
+                        <ComboBox x:Name="ComboOne" IsEditable="True" Text="Please Select a script to edit" VerticalAlignment="Bottom" Loaded="ComboBox_Loaded" SelectionChanged="ComboBox_SelectionChanged" PreviewMouseLeftButtonDown="ComboOne_PreviewMouseLeftButtonDown" Height="22" Width="174.824" HorizontalAlignment="Left" ToolTip="Select script to edit" Margin="321.441,0,-214.265,133.881" SelectedIndex="0"/>
                     </Border>
                     <!--<GroupBox Header="Select a Log File to Parse:" HorizontalAlignment="Left" Height="212.811" Margin="15,15,0,0" VerticalAlignment="Top" Width="267"/>-->
 
                     <Label Content="Current Lines in Script" Margin="301,10,7,0" VerticalAlignment="Top" Height="26" Background="#FF4A494A" Foreground="WhiteSmoke" FontWeight="Bold" Grid.ColumnSpan="2"/>
 
-                    <ListView x:Name="ListView1" Margin="14,233,0,68" Loaded="ListView1_Loaded" HorizontalAlignment="Left" Width="276" SelectionChanged="ListView1_SelectionChanged" BorderBrush="#FF72757B" Foreground="#FF713104" VerticalContentAlignment="Top"  ItemContainerStyle="{StaticResource alternatingStyle}" AlternationCount="2" BorderThickness="1" Background="{x:Null}" Grid.ColumnSpan="2" >
+                    <Button x:Name="GrepButton" Content="Run" HorizontalAlignment="Left" Margin="13,0,0,8.47" VerticalAlignment="Bottom" Width="80" RenderTransformOrigin="0,0.5" Click="GrepButton_Click" ToolTip="Click to run a search on a log file" Height="23" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Cursor="Hand" Grid.ColumnSpan="2" IsCancel="True" FontWeight="Bold">
+                    	<Button.Background>
+                    		<LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                    			<GradientStop Color="#FFDEE7EF" Offset="1"/>
+                    			<GradientStop Color="White"/>
+                    		</LinearGradientBrush>
+                    	</Button.Background>
+                    </Button>
 
-                        <ListView.View>
-                            <GridView>
-
-                            	<GridViewColumn>
-                            		<GridViewColumn.CellTemplate>
-                            			<DataTemplate>
-                            				<CheckBox Tag="{Binding gridCheckboxColumn}"/>
-                            			</DataTemplate>
-                            		</GridViewColumn.CellTemplate>
-                            	</GridViewColumn>
-                            	<GridViewColumn DisplayMemberBinding="{Binding gridNameColumn}" Header="Select Script to Parse With" />
-                            </GridView>
-                        </ListView.View>
-                    </ListView>
-
-                    <Button x:Name="GrepButton" Content="Run" HorizontalAlignment="Left" Margin="27,0,0,31" VerticalAlignment="Bottom" Width="50" RenderTransformOrigin="0,0.5" Click="GrepButton_Click" ToolTip="Click to run a search on a log file" Height="22" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Cursor="Hand" Background="{x:Null}" Grid.ColumnSpan="2"/>
                     <!--<Label Content="Start time" HorizontalAlignment="Left" Margin="32,137,0,0" VerticalAlignment="Top"/>
                     <Label Content="End time" HorizontalAlignment="Left" Margin="25,168,0,0" VerticalAlignment="Top" RenderTransformOrigin="-4.561,4.885"/>-->
-                    <Button Content="Choose Output" HorizontalAlignment="Left" Margin="27,192,0,0" VerticalAlignment="Top" Width="96" Click="Button_Click_4" ToolTip="Choose output folder." RenderTransformOrigin="1.231,0.273" Height="22" Cursor="Hand" Grid.ColumnSpan="2"/>
-                    <Label x:Name="outputFileLabel" Content="" HorizontalAlignment="Left" Margin="27,158,0,0" VerticalAlignment="Top" Width="240" RenderTransformOrigin="0.5,0.5" BorderThickness="1" BorderBrush="#FFE3E9EF" Foreground="Black" Background="White" ToolTip="Please click the Choose Output button." Grid.ColumnSpan="2">
+                    <Button Content="Choose Output" HorizontalAlignment="Left" Margin="27,192,0,0" VerticalAlignment="Top" Width="96" Click="Button_Click_4" ToolTip="Choose output folder." RenderTransformOrigin="1.231,0.273" Height="23" Cursor="Hand" Grid.ColumnSpan="2"/>
+                    <Label x:Name="outputFileLabel" Content="" HorizontalAlignment="Left" Margin="28.089,155.824,0,0" VerticalAlignment="Top" Width="240" RenderTransformOrigin="0.5,0.5" BorderThickness="1" BorderBrush="#FFE3E9EF" Foreground="Black" Background="White" ToolTip="Please click the Choose Output button." Grid.ColumnSpan="2" Height="23">
                         <Label.RenderTransform>
                             <TransformGroup>
                                 <ScaleTransform/>
@@ -110,7 +101,8 @@
                         </Label.RenderTransform>
                     </Label>
                     <Label Content="Source Log file:&#xA;" HorizontalAlignment="Left" Margin="27,39,0,0" VerticalAlignment="Top" RenderTransformOrigin="-0.237,0.308" Width="96" Height="26" Grid.ColumnSpan="2"/>
-                    <Button x:Name="BtnCancel" Content="Stop" HorizontalAlignment="Left" Margin="105,0,0,31" VerticalAlignment="Bottom" Width="60" IsCancel="True" IsEnabled="False" Height="22" RenderTransformOrigin="-0.16,0.412" Background="{x:Null}" Grid.ColumnSpan="2"/>
+                    <Button x:Name="BtnCancel" Content="Stop" HorizontalAlignment="Left" Margin="109,0,0,8.47" VerticalAlignment="Bottom" Width="80" IsCancel="True" IsEnabled="False" Height="23" RenderTransformOrigin="-0.16,0.412" Background="{x:Null}" Grid.ColumnSpan="2" FontWeight="Bold"/>
+
 
                     <GroupBox x:Name="Time_picker_group" Header="Pick time ranges *Optional" HorizontalAlignment="Left" Margin="15,233,0,0" VerticalAlignment="Top" Height="98" Width="267" d:IsHidden="True" Visibility="Hidden" Grid.ColumnSpan="2">
 
@@ -122,16 +114,17 @@
                     </GroupBox>
                     <Button Content="Save Script" HorizontalAlignment="Left" Margin="305,0,0,15" VerticalAlignment="Bottom" Width="76" Click="save_Script" RenderTransformOrigin="0.184,0.591" Height="22" d:IsHidden="True" Visibility="Hidden" Grid.ColumnSpan="2"/>
                     <Button Content="Copy Script" HorizontalAlignment="Left" Margin="395,0,0,15" VerticalAlignment="Bottom" Width="76" IsEnabled="False" RenderTransformOrigin="-0.078,0.649" Height="22" d:IsHidden="True" Visibility="Hidden" Grid.ColumnSpan="2"/>
+
                     <!--<Button x:Name="scriptCreationButton" Content="Create Script" HorizontalAlignment="Left" Margin="205.703,4,0,0" VerticalAlignment="Top" Width="76" Click="Create_File" ToolTip="Create Script" Height="22" IsEnabled="False"/>-->
 
-                    <TextBox x:Name="scriptNamebox" Margin="416,0,0,296.95" TextWrapping="Wrap" VerticalAlignment="Bottom" TextChanged="Script_Name_TextChanged" Height="23" Width="304" Grid.ColumnSpan="2" HorizontalAlignment="Left"/>
+                    <TextBox x:Name="scriptNamebox" Margin="416,0,0,255" TextWrapping="Wrap" VerticalAlignment="Bottom" TextChanged="Script_Name_TextChanged" Height="23" Width="320.324" Grid.ColumnSpan="2" HorizontalAlignment="Left"/>
 
-                    <TextBox x:Name="Add_New_Line_Textbox__2" HorizontalAlignment="Left" IsEnabled="False" Height="23" Margin="421.333,0,0,126" TextWrapping="Wrap" VerticalAlignment="Bottom" Width="298.667" RenderTransformOrigin="0.443,0.217" Grid.ColumnSpan="2" TextChanged="Add_New_Line_Textbox__2_TextChanged"/>
-                    <TextBox x:Name="Add_New_Line_Textbox__3" HorizontalAlignment="Left" IsEnabled="False" Margin="421.333,0,0,86" TextWrapping="Wrap" VerticalAlignment="Bottom" Width="298.667" Grid.ColumnSpan="2" TextChanged="Add_New_Line_Textbox__3_TextChanged"/>
-                    <TextBox x:Name="Add_New_Line_Textbox_1" HorizontalAlignment="Left" IsEnabled="False" Margin="421.333,0,0,168" TextWrapping="Wrap" VerticalAlignment="Bottom" Width="414.667" Loaded="Add_New_Line_Textbox_1_Loaded" Height="23" Grid.ColumnSpan="2" TextChanged="Add_New_Line_Textbox_1_TextChanged_1"/>
+                    <TextBox x:Name="Add_New_Line_Textbox__2" HorizontalAlignment="Left" IsEnabled="False" Height="23" Margin="421.333,0,0,85" TextWrapping="Wrap" VerticalAlignment="Bottom" Width="314.991" RenderTransformOrigin="0.443,0.217" Grid.ColumnSpan="2" TextChanged="Add_New_Line_Textbox__2_TextChanged"/>
+                    <TextBox x:Name="Add_New_Line_Textbox__3" HorizontalAlignment="Left" IsEnabled="False" Margin="421.333,0,0,45" TextWrapping="Wrap" VerticalAlignment="Bottom" Width="314.991" Grid.ColumnSpan="2" TextChanged="Add_New_Line_Textbox__3_TextChanged" Height="23"/>
+                    <TextBox x:Name="Add_New_Line_Textbox_1" HorizontalAlignment="Left" IsEnabled="False" Margin="421.333,0,0,125" TextWrapping="Wrap" VerticalAlignment="Bottom" Width="435.344" Loaded="Add_New_Line_Textbox_1_Loaded" Height="23" Grid.ColumnSpan="2" TextChanged="Add_New_Line_Textbox_1_TextChanged_1"/>
 
-                    <Button Content="Choose File" HorizontalAlignment="Left" Margin="27,100,0,0" VerticalAlignment="Top" Width="92" Click="Button_Click" Height="22" ToolTip="Select Log file to parse" RenderTransformOrigin="7,2.091" Cursor="Hand" Grid.ColumnSpan="2"/>
-                    <Label x:Name="File_Label" Content="" HorizontalAlignment="Left" Margin="27,68,0,0" VerticalAlignment="Top" Width="240" RenderTransformOrigin="0.5,0.5" BorderThickness="1" BorderBrush="#FFE3E9EF" Foreground="Black" Background="White" IsEnabled="False" ToolTip="Please click the Choose Log fi button." Grid.ColumnSpan="2">
+                    <Button Content="Choose File" HorizontalAlignment="Left" Margin="27,100,0,0" VerticalAlignment="Top" Width="96" Click="Button_Click" Height="23" ToolTip="Select Log file to parse" RenderTransformOrigin="7,2.091" Cursor="Hand" Grid.ColumnSpan="2"/>
+                    <Label x:Name="File_Label" Content="" HorizontalAlignment="Left" Margin="27,68,0,0" VerticalAlignment="Top" Width="240" RenderTransformOrigin="0.5,0.5" BorderThickness="1" BorderBrush="#FFE3E9EF" Foreground="Black" Background="White" IsEnabled="False" ToolTip="Please click the Choose Log fi button." Grid.ColumnSpan="2" Height="23">
 
 
 
@@ -144,30 +137,30 @@
                             </TransformGroup>
                         </Label.RenderTransform>
                     </Label>
-                    <Label Content="Output Folder Location:" HorizontalAlignment="Left" Margin="27,130,0,0" VerticalAlignment="Top" Width="165" Grid.ColumnSpan="2"/>
+                    <Label Content="Output Folder:" HorizontalAlignment="Left" Margin="27,130,0,0" VerticalAlignment="Top" Width="165" Grid.ColumnSpan="2"/>
                     <!--<Label Content="Select Script to parse with:" HorizontalAlignment="Left" Margin="15,252.04,0,0" VerticalAlignment="Top" Width="150"/>-->
 
 
 
 
-                    <Label Content="Main String:" HorizontalAlignment="Left" Margin="321,0,0,168" VerticalAlignment="Bottom" RenderTransformOrigin="0.519,0.445" Width="90" Height="28" Grid.ColumnSpan="2"/>
-                    <Label Content="Top Marker:" HorizontalAlignment="Left" Margin="321,0,0,126" VerticalAlignment="Bottom" Width="90" RenderTransformOrigin="0.538,1.083" Grid.ColumnSpan="2"/>
-                    <DataGrid x:Name="DataGrid1" Margin="301,36,7,371" CanUserAddRows="False" SelectionChanged="DataGrid1_SelectionChanged" IsReadOnly="True" Background="#FFF0F0F0" BorderThickness="2" AlternationCount="2" RowBackground="#FFF7F7FF" AlternatingRowBackground="White" Grid.ColumnSpan="2"/>
-                    <Label Content="Bottom Marker:" HorizontalAlignment="Left" Margin="321,0,0,86" VerticalAlignment="Bottom" Width="90" RenderTransformOrigin="0.5,2.308" Grid.ColumnSpan="2"/>
+                    <Label Content="Main String:" HorizontalAlignment="Left" Margin="321,0,0,125" VerticalAlignment="Bottom" RenderTransformOrigin="0.519,0.445" Width="90" Height="28" Grid.ColumnSpan="2"/>
+                    <Label Content="Top Marker:" HorizontalAlignment="Left" Margin="321,0,0,85" VerticalAlignment="Bottom" Width="90" RenderTransformOrigin="0.538,1.083" Grid.ColumnSpan="2"/>
+                    <DataGrid x:Name="DataGrid1" Margin="301,36,7,333" CanUserAddRows="False" SelectionChanged="DataGrid1_SelectionChanged" IsReadOnly="True" Background="#FFF0F0F0" BorderThickness="2" AlternationCount="2" RowBackground="#FFF7F7FF" AlternatingRowBackground="White" Grid.ColumnSpan="2" BorderBrush="#FF4A494A"/>
+                    <Label Content="Bottom Marker:" HorizontalAlignment="Left" Margin="321,0,0,45" VerticalAlignment="Bottom" Width="90" RenderTransformOrigin="0.5,2.308" Grid.ColumnSpan="2"/>
 
 
-                    <CheckBox x:Name="topDateTypeCheckbox" Content="Timestamps" HorizontalAlignment="Left" Margin="736,0,0,123" VerticalAlignment="Bottom" RenderTransformOrigin="4.235,18.813" Checked="topDateTypeCheckbox_Checked" Unchecked="topDateTypeCheckbox_Unchecked" Width="88" Height="23" IsEnabled="False" Grid.ColumnSpan="2" />
-                    <Button x:Name="deleteMultipleLinesButton" Content="Delete Selected Lines" HorizontalAlignment="Left" Margin="679,0,0,338" VerticalAlignment="Bottom" Width="157" Click="deleteMultipleLinesButton_Click" Grid.ColumnSpan="2"/>
-                    <Button x:Name="copyMultipleLinesButton" Content="Copy Selected Lines" HorizontalAlignment="Left" Margin="502,0,0,338" VerticalAlignment="Bottom" Width="143" Click="copyMultipleLinesButton_Click" Grid.ColumnSpan="2"/>
-                    <Button x:Name="pasteButton" Content="Paste" HorizontalAlignment="Left" Margin="556,0,0,344" VerticalAlignment="Bottom" Width="75" Click="pasteButton_Click" Grid.ColumnSpan="2" Visibility="Hidden"/>
-                    <Button x:Name="deleteScriptsButton" Content="Delete Script" HorizontalAlignment="Left" Margin="190,0,0,31" VerticalAlignment="Bottom" Width="75" Click="deleteScriptsButton_Click" Height="23" ToolTip="Tick the tick box beside the Script you want Deleted" IsEnabled="False" Grid.ColumnSpan="2"/>
-                    <Button x:Name="btn_Save_New_Line" Content="Save Changes" HorizontalAlignment="Left" Margin="519,0,0,47.47" VerticalAlignment="Bottom" Width="96" RenderTransformOrigin="0.583,2.615" Height="23" Click="btn_Save_New_Line_Click_1" Cursor="Hand" ToolTip="Click Save to save changes to the script" Grid.ColumnSpan="2" IsEnabled="False"/>
-                    <TextBox x:Name="editScriptNameTextbox" HorizontalAlignment="Left" Height="22" Margin="509,0,0,202" TextWrapping="Wrap" VerticalAlignment="Bottom" Width="327" Grid.ColumnSpan="2" TextChanged="editScriptNameTextbox_TextChanged_1" IsEnabled="False"/>
-                    <Button x:Name="scriptCreationButton" Content="Create Script" Margin="745,0,0,297" VerticalAlignment="Bottom" Click="Create_File" ToolTip="Create Script" Height="23" IsEnabled="False" Width="91" Grid.ColumnSpan="2" HorizontalAlignment="Left"/>
-                    <CheckBox x:Name="stringCheckBox" Content="String to String" HorizontalAlignment="Left" Margin="736,0,0,85" VerticalAlignment="Bottom" Width="100" Grid.ColumnSpan="2" Height="23"/>
-                    <Label Grid.ColumnSpan="2" Content="Create Script:" HorizontalAlignment="Left" Margin="321,0,0,297" VerticalAlignment="Bottom" Height="25.218" Width="81.557"/>
-                    <ComboBox x:Name="TempDropDown" Grid.ColumnSpan="2" Margin="321,0,0,338" Height="22" Width="160" VerticalAlignment="Bottom" HorizontalAlignment="Left"/>
-                    <Label Grid.ColumnSpan="2" Content="Edit a script" HorizontalAlignment="Left" Margin="304,353.005,0,236" VerticalAlignment="Bottom" Foreground="#FFF1EBEB" FontWeight="Bold" Height="26"/>
+                    <CheckBox x:Name="topDateTypeCheckbox" Content="Timestamps" HorizontalAlignment="Left" Margin="756.677,0,0,85" VerticalAlignment="Bottom" RenderTransformOrigin="4.235,18.813" Checked="topDateTypeCheckbox_Checked" Unchecked="topDateTypeCheckbox_Unchecked" Width="88" Height="23" IsEnabled="False" Grid.ColumnSpan="2" />
+                    <Button x:Name="deleteMultipleLinesButton" Content="Delete Selected Lines" HorizontalAlignment="Left" Margin="699.677,0,0,295" VerticalAlignment="Bottom" Width="140" Click="deleteMultipleLinesButton_Click" Grid.ColumnSpan="2"/>
+                    <Button x:Name="copyMultipleLinesButton" Content="Copy Selected Lines" HorizontalAlignment="Left" Margin="517,0,0,295" VerticalAlignment="Bottom" Width="136" Click="copyMultipleLinesButton_Click" Grid.ColumnSpan="2"/>
+                    <Button x:Name="pasteButton" Content="Paste" HorizontalAlignment="Left" Margin="355.758,0,0,295" VerticalAlignment="Bottom" Width="75" Click="pasteButton_Click" Grid.ColumnSpan="2" Visibility="Hidden" />
+                    <Button x:Name="deleteScriptsButton" Content="Delete Script" HorizontalAlignment="Left" Margin="202,0,0,8.47" VerticalAlignment="Bottom" Width="80" Click="deleteScriptsButton_Click" Height="23" ToolTip="Tick the tick box beside the Script you want Deleted" IsEnabled="False" Grid.ColumnSpan="2" FontWeight="Bold"/>
+                    <Button x:Name="btn_Save_New_Line" Content="Save Changes" HorizontalAlignment="Left" Margin="535,0,0,15" VerticalAlignment="Bottom" Width="96" RenderTransformOrigin="0.583,2.615" Height="23" Click="btn_Save_New_Line_Click_1" Cursor="Hand" ToolTip="Click Save to save changes to the script" Grid.ColumnSpan="2" IsEnabled="False"/>
+                    <TextBox x:Name="editScriptNameTextbox" HorizontalAlignment="Left" Height="23" Margin="517,0,0,168" TextWrapping="Wrap" VerticalAlignment="Bottom" Width="339.677" Grid.ColumnSpan="2" TextChanged="editScriptNameTextbox_TextChanged_1" IsEnabled="False"/>
+                    <Button x:Name="scriptCreationButton" Content="Create Script" Margin="765.677,0,0,257.218" VerticalAlignment="Bottom" Click="Create_File" ToolTip="Create Script" Height="23" IsEnabled="False" Width="91" Grid.ColumnSpan="2" HorizontalAlignment="Left"/>
+                    <CheckBox x:Name="stringCheckBox" Content="String to String" HorizontalAlignment="Left" Margin="756.677,0,0,42.96" VerticalAlignment="Bottom" Width="100" Grid.ColumnSpan="2" Height="23"/>
+                    <Label Grid.ColumnSpan="2" Content="Create Script:" HorizontalAlignment="Left" Margin="321,0,0,255" VerticalAlignment="Bottom" Height="25.218" Width="81.557"/>
+                    <Label Grid.ColumnSpan="2" Content="Edit a line in the current script" HorizontalAlignment="Left" Margin="304,0,0,206" VerticalAlignment="Bottom" Foreground="#FFF1EBEB" FontWeight="Bold" Height="26" Width="199.31"/>
+
 
                     <!--<xctk:DateTimePicker x:Name="Start_Time_" RenderTransformOrigin="3.596,8.75" Margin="0,0,157,0" HorizontalAlignment="Right" VerticalAlignment="Bottom" Width="93" ToolTip="Pick a start time"/>
                     <xctk:DateTimePicker x:Name="End_time" RenderTransformOrigin="3.596,8.75" Margin="0" HorizontalAlignment="Right" VerticalAlignment="Bottom" Width="93" ToolTip="Pick a end time"/>-->
@@ -177,6 +170,7 @@
             </TabItem>
         </TabControl>
         <Label Content="Select Log File:" HorizontalAlignment="Left" Margin="19,55,0,0" VerticalAlignment="Top" BorderBrush="Black" Foreground="#FFF3F1F1" FontWeight="Bold"/>
+        <DataGrid x:Name="ListDataGrid" HorizontalAlignment="Left" Margin="10,270.327,0,37" Width="285" Loaded="ListDataGrid_Loaded" SelectionChanged="ListDataGrid_SelectionChanged" CanUserAddRows="False" Background="#FFF0F0F0" BorderThickness="2" AlternationCount="2" RowBackground="#FFF7F7FF" AlternatingRowBackground="White" BorderBrush="#FF4A494A"/>
 
     </Grid>
 
