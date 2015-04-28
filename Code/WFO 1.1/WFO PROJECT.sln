@@ -5,6 +5,8 @@ VisualStudioVersion = 12.0.31101.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WFO PROJECT", "WFO PROJECT.csproj", "{791D115A-6779-4EE1-B6E9-2FA29CA5CF39}"
 EndProject
+Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "ACR Logging Tool", "..\ACR Logging Tool\ACR Logging Tool.vdproj", "{689B265E-C7C3-4B2B-A66A-A7DA0F11C5FB}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -17,6 +19,8 @@ Global
 		{791D115A-6779-4EE1-B6E9-2FA29CA5CF39}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
 		{791D115A-6779-4EE1-B6E9-2FA29CA5CF39}.Release|Any CPU.ActiveCfg = Debug|Any CPU
 		{791D115A-6779-4EE1-B6E9-2FA29CA5CF39}.Release|Any CPU.Build.0 = Debug|Any CPU
+		{689B265E-C7C3-4B2B-A66A-A7DA0F11C5FB}.Debug|Any CPU.ActiveCfg = Debug
+		{689B265E-C7C3-4B2B-A66A-A7DA0F11C5FB}.Release|Any CPU.ActiveCfg = Release
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
