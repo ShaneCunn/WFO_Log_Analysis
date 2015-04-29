@@ -9,7 +9,7 @@
         <Border BorderBrush="#FF4A494A" BorderThickness="2,2,2,40" Background="#FFDEE7EF" HorizontalAlignment="Left" Width="398"/>
 
 
-        <xctk:DateTimePicker x:Name="Date_picker" RenderTransformOrigin="3.596,8.75" Margin="10,36,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" Width="220" ToolTip="Pick a end time" ValueChanged="Date_picker_ValueChanged" Format="RFC1123" IsEnabled="False">
+        <xctk:DateTimePicker x:Name="Date_picker" RenderTransformOrigin="3.596,8.75" Margin="10,36,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" Width="220" ToolTip="Pick a end time" ValueChanged="Date_picker_ValueChanged" Format="RFC1123" IsEnabled="False" TabIndex="1">
             <xctk:DateTimePicker.Background>
                 <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
                     <GradientStop Color="#FFFDFDFE" Offset="0"/>
@@ -17,7 +17,7 @@
                 </LinearGradientBrush>
             </xctk:DateTimePicker.Background>
         </xctk:DateTimePicker>
-        <xctk:DateTimePicker x:Name="Date_pickertwo" RenderTransformOrigin="3.596,8.75" Margin="10,82,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" Width="220" ToolTip="Pick a end time" ValueChanged="Date_pickertwo_ValueChanged" Format="RFC1123" IsEnabled="False" Height="23">
+        <xctk:DateTimePicker x:Name="Date_pickertwo" RenderTransformOrigin="3.596,8.75" Margin="10,82,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" Width="220" ToolTip="Pick a end time" ValueChanged="Date_pickertwo_ValueChanged" Format="RFC1123" IsEnabled="False" Height="23" TabIndex="3">
             <xctk:DateTimePicker.Background>
                 <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
                     <GradientStop Color="#FFFDFDFE" Offset="0"/>
@@ -25,18 +25,49 @@
                 </LinearGradientBrush>
             </xctk:DateTimePicker.Background>
         </xctk:DateTimePicker>
-        <TextBox x:Name="ExcludeTxtBox" HorizontalAlignment="Left" Height="23" Margin="72,130,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="250" IsEnabled="False"/>
-        <TextBox x:Name="SwapTxtBox" HorizontalAlignment="Left" Height="23" Margin="72,168,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="250" IsEnabled="False"/>
-        <CheckBox Content="Enable" HorizontalAlignment="Left" Margin="243,36,0,0" VerticalAlignment="Top" Checked="CheckBox_Checked" Unchecked="CheckBox_Unchecked" RenderTransformOrigin="-0.176,0.312"/>
-        <CheckBox x:Name="ExcludeCheckbox" Content="Enable" HorizontalAlignment="Left" Margin="338,137,0,0" VerticalAlignment="Top" Checked="ExcludeCheckbox_Checked" Unchecked="ExcludeCheckbox_Unchecked" RenderTransformOrigin="-0.868,-1.875"/>
-        <CheckBox x:Name="SwapCheckbox" Content="Enable" HorizontalAlignment="Left" Margin="338,178,0,0" VerticalAlignment="Top" Checked="SwapCheckbox_Checked" Unchecked="SwapCheckbox_Unchecked" RenderTransformOrigin="0.308,0.062"/>
+        <TextBox x:Name="ExcludeTxtBox" HorizontalAlignment="Left" Height="23" Margin="72,130,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="250" IsEnabled="False" TabIndex="4"/>
+        <TextBox x:Name="SwapTxtBox" HorizontalAlignment="Left" Height="23" Margin="72,168,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="250" IsEnabled="False" TabIndex="6"/>
+        <CheckBox Content="Enable" HorizontalAlignment="Left" Margin="243,36,0,0" VerticalAlignment="Top" Checked="CheckBox_Checked" Unchecked="CheckBox_Unchecked" RenderTransformOrigin="-0.176,0.312" TabIndex="2"/>
+        <CheckBox x:Name="ExcludeCheckbox" Content="Enable" HorizontalAlignment="Left" Margin="338,137,0,0" VerticalAlignment="Top" Checked="ExcludeCheckbox_Checked" Unchecked="ExcludeCheckbox_Unchecked" RenderTransformOrigin="-0.868,-1.875" TabIndex="5"/>
+        <CheckBox x:Name="SwapCheckbox" Content="Enable" HorizontalAlignment="Left" Margin="338,178,0,0" VerticalAlignment="Top" Checked="SwapCheckbox_Checked" Unchecked="SwapCheckbox_Unchecked" RenderTransformOrigin="0.308,0.062" TabIndex="7"/>
         <Label Content="Start date" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
         <Label Content="Exclude:" HorizontalAlignment="Left" Margin="10,127,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
         <Label Content="Hex:" HorizontalAlignment="Left" Margin="10,165,0,0" VerticalAlignment="Top" Width="35" FontWeight="Bold"/>
         <Label Content="End date" HorizontalAlignment="Left" Margin="10,56,0,0" VerticalAlignment="Top" Width="62" FontWeight="Bold"/>
         <Label Content="Label" HorizontalAlignment="Left" Margin="25,105,0,0" VerticalAlignment="Top" Height="2"/>
         <Separator HorizontalAlignment="Left" Height="12" Margin="10,112,10,0" VerticalAlignment="Top" Width="413"/>
-        <Button Content="OK" HorizontalAlignment="Right" Margin="0,0,12,10" Width="75" Click="Button_Click" RenderTransformOrigin="0.4,0.045" FontWeight="Bold" Height="25" VerticalAlignment="Bottom" ClipToBounds="True" Background="#FFECB14D" BorderBrush="#FFC88415" />
+        <Button Content="OK" HorizontalAlignment="Right" Margin="0,0,12,10" Width="75" Click="Button_Click" RenderTransformOrigin="0.4,0.045" FontWeight="Bold" Height="25" VerticalAlignment="Bottom" ClipToBounds="True"  TabIndex="8">
+            <Button.Style>
+                <Style TargetType="{x:Type Button}">
+                    <Setter Property="Background" Value="#FFECB14D"/>
+                    <Setter Property="Template">
+                        <Setter.Value>
+                            <ControlTemplate TargetType="{x:Type Button}">
+                                <Border Background="{TemplateBinding Background}" CornerRadius="3" BorderThickness="1" BorderBrush="#DCA953">
+                                    <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                                </Border>
+                            </ControlTemplate>
+                        </Setter.Value>
+                    </Setter>
+                    <Style.Triggers>
+                        <Trigger Property="IsMouseOver" Value="True">
+                            <Setter Property="Background">
+                                <Setter.Value>
+                                    <LinearGradientBrush EndPoint="0,1" StartPoint="0,0">
+                                        <GradientStop Color="#FFEFCE92" Offset="0"/>
+                                        <GradientStop Color="#F6C56E" Offset="0.5"/>
+                                        <GradientStop Color="#FFF7D089" Offset="0.5"/>
+                                        <GradientStop Color="#FFEDA529" Offset="1"/>
+                                    </LinearGradientBrush>
+
+                                </Setter.Value>
+                            </Setter>
+
+                        </Trigger>
+                    </Style.Triggers>
+                </Style>
+            </Button.Style>
+        </Button>
 
 
     </Grid>
