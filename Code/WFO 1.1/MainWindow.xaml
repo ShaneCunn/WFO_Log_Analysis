@@ -4,7 +4,7 @@
                 xmlns:Properties="clr-namespace:WFO_PROJECT.Properties"    
                 xmlns:d="http://schemas.microsoft.com/expression/blend/2008" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
                 xmlns:xctk="http://schemas.xceed.com/wpf/xaml/toolkit" xmlns:Anno="http://schemas.microsoft.com/expression/blend/extensions/annotations/2008" mc:Ignorable="d Anno" x:Name="WFO_Grep_Tool" x:Class="WFO_PROJECT.MainWindow"
-                Title="ACR logging tool" Height="719.667" Width="942" Icon="Icon.ico" Closed="WFO_Grep_Tool_Closed"  >
+                Title="ACR logging tool" Height="720" Width="942" Icon="Icon.ico" Closed="WFO_Grep_Tool_Closed"  >
 
     <Window.Background>
         <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
