@@ -19,9 +19,9 @@
         </Style.Triggers>
         <Setter Property="BorderThickness" Value="1,0,0,1" />
     </Style>
-
+	
+	<!-- Create Orange colour brush resource to use -->
     <SolidColorBrush x:Key="{x:Static SystemColors.HighlightBrushKey}" Color="#FF9A52"/>
-
 
     <!-- NormalBrush is used as the Background for SimpleButton, SimpleRepeatButton -->
 	<LinearGradientBrush x:Key="NormalBrush" EndPoint="0,1" StartPoint="0,0">

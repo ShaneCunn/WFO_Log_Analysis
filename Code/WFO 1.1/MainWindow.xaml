@@ -4,14 +4,7 @@
                 xmlns:Properties="clr-namespace:WFO_PROJECT.Properties"    
                 xmlns:d="http://schemas.microsoft.com/expression/blend/2008" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
                 xmlns:xctk="http://schemas.xceed.com/wpf/xaml/toolkit" xmlns:Anno="http://schemas.microsoft.com/expression/blend/extensions/annotations/2008" mc:Ignorable="d Anno" x:Name="WFO_Grep_Tool" x:Class="WFO_PROJECT.MainWindow"
-                Title="ACR logging tool" Height="720" Width="942" Icon="Icon.ico" Closed="WFO_Grep_Tool_Closed"  >
-
-    <Window.Background>
-        <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
-            <GradientStop Color="Black" Offset="0"/>
-            <GradientStop Color="#FF295D73" Offset="1"/>
-        </LinearGradientBrush>
-    </Window.Background>
+                Title="ACR logging tool" Height="720" Width="942" Icon="Icon.ico" Closed="WFO_Grep_Tool_Closed" Background="#FFDEE7EF" WindowStyle="ThreeDBorderWindow"  >
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition/>
@@ -30,31 +23,33 @@
 
 
             <MenuItem x:Name="Btn_file_tab" Header="File&#xA;" TabIndex="1">
-                <!-- <MenuItem x:Name="Btn_New_Window" Header="New Window" HorizontalAlignment="Left" Width="169" Margin="0,0,-29,0" 
-				ToolTip="Open a new window"Click="Button_NewWindow"/>
+                <!--<MenuItem x:Name="Btn_New_Window" Header="New Window" HorizontalAlignment="Left" Width="169" Margin="0,0,-29,0" 
+				ToolTip="Open a new window"Click="Button_NewWindow" />-->
 
-                <MenuItem Header="Select Search Path" HorizontalAlignment="Left" Width="162" Margin="0,0,-22,0"/>
+
+                <!-- Extra menu ITEMS -->
+
+                <!--<MenuItem Header="Select Search Path" HorizontalAlignment="Left" Width="162" Margin="0,0,-22,0"/>
                 <MenuItem Header="MenuItem" HorizontalAlignment="Left" Width="157" Margin="0,0,-17,0"/>
-				<Separator /> -->
+                <Separator />-->
 
 
                 <!-- Exit button -->
                 <MenuItem x:Name="exitBtn" Header="Exit" HorizontalAlignment="Left" Width="140" Click="MenuItem_exitBtn"/>
             </MenuItem>
 
+
+            <!-- Extra menu ITEMS -->
+
+
             <!-- <MenuItem Header="Edit">
-                <MenuItem Header="MenuItem" HorizontalAlignment="Left" Width="140"/>
-                <MenuItem Header="MenuItem" HorizontalAlignment="Left" Width="140"/>
                 <MenuItem Header="MenuItem" HorizontalAlignment="Left" Width="140"/>
             </MenuItem>
             <MenuItem Header="View">
                 <MenuItem Header="MenuItem" HorizontalAlignment="Left" Width="140"/>
-                <MenuItem Header="MenuItem" HorizontalAlignment="Left" Width="140"/>
-                <MenuItem Header="MenuItem" HorizontalAlignment="Left" Width="140"/>
             </MenuItem>
             <MenuItem Header="Tools">
                 <MenuItem Header="Options" HorizontalAlignment="Left" Width="160" Click="MenuItem_Click"/>
-                <MenuItem Header="MenuItem" HorizontalAlignment="Left" Width="160"/>
             </MenuItem> -->
 
 
@@ -71,7 +66,15 @@
         <Rectangle HorizontalAlignment="Left" Margin="0,640,0,0" Stroke="red" VerticalAlignment="Top" Height="1"
 			Width="1" Fill="#FFBC0000"/>
         <TabControl Margin="0,21,0,0" Background="#FFDEE7EF">
-            <TabItem Header="Home"  Margin="0,0,1,0"  TabIndex="3" Height="22.96" VerticalAlignment="Bottom">
+            <TabItem Header="Home"  Margin="8,0,-10,0"  TabIndex="3" Height="22.96" VerticalAlignment="Bottom" Width="50" >
+                <TabItem.Background>
+                    <LinearGradientBrush EndPoint="0,1" StartPoint="0,0">
+                        <GradientStop Color="#FFF3F3F3" Offset="0"/>
+                        <GradientStop Color="#FFEBEBEB" Offset="0.5"/>
+                        <GradientStop Color="#FFDDDDDD" Offset="0.5"/>
+                        <GradientStop Color="#FFCDCDCD" Offset="0.996"/>
+                    </LinearGradientBrush>
+                </TabItem.Background>
                 <Grid Background="#FFDEE7EF" Margin="0,-1.965,0,-2.551">
                     <Grid.RowDefinitions>
                         <RowDefinition/>
@@ -82,22 +85,27 @@
                         <ColumnDefinition/>
 
                     </Grid.ColumnDefinitions>
-                    <!-- <GroupBox Header="Select a Log File to Parse:" HorizontalAlignment="Left" Height="212.811" Margin="15,15,0,0" VerticalAlignment="Top" Width="267"/> -->
 
 
-                    <!-- <Label Content="Start time" HorizontalAlignment="Left" Margin="32,137,0,0" VerticalAlignment="Top"/>
-                    <Label Content="End time" HorizontalAlignment="Left" Margin="25,168,0,0" VerticalAlignment="Top" RenderTransformOrigin="-4.561,4.885"/> -->
-
-                    <!-- <Button x:Name="scriptCreationButton" Content="Create Script" HorizontalAlignment="Left" Margin="205.703,4,0,0" VerticalAlignment="Top" Width="76" Click="Create_File" ToolTip="Create Script" Height="22" IsEnabled="False"/> -->
 
 
-                    <!-- <xctk:DateTimePicker x:Name="End_time" RenderTransformOrigin="3.596,8.75" Margin="0" HorizontalAlignment="Right" VerticalAlignment="Bottom" Width="93" ToolTip="Pick a end time"/> -->
+
 
 
                     <Anno:AnnotationManager.Annotations>
                         <Anno:Annotation AuthorInitials="SC" Author="Shane Cunningham" Left="935" SerialNumber="1" Top="73.995" Timestamp="04/29/2015 16:44:28"/>
                     </Anno:AnnotationManager.Annotations>
-                    <!-- <GroupBox Header="Select a Log File to Parse:" HorizontalAlignment="Left" Height="212.811" Margin="15,15,0,0" VerticalAlignment="Top" Width="267"/> -->
+
+
+                    <Border x:Name="border_left" BorderBrush="#FF4A494A" BorderThickness="2,33" Margin="5,10,0,5" Width="341"
+						HorizontalAlignment="Left" Grid.ColumnSpan="2">
+
+                        <!-- Run Script Data Grid -->
+                        <DataGrid x:Name="ListDataGrid"  Margin="-0.618,170,-2,-1" Width="339.618" Loaded="ListDataGrid_Loaded" 
+                    		SelectionChanged="ListDataGrid_SelectionChanged" CanUserAddRows="False" Background="#FFF0F0F0" BorderThickness="2" 
+                    		AlternationCount="2" RowBackground="#FFF7F7FF" AlternatingRowBackground="White" BorderBrush="#FF4A494A" 
+                    		HorizontalAlignment="Left" HorizontalContentAlignment="Stretch" ColumnWidth="*"/>
+                    </Border>
 
                     <Grid Grid.ColumnSpan="2" Margin="303,10,3,5">
                         <Grid.ColumnDefinitions>
@@ -117,40 +125,37 @@
                                 </Border.BorderBrush>
                             </Border>
                         </Border>
+                        <Label Content="Select Log File" HorizontalAlignment="Left" Margin="-296,3,0,0" VerticalAlignment="Top" 
+                        	BorderBrush="Black" Foreground="#FFF3F1F1" FontWeight="Bold"/>
 
                     </Grid>
 
-                    <Border x:Name="border_left" BorderBrush="#FF4A494A" BorderThickness="2,33" Margin="5,10,0,5" Width="341"
-						HorizontalAlignment="Left" Grid.ColumnSpan="2">
-
-
-                        <!-- Select script to edit Dropdown -->
-                        <ComboBox x:Name="ComboOne" IsEditable="True" Text="Please Select a script to edit" 
-							VerticalAlignment="Bottom"  Loaded="ComboBox_Loaded"  SelectionChanged="ComboBox_SelectionChanged"
-							PreviewMouseLeftButtonDown="ComboOne_PreviewMouseLeftButtonDown" Height="23" Width="183.973" 
-							HorizontalAlignment="Left" ToolTip="Select script to edit" Margin="381,0,-225,132" SelectedIndex="0"
-							IsReadOnly="True" TabIndex="14"/>
-                    </Border>
                     <!-- Run Button -->
                     <Button x:Name="GrepButton" Content="Run" HorizontalAlignment="Left" Margin="15,0,0,9" 
 						VerticalAlignment="Bottom" Width="56" RenderTransformOrigin="0,0.5" Click="GrepButton_Click" 
 						ToolTip="Click to run a search on a log file" Height="23" HorizontalContentAlignment="Center"
 						VerticalContentAlignment="Center" Cursor="Hand" Grid.ColumnSpan="2" FontWeight="Bold" BorderThickness="1" 
 						TabIndex="7">
+
+                        <!-- Adds a style override, change the background colours and mouseover colours to a orange theme -->
                         <Button.Style>
                             <Style TargetType="{x:Type Button}">
                                 <Setter Property="Background" Value="#FFECB14D"/>
                                 <Setter Property="Template">
                                     <Setter.Value>
                                         <ControlTemplate TargetType="{x:Type Button}">
+
+                                            <!--Sets button corner radius from square to 3px radius -->
                                             <Border Background="{TemplateBinding Background}" CornerRadius="3"
-												BorderThickness="1" BorderBrush="#DCA953">
+                					BorderThickness="1" BorderBrush="#DCA953">
                                                 <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
                                             </Border>
                                         </ControlTemplate>
                                     </Setter.Value>
                                 </Setter>
                                 <Style.Triggers>
+
+                                    <!--Change mouseover to an orange gradient-->
                                     <Trigger Property="IsMouseOver" Value="True">
                                         <Setter Property="Background">
                                             <Setter.Value>
@@ -187,7 +192,7 @@
 
 
                     <!-- Choose output folder button -->
-                    <Button Content="Choose Output" HorizontalAlignment="Left" Margin="244,147,0,0" VerticalAlignment="Top" Width="90"
+                    <Button Content="Choose Output" HorizontalAlignment="Left" Margin="244,145,0,0" VerticalAlignment="Top" Width="90"
 						Click="Button_Click_4" ToolTip="Choose output folder." RenderTransformOrigin="1.231,0.273" Height="23"
 						Cursor="Hand" Grid.ColumnSpan="2"  TabIndex="5"/>
 
@@ -213,7 +218,7 @@
 						FontWeight="Bold"/>
 
                     <GroupBox x:Name="Time_picker_group" Header="Pick time ranges *Optional" HorizontalAlignment="Left"
-						Margin="15,233,0,0" VerticalAlignment="Top" Height="98" Width="267" d:IsHidden="True"
+						Margin="15,233,0,0" VerticalAlignment="Top" Height="98" Width="267"
 						Visibility="Hidden" Grid.ColumnSpan="2">
                         <Grid Margin="10,10,13,5">
                             <Label Content="Start time:" HorizontalAlignment="Left" VerticalAlignment="Top"
@@ -221,14 +226,6 @@
                             <Label Content="End time:" HorizontalAlignment="Left" Margin="-7,30,0,0" VerticalAlignment="Top"/>
                         </Grid>
                     </GroupBox>
-
-                    <Button Content="Save Script" HorizontalAlignment="Left" Margin="305,0,0,15" VerticalAlignment="Bottom"
-						Width="76" Click="save_Script" RenderTransformOrigin="0.184,0.591" Height="22" d:IsHidden="True"
-						Visibility="Hidden" Grid.ColumnSpan="2"/>
-
-                    <Button Content="Copy Script" HorizontalAlignment="Left" Margin="395,0,0,15" VerticalAlignment="Bottom"
-						Width="76" IsEnabled="False" RenderTransformOrigin="-0.078,0.649" Height="22" d:IsHidden="True"
-						Visibility="Hidden" Grid.ColumnSpan="2"/>
 
                     <!-- Edit script textbox -->
                     <TextBox x:Name="editScriptNameTextbox" HorizontalAlignment="Left" Height="22" Margin="588.953,0,0,172" 
@@ -242,7 +239,7 @@
 						Loaded="Add_New_Line_Textbox_1_Loaded" Height="23" Grid.ColumnSpan="2" 
 						TextChanged="Add_New_Line_Textbox_1_TextChanged_1" TabIndex="16"/>
 
-
+                    <!-- Time Stamp Checkbox-->
                     <CheckBox x:Name="topDateTypeCheckbox" Content="Timestamps" HorizontalAlignment="Left" 
 						Margin="802.591,0,0,88" VerticalAlignment="Bottom" RenderTransformOrigin="4.235,18.813" 
 						Checked="topDateTypeCheckbox_Checked" Unchecked="topDateTypeCheckbox_Unchecked" Width="88" 
@@ -292,7 +289,6 @@
                     <Label Content="Output Folder:" HorizontalAlignment="Left" Margin="27,108,0,0" VerticalAlignment="Top" 
 						Width="164" Grid.ColumnSpan="2" Height="26" FontWeight="Bold"/>
 
-                    <!-- <Label Content="Select Script to parse with:" HorizontalAlignment="Left" Margin="15,252.04,0,0" VerticalAlignment="Top" Width="150"/> -->
 
                     <Label Content="Search String:" HorizontalAlignment="Left" Margin="381,0,0,137.95" VerticalAlignment="Bottom" 
 						RenderTransformOrigin="0.519,0.445" Width="90" Height="28" Grid.ColumnSpan="2" FontWeight="Bold"/>
@@ -373,22 +369,31 @@
 						VerticalAlignment="Bottom" FontSize="10.667" Height="25"/>
 
                     <Label Grid.ColumnSpan="2" Content="Current Lines in Script" HorizontalAlignment="Left" Margin="368,14,0,0" 
-						VerticalAlignment="Top" Foreground="#FFF3F1F1"/>
+						VerticalAlignment="Top" Foreground="#FFF3F1F1" FontWeight="Bold"/>
+                    <ComboBox x:Name="ComboOne" IsEditable="True" Text="Please Select a script to edit" 
+                    	VerticalAlignment="Bottom"  Loaded="ComboBox_Loaded"  SelectionChanged="ComboBox_SelectionChanged"
+                    	PreviewMouseLeftButtonDown="ComboOne_PreviewMouseLeftButtonDown" Height="23" Width="183.973" 
+                    	HorizontalAlignment="Left" ToolTip="Select script to edit" Margin="381,0,0,172" SelectedIndex="0"
+                    	IsReadOnly="True" TabIndex="14" Grid.ColumnSpan="2"/>
 
 
                 </Grid>
             </TabItem>
+            <TabItem x:Name="Graph_Tab" Header="Graph" HorizontalAlignment="Right" Height="22.96" VerticalAlignment="Top" Width="57.32" Margin="0,0,-10,0">
+                <TabItem.Background>
+                    <LinearGradientBrush EndPoint="0,1" StartPoint="0,0">
+                        <GradientStop Color="#FFF3F3F3" Offset="0"/>
+                        <GradientStop Color="#FFEBEBEB" Offset="0.5"/>
+                        <GradientStop Color="#FFDDDDDD" Offset="0.5"/>
+                        <GradientStop Color="#FFCDCDCD" Offset="0.996"/>
+                    </LinearGradientBrush>
+                </TabItem.Background>
+                <Grid Background="#FFDEE7EF" RenderTransformOrigin="0.064,0.422"/>
+            </TabItem>
         </TabControl>
 
-        <Label Content="Select Log File" HorizontalAlignment="Left" Margin="10,55,0,0" VerticalAlignment="Top" 
-			BorderBrush="Black" Foreground="#FFF3F1F1" FontWeight="Bold"/>
 
 
-        <!-- Script selection datagrid -->
-        <DataGrid x:Name="ListDataGrid"  Margin="10,268,0,39" Width="339.618" Loaded="ListDataGrid_Loaded" 
-			SelectionChanged="ListDataGrid_SelectionChanged" CanUserAddRows="False" Background="#FFF0F0F0" BorderThickness="2" 
-			AlternationCount="2" RowBackground="#FFF7F7FF" AlternatingRowBackground="White" BorderBrush="#FF4A494A" 
-			HorizontalAlignment="Left" HorizontalContentAlignment="Stretch" ColumnWidth="*"/>
 
     </Grid>
 
