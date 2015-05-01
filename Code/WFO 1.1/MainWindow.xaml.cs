@@ -872,13 +872,13 @@ namespace WFO_PROJECT
 
 
         }
-
+        // Exit Button that close the application
         private void MenuItem_exitBtn(object sender, RoutedEventArgs e)
         {
             this.Close();
         }
 
-
+        //  button that a opens a Blank new Window
         private void Button_NewWindow(object sender, RoutedEventArgs e)
         {
             Window win2 = new Window();
@@ -2264,6 +2264,35 @@ namespace WFO_PROJECT
             endTime = endTime.Replace(" ", "");
 
         }
+        // Help menu button
+        private void MenuItem_HelpButton(object sender, RoutedEventArgs e)
+        {
+            System.Diagnostics.Process.Start(@"C:/Program Files (x86)/SolarWinds/SolarWindsEventLogConsolidator/EventLogConsolidator.htm");
+        }
+        // About menu button
+        //private void MenuItem_AboutButton(object sender, RoutedEventArgs e)
+        //{
+        //    System.Diagnostics.Process.Start(@"C:/Program Files (x86)/SolarWinds/SolarWindsEventLogConsolidator/EventLogConsolidator.htm");
+        //}
+
+        AboutBox1 aboutboxwindow = new AboutBox1();
+        private void MenuItem_AboutButton(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                aboutboxwindow.Show();
+                aboutboxwindow.Show();
+            }
+            catch (Exception)
+            {
+                aboutboxwindow = new AboutBox1();
+                aboutboxwindow.Show();
+                aboutboxwindow.Activate();
+            }
+                        
+        }
+
+
 
     }
 }

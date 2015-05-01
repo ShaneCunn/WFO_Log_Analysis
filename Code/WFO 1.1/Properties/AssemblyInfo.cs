@@ -7,11 +7,11 @@ using System.Windows;
 // General Information about an assembly is controlled through the following 
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("WFO PROJECT")]
-[assembly: AssemblyDescription("")]
+[assembly: AssemblyTitle("ACR logging tool")]
+[assembly: AssemblyDescription("Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur congue ac arcu nec facilisis. Vivamus eu suscipit felis, sed commodo nisl. Maecenas sed scelerisque nunc. Ut eu eros erat. Donec viverra eu quam at mollis. Nullam purus magna, pharetra id feugiat vitae, accumsan at turpis. Aliquam blandit arcu a dui fringilla viverra. Suspendisse nec lectus eget velit pellentesque rhoncus. Ut tempor vehicula libero, eget ullamcorper orci pulvinar id. Ut et libero eu odio congue bibendum. Maecenas et tempor augue. Etiam rhoncus pharetra ex, id luctus dui maximus sed. Praesent commodo erat vitae velit elementum finibus.")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("Avaya")]
-[assembly: AssemblyProduct("WFO PROJECT")]
+[assembly: AssemblyProduct("ACR logging tool")]
 [assembly: AssemblyCopyright("Copyright © Avaya 2015")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]

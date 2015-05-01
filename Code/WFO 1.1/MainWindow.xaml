@@ -21,8 +21,8 @@
 
 
 
-
-            <MenuItem x:Name="Btn_file_tab" Header="File&#xA;" TabIndex="1">
+<!--File menu tab-->
+            <MenuItem x:Name="Btn_file_tab" Header="File&#xA;" TabIndex="1" >
                 <!--<MenuItem x:Name="Btn_New_Window" Header="New Window" HorizontalAlignment="Left" Width="169" Margin="0,0,-29,0" 
 				ToolTip="Open a new window"Click="Button_NewWindow" />-->
 
@@ -53,12 +53,17 @@
             </MenuItem> -->
 
 
-            <!-- Help Button -->
+            
             <MenuItem Header="Help" TabIndex="2">
-                <MenuItem Header="About" HorizontalAlignment="Left" Width="160"/>
-                <Separator HorizontalAlignment="Left" Width="160"/>
-                <MenuItem Header="View Help" HorizontalAlignment="Left" Width="160"/>
 
+<!--About button-->
+                <MenuItem x:Name="AboutButton" Header="About" HorizontalAlignment="Left" Width="160" Click="MenuItem_AboutButton"/>
+                <Separator HorizontalAlignment="Left" Width="160"/>
+                
+                <!-- Help Button -->
+                <MenuItem x:Name="HelpButton" Header="View Help" HorizontalAlignment="Left" Width="160" Click="MenuItem_HelpButton"/>
+
+                
                 <!-- <MenuItem Header="MenuItem" HorizontalAlignment="Left" Width="160"/> -->
             </MenuItem>
         </Menu>
