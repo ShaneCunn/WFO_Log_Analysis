@@ -10,7 +10,7 @@
         </Grid.ColumnDefinitions>
 
         <!-- Start Date picker dropdown-->
-        <xctk:DateTimePicker x:Name="Date_picker" RenderTransformOrigin="3.596,8.75" Margin="10,36,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" Width="220" ToolTip="Pick a end time" ValueChanged="Date_picker_ValueChanged" Format="RFC1123" IsEnabled="False" TabIndex="1" Grid.ColumnSpan="2">
+        <xctk:DateTimePicker x:Name="Date_picker" RenderTransformOrigin="3.596,8.75" Margin="10,36,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" Width="220" ToolTip="Pick the start time you wish to parse" ValueChanged="Date_picker_ValueChanged" Format="RFC1123" IsEnabled="False" TabIndex="1" Grid.ColumnSpan="2">
             <xctk:DateTimePicker.Background>
                 <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
                     <GradientStop Color="#FFFDFDFE" Offset="0"/>
@@ -21,7 +21,7 @@
 
 
         <!-- End Date Date Picker dropdown menu -->
-        <xctk:DateTimePicker x:Name="Date_pickertwo" RenderTransformOrigin="3.596,8.75" Margin="10,82,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" Width="220" ToolTip="Pick a end time" ValueChanged="Date_pickertwo_ValueChanged" Format="RFC1123" IsEnabled="False" Height="23" TabIndex="3" Grid.ColumnSpan="2">
+        <xctk:DateTimePicker x:Name="Date_pickertwo" RenderTransformOrigin="3.596,8.75" Margin="10,82,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" Width="220" ToolTip="Pick the end time you wish to parse" ValueChanged="Date_pickertwo_ValueChanged" Format="RFC1123" IsEnabled="False" Height="23" TabIndex="3" Grid.ColumnSpan="2">
             <xctk:DateTimePicker.Background>
                 <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
                     <GradientStop Color="#FFFDFDFE" Offset="0"/>
@@ -31,11 +31,11 @@
         </xctk:DateTimePicker>
 
         <!-- Exclude Textbox -->
-        <TextBox x:Name="ExcludeTxtBox" HorizontalAlignment="Left" Height="23" Margin="72,130,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="250" IsEnabled="False" TabIndex="4" Grid.ColumnSpan="2"/>
+        <TextBox x:Name="ExcludeTxtBox" HorizontalAlignment="Left" Height="23" Margin="72,130,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="250" IsEnabled="False" TabIndex="4" Grid.ColumnSpan="2" ToolTip=" Type in the string you wish to exlcude from the parsed log file"/>
 
 
         <!-- Hex Textbox -->
-        <TextBox x:Name="SwapTxtBox" HorizontalAlignment="Left" Height="23" Margin="72,168,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="250" IsEnabled="False" TabIndex="6" Grid.ColumnSpan="2"/>
+        <TextBox x:Name="SwapTxtBox" HorizontalAlignment="Left" Height="23" Margin="72,168,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="250" IsEnabled="False" TabIndex="6" Grid.ColumnSpan="2" ToolTip="Type in the Hex number you wish to be converted to UCID Decimal"/>
 
 
         <!-- Enable Tickbox for  Date pickers Dropbox menu -->

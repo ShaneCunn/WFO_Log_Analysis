@@ -109,7 +109,7 @@
                         <DataGrid x:Name="ListDataGrid"  Margin="-0.618,170,-2,-1" Width="339.618" Loaded="ListDataGrid_Loaded" 
                     		SelectionChanged="ListDataGrid_SelectionChanged" CanUserAddRows="False" Background="#FFF0F0F0" BorderThickness="2" 
                     		AlternationCount="2" RowBackground="#FFF7F7FF" AlternatingRowBackground="White" BorderBrush="#FF4A494A" 
-                    		HorizontalAlignment="Left" HorizontalContentAlignment="Stretch" ColumnWidth="*"/>
+                    		HorizontalAlignment="Left" HorizontalContentAlignment="Stretch" ColumnWidth="*" ToolTip="Please select a Script to Run"/>
                     </Border>
 
                     <Grid Grid.ColumnSpan="2" Margin="303,10,3,5">
@@ -198,14 +198,14 @@
 
                     <!-- Choose output folder button -->
                     <Button Content="Choose Output" HorizontalAlignment="Left" Margin="244,145,0,0" VerticalAlignment="Top" Width="90"
-						Click="Button_Click_4" ToolTip="Choose output folder." RenderTransformOrigin="1.231,0.273" Height="23"
+						Click="Button_Click_4" ToolTip="Select/create output folder to output parsed log file" RenderTransformOrigin="1.231,0.273" Height="23"
 						Cursor="Hand" Grid.ColumnSpan="2"  TabIndex="5"/>
 
                     <!-- Choose output folder Label Box -->
                     <Label x:Name="outputFileLabel" Content="" HorizontalAlignment="Left" Margin="26,140,0,0"
 						VerticalAlignment="Top" Width="199" RenderTransformOrigin="0.5,0.5" BorderThickness="1"
 						BorderBrush="#FFE3E9EF" Foreground="Black" Background="White" 
-						ToolTip="Please click the Choose Output button." Grid.ColumnSpan="2" Height="28">
+						ToolTip="" Grid.ColumnSpan="2" Height="28">
 
                         <Label.RenderTransform>
                             <TransformGroup>
@@ -220,7 +220,7 @@
 
                     <Label Content="Source Log file:&#xA;" HorizontalAlignment="Left" Margin="27,43,0,0"
 						VerticalAlignment="Top" RenderTransformOrigin="-0.237,0.308" Width="96" Height="26" Grid.ColumnSpan="2"
-						FontWeight="Bold"/>
+						FontWeight="Bold" ToolTip="Please click the Choose Log fi button."/>
 
                     <GroupBox x:Name="Time_picker_group" Header="Pick time ranges *Optional" HorizontalAlignment="Left"
 						Margin="15,233,0,0" VerticalAlignment="Top" Height="98" Width="267"
@@ -235,32 +235,32 @@
                     <!-- Edit script textbox -->
                     <TextBox x:Name="editScriptNameTextbox" HorizontalAlignment="Left" Height="22" Margin="588.953,0,0,172" 
 						TextWrapping="Wrap" VerticalAlignment="Bottom" Width="301.638" Grid.ColumnSpan="2" 
-						TextChanged="editScriptNameTextbox_TextChanged_1" IsEnabled="False" TabIndex="15"/>
+						TextChanged="editScriptNameTextbox_TextChanged_1" IsEnabled="False" TabIndex="15" ToolTip="Edit the name of the script here"/>
 
 
                     <!-- Search string textbox -->
                     <TextBox x:Name="Add_New_Line_Textbox_1" HorizontalAlignment="Left" IsEnabled="False" 
 						Margin="500,0,0,138" TextWrapping="Wrap" VerticalAlignment="Bottom" Width="391" 
 						Loaded="Add_New_Line_Textbox_1_Loaded" Height="23" Grid.ColumnSpan="2" 
-						TextChanged="Add_New_Line_Textbox_1_TextChanged_1" TabIndex="16"/>
+						TextChanged="Add_New_Line_Textbox_1_TextChanged_1" TabIndex="16" ToolTip=""/>
 
                     <!-- Time Stamp Checkbox-->
                     <CheckBox x:Name="topDateTypeCheckbox" Content="Timestamps" HorizontalAlignment="Left" 
-						Margin="802.591,0,0,88" VerticalAlignment="Bottom" RenderTransformOrigin="4.235,18.813" 
-						Checked="topDateTypeCheckbox_Checked" Unchecked="topDateTypeCheckbox_Unchecked" Width="88" 
+						Margin="807.591,0,0,88" VerticalAlignment="Bottom" RenderTransformOrigin="4.235,18.813" 
+						Checked="topDateTypeCheckbox_Checked" Unchecked="topDateTypeCheckbox_Unchecked" Width="83" 
 						Height="23" IsEnabled="False" Grid.ColumnSpan="2" />
 
                     <!-- Top marker textbox -->
                     <TextBox x:Name="Add_New_Line_Textbox__2" HorizontalAlignment="Left" IsEnabled="False" Height="23" 
-						Margin="500,0,0,88" TextWrapping="Wrap" VerticalAlignment="Bottom" Width="279.164" 
+						Margin="500,0,0,88" TextWrapping="Wrap" VerticalAlignment="Bottom" Width="285" 
 						RenderTransformOrigin="0.443,0.217" Grid.ColumnSpan="2" TextChanged="Add_New_Line_Textbox__2_TextChanged" 
-						TabIndex="17"/>
+						TabIndex="17" ToolTip=""/>
 
 
                     <!-- Bottom marker textbox -->
                     <TextBox x:Name="Add_New_Line_Textbox__3" HorizontalAlignment="Left" IsEnabled="False" Margin="500,0,0,55" 
-						TextWrapping="Wrap" VerticalAlignment="Bottom" Width="279.164" Grid.ColumnSpan="2" 
-						TextChanged="Add_New_Line_Textbox__3_TextChanged" Height="23" TabIndex="18"/>
+						TextWrapping="Wrap" VerticalAlignment="Bottom" Width="285" Grid.ColumnSpan="2" 
+						TextChanged="Add_New_Line_Textbox__3_TextChanged" Height="23" TabIndex="18" ToolTip="Select how many lines below the search you wish to parse"/>
 
 
                     <!-- Save button -->
@@ -272,14 +272,14 @@
 
                     <!-- Choose File button -->
                     <Button Content="Choose File" HorizontalAlignment="Left" Margin="244,79,0,0" VerticalAlignment="Top" 
-						Width="90" Click="Button_Click" Height="23" ToolTip="Select Log file to parse" 
+						Width="90" Click="Button_Click" Height="23" ToolTip="Select directory location of log file to parse" 
 						RenderTransformOrigin="7,2.091" Cursor="Hand" Grid.ColumnSpan="2" TabIndex="4"/>
 
 
                     <!-- Source File Label box, displays source file location -->
                     <Label x:Name="File_Label" Content="" HorizontalAlignment="Left" Margin="26,73,0,0" 
 						VerticalAlignment="Top" Width="199" RenderTransformOrigin="0.5,0.5" BorderThickness="1" 
-						BorderBrush="#FFE3E9EF" Foreground="Black" Background="White" IsEnabled="False" ToolTip="Please click the Choose Log fi button." 
+						BorderBrush="#FFE3E9EF" Foreground="Black" Background="White" IsEnabled="False" ToolTip="" 
 						Grid.ColumnSpan="2" Height="28">
 
                         <Label.RenderTransform>
@@ -292,24 +292,24 @@
                         </Label.RenderTransform>
                     </Label>
                     <Label Content="Output Folder:" HorizontalAlignment="Left" Margin="27,108,0,0" VerticalAlignment="Top" 
-						Width="164" Grid.ColumnSpan="2" Height="26" FontWeight="Bold"/>
+						Width="164" Grid.ColumnSpan="2" Height="26" FontWeight="Bold" ToolTip="Please click the Choose Output button."/>
 
 
                     <Label Content="Search String:" HorizontalAlignment="Left" Margin="381,0,0,137.95" VerticalAlignment="Bottom" 
-						RenderTransformOrigin="0.519,0.445" Width="90" Height="28" Grid.ColumnSpan="2" FontWeight="Bold"/>
+						RenderTransformOrigin="0.519,0.445" Width="90" Height="28" Grid.ColumnSpan="2" FontWeight="Bold" ToolTip="Enter the string you wish to [parse"/>
 
                     <Label Content="Top Marker:" HorizontalAlignment="Left" Margin="381,0,0,85.04" VerticalAlignment="Bottom" 
-						Width="90" RenderTransformOrigin="0.538,1.083" Grid.ColumnSpan="2" FontWeight="Bold"/>
+						Width="90" RenderTransformOrigin="0.538,1.083" Grid.ColumnSpan="2" FontWeight="Bold" ToolTip="Select how many lines above the search you wish to parse"/>
 
 
                     <!-- Edit script datagrid -->
                     <DataGrid x:Name="DataGrid1" Margin="368,43,5,238" CanUserAddRows="False" SelectionChanged="DataGrid1_SelectionChanged"
 						IsReadOnly="True" Background="#FFF0F0F0" BorderThickness="2,2,2,10" AlternationCount="2" RowBackground="#FFF7F7FF" 
 						AlternatingRowBackground="White" Grid.ColumnSpan="2"
-						BorderBrush="#FF4A494A"  HorizontalAlignment="Stretch" HorizontalContentAlignment="Stretch" ColumnWidth="*"/>
+						BorderBrush="#FF4A494A"  HorizontalAlignment="Stretch" HorizontalContentAlignment="Stretch" ColumnWidth="*" ToolTip="Please select a Script to Edit"/>
 
                     <Label Content="Bottom Marker:" HorizontalAlignment="Left" Margin="381,0,0,55" VerticalAlignment="Bottom" 
-						Width="107.086" RenderTransformOrigin="0.5,2.308" Grid.ColumnSpan="2" FontWeight="Bold"/>
+						Width="107.086" RenderTransformOrigin="0.5,2.308" Grid.ColumnSpan="2" FontWeight="Bold" ToolTip="Select how many lines above the search you wish to parse"/>
 
 
                     <!-- Copy lines Button -->
@@ -338,7 +338,7 @@
                     <!-- Extra options button -->
                     <Button Grid.ColumnSpan="2" Content="Extra Options" HorizontalAlignment="Left" Margin="27,182,0,0" 
 						VerticalAlignment="Top" Width="92" Click="Button_Click_6" RenderTransformOrigin="0.333,-0.318" Height="23" 
-						TabIndex="6"/>
+						TabIndex="6" ToolTip="Extra options such as a Time range, Exclude string and convert Hex to Decimal"/>
 
 
                     <!-- Create Script button -->
@@ -378,7 +378,7 @@
                     <ComboBox x:Name="ComboOne" IsEditable="True" Text="Please Select a script to edit" 
                     	VerticalAlignment="Bottom"  Loaded="ComboBox_Loaded"  SelectionChanged="ComboBox_SelectionChanged"
                     	PreviewMouseLeftButtonDown="ComboOne_PreviewMouseLeftButtonDown" Height="23" Width="183.973" 
-                    	HorizontalAlignment="Left" ToolTip="Select script to edit" Margin="381,0,0,172" SelectedIndex="0"
+                    	HorizontalAlignment="Left" ToolTip="Select a search script to edit" Margin="381,0,0,172" SelectedIndex="0"
                     	IsReadOnly="True" TabIndex="14" Grid.ColumnSpan="2"/>
 
 

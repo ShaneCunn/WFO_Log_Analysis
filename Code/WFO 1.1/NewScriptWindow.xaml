@@ -4,7 +4,7 @@
         Title="Create a new Script" Height="159" Width="279" ResizeMode="NoResize" Icon="Icon.ico">
     <Grid Margin="0" Background="#FFDEE7EF">
 
-        <Label Content="Enter New Script Name" HorizontalAlignment="Left" Margin="10,0,0,83" VerticalAlignment="Bottom" Width="171" Height="26" RenderTransformOrigin="4.267,4.963"/>
+        <Label Content="Enter New Script Name" HorizontalAlignment="Left" Margin="10,0,0,83" VerticalAlignment="Bottom" Width="171" Height="26" RenderTransformOrigin="4.267,4.963" ToolTip="Type in the name of the new script and click save"/>
 
         <!-- Script input Textbox -->
         <TextBox x:Name="scriptNamebox" Margin="10,0,12,53" TextWrapping="Wrap" VerticalAlignment="Bottom" Height="25" />

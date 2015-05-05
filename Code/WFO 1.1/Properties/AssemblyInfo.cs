@@ -8,7 +8,7 @@ using System.Windows;
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
 [assembly: AssemblyTitle("ACR logging tool")]
-[assembly: AssemblyDescription("Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur congue ac arcu nec facilisis. Vivamus eu suscipit felis, sed commodo nisl. Maecenas sed scelerisque nunc. Ut eu eros erat. Donec viverra eu quam at mollis. Nullam purus magna, pharetra id feugiat vitae, accumsan at turpis. Aliquam blandit arcu a dui fringilla viverra. Suspendisse nec lectus eget velit pellentesque rhoncus. Ut tempor vehicula libero, eget ullamcorper orci pulvinar id. Ut et libero eu odio congue bibendum. Maecenas et tempor augue. Etiam rhoncus pharetra ex, id luctus dui maximus sed. Praesent commodo erat vitae velit elementum finibus.")]
+[assembly: AssemblyDescription("ACR Logging Tool. This tool will parse large log files. Either by pulling out Nth lines above and below a search string.")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("Avaya")]
 [assembly: AssemblyProduct("ACR logging tool")]
@@ -51,5 +51,5 @@ using System.Windows;
 // You can specify all the values or you can default the Build and Revision Numbers 
 // by using the '*' as shown below:
 // [assembly: AssemblyVersion("1.0.*")]
-[assembly: AssemblyVersion("1.0.0.0")]
-[assembly: AssemblyFileVersion("1.0.0.0")]
+[assembly: AssemblyVersion("1.1.0.0")]
+[assembly: AssemblyFileVersion("1.1.0.0")]
