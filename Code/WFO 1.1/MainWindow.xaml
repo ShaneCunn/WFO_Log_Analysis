@@ -21,49 +21,21 @@
 
 
 
-<!--File menu tab-->
+            <!--File menu tab-->
             <MenuItem x:Name="Btn_file_tab" Header="File&#xA;" TabIndex="1" >
-                <!--<MenuItem x:Name="Btn_New_Window" Header="New Window" HorizontalAlignment="Left" Width="169" Margin="0,0,-29,0" 
-				ToolTip="Open a new window"Click="Button_NewWindow" />-->
-
-
-                <!-- Extra menu ITEMS -->
-
-                <!--<MenuItem Header="Select Search Path" HorizontalAlignment="Left" Width="162" Margin="0,0,-22,0"/>
-                <MenuItem Header="MenuItem" HorizontalAlignment="Left" Width="157" Margin="0,0,-17,0"/>
-                <Separator />-->
-
-
-                <!-- Exit button -->
-                <MenuItem x:Name="exitBtn" Header="Exit" HorizontalAlignment="Left" Width="140" Click="MenuItem_exitBtn"/>
+                <MenuItem x:Name="exitBtn" Header="Exit" HorizontalAlignment="Left" Width="140" Click="MenuItem_exitBtn" ToolTip="Click Exit to close the application"/>
             </MenuItem>
 
-
-            <!-- Extra menu ITEMS -->
-
-
-            <!-- <MenuItem Header="Edit">
-                <MenuItem Header="MenuItem" HorizontalAlignment="Left" Width="140"/>
-            </MenuItem>
-            <MenuItem Header="View">
-                <MenuItem Header="MenuItem" HorizontalAlignment="Left" Width="140"/>
-            </MenuItem>
-            <MenuItem Header="Tools">
-                <MenuItem Header="Options" HorizontalAlignment="Left" Width="160" Click="MenuItem_Click"/>
-            </MenuItem> -->
-
-
-            
             <MenuItem Header="Help" TabIndex="2">
 
-<!--About button-->
-                <MenuItem x:Name="AboutButton" Header="About" HorizontalAlignment="Left" Width="160" Click="MenuItem_AboutButton"/>
+                <!--About button-->
+                <MenuItem x:Name="AboutButton" Header="About ACR Logging Tool" Click="MenuItem_AboutButton"/>
                 <Separator HorizontalAlignment="Left" Width="160"/>
-                
+
                 <!-- Help Button -->
                 <MenuItem x:Name="HelpButton" Header="View Help" HorizontalAlignment="Left" Width="160" Click="MenuItem_HelpButton"/>
 
-                
+
                 <!-- <MenuItem Header="MenuItem" HorizontalAlignment="Left" Width="160"/> -->
             </MenuItem>
         </Menu>
@@ -91,12 +63,6 @@
 
                     </Grid.ColumnDefinitions>
 
-
-
-
-
-
-
                     <Anno:AnnotationManager.Annotations>
                         <Anno:Annotation AuthorInitials="SC" Author="Shane Cunningham" Left="935" SerialNumber="1" Top="73.995" Timestamp="04/29/2015 16:44:28"/>
                     </Anno:AnnotationManager.Annotations>
@@ -105,11 +71,22 @@
                     <Border x:Name="border_left" BorderBrush="#FF4A494A" BorderThickness="2,33" Margin="5,10,0,5" Width="341"
 						HorizontalAlignment="Left" Grid.ColumnSpan="2">
 
-                        <!-- Run Script Data Grid -->
-                        <DataGrid x:Name="ListDataGrid"  Margin="-0.618,170,-2,-1" Width="339.618" Loaded="ListDataGrid_Loaded" 
+                        <DataGrid x:Name="ListDataGrid"  Margin="-0.618,170,-2,-1" Width="339.618" Loaded="ListDataGrid_Loaded"
                     		SelectionChanged="ListDataGrid_SelectionChanged" CanUserAddRows="False" Background="#FFF0F0F0" BorderThickness="2" 
                     		AlternationCount="2" RowBackground="#FFF7F7FF" AlternatingRowBackground="White" BorderBrush="#FF4A494A" 
-                    		HorizontalAlignment="Left" HorizontalContentAlignment="Stretch" ColumnWidth="*" ToolTip="Please select a Script to Run"/>
+
+                    		HorizontalAlignment="Left" HorizontalContentAlignment="Stretch" ColumnWidth="*" ToolTip="Please select a Script to Run">
+                            <DataGrid.Columns>
+                                <DataGridTemplateColumn ClipboardContentBinding="{x:Null}">
+                                <DataGridTemplateColumn.CellTemplate>
+                                    <DataTemplate>
+                                            <CheckBox x:Name="listcheckbox" IsChecked="{Binding BindingGroupName=comboBox, Path=IsSelected, UpdateSourceTrigger=PropertyChanged}" Checked="listcheckbox_Checked" Unchecked="listcheckbox_Unchecked"/>
+                                    </DataTemplate>
+                                </DataGridTemplateColumn.CellTemplate>
+                                    </DataGridTemplateColumn>
+
+                            </DataGrid.Columns>
+                        </DataGrid>
                     </Border>
 
                     <Grid Grid.ColumnSpan="2" Margin="303,10,3,5">
@@ -132,13 +109,13 @@
                         </Border>
                         <Label Content="Select Log File" HorizontalAlignment="Left" Margin="-296,3,0,0" VerticalAlignment="Top" 
                         	BorderBrush="Black" Foreground="#FFF3F1F1" FontWeight="Bold"/>
-
+                        
                     </Grid>
 
                     <!-- Run Button -->
                     <Button x:Name="GrepButton" Content="Run" HorizontalAlignment="Left" Margin="15,0,0,9" 
 						VerticalAlignment="Bottom" Width="56" RenderTransformOrigin="0,0.5" Click="GrepButton_Click" 
-						ToolTip="Click to run a search on a log file" Height="23" HorizontalContentAlignment="Center"
+						ToolTip="Click Run to parse a log file" Height="23" HorizontalContentAlignment="Center"
 						VerticalContentAlignment="Center" Cursor="Hand" Grid.ColumnSpan="2" FontWeight="Bold" BorderThickness="1" 
 						TabIndex="7">
 
@@ -182,9 +159,9 @@
 
                     <!-- Stop button -->
                     <Button x:Name="BtnCancel" Content="Stop" HorizontalAlignment="Left" Margin="76,0,0,9"
-						VerticalAlignment="Bottom" Width="56" IsCancel="True" IsEnabled="True" Height="23"
+						VerticalAlignment="Bottom" Width="56" IsCancel="True" IsEnabled="False" Height="23"
 						RenderTransformOrigin="-0.16,0.412" Grid.ColumnSpan="2" FontWeight="Bold" Click="BtnCancel_Click"
-						TabIndex="8">
+						TabIndex="8" ToolTip="Click Stop if you want to stop a Running Script">
                         <Button.Background>
                             <LinearGradientBrush EndPoint="0,1" StartPoint="0,0">
                                 <GradientStop Color="#FFF3F3F3" Offset="0"/>
@@ -198,14 +175,15 @@
 
                     <!-- Choose output folder button -->
                     <Button Content="Choose Output" HorizontalAlignment="Left" Margin="244,145,0,0" VerticalAlignment="Top" Width="90"
-						Click="Button_Click_4" ToolTip="Select/create output folder to output parsed log file" RenderTransformOrigin="1.231,0.273" Height="23"
+						Click="Button_Click_4" ToolTip="Select/Create output directory to output the parsed log file" RenderTransformOrigin="1.231,0.273" Height="23"
 						Cursor="Hand" Grid.ColumnSpan="2"  TabIndex="5"/>
 
                     <!-- Choose output folder Label Box -->
                     <Label x:Name="outputFileLabel" Content="" HorizontalAlignment="Left" Margin="26,140,0,0"
 						VerticalAlignment="Top" Width="199" RenderTransformOrigin="0.5,0.5" BorderThickness="1"
 						BorderBrush="#FFE3E9EF" Foreground="Black" Background="White" 
-						ToolTip="" Grid.ColumnSpan="2" Height="28">
+						Grid.ColumnSpan="2" Height="28" TextBlock.TextAlignment="Left">
+                        
 
                         <Label.RenderTransform>
                             <TransformGroup>
@@ -217,10 +195,9 @@
                         </Label.RenderTransform>
                     </Label>
 
-
-                    <Label Content="Source Log file:&#xA;" HorizontalAlignment="Left" Margin="27,43,0,0"
-						VerticalAlignment="Top" RenderTransformOrigin="-0.237,0.308" Width="96" Height="26" Grid.ColumnSpan="2"
-						FontWeight="Bold" ToolTip="Please click the Choose Log fi button."/>
+                    <Label Content="Source Log file:" HorizontalAlignment="Left" Margin="27,43,0,0"
+						VerticalAlignment="Top" RenderTransformOrigin="-0.237,0.308" Width="164" Height="26" Grid.ColumnSpan="2"
+						FontWeight="Bold" ToolTip="Source of the Log File, Please click the Choose File button."/>
 
                     <GroupBox x:Name="Time_picker_group" Header="Pick time ranges *Optional" HorizontalAlignment="Left"
 						Margin="15,233,0,0" VerticalAlignment="Top" Height="98" Width="267"
@@ -232,17 +209,17 @@
                         </Grid>
                     </GroupBox>
 
-                    <!-- Edit script textbox -->
+
                     <TextBox x:Name="editScriptNameTextbox" HorizontalAlignment="Left" Height="22" Margin="588.953,0,0,172" 
 						TextWrapping="Wrap" VerticalAlignment="Bottom" Width="301.638" Grid.ColumnSpan="2" 
-						TextChanged="editScriptNameTextbox_TextChanged_1" IsEnabled="False" TabIndex="15" ToolTip="Edit the name of the script here"/>
+						TextChanged="editScriptNameTextbox_TextChanged_1" IsEnabled="False" TabIndex="15" ToolTip="Edit the name or rename the script here"/>
 
 
                     <!-- Search string textbox -->
                     <TextBox x:Name="Add_New_Line_Textbox_1" HorizontalAlignment="Left" IsEnabled="False" 
 						Margin="500,0,0,138" TextWrapping="Wrap" VerticalAlignment="Bottom" Width="391" 
 						Loaded="Add_New_Line_Textbox_1_Loaded" Height="23" Grid.ColumnSpan="2" 
-						TextChanged="Add_New_Line_Textbox_1_TextChanged_1" TabIndex="16" ToolTip=""/>
+						TextChanged="Add_New_Line_Textbox_1_TextChanged_1" TabIndex="16" />
 
                     <!-- Time Stamp Checkbox-->
                     <CheckBox x:Name="topDateTypeCheckbox" Content="Timestamps" HorizontalAlignment="Left" 
@@ -254,19 +231,19 @@
                     <TextBox x:Name="Add_New_Line_Textbox__2" HorizontalAlignment="Left" IsEnabled="False" Height="23" 
 						Margin="500,0,0,88" TextWrapping="Wrap" VerticalAlignment="Bottom" Width="285" 
 						RenderTransformOrigin="0.443,0.217" Grid.ColumnSpan="2" TextChanged="Add_New_Line_Textbox__2_TextChanged" 
-						TabIndex="17" ToolTip=""/>
+						TabIndex="17" />
 
 
                     <!-- Bottom marker textbox -->
                     <TextBox x:Name="Add_New_Line_Textbox__3" HorizontalAlignment="Left" IsEnabled="False" Margin="500,0,0,55" 
 						TextWrapping="Wrap" VerticalAlignment="Bottom" Width="285" Grid.ColumnSpan="2" 
-						TextChanged="Add_New_Line_Textbox__3_TextChanged" Height="23" TabIndex="18" ToolTip="Select how many lines below the search you wish to parse"/>
+						TextChanged="Add_New_Line_Textbox__3_TextChanged" Height="23" TabIndex="18" />
 
 
                     <!-- Save button -->
                     <Button x:Name="btn_Save_New_Line" Content="Save Changes" HorizontalAlignment="Left" Margin="381,0,0,9" 
 						VerticalAlignment="Bottom" Width="96" RenderTransformOrigin="0.583,2.615" Height="23" 
-						Click="btn_Save_New_Line_Click_1" Cursor="Hand" ToolTip="Click Save to save changes to the script" 
+						Click="btn_Save_New_Line_Click_1" Cursor="Hand" ToolTip="Click Save to write changes to the script" 
 						Grid.ColumnSpan="2" IsEnabled="False" TabIndex="19"/>
 
 
@@ -279,9 +256,8 @@
                     <!-- Source File Label box, displays source file location -->
                     <Label x:Name="File_Label" Content="" HorizontalAlignment="Left" Margin="26,73,0,0" 
 						VerticalAlignment="Top" Width="199" RenderTransformOrigin="0.5,0.5" BorderThickness="1" 
-						BorderBrush="#FFE3E9EF" Foreground="Black" Background="White" IsEnabled="False" ToolTip="" 
+						BorderBrush="#FFE3E9EF" Foreground="Black" Background="White" IsEnabled="False" 
 						Grid.ColumnSpan="2" Height="28">
-
                         <Label.RenderTransform>
                             <TransformGroup>
                                 <ScaleTransform/>
@@ -292,24 +268,35 @@
                         </Label.RenderTransform>
                     </Label>
                     <Label Content="Output Folder:" HorizontalAlignment="Left" Margin="27,108,0,0" VerticalAlignment="Top" 
-						Width="164" Grid.ColumnSpan="2" Height="26" FontWeight="Bold" ToolTip="Please click the Choose Output button."/>
+						Width="164" Grid.ColumnSpan="2" Height="26" ToolTip="Folder where the parsed log file will be generated"/>
 
 
                     <Label Content="Search String:" HorizontalAlignment="Left" Margin="381,0,0,137.95" VerticalAlignment="Bottom" 
-						RenderTransformOrigin="0.519,0.445" Width="90" Height="28" Grid.ColumnSpan="2" FontWeight="Bold" ToolTip="Enter the string you wish to [parse"/>
+						RenderTransformOrigin="0.519,0.445" Width="90" Height="28" Grid.ColumnSpan="2" ToolTip="Enter the string you wish to [parse"/>
 
                     <Label Content="Top Marker:" HorizontalAlignment="Left" Margin="381,0,0,85.04" VerticalAlignment="Bottom" 
-						Width="90" RenderTransformOrigin="0.538,1.083" Grid.ColumnSpan="2" FontWeight="Bold" ToolTip="Select how many lines above the search you wish to parse"/>
+						Width="90" RenderTransformOrigin="0.538,1.083" Grid.ColumnSpan="2" ToolTip="Select how many lines above the search you wish to parse"/>
 
 
                     <!-- Edit script datagrid -->
                     <DataGrid x:Name="DataGrid1" Margin="368,43,5,238" CanUserAddRows="False" SelectionChanged="DataGrid1_SelectionChanged"
 						IsReadOnly="True" Background="#FFF0F0F0" BorderThickness="2,2,2,10" AlternationCount="2" RowBackground="#FFF7F7FF" 
 						AlternatingRowBackground="White" Grid.ColumnSpan="2"
-						BorderBrush="#FF4A494A"  HorizontalAlignment="Stretch" HorizontalContentAlignment="Stretch" ColumnWidth="*" ToolTip="Please select a Script to Edit"/>
+
+						BorderBrush="#FF4A494A"  HorizontalAlignment="Stretch" HorizontalContentAlignment="Stretch" ColumnWidth="*" ToolTip="Please select a Script to Edit">
+                        <DataGrid.Columns>
+                            <DataGridTemplateColumn ClipboardContentBinding="{x:Null}">
+                                <DataGridTemplateColumn.CellTemplate>
+                                    <DataTemplate>
+                                        <CheckBox x:Name="DataCheckBox" IsChecked="{Binding BindingGroupName=comboBox, Path=IsSelected, UpdateSourceTrigger=PropertyChanged}" Checked="DataCheckBox_Checked" Unchecked="DataCheckBox_Unchecked"  />
+                                    </DataTemplate>
+                                </DataGridTemplateColumn.CellTemplate>
+                            </DataGridTemplateColumn>
+                        </DataGrid.Columns>
+                    </DataGrid>
 
                     <Label Content="Bottom Marker:" HorizontalAlignment="Left" Margin="381,0,0,55" VerticalAlignment="Bottom" 
-						Width="107.086" RenderTransformOrigin="0.5,2.308" Grid.ColumnSpan="2" FontWeight="Bold" ToolTip="Select how many lines above the search you wish to parse"/>
+						Width="107.086" RenderTransformOrigin="0.5,2.308" Grid.ColumnSpan="2" ToolTip="Select how many lines above the search you wish to parse"/>
 
 
                     <!-- Copy lines Button -->
@@ -342,7 +329,7 @@
 
 
                     <!-- Create Script button -->
-                    <Button x:Name="scriptCreationButton" Content="Create Script" Margin="137,0,0,9" VerticalAlignment="Bottom" Click="Create_File" ToolTip="Create Script" Width="96" HorizontalAlignment="Left" Height="23" RenderTransformOrigin="0.568,-0.857" FontWeight="Bold" Grid.ColumnSpan="2" TabIndex="9">
+                    <Button x:Name="scriptCreationButton" Content="Create Script" Margin="137,0,0,9" VerticalAlignment="Bottom" Click="Create_File" ToolTip="Click here to create a new script" Width="96" HorizontalAlignment="Left" Height="23" RenderTransformOrigin="0.568,-0.857" FontWeight="Bold" Grid.ColumnSpan="2" TabIndex="9">
                         <Button.Background>
                             <LinearGradientBrush EndPoint="0,1" StartPoint="0,0">
                                 <GradientStop Color="#FFF3F3F3" Offset="0"/>
@@ -356,7 +343,7 @@
 
                     <!-- Delete Script Button -->
                     <Button x:Name="deleteScriptsButton" Content="Delete Script" HorizontalAlignment="Left" Margin="238,0,0,9" 
-						VerticalAlignment="Bottom" Width="88" Click="deleteScriptsButton_Click" Height="23" ToolTip="Tick the tick box beside the Script you want Deleted" 
+						VerticalAlignment="Bottom" Width="88" Click="deleteScriptsButton_Click" Height="23" ToolTip="Please tick the tick box on the script you want to be deleted and then click Delete Script button" 
 						Grid.ColumnSpan="2" FontWeight="Bold" RenderTransformOrigin="0.558,0.457" TabIndex="10">
                         <Button.Background>
                             <LinearGradientBrush EndPoint="0,1" StartPoint="0,0">

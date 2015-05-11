@@ -22,6 +22,11 @@ namespace WFO_PROJECT
 
         string startDateValue;
         string endDateValue;
+        string Hex;
+        string Exclude;
+        string[] startdatetime;
+        string[] enddatetime;
+        int monthInDigit;
         public Window1()
         {
             InitializeComponent();
@@ -31,33 +36,105 @@ namespace WFO_PROJECT
         {
             
             startDateValue = e.NewValue.ToString();
+            try
+            {
+                 string starttime = startDateValue.Split('-')[1];
+                 starttime = starttime.Split('-')[0];
+                 monthInDigit = DateTime.ParseExact(starttime, "MMM", System.Globalization.CultureInfo.InvariantCulture).Month;
+                 startDateValue = startDateValue.Replace("-" + starttime, "-" + monthInDigit.ToString());                
+                 starttime = startDateValue.Split(' ')[0];
+                 startdatetime = starttime.Split('-');
+                 starttime = startDateValue.Split(' ')[1];
+                 if (startdatetime[0].Length == 4)
+                 {
+                     startDateValue = startdatetime[1] + "/" + startdatetime[2] + "/" + startdatetime[0] + " " + starttime;
+                 }
+                 else
+                 {
+                     startDateValue = startdatetime[1] + "/" + startdatetime[0] + "/" + startdatetime[2] + " " + starttime;  
+                 }
+
+            }
+            catch (Exception)
+            {
+                return;
+            }
         }
 
         private void Date_pickertwo_ValueChanged(object sender, RoutedPropertyChangedEventArgs<object> e)
         {
              endDateValue = e.NewValue.ToString();
-        }
 
-        public string startOne
-        {
-            set { startDateValue = startDateValue; }
-            get { return startDateValue; }
+             try
+             {                 
+                 string endtime = endDateValue.Split('-')[1];
+                 endtime = endtime.Split('-')[0];
+                 monthInDigit = DateTime.ParseExact(endtime, "MMM", System.Globalization.CultureInfo.InvariantCulture).Month;
+                 endDateValue = endDateValue.Replace(endtime, monthInDigit.ToString());
+                 endtime = endDateValue.Split(' ')[0];
+                 enddatetime = endtime.Split('-');
+                 endtime = endDateValue.Split(' ')[1];
+                 if (enddatetime[0].Length == 4)
+                 {
+                     endDateValue = enddatetime[1] + "/" + enddatetime[2] + "/" + enddatetime[0] + " " + endtime;
+                 }
+                 else
+                 {
+                     endDateValue = enddatetime[1] + "/" + enddatetime[0] + "/" + enddatetime[2] + " " + endtime;
+                 }
+             }
+             catch (Exception)
+             {
+                 return;                 
+             }
+        }     
+
+
+        
             
-        }
-
-        public  string endOne
-        {
-            set { endDateValue = endDateValue; }
-            get { return endDateValue; }
-           
-
-        }
-
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            Windowpopup.Close();
 
+
+            if (endDateValue != null && startDateValue != null)
+            {
+                startdatetime = startDateValue.Split(' ');
+                string[] startdate = startdatetime[0].Split('/');
+                Console.WriteLine(startdatetime);
+                string[] starttime = startdatetime[1].Split(':');
+
+            DateTime date1 = new DateTime(Convert.ToInt32(startdate[2]), Convert.ToInt32(startdate[0]), Convert.ToInt32(startdate[1]), Convert.ToInt32(starttime[0]), Convert.ToInt32(starttime[1]), Convert.ToInt32(starttime[2]));
+
+
+
+                enddatetime = endDateValue.Split(' ');
+                string[] enddate = enddatetime[0].Split('/');
+                string[] endtime = enddatetime[1].Split(':');
+
+
+            DateTime date2 = new DateTime(Convert.ToInt32(enddate[2]), Convert.ToInt32(enddate[0]), Convert.ToInt32(enddate[1]), Convert.ToInt32(endtime[0]), Convert.ToInt32(endtime[1]), Convert.ToInt32(endtime[2]));
+
+            int comparedates = DateTime.Compare(date1, date2);
+
+
+                if (comparedates < 0)
+                    Windowpopup.Close();
+                else if (comparedates == 0)
+                {
+                    MessageBox.Show("startdate is the same as end date");
+                    return;
+                }
+                else
+                {
+                    MessageBox.Show("startdate is later than end date");
+                    return;
+                }
+
+            }
+            Windowpopup.Close();
         }
+
+
 
         private void CheckBox_Checked(object sender, RoutedEventArgs e)
         {
@@ -90,6 +167,52 @@ namespace WFO_PROJECT
         private void SwapCheckbox_Unchecked(object sender, RoutedEventArgs e)
         {
             SwapTxtBox.IsEnabled = false;
+        }
+
+        private void ExcludeTxtBox_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            var textBox = sender as TextBox;
+            Exclude = textBox.Text.ToString();            
+        }
+
+        private void SwapTxtBox_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            var textBox = sender as TextBox;
+            Hex = textBox.Text.ToString(); 
+        }
+
+        public string startOne
+        {
+            set { startDateValue = startDateValue; }
+            get { return startDateValue; }
+
+        }
+
+        public string endOne
+        {
+            set { endDateValue = endDateValue; }
+            get { return endDateValue; }
+        }
+
+        public string excludeString
+        {
+            set { Exclude = Exclude; }
+            get { return Exclude; }
+
+        }
+
+        public string hexString
+        {
+            set { Hex = Hex; }
+            get { return Hex; }
+        }
+
+        private void Windowpopup_Activated(object sender, EventArgs e)
+        {
+            startDateValue = null;
+            endDateValue = null;
+            Hex = null;
+            Exclude = null;
         }
 
     }

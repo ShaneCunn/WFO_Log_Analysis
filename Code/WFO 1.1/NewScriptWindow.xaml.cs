@@ -52,7 +52,9 @@ namespace WFO_PROJECT
 
             if (string.IsNullOrEmpty(scriptNamebox.Text))
             {
-                MessageBox.Show("You must enter a name for the new script first.");
+                MessageBox.Show("You must enter a name for the new script first.", "Input Error", System.Windows.Forms.MessageBoxButtons.OK, System.Windows.Forms.MessageBoxIcon.Error);
+
+                //MessageBox.Show("You must enter a name for the new script first.");
                 return;
             }
             else
@@ -61,9 +63,11 @@ namespace WFO_PROJECT
 
                 foreach (string words in scriptList)
                 {
-                    if (words == newScriptName)
+                    if (words == newScriptName.TrimEnd().TrimStart())
                     {
-                        MessageBox.Show("This name is already used");
+                        MessageBox.Show("This name is already used.", "Input Error", System.Windows.Forms.MessageBoxButtons.OK, System.Windows.Forms.MessageBoxIcon.Error);
+
+                        //MessageBox.Show("This name is already used");
                         return;
                     }
                 }

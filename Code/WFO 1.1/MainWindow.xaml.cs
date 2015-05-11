@@ -51,6 +51,9 @@ namespace WFO_PROJECT
         CheckBox comboBox = null;
         string startTime;
         string endTime;
+        string Hex;
+        string Exclude;
+        long filesize;
 
         string startTimeValue = "";
         string endTimeValue = "";
@@ -66,14 +69,10 @@ namespace WFO_PROJECT
         public MainWindow()
         {
             InitializeComponent();
+            new SplashWindow().ShowDialog();
             if (!File.Exists("ListViewScriptsTwo.txt"))
             {
-                MessageBox.Show("You are missing the ListViewScriptsTwo.txt file", "Invalid file", System.Windows.Forms.MessageBoxButtons.OK, System.Windows.Forms.MessageBoxIcon.Error);
-
-            }
-            else
-            {
-                Console.WriteLine("scripts file exists");
+                MessageBox.Show("You are missing a necessary file, please contact your provider.", "Missing file", System.Windows.Forms.MessageBoxButtons.OK, System.Windows.Forms.MessageBoxIcon.Error);
 
             }
         }
@@ -115,7 +114,7 @@ namespace WFO_PROJECT
             this.Title = belowValue;
         }
 
-        long filesize;
+        
         private void Button_Click(object sender, RoutedEventArgs e)
         {
             Microsoft.Win32.OpenFileDialog dlg = new Microsoft.Win32.OpenFileDialog();
@@ -168,54 +167,64 @@ namespace WFO_PROJECT
             {
                 fileRemoval = System.IO.Path.GetFileName(file_Name);
                 outputFilePathIndex = file_Name.IndexOf("\\" + fileRemoval);
-                outputFileName = file_Name.Remove(outputFilePathIndex);                
+                outputFileName = file_Name.Remove(outputFilePathIndex);
             }
             List<string> scriptsToDelete = new List<string>();
-
+            int selectcount = 0;
             foreach (ListViewItems stuff in ListDataGrid.ItemsSource)
             {
+                //count++;
                 string scriptName = stuff.gridNameColumn;
-                bool scriptCheckbox = stuff.gridCheckboxColumn;
+                //bool scriptCheckbox = stuff.gridCheckboxColumn;
 
-                if (scriptCheckbox == true)
+
+                foreach (int selected in selectionlist)
                 {
-                    scriptsToDelete.Add(scriptName);
+                    if (selectcount == selected)
+                    {
+                        scriptsToDelete.Add(scriptName);
+                    }
                 }
+                selectcount++;
+
+
+
+
+                //if (scriptCheckbox == true)
+                //{
+                //    scriptsToDelete.Add(scriptName);
+                //}
             }
 
             if (file_Name == null)
             {
-                MessageBox.Show("No Log File Selected", "Error", System.Windows.Forms.MessageBoxButtons.OK, System.Windows.Forms.MessageBoxIcon.Information);
+                MessageBox.Show("No Log File Selected", "Data Error", System.Windows.Forms.MessageBoxButtons.OK, System.Windows.Forms.MessageBoxIcon.Error);
+                return;
             }
 
             else if (scriptsToDelete.Count == 0 && startTime == null && endTime == null)
             {
-                MessageBox.Show("No Scripts Selected or Dates Selected", "Error", System.Windows.Forms.MessageBoxButtons.OK, System.Windows.Forms.MessageBoxIcon.Information);
+                MessageBox.Show("No Scripts Selected or Dates Selected", "Input Error", System.Windows.Forms.MessageBoxButtons.OK, System.Windows.Forms.MessageBoxIcon.Error);
                 return;
             }
             else if (scriptsToDelete.Count == 0 && startTime != null && endTime == null)
             {
-                MessageBox.Show("Start Date has not been set!", "Error", System.Windows.Forms.MessageBoxButtons.OK, System.Windows.Forms.MessageBoxIcon.Information);
+                MessageBox.Show("Start Date has not been set!", "Input Error", System.Windows.Forms.MessageBoxButtons.OK, System.Windows.Forms.MessageBoxIcon.Error);
                 return;
             }
             else if (scriptsToDelete.Count == 0 && startTime == null && endTime != null)
             {
-                MessageBox.Show("End Date has not been set!", "Error", System.Windows.Forms.MessageBoxButtons.OK, System.Windows.Forms.MessageBoxIcon.Information);
+                MessageBox.Show("End Date has not been set!", "Input Error", System.Windows.Forms.MessageBoxButtons.OK, System.Windows.Forms.MessageBoxIcon.Error);
                 return;
             }
             else if (scriptsToDelete.Count != 0 && startTime != null && endTime != null)
             {
-                MessageBox.Show("Dates and Scripts can not be searched at the ame time", "Error", System.Windows.Forms.MessageBoxButtons.OK, System.Windows.Forms.MessageBoxIcon.Information);
-                return;
-            }
-            else if (file_Name == null && startTime != null && endTime != null)
-            {
-                MessageBox.Show("Please select a file.", "Error", System.Windows.Forms.MessageBoxButtons.OK, System.Windows.Forms.MessageBoxIcon.Information);
+                MessageBox.Show("Dates and Scripts can not be searched at the same time", "Input Error", System.Windows.Forms.MessageBoxButtons.OK, System.Windows.Forms.MessageBoxIcon.Error);
                 return;
             }
             else if (scriptsToDelete.Count != 0 && startTime == null && endTime == null)
             {
-
+                count = 0;
                 ListDataGrid.ItemsSource.GetEnumerator();
                 //listReload();
                 //Console.WriteLine("options" + OptionsList);
@@ -233,18 +242,18 @@ namespace WFO_PROJECT
                 //int lineCount = 0;            
                 char[] MyCharList = { '\\', '*', '.', '"', ']', '[' };
                 //string tempPerlFileAddress = Directory.GetCurrentDirectory() + @"\TempScript.txt";
-
+                int selectcount2 = 0;
 
                 foreach (ListViewItems Option in ListDataGrid.ItemsSource)
                 ////foreach (CheckBox Option in OptionsList)
                 {
-                    Console.WriteLine(Option.gridCheckboxColumn);
+                    //Console.WriteLine(Option.gridCheckboxColumn);
                     //    //ListView1.Items.Refresh();
                     //    Console.WriteLine(Option.gridCheckboxColumn);
                     string nextLine = "";
                     //    //lineCount += 1;
                     //    //Option.Checked == true;
-                    if (Option.gridCheckboxColumn == true)
+                    //if (Option.gridCheckboxColumn == true)
                     {
                         //        //searchWord = String.Empty;
                         string line;
@@ -261,51 +270,61 @@ namespace WFO_PROJECT
                             {
                                 //                //writefile.WriteAsync("aaah");
                                 string[] script_CheckboxName = line.Split(':');
-                                if (script_CheckboxName[1] == Option.gridNameColumn)
+                                //if (script_CheckboxName[1] == Option.gridNameColumn)
+                                foreach (int selected in selectionlist)
                                 {
-
-                                    while ((nextLine = filePathing.ReadLine()) != "--")
+                                    if (selectcount2 == selected)
                                     {
-                                        string[] args = Regex.Split(nextLine, "[;]");
-                                        if (args.Length == 3)
+
+                                        while ((nextLine = filePathing.ReadLine()) != "--")
                                         {
-                                            args[0] = args[0].TrimEnd('[');
-                                            args[1] = args[1].Trim(MyCharList);
-                                            args[2] = args[2].Trim(MyCharList);
-                                            int num1;
-                                            bool res = int.TryParse(args[2], out num1);
+                                            string[] args = Regex.Split(nextLine, "[;]");
+                                            if (args.Length == 3)
+                                            {
 
-                                            //string arg = args[4];
-                                            if (args[2] == "DATE")
-                                            {
-                                                searchWord = searchWord + " \"" + args[0] + ";!;" + args[1] + ";!;" + args[2] + "!;!" + "type1" + "\"";
+                                                args[0] = args[0].TrimEnd('[');
+                                                args[1] = args[1].Trim(MyCharList);
+                                                args[2] = args[2].Trim(MyCharList);
+                                                int num1;
+                                                bool res = int.TryParse(args[2], out num1);
 
-                                            }
-                                            else if (stringRegex.IsMatch(args[0]) && args[1] == "" && stringRegex.IsMatch(args[2]))
-                                            {
-                                                searchWord = searchWord + " \"" + args[0] + ";!;" + " " + ";!;" + args[2] + "!;!" + "type2" + "\"";
-                                            }
-                                            else if (stringRegex.IsMatch(args[0]) && stringRegex.IsMatch(args[1]) && args[2] == "")
-                                            {
-                                                searchWord = searchWord + " \"" + args[0] + ";!;" + args[1] + ";!;" + " " + "!;!" + "type2" + "\"";
-                                            }
-                                            else if (res == false)
-                                            {
-                                                searchWord = searchWord + " \"" + args[0] + ";!;" + args[1] + ";!;" + args[2] + "!;!" + "type4" + "\"";
-                                            }
-                                            else if (res == true)
-                                            {
-                                                searchWord = searchWord + " \"" + args[0] + ";!;" + args[1] + ";!;" + args[2] + "!;!" + "type3" + "\"";
+                                                //string arg = args[4];
+                                                if (args[2] == "DATE")
+                                                {
+                                                    searchWord = searchWord + " \"" + args[0] + ";!;" + args[1] + ";!;" + args[2] + "!;!" + "type1" + "\"";
+                                                    count++;
+                                                }
+                                                else if (stringRegex.IsMatch(args[0]) && args[1] == "" && stringRegex.IsMatch(args[2]))
+                                                {
+                                                    searchWord = searchWord + " \"" + args[0] + ";!;" + " " + ";!;" + args[2] + "!;!" + "type2" + "\"";
+                                                    count++;
+                                                }
+                                                else if (stringRegex.IsMatch(args[0]) && stringRegex.IsMatch(args[1]) && args[2] == "")
+                                                {
+                                                    searchWord = searchWord + " \"" + args[0] + ";!;" + args[1] + ";!;" + " " + "!;!" + "type2" + "\"";
+                                                    count++;
+                                                }
+                                                else if (res == false)
+                                                {
+                                                    searchWord = searchWord + " \"" + args[0] + ";!;" + args[1] + ";!;" + args[2] + "!;!" + "type4" + "\"";
+                                                    count++;
+                                                }
+                                                else if (res == true)
+                                                {
+                                                    searchWord = searchWord + " \"" + args[0] + ";!;" + args[1] + ";!;" + args[2] + "!;!" + "type3" + "\"";
+                                                    count++;
+                                                }
+
                                             }
 
                                         }
                                     }
-                                }
+                                    selectcount2++;
+                               }
                             }
                         }
                         filePathing.Close();
                     }
-
                 }
 
                 string searchWordEile = searchWord;
@@ -318,9 +337,8 @@ namespace WFO_PROJECT
                 perlCalled(perlDateString);
                 startTime = null;
                 endTime = null;
-
-
             }
+
         }
 
 
@@ -329,8 +347,33 @@ namespace WFO_PROJECT
         int processCount = 0;
         private void perlCalled(string searchWord2)
         {
-            searchWord2 = "\"" + file_Name + "\"" + " " + "\"" + outputFileName + "\"" + " " + searchWord2;
-            string processname = "perlprocess" + processCount.ToString();
+            double time;
+            double timeTwo;
+            int fileCheck;
+            if (Hex == null && Exclude != null)
+            {
+                searchWord2 = "\"" + file_Name + "\"" + " " + "\"" + outputFileName + "\"" + " " + searchWord2 + "@;;@" + Hex + "@;;@" + Exclude;
+                string processname = "perlprocess" + processCount.ToString();
+
+            }
+            else if (Hex != null && Exclude == null)
+            {
+                searchWord2 = "\"" + file_Name + "\"" + " " + "\"" + outputFileName + "\"" + " " + searchWord2 + "@;;@" + Hex;
+                string processname = "perlprocess" + processCount.ToString();
+
+            }
+            else if (Hex != null && Exclude != null)
+            {
+                searchWord2 = "\"" + file_Name + "\"" + " " + "\"" + outputFileName + "\"" + " " + searchWord2 + "@;;@" + Hex + "@;;@" + Exclude;
+                string processname = "perlprocess" + processCount.ToString();
+
+            }
+            else if (Hex == null && Exclude == null)
+            {
+                searchWord2 = "\"" + file_Name + "\"" + " " + "\"" + outputFileName + "\"" + " " + searchWord2;
+                string processname = "perlprocess" + processCount.ToString();
+            }
+
 
             perlprocess = new Process();
             if (processCount < 3)
@@ -354,16 +397,29 @@ namespace WFO_PROJECT
                 Thread workerThread = new Thread(thread);
                 workerThread.Start();
 
-                if (filesize > 100000000)
+                if (filesize > 400000000)
                 {
-                    MessageBox.Show("This is a large file and may take some time, it will inform you when it has completed");
+                    fileCheck = ((int)filesize / 100000000);
+                    time = ((fileCheck * .081) * count);
+                    timeTwo = ((fileCheck * .120) * count);
+                    time = Math.Ceiling(time);
+                    timeTwo = Math.Ceiling(timeTwo);
+                    MessageBox.Show("This is a large file, Estimated Time of completion will be between " + time + " to " + timeTwo + " minutes" , "File Size Alert", System.Windows.Forms.MessageBoxButtons.OK, System.Windows.Forms.MessageBoxIcon.Information);
+                }
+                else if (filesize < 400000000)
+                {
+                    fileCheck = ((int)filesize / 100000000);
+                    time = (((fileCheck * 5) * count) / 10);
+                    timeTwo = (((fileCheck * 10) * count) / 10); 
+                    MessageBox.Show("Estimated Time of completion will be between " + time + " to " + timeTwo + " Seconds", "File Size Alert", System.Windows.Forms.MessageBoxButtons.OK, System.Windows.Forms.MessageBoxIcon.Information);
+                  
                 }
             }
             else
             {
-                MessageBox.Show("You have too many scripts running, please try again when one has exited");
+              
+                MessageBox.Show("You have too many scripts running, please try again when one has exited", "Script Limit Reached", System.Windows.Forms.MessageBoxButtons.OK, System.Windows.Forms.MessageBoxIcon.Error);
             }
-
         }
 
         // bool scriptsCancelledWindowCheck = false;
@@ -373,14 +429,16 @@ namespace WFO_PROJECT
             perlprocess.WaitForExit();
             //processList.Remove(perlprocess);
             processCount--;
+            Hex = null;
+            Exclude = null;
             if (perlprocesswaskilled == false && processCount == 0)
             {
-                if (MessageBox.Show("Log file created.\n\nDo you wish to open the output folder? ", "ACR log file", System.Windows.Forms.MessageBoxButtons.YesNo, System.Windows.Forms.MessageBoxIcon.Information) == System.Windows.Forms.DialogResult.Yes)
+                if (MessageBox.Show("Log file created.\n\nDo you wish to open the output folder? ", "Open New File Location", System.Windows.Forms.MessageBoxButtons.YesNo, System.Windows.Forms.MessageBoxIcon.Question) == System.Windows.Forms.DialogResult.Yes)
                 {
                     Process.Start(outputFileName);
-                    
-                } 
-               
+
+                }
+
             }
         }
 
@@ -427,14 +485,14 @@ namespace WFO_PROJECT
                         string aboveMarker;
                         string belowMarker;
                         string nextLine = null;
-                        gridcheckbox = null;
+                        //gridcheckbox = null;
                         int count = 0;
                         datalist.Add(new Details { singleString = "Add New Line", linesAbove = "", linesBelow = "" });
 
                         while ((nextLine = scriptReader.ReadLine()) != "--")
                         {
                             count++;
-                            gridcheckbox = new CheckBox();
+                            //gridcheckbox = new CheckBox();
                             //gridcheckbox.Checked += gridCheckBox_Checked;
                             string[] argsvalue = Regex.Split(nextLine, @"\[;\]");
 
@@ -458,7 +516,7 @@ namespace WFO_PROJECT
 
                             //string aboveMarker = (argsvalue[1]);
                             //string belowMarker = (argsvalue[2]);
-                            datalist.Add(new Details { gridCheckbox = gridcheckbox.IsChecked.Value, singleString = argsvalue[0].TrimEnd(mycharlist), linesAbove = aboveMarker, linesBelow = belowMarker });
+                            datalist.Add(new Details { singleString = argsvalue[0].TrimEnd(mycharlist), linesAbove = aboveMarker, linesBelow = belowMarker });
 
                         }
                         DataGrid1.ItemsSource = datalist;
@@ -499,12 +557,24 @@ namespace WFO_PROJECT
                     string[] words = line.Split(':');
                     comboBox = new CheckBox();
 
-                    anotherListViewList.Add(new ListViewItems { gridCheckboxColumn = comboBox.IsChecked.Value, gridNameColumn = (words[1]).ToString() });
+
+                    //listcheckbox = new CheckBox();
+
+                    //ListDataGrid.Columns.
+
+                    anotherListViewList.Add(new ListViewItems { gridNameColumn = (words[1]).ToString() });
                 }
             }
             ListDataGrid.ItemsSource = anotherListViewList;
-            ListDataGrid.Columns[0].Header = "";
+            CheckBox listcheckbox = new CheckBox();
+            listcheckbox.Checked += listCheckBox_Checked;
+
+            ListDataGrid.Columns[0].Header = listcheckbox;
             ListDataGrid.Columns[1].Header = "Select Script to Parse With";
+
+            //ListDataGrid.Columns[0].CellStyle = ListDataGrid.Columns[0].;
+
+            //ListDataGrid.SelectionMode
             ListDataGrid.Columns[0].Width = 24;
             ListDataGrid.Columns[1].IsReadOnly = true;
 
@@ -513,7 +583,7 @@ namespace WFO_PROJECT
 
         public class ListViewItems
         {
-            public bool gridCheckboxColumn { get; set; }
+            
 
             public string gridNameColumn { get; set; }
         }
@@ -930,7 +1000,7 @@ namespace WFO_PROJECT
 
         public class Details
         {
-            public bool gridCheckbox { get; set; }
+            //public bool gridCheckbox { get; set; }
             public string singleString { get; set; }
             public string linesAbove { get; set; }
             public string linesBelow { get; set; }
@@ -952,7 +1022,7 @@ namespace WFO_PROJECT
                 startString = selectedDetails.singleString;
                 startLinesAbove = selectedDetails.singleString;
                 startLinesBelow = selectedDetails.singleString;
-                selectionChecked = selectedDetails.gridCheckbox;
+                //selectionChecked = selectedDetails.gridCheckbox;
                 Add_New_Line_Textbox_1.Text = selectedDetails.singleString;
                 Add_New_Line_Textbox__2.Text = selectedDetails.linesAbove.ToString();
                 Add_New_Line_Textbox__3.Text = selectedDetails.linesBelow.ToString();
@@ -1179,7 +1249,7 @@ namespace WFO_PROJECT
         {
             //string nextLine;
 
-            string editedString = Add_New_Line_Textbox_1.Text;
+            string editedString = Add_New_Line_Textbox_1.Text.TrimEnd().TrimStart();
             string editedLinesAbove = Add_New_Line_Textbox__2.Text;
             string editedLinesBelow = Add_New_Line_Textbox__3.Text;
 
@@ -1196,22 +1266,22 @@ namespace WFO_PROJECT
             {
                 //main string is not empty or says Add New Line
 
-                MessageBox.Show("You must enter a string in mainstring text area", "Input Error", System.Windows.Forms.MessageBoxButtons.OK, System.Windows.Forms.MessageBoxIcon.Information);
+                MessageBox.Show("You must enter a main string in the text area.", "Input Error", System.Windows.Forms.MessageBoxButtons.OK, System.Windows.Forms.MessageBoxIcon.Error);
             }
             else if ((int.TryParse(editedString, out inttemp)))
             {
-                MessageBox.Show("You must enter a string in mainstring textarea", "Input Error", System.Windows.Forms.MessageBoxButtons.OK, System.Windows.Forms.MessageBoxIcon.Information);
+                MessageBox.Show("You must enter a main string in the text area.", "Input Error", System.Windows.Forms.MessageBoxButtons.OK, System.Windows.Forms.MessageBoxIcon.Error);
 
             }
             else if ((int.TryParse(editedLinesAbove, out inttemp)) && (!string.IsNullOrWhiteSpace(editedLinesBelow)) && (!int.TryParse(editedLinesBelow, out inttemp)))
             {
                 //linesabove is int and linesbelow is not empty and not an int
-                MessageBox.Show("Please enter a string with a string or an int with an int", "Invalid Input", System.Windows.Forms.MessageBoxButtons.OK, System.Windows.Forms.MessageBoxIcon.Information);
+                MessageBox.Show("Please enter a string with a string or an int with an int", "Invalid Input", System.Windows.Forms.MessageBoxButtons.OK, System.Windows.Forms.MessageBoxIcon.Error);
             }
             else if ((int.TryParse(editedLinesBelow, out inttemp)) && (!int.TryParse(editedLinesAbove, out inttemp)) && (!string.IsNullOrWhiteSpace(editedLinesAbove)))
             {
                 //linesbelow is int and linesabove is not empty but not an int
-                MessageBox.Show("Please enter a string with a string or an int with an int", "Invalid Input", System.Windows.Forms.MessageBoxButtons.OK, System.Windows.Forms.MessageBoxIcon.Information);
+                MessageBox.Show("Please enter a string with a string or an int with an int", "Invalid Input", System.Windows.Forms.MessageBoxButtons.OK, System.Windows.Forms.MessageBoxIcon.Error);
             }
             else if ((int.TryParse(editedLinesAbove, out inttemp)) && (string.IsNullOrWhiteSpace(editedLinesBelow)))
             {
@@ -1290,7 +1360,7 @@ namespace WFO_PROJECT
                 {
                     string scriptName = stuff.gridNameColumn;
 
-                    if (scriptName == editScriptNameTextbox.Text)
+                    if (scriptName == editScriptNameTextbox.Text.TrimEnd().TrimStart())
                     {
                         if (ComboOne.SelectedValue.ToString() != scriptName)
                         {
@@ -1321,12 +1391,12 @@ namespace WFO_PROJECT
                 if (exists == true)
                 {
                     exists = false;
-                    MessageBox.Show("String is already used", "Error", System.Windows.Forms.MessageBoxButtons.OK, System.Windows.Forms.MessageBoxIcon.Information);
+                    MessageBox.Show("String is already used", "Duplication Error", System.Windows.Forms.MessageBoxButtons.OK, System.Windows.Forms.MessageBoxIcon.Error);
                 }
                 else if (scriptexists == true)
                 {
                     scriptexists = false;
-                    MessageBox.Show("Script name is already used", "Error", System.Windows.Forms.MessageBoxButtons.OK, System.Windows.Forms.MessageBoxIcon.Information);
+                    MessageBox.Show("Script name is already used.", "Duplication Error", System.Windows.Forms.MessageBoxButtons.OK, System.Windows.Forms.MessageBoxIcon.Error);
                 }
                 else
                 {
@@ -1434,14 +1504,16 @@ namespace WFO_PROJECT
                     string newscript = editScriptNameTextbox.Text;
                     ComboOne.SelectedValue = newscript;
                     File.Delete(tempfile);
+                    
                 }
             }
+            selectionlist.Clear();
         }
-        
+
         string Delimiter = "[;]";
         private void deleteMultipleLines(string string2Delete)
         {
-            
+
             string nextLine;
             string tempfile = System.IO.Path.GetTempFileName();
             Regex regex = new Regex(selectedValue);
@@ -1574,44 +1646,115 @@ namespace WFO_PROJECT
         private void deleteScriptsButton_Click(object sender, RoutedEventArgs e)
         {
             List<string> scriptsToDelete = new List<string>();
-
+            int selectcount = 0;
             foreach (ListViewItems stuff in ListDataGrid.ItemsSource)
             {
+
                 string scriptName = stuff.gridNameColumn;
-                bool scriptCheckbox = stuff.gridCheckboxColumn;
 
-                if (scriptCheckbox == true)
+                //if (scriptCheckbox == true)
+                //{
+                //    scriptsToDelete.Add(scriptName);
+
+                //}
+
+                foreach (int selected in selectionlist)
                 {
-                    scriptsToDelete.Add(scriptName);
-
+                    if (selectcount == selected)
+                    {
+                        scriptsToDelete.Add(scriptName);
+                    }
                 }
+                selectcount++;
             }
 
             if (scriptsToDelete.Count == 0)
             {
-                MessageBox.Show("No Scripts Selected", "Error", System.Windows.Forms.MessageBoxButtons.OK, System.Windows.Forms.MessageBoxIcon.Information);
+                MessageBox.Show("No Scripts Selected", "Error", System.Windows.Forms.MessageBoxButtons.OK, System.Windows.Forms.MessageBoxIcon.Error);
             }
             else
             {
-                MessageBoxResult messageBoxResult = System.Windows.MessageBox.Show("Are you sure you wish to delete these scripts?", "Delete Confirmation", System.Windows.MessageBoxButton.YesNo);
-                if (messageBoxResult == MessageBoxResult.Yes)
+                if (scriptsToDelete.Count == 1)
                 {
-                    foreach (ListViewItems stuff in ListDataGrid.ItemsSource)
+                    if (MessageBox.Show("Are you sure you wish to delete this script?", "Delete Confirmation", System.Windows.Forms.MessageBoxButtons.YesNo, System.Windows.Forms.MessageBoxIcon.Question) == System.Windows.Forms.DialogResult.Yes)
                     {
-                        string scriptName = stuff.gridNameColumn;
-                        bool scriptCheckbox = stuff.gridCheckboxColumn;
-
-                        if (scriptCheckbox == true)
+                        int selectcount2 = 0;
+                        foreach (ListViewItems stuff in ListDataGrid.ItemsSource)
                         {
-                            deleteScriptsFunction(scriptName);
-                            if (ComboOne.SelectedValue.ToString() == scriptName)
+                            string scriptName = stuff.gridNameColumn;
+                            foreach (int selected in selectionlist)
                             {
-                                ComboOne.SelectedIndex = 0;
+
+                                if (selectcount2 == selected)
+                                {
+
+                                    //}
+                                    //}
+
+                                    //if (scriptCheckbox == true)
+                                    //{
+
+                                    deleteScriptsFunction(scriptName);
+
+                                }
+
                             }
+                            try
+                            {
+                                if (ComboOne.SelectedValue.ToString() == scriptName)
+                                {
+                                    ComboOne.SelectedIndex = 0;
+                                }
+                            }
+                            catch
+                            {
+
+                            }
+                            
+                            selectcount2++;
+
                         }
                     }
                 }
+                else
+                {
+                    if (MessageBox.Show("Are you sure you wish to delete these scripts?", "Delete Confirmation", System.Windows.Forms.MessageBoxButtons.YesNo, System.Windows.Forms.MessageBoxIcon.Question) == System.Windows.Forms.DialogResult.Yes)
+                    {
+                        int selectcount2 = 0;
+                        foreach (ListViewItems stuff in ListDataGrid.ItemsSource)
+                        {
+                            string scriptName = stuff.gridNameColumn;
+
+                            foreach (int selected in selectionlist)
+                            {
+                                if (selectcount2 == selected)
+                                {
+
+                                    //}
+
+                                    //if (scriptCheckbox == true)
+                                    //{
+                                    deleteScriptsFunction(scriptName);
+                                    try
+                                    {
+                                        if (ComboOne.SelectedValue.ToString() == scriptName)
+                                        {
+                                            ComboOne.SelectedIndex = 0;
+                                        }
+                                    }
+                                    catch
+                                    {
+
+                                    }
+                                }
+                            }
+                            selectcount2++;
+                        }
+                    }
+
+                }
             }
+            selectionlist.Clear();
         }
 
 
@@ -1657,47 +1800,69 @@ namespace WFO_PROJECT
             deleteLinesList = null;
             if (DataGrid1.Items.Count == 0)
             {
-                MessageBox.Show("No Script Selected", "Error", System.Windows.Forms.MessageBoxButtons.OK, System.Windows.Forms.MessageBoxIcon.Information);
+                MessageBox.Show("No Script Selected.", "Deletion Error", System.Windows.Forms.MessageBoxButtons.OK, System.Windows.Forms.MessageBoxIcon.Error);
 
             }
             else
             {
                 deleteLinesList = new List<Details>();
                 DataGrid1.ItemsSource.GetEnumerator();
+                int selectcount = 0;
                 foreach (Details stuff in DataGrid1.ItemsSource)
                 {
                     string stringCheck = stuff.singleString;
-                    bool checkboxCheck = stuff.gridCheckbox;
+                    //bool checkboxCheck = stuff.gridCheckbox;
 
 
                     if (stringCheck != "Add New Line")
                     {
-                        if (checkboxCheck == true)
+                        //if (checkboxCheck == true)
+                        foreach (int selected in selectiondata)
                         {
-                            deleteLinesList.Add(stuff);
-                            //deleteMultipleLines(stringCheck);
-
+                            if (selectcount == selected)
+                            {
+                                {
+                                    deleteLinesList.Add(stuff);
+                                    //deleteMultipleLines(stringCheck);
+                                }
+                            }
                         }
                     }
+                    selectcount++;
                 }
                 if (deleteLinesList.Count != 0)
                 {
                     deleteMultipleLinesButton.Visibility = Visibility.Visible;
-                    if (MessageBox.Show("Are you sure you wish to delete these lines", "Delete Check", System.Windows.Forms.MessageBoxButtons.YesNo, System.Windows.Forms.MessageBoxIcon.Information) == System.Windows.Forms.DialogResult.Yes)
+                    if (deleteLinesList.Count == 1)
                     {
-                        foreach (Details lines in deleteLinesList)
+                        if (MessageBox.Show("Are you sure you wish to delete this line?", "Delete Check", System.Windows.Forms.MessageBoxButtons.YesNo, System.Windows.Forms.MessageBoxIcon.Question) == System.Windows.Forms.DialogResult.Yes)
                         {
-                            string stringSelected = lines.singleString;
-                            deleteMultipleLines(stringSelected);
+                            foreach (Details lines in deleteLinesList)
+                            {
+                                string stringSelected = lines.singleString;
+                                deleteMultipleLines(stringSelected);
+                            }
+                        }
+                    }
+                    else
+                    {
+                        if (MessageBox.Show("Are you sure you wish to delete these lines?", "Delete Check", System.Windows.Forms.MessageBoxButtons.YesNo, System.Windows.Forms.MessageBoxIcon.Question) == System.Windows.Forms.DialogResult.Yes)
+                        {
+                            foreach (Details lines in deleteLinesList)
+                            {
+                                string stringSelected = lines.singleString;
+                                deleteMultipleLines(stringSelected);
+                            }
                         }
                     }
 
                 }
                 else
                 {
-                    MessageBox.Show("No Lines Selected", "Error", System.Windows.Forms.MessageBoxButtons.OK, System.Windows.Forms.MessageBoxIcon.Information);
+                    MessageBox.Show("No Lines Selected", "Deletion Error", System.Windows.Forms.MessageBoxButtons.OK, System.Windows.Forms.MessageBoxIcon.Error);
                 }
             }
+            selectiondata.Clear();
         }
 
         List<string> selectedLinesList = new List<string>();
@@ -1716,6 +1881,13 @@ namespace WFO_PROJECT
             selectedLinesList.Remove(this.startString);
         }
 
+
+
+        private void listCheckBox_Checked(object sender, RoutedEventArgs e)
+        {
+            Console.WriteLine("damn checkboxes!");
+        }
+
         private void gridCheckBox_Checked(object sender, RoutedEventArgs e)
         {
             Console.WriteLine("damn checkboxes!");
@@ -1724,10 +1896,11 @@ namespace WFO_PROJECT
         List<Details> copyLinesList;
         private void copyMultipleLinesButton_Click(object sender, RoutedEventArgs e)
         {
+            int selectcount = 0;
             copyLinesList = null;
             if (DataGrid1.Items.Count == 0)
             {
-                MessageBox.Show("No Script Selected", "Error", System.Windows.Forms.MessageBoxButtons.OK, System.Windows.Forms.MessageBoxIcon.Information);
+                MessageBox.Show("No Script Selected.", "Copy Error", System.Windows.Forms.MessageBoxButtons.OK, System.Windows.Forms.MessageBoxIcon.Error);
 
             }
             else
@@ -1736,17 +1909,22 @@ namespace WFO_PROJECT
                 foreach (Details stuff in DataGrid1.ItemsSource)
                 {
                     string stringCheck = stuff.singleString;
-                    bool checkboxCheck = stuff.gridCheckbox;
-                    if (checkboxCheck == true)
+                    //bool checkboxCheck = stuff.gridCheckbox;
+                    //if (checkboxCheck == true)
+                    foreach (int selected in selectiondata)
                     {
-                        if (stringCheck != "Add New Line")
+                        if (selectcount == selected)
                         {
-                            copyLinesList.Add(stuff);
+                            if (stringCheck != "Add New Line")
+                            {
+                                copyLinesList.Add(stuff);
+                            }
+                        }
+                        else
+                        {
                         }
                     }
-                    else
-                    {
-                    }
+                    selectcount++;
                 }
                 if (copyLinesList.Count != 0)
                 {
@@ -1754,10 +1932,10 @@ namespace WFO_PROJECT
                 }
                 else
                 {
-                    MessageBox.Show("No Lines Selected", "Error", System.Windows.Forms.MessageBoxButtons.OK, System.Windows.Forms.MessageBoxIcon.Information);
+                    MessageBox.Show("No Lines Selected.", "Copy Error", System.Windows.Forms.MessageBoxButtons.OK, System.Windows.Forms.MessageBoxIcon.Error);
                 }
             }
-
+            selectiondata.Clear();
         }
 
         private void pasteButton_Click(object sender, RoutedEventArgs e)
@@ -1773,8 +1951,10 @@ namespace WFO_PROJECT
                     if (copied.singleString == linesInScript.singleString)
                     {
                         string currentCopy = copied.singleString;
-                        MessageBoxResult messageBoxResult = System.Windows.MessageBox.Show("You already have a match for " + currentCopy + ", do you want to replace it?", "Delete Confirmation", System.Windows.MessageBoxButton.YesNo);
-                        if (messageBoxResult == MessageBoxResult.Yes)
+                        if (MessageBox.Show("You already have a match for " + currentCopy + ", do you want to replace it?", "Copy Conflict", System.Windows.Forms.MessageBoxButtons.YesNo, System.Windows.Forms.MessageBoxIcon.Question) == System.Windows.Forms.DialogResult.Yes)
+
+                        //MessageBoxResult messageBoxResult = System.Windows.MessageBox.Show("You already have a match for " + currentCopy + ", do you want to replace it?", "Delete Confirmation", System.Windows.MessageBoxButton.YesNo);
+                        //if (messageBoxResult == MessageBoxResult.Yes)
                         {
                             //replace = true;
                             //Console.WriteLine(copied.singleString + " " + copied.linesAbove + " " + copied.linesBelow);
@@ -1867,7 +2047,7 @@ namespace WFO_PROJECT
             string nextLine2;
             string tempfile2 = System.IO.Path.GetTempFileName();
             Regex regex2 = new Regex(selectedValue);
-            var scriptFileName2 = Directory.GetCurrentDirectory() + @"\ListViewScripts.txt";
+            var scriptFileName2 = Directory.GetCurrentDirectory() + @"\ListViewScriptsTwo.txt";
             StreamReader pasteReader2 = new StreamReader(scriptFileName2);
             StreamWriter pasteWriter2 = new StreamWriter(tempfile2);
             //StreamWriter scriptWriterForEditing = new StreamWriter(scriptFileName);
@@ -1886,14 +2066,14 @@ namespace WFO_PROJECT
                         string mainString = mainStrings[0];
                         //foreach (Details doreplace in replace)
                         //{
-                            if (replace.singleString == mainString)
-                            {
-                                pasteWriter2.WriteLine("{2}[;]{0}[;]{1}", replace.linesAbove, replace.linesBelow, replace.singleString);
-                            }
-                            else
-                            {
-                                pasteWriter2.WriteLine(nextLine2);
-                            }
+                        if (replace.singleString == mainString)
+                        {
+                            pasteWriter2.WriteLine("{2}[;]{0}[;]{1}", replace.linesAbove, replace.linesBelow, replace.singleString);
+                        }
+                        else
+                        {
+                            pasteWriter2.WriteLine(nextLine2);
+                        }
                         //}
                     }
                     pasteWriter2.WriteLine("--");
@@ -1904,8 +2084,8 @@ namespace WFO_PROJECT
                 }
             }
 
-            pasteWriter2.Close();
             pasteReader2.Close();
+            pasteWriter2.Close();
             //var testfile = Directory.GetCurrentDirectory() + @"\test.txt";
             pasteReader2 = new StreamReader(tempfile2);
             pasteWriter2 = new StreamWriter(scriptFileName2);
@@ -2013,7 +2193,24 @@ namespace WFO_PROJECT
 
         private void ListDataGrid_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
+            Console.WriteLine(ListDataGrid.SelectedValue);
 
+
+            //        MouseGesture CutCmdMouseGesture = new MouseGesture(
+            //MouseAction.LeftClick);
+            //        CutCmdMouseGesture.MouseAction.Equals(true);
+
+            //MouseBinding CutMouseBinding = new MouseBinding(
+            //    ApplicationCommands.Cut,
+            //    CutCmdMouseGesture);
+
+            // RootWindow is an instance of Window.
+
+            //MainWindow.InputBindings.Add(CutMouseBinding);
+
+            //MouseGesture CutCmdMouseGesture = new MouseGesture(MouseAction.LeftClick);
+            //Window.InputBindings.Add(CutMouseBinding);
+            //MouseAction.LeftClick;
         }
 
         Window1 win2 = new Window1();
@@ -2053,12 +2250,14 @@ namespace WFO_PROJECT
         {
             if (processList.Count <= 0)
             {
-                MessageBox.Show("You are currently not running any scripts!", "Error");
+                MessageBox.Show("You are currently not running any scripts!", "Stop Error", System.Windows.Forms.MessageBoxButtons.OK, System.Windows.Forms.MessageBoxIcon.Error);
             }
             else
             {
-                MessageBoxResult messageBoxResult = System.Windows.MessageBox.Show("Are you sure you wish to stop all scripts?", "Stop Confirmation", System.Windows.MessageBoxButton.YesNo);
-                if (messageBoxResult == MessageBoxResult.Yes)
+                if (MessageBox.Show("Are you sure you wish to stop all scripts?", "Stop Confirmation", System.Windows.Forms.MessageBoxButtons.YesNo, System.Windows.Forms.MessageBoxIcon.Question) == System.Windows.Forms.DialogResult.Yes)
+
+                //MessageBoxResult messageBoxResult = System.Windows.MessageBox.Show("Are you sure you wish to stop all scripts?", "Stop Confirmation", System.Windows.MessageBoxButton.YesNo);
+                //if (messageBoxResult == MessageBoxResult.Yes)
                 {
                     foreach (Process process in processList)
                     {
@@ -2072,21 +2271,45 @@ namespace WFO_PROJECT
                         }
                     }
                     perlprocesswaskilled = true;
-                    MessageBox.Show("You quit while still running scripts, the data in the files may not be correct", "Data Warning");
+                    MessageBox.Show("You quit while still running scripts, the data in the files may not be correct.", "Data Warning", System.Windows.Forms.MessageBoxButtons.OK, System.Windows.Forms.MessageBoxIcon.Warning);
+
+                    //MessageBox.Show("You quit while still running scripts, the data in the files may not be correct", "Data Warning");
 
                     processList.Clear();
                 }
             }
-        
+
         }
         void win2_Closed(object sender, EventArgs e)
         {
             int counter;
-            string splitstartTime;
+            string splitstartTime = "";
             int hours;
             string ABG;
             long CheckCount;
             long CheckCountTwo;
+
+            try
+            {
+
+                Hex = win2.hexString.ToString();
+
+            }
+            catch (Exception)
+            {
+                Hex = null;
+
+            }
+
+            try
+            {
+                Exclude = win2.excludeString.ToString();
+
+            }
+            catch (Exception)
+            {
+                Exclude = null;
+            }
 
             try
             {
@@ -2096,27 +2319,61 @@ namespace WFO_PROJECT
             }
             catch (NullReferenceException)
             {
-
                 return;
             }
 
+            try
+            {
+                splitstartTime = startTime.Split(' ')[2];
+
+            }
+            catch (Exception)
+            {
+                splitstartTime = startTime.Split('/')[2];
+                splitstartTime = splitstartTime.Split(' ')[0];
+                startTime = startTime.Replace("/" + splitstartTime, "");
+                startTime = startTime.Insert(0, splitstartTime + "/");
+
+                splitstartTime = endTime.Split('/')[2];
+                splitstartTime = splitstartTime.Split(' ')[0];
+                endTime = endTime.Replace("/" + splitstartTime, "");
+                endTime = endTime.Insert(0, splitstartTime + "/");
+            }
+
+
+
+
+            splitstartTime = startTime.Split('/')[2];
+            splitstartTime = splitstartTime.Split(' ')[0];
+            startTime = startTime.Replace("/" + splitstartTime, "");
+            startTime = startTime.Insert(0, splitstartTime + "/");
+            startTime = startTime.Replace(" " + splitstartTime, "");
+            splitstartTime = startTime.Split('/')[1];
+            int split = Convert.ToInt32(splitstartTime);
+            if (split < 10)
+            {
+                startTime = startTime.Replace("/" + splitstartTime, "/0" + split.ToString());
+            }
             splitstartTime = startTime.Split(' ')[2];
             splitstartTime = startTime.Replace(" " + splitstartTime, "");
             splitstartTime = splitstartTime.Replace("/", "");
             splitstartTime = splitstartTime.Replace(":", "");
             splitstartTime = splitstartTime.Replace(" ", "");
-            splitstartTime = splitstartTime.Replace(" ", "");
 
 
-            try
+
+
+            splitstartTime = endTime.Split('/')[2];
+            splitstartTime = splitstartTime.Split(' ')[0];
+            endTime = endTime.Replace("/" + splitstartTime, "");
+            endTime = endTime.Insert(0, splitstartTime + "/");
+            endTime = endTime.Replace(" " + splitstartTime, "");
+
+            splitstartTime = endTime.Split('/')[1];
+            split = Convert.ToInt32(splitstartTime);
+            if (split < 10)
             {
-                CheckCount = Convert.ToInt64(splitstartTime);
-
-            }
-            catch (Exception)
-            {
-
-                return;
+                endTime = endTime.Replace("/" + splitstartTime, "/0" + split.ToString());
             }
 
 
@@ -2125,27 +2382,14 @@ namespace WFO_PROJECT
             splitstartTime = splitstartTime.Replace("/", "");
             splitstartTime = splitstartTime.Replace(":", "");
             splitstartTime = splitstartTime.Replace(" ", "");
-            splitstartTime = splitstartTime.Replace(" ", "");
 
 
-            try
-            {
-                CheckCountTwo = Convert.ToInt64(splitstartTime);
-            }
-            catch (Exception)
-            {
 
-                return;
-            }
+       
 
-            if (CheckCount > CheckCountTwo)
-            {
-                MessageBox.Show("Start Date cannot be greater then End Date.", "Invalid Date", System.Windows.Forms.MessageBoxButtons.OK, System.Windows.Forms.MessageBoxIcon.Error);
-                return;
-            }
-
-            splitstartTime = startTime.Split(' ')[2];
             startTime = startTime.Replace("/", "-");
+            splitstartTime = startTime.Split(' ')[2];
+            startTime = startTime.Replace(" " + splitstartTime, "");
             if (splitstartTime == "PM")
             {
                 splitstartTime = startTime.Split(':')[0];
@@ -2171,40 +2415,26 @@ namespace WFO_PROJECT
                 }
 
             }
-            splitstartTime = startTime.Split('-')[0];
+            splitstartTime = startTime.Split('-')[2];
+            splitstartTime = splitstartTime.Split(' ')[0];
             counter = Convert.ToInt32(splitstartTime);
             for (int i = 0; i <= 9; i++)
             {
                 if (counter == i)
                 {
-                    startTime = startTime.Insert(0, "0");
+                    startTime = startTime.Replace("-" + splitstartTime, "-0" + splitstartTime);
                 }
 
             }
 
-            splitstartTime = startTime.Split('-')[1];
-            counter = Convert.ToInt32(splitstartTime);
-            for (int k = 0; k <= 9; k++)
-            {
-                if (counter == k)
-                {
-                    startTime = startTime.Insert(3, "0");
-                }
-
-            }
-
-
-            splitstartTime = startTime.Split('-')[2];
-            splitstartTime = splitstartTime.Split(' ')[0];
-            startTime = startTime.Replace("-" + splitstartTime, "");
-            startTime = startTime.Insert(0, splitstartTime + "-");
-            splitstartTime = startTime.Split(' ')[2];
-            startTime = startTime.Replace(" " + splitstartTime, "");
             startTime = startTime.Replace(" ", "");
 
 
-            splitstartTime = endTime.Split(' ')[2];
+
+
             endTime = endTime.Replace("/", "-");
+            splitstartTime = endTime.Split(' ')[2];
+            endTime = endTime.Replace(" " + splitstartTime, "");
             if (splitstartTime == "PM")
             {
                 splitstartTime = endTime.Split(':')[0];
@@ -2231,37 +2461,20 @@ namespace WFO_PROJECT
 
             }
 
-            splitstartTime = endTime.Split('-')[0];
+            splitstartTime = endTime.Split('-')[2];
+            splitstartTime = splitstartTime.Split(' ')[0];
             counter = Convert.ToInt32(splitstartTime);
             for (int l = 0; l <= 9; l++)
             {
                 if (counter == l)
                 {
-                    endTime = endTime.Insert(0, "0");
+                    endTime = endTime.Replace("-" + splitstartTime, "-0" + splitstartTime);
                 }
 
             }
-
-            splitstartTime = endTime.Split('-')[1];
-            counter = Convert.ToInt32(splitstartTime);
-            for (int o = 0; o <= 9; o++)
-            {
-                if (counter == o)
-                {
-                    endTime = endTime.Insert(3, "0");
-                }
-
-            }
-
-
-            endTime = endTime.Replace("/", "-");
-            splitstartTime = endTime.Split('-')[2];
-            splitstartTime = splitstartTime.Split(' ')[0];
-            endTime = endTime.Replace("-" + splitstartTime, "");
-            endTime = endTime.Insert(0, splitstartTime + "-");
-            splitstartTime = endTime.Split(' ')[2];
-            endTime = endTime.Replace(" " + splitstartTime, "");
             endTime = endTime.Replace(" ", "");
+
+
 
         }
         // Help menu button
@@ -2287,13 +2500,59 @@ namespace WFO_PROJECT
             {
                 aboutboxwindow = new AboutBox1();
                 aboutboxwindow.Show();
+
                 aboutboxwindow.Activate();
             }
-                        
+
         }
 
+        private void ListDataGrid_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        {
+            //ListDataGrid.IsEnabled = true;
 
+            Console.WriteLine("aaah stuff");
 
+            //ListDataGrid.SelectedItem = ListDataGrid.ItemsSource.Equals(true);
+            //DataGridCell cell = sender as DataGridCell;
+            //Console.WriteLine(cell.Content);
+            //if (!cell.IsEditing)
+            //{
+            //    // enables editing on single click
+            //    if (!cell.IsFocused)
+            //        cell.Focus();
+            //    if (!cell.IsSelected)
+            //        cell.IsSelected = true;
+            //}
+        }
+
+        private void ListDataGrid_MouseEnter(object sender, MouseEventArgs e)
+        {
+            ListDataGrid.IsEnabled = true;
+            //ListDataGrid.
+            //Console.WriteLine("aaah stuff");
+        }
+
+        List<int> selectionlist = new List<int>();
+        private void listcheckbox_Checked(object sender, RoutedEventArgs e)
+        {
+            selectionlist.Add(ListDataGrid.SelectedIndex);
+        }
+
+        private void listcheckbox_Unchecked(object sender, RoutedEventArgs e)
+        {
+            selectionlist.Remove(ListDataGrid.SelectedIndex);
+        }
+
+        List<int> selectiondata = new List<int>();
+        private void DataCheckBox_Checked(object sender, RoutedEventArgs e)
+        {
+            selectiondata.Add(DataGrid1.SelectedIndex);
+        }
+
+        private void DataCheckBox_Unchecked(object sender, RoutedEventArgs e)
+        {
+            selectiondata.Remove(DataGrid1.SelectedIndex);
+        }
     }
 }
 

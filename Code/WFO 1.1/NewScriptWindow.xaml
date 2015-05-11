@@ -10,7 +10,7 @@
         <TextBox x:Name="scriptNamebox" Margin="10,0,12,53" TextWrapping="Wrap" VerticalAlignment="Bottom" Height="25" />
 
         <!-- Save button -->
-        <Button Content="Save" HorizontalAlignment="Right" Margin="0,0,12,16" VerticalAlignment="Bottom" Width="75" Click="Button_Click" Height="25" RenderTransformOrigin="0.48,1">
+        <Button Content="Save" HorizontalAlignment="Right" Margin="0,0,12,16" VerticalAlignment="Bottom" Width="75" Click="Button_Click" Height="25" RenderTransformOrigin="0.48,1" FontWeight="Bold">
 
             <!-- Adds a style override, change the background colours and mouseover colours to a orange theme -->
             <Button.Style>

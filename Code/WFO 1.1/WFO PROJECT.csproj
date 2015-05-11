@@ -121,6 +121,9 @@
     <Compile Include="DatepickerWindow.xaml.cs">
       <DependentUpon>DatepickerWindow.xaml</DependentUpon>
     </Compile>
+    <Compile Include="SplashWindow.xaml.cs">
+      <DependentUpon>SplashWindow.xaml</DependentUpon>
+    </Compile>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -142,6 +145,10 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Include="DatepickerWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="SplashWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -168,6 +175,7 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
+      <SubType>Designer</SubType>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="bin\Debug\StringSearchWithNLines.pl">
@@ -226,9 +234,10 @@
     <Resource Include="bin\Debug\ListViewScriptsTwo.txt" />
   </ItemGroup>
   <ItemGroup>
-    <SplashScreen Include="SplashScreen1.png">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </SplashScreen>
+    <None Include="Resources\helpicon.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\350px-Avaya_Logo.svg.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
