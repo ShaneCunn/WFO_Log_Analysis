@@ -4,8 +4,10 @@
                 xmlns:Properties="clr-namespace:WFO_PROJECT.Properties"    
                 xmlns:d="http://schemas.microsoft.com/expression/blend/2008" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
                 xmlns:xctk="http://schemas.xceed.com/wpf/xaml/toolkit" xmlns:Anno="http://schemas.microsoft.com/expression/blend/extensions/annotations/2008" mc:Ignorable="d Anno" x:Name="WFO_Grep_Tool" x:Class="WFO_PROJECT.MainWindow"
-                Title="ACR logging tool" Height="720" Width="942" Icon="Icon.ico" Closed="WFO_Grep_Tool_Closed" Background="#FFDEE7EF" WindowStyle="ThreeDBorderWindow"  >
+                Title="ACR logging tool" Height="720" Width="942" Icon="Icon.ico" Closed="WFO_Grep_Tool_Closed" Background="#FFDEE7EF" WindowStyle="ThreeDBorderWindow"  xmlns:sparrow="http://sparrowtoolkit.codeplex.com/wpf" >
+
     <Grid>
+
         <Grid.ColumnDefinitions>
             <ColumnDefinition/>
         </Grid.ColumnDefinitions>
@@ -42,7 +44,7 @@
 
         <Rectangle HorizontalAlignment="Left" Margin="0,640,0,0" Stroke="red" VerticalAlignment="Top" Height="1"
 			Width="1" Fill="#FFBC0000"/>
-        <TabControl Margin="0,21,0,0" Background="#FFDEE7EF">
+        <TabControl Margin="0,21,0,0" Background="#FFDEE7EF" BorderThickness="1,1,1,35" BorderBrush="#FF4A494A">
             <TabItem Header="Home"  Margin="8,0,-10,0"  TabIndex="3" Height="22.96" VerticalAlignment="Bottom" Width="50" >
                 <TabItem.Background>
                     <LinearGradientBrush EndPoint="0,1" StartPoint="0,0">
@@ -52,7 +54,7 @@
                         <GradientStop Color="#FFCDCDCD" Offset="0.996"/>
                     </LinearGradientBrush>
                 </TabItem.Background>
-                <Grid Background="#FFDEE7EF" Margin="0,-1.965,0,-2.551">
+                <Grid Background="#FFDEE7EF" Margin="0,-1.965,0,6">
                     <Grid.RowDefinitions>
                         <RowDefinition/>
                     </Grid.RowDefinitions>
@@ -73,17 +75,28 @@
 
                         <DataGrid x:Name="ListDataGrid"  Margin="-0.618,170,-2,-1" Width="339.618" Loaded="ListDataGrid_Loaded"
                     		SelectionChanged="ListDataGrid_SelectionChanged" CanUserAddRows="False" Background="#FFF0F0F0" BorderThickness="2" 
-                    		AlternationCount="2" RowBackground="#FFF7F7FF" AlternatingRowBackground="White" BorderBrush="#FF4A494A" 
+                    		AlternationCount="2" RowBackground="#FFF7F7FF" AlternatingRowBackground="White" BorderBrush="#FF4A494A" AutoGenerateColumns="False"
+                                  HorizontalAlignment="Left" HorizontalContentAlignment="Stretch" ColumnWidth="*" ToolTip="Please select a Script to Run">
 
-                    		HorizontalAlignment="Left" HorizontalContentAlignment="Stretch" ColumnWidth="*" ToolTip="Please select a Script to Run">
+                            <!--<DataGrid.Columns> 
+                                <DataGridCheckBoxColumn Header="MyBool" Binding="{Binding gridCheckboxColumn}" />
+                                <DataGridTextColumn Header="MyString" Binding="{Binding gridNameColumn}" />
+                            </DataGrid.Columns>-->
+
                             <DataGrid.Columns>
-                                <DataGridTemplateColumn ClipboardContentBinding="{x:Null}">
-                                <DataGridTemplateColumn.CellTemplate>
-                                    <DataTemplate>
-                                            <CheckBox x:Name="listcheckbox" IsChecked="{Binding BindingGroupName=comboBox, Path=IsSelected, UpdateSourceTrigger=PropertyChanged}" Checked="listcheckbox_Checked" Unchecked="listcheckbox_Unchecked"/>
-                                    </DataTemplate>
-                                </DataGridTemplateColumn.CellTemplate>
-                                    </DataGridTemplateColumn>
+
+                                <DataGridTemplateColumn ClipboardContentBinding="{x:Null}" CanUserSort="True" CanUserReorder="False">
+                                    <DataGridTemplateColumn.Header>
+                                        <CheckBox x:Name="listcheckboxheader" Checked="listcheckboxheader_Checked" Unchecked="listcheckboxheader_Unchecked" ></CheckBox>
+                                    </DataGridTemplateColumn.Header>
+                                    <DataGridTemplateColumn.CellTemplate>
+                                        <DataTemplate>
+                                            <CheckBox x:Name="listcheckbox" HorizontalAlignment="Center" IsChecked="{Binding BindingGroupName=comboBox, Path=gridCheckboxColumn, UpdateSourceTrigger=PropertyChanged}"  Checked="listcheckbox_Checked" Unchecked="listcheckbox_Unchecked"/>
+                                        </DataTemplate>
+                                    </DataGridTemplateColumn.CellTemplate>
+                                </DataGridTemplateColumn>
+                                <DataGridTextColumn Header="MyString" Binding="{Binding gridNameColumn}" />
+
 
                             </DataGrid.Columns>
                         </DataGrid>
@@ -97,19 +110,12 @@
 
                         <Border x:Name="Border_Right" BorderBrush="#FF4A494A" BorderThickness="2,33" Background="#FFDEE7EF"
 							Margin="63,0,0,0" Grid.ColumnSpan="2">
-                            <Border BorderThickness="1,25,1,1" Margin="0,0,0,175.721" VerticalAlignment="Bottom"
-								Background="#FFEC1919">
-                                <Border.BorderBrush>
-                                    <LinearGradientBrush EndPoint="0.5,1" MappingMode="RelativeToBoundingBox" StartPoint="0.5,0">
-                                        <GradientStop Color="#FF7B8E94" Offset="1"/>
-                                        <GradientStop Color="#FFA5AEB5"/>
-                                    </LinearGradientBrush>
-                                </Border.BorderBrush>
-                            </Border>
+                            <Label x:Name="Progress_label" Content="Progress" HorizontalAlignment="Left" Margin="-362.328,0,0,-78" VerticalAlignment="Bottom" 
+                        		Width="60.359" RenderTransformOrigin="0.5,2.308" ToolTip="Select how many lines above the search you wish to parse" Foreground="#FFF3F1F1" FontWeight="Bold"/>
                         </Border>
                         <Label Content="Select Log File" HorizontalAlignment="Left" Margin="-296,3,0,0" VerticalAlignment="Top" 
                         	BorderBrush="Black" Foreground="#FFF3F1F1" FontWeight="Bold"/>
-                        
+
                     </Grid>
 
                     <!-- Run Button -->
@@ -174,26 +180,11 @@
 
 
                     <!-- Choose output folder button -->
-                    <Button Content="Choose Output" HorizontalAlignment="Left" Margin="244,145,0,0" VerticalAlignment="Top" Width="90"
+                    <Button Content="Choose Output" HorizontalAlignment="Left" Margin="244,146,0,0" VerticalAlignment="Top" Width="90"
 						Click="Button_Click_4" ToolTip="Select/Create output directory to output the parsed log file" RenderTransformOrigin="1.231,0.273" Height="23"
 						Cursor="Hand" Grid.ColumnSpan="2"  TabIndex="5"/>
 
                     <!-- Choose output folder Label Box -->
-                    <Label x:Name="outputFileLabel" Content="" HorizontalAlignment="Left" Margin="26,140,0,0"
-						VerticalAlignment="Top" Width="199" RenderTransformOrigin="0.5,0.5" BorderThickness="1"
-						BorderBrush="#FFE3E9EF" Foreground="Black" Background="White" 
-						Grid.ColumnSpan="2" Height="28" TextBlock.TextAlignment="Left">
-                        
-
-                        <Label.RenderTransform>
-                            <TransformGroup>
-                                <ScaleTransform/>
-                                <SkewTransform AngleX="0.024"/>
-                                <RotateTransform Angle="-0.038"/>
-                                <TranslateTransform/>
-                            </TransformGroup>
-                        </Label.RenderTransform>
-                    </Label>
 
                     <Label Content="Source Log file:" HorizontalAlignment="Left" Margin="27,43,0,0"
 						VerticalAlignment="Top" RenderTransformOrigin="-0.237,0.308" Width="164" Height="26" Grid.ColumnSpan="2"
@@ -254,19 +245,6 @@
 
 
                     <!-- Source File Label box, displays source file location -->
-                    <Label x:Name="File_Label" Content="" HorizontalAlignment="Left" Margin="26,73,0,0" 
-						VerticalAlignment="Top" Width="199" RenderTransformOrigin="0.5,0.5" BorderThickness="1" 
-						BorderBrush="#FFE3E9EF" Foreground="Black" Background="White" IsEnabled="False" 
-						Grid.ColumnSpan="2" Height="28">
-                        <Label.RenderTransform>
-                            <TransformGroup>
-                                <ScaleTransform/>
-                                <SkewTransform AngleY="0.42"/>
-                                <RotateTransform Angle="0.166"/>
-                                <TranslateTransform/>
-                            </TransformGroup>
-                        </Label.RenderTransform>
-                    </Label>
                     <Label Content="Output Folder:" HorizontalAlignment="Left" Margin="27,108,0,0" VerticalAlignment="Top" 
 						Width="164" Grid.ColumnSpan="2" Height="26" ToolTip="Folder where the parsed log file will be generated"/>
 
@@ -288,7 +266,7 @@
                             <DataGridTemplateColumn ClipboardContentBinding="{x:Null}">
                                 <DataGridTemplateColumn.CellTemplate>
                                     <DataTemplate>
-                                        <CheckBox x:Name="DataCheckBox" IsChecked="{Binding BindingGroupName=comboBox, Path=IsSelected, UpdateSourceTrigger=PropertyChanged}" Checked="DataCheckBox_Checked" Unchecked="DataCheckBox_Unchecked"  />
+                                        <CheckBox x:Name="DataCheckBox" HorizontalAlignment="Center" IsChecked="{Binding BindingGroupName=comboBox, Path=IsSelected, UpdateSourceTrigger=PropertyChanged}" Checked="DataCheckBox_Checked" Unchecked="DataCheckBox_Unchecked"  />
                                     </DataTemplate>
                                 </DataGridTemplateColumn.CellTemplate>
                             </DataGridTemplateColumn>
@@ -363,7 +341,7 @@
                     <Label Grid.ColumnSpan="2" Content="Current Lines in Script" HorizontalAlignment="Left" Margin="368,14,0,0" 
 						VerticalAlignment="Top" Foreground="#FFF3F1F1" FontWeight="Bold"/>
                     <ComboBox x:Name="ComboOne" IsEditable="True" Text="Please Select a script to edit" 
-                    	VerticalAlignment="Bottom"  Loaded="ComboBox_Loaded"  SelectionChanged="ComboBox_SelectionChanged"
+                    	VerticalAlignment="Bottom" Loaded="ComboBox_Loaded" IsEnabled="True"   SelectionChanged="ComboBox_SelectionChanged"
                     	PreviewMouseLeftButtonDown="ComboOne_PreviewMouseLeftButtonDown" Height="23" Width="183.973" 
                     	HorizontalAlignment="Left" ToolTip="Select a search script to edit" Margin="381,0,0,172" SelectedIndex="0"
                     	IsReadOnly="True" TabIndex="14" Grid.ColumnSpan="2"/>
@@ -374,18 +352,25 @@
             <TabItem x:Name="Graph_Tab" Header="Graph" HorizontalAlignment="Right" Height="22.96" VerticalAlignment="Top" Width="57.32" Margin="0,0,-10,0">
                 <TabItem.Background>
                     <LinearGradientBrush EndPoint="0,1" StartPoint="0,0">
-                        <GradientStop Color="#FFF3F3F3" Offset="0"/>
-                        <GradientStop Color="#FFEBEBEB" Offset="0.5"/>
-                        <GradientStop Color="#FFDDDDDD" Offset="0.5"/>
-                        <GradientStop Color="#FFCDCDCD" Offset="0.996"/>
+                        <GradientStop Color="#FFDEE7EF" Offset="0"/>
+                        <GradientStop Color="#FFDEE7EF" Offset="0.5"/>
+                        <GradientStop Color="#FFDEE7EF" Offset="0.5"/>
+                        <GradientStop Color="#FFDEE7EF" Offset="0.996"/>
                     </LinearGradientBrush>
                 </TabItem.Background>
                 <Grid Background="#FFDEE7EF" RenderTransformOrigin="0.064,0.422"/>
             </TabItem>
         </TabControl>
-
-
-
+        <TextBox x:Name="outputFileLabel" HorizontalAlignment="Left" Height="28" Margin="32,191,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="196" IsReadOnly="True"/>
+        <TextBox x:Name="File_Label" HorizontalAlignment="Left" Height="28" Margin="32,123,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="196" IsReadOnly="True"/>
+        <ProgressBar HorizontalAlignment="Left"
+		     Height="20"
+		     Margin="68.597,0,0,7"
+		     VerticalAlignment="Bottom"
+		     Width="172"
+		     Name="progressBar"
+             Maximum="100"
+		     Foreground="Green" Visibility="Visible"/>
 
     </Grid>
 

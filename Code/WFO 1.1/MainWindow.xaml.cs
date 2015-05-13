@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.IO;
+using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -31,6 +32,8 @@ namespace WFO_PROJECT
     {
 
         string value;
+        double time;
+        double timeTwo;
         string pathName;
         string selectedValue;
         List<string> data = new List<string>();
@@ -48,7 +51,7 @@ namespace WFO_PROJECT
         string aboveValue;
         string belowValue;
         string file_Name;
-        CheckBox comboBox = null;
+        CheckBox comboBox = new CheckBox();
         string startTime;
         string endTime;
         string Hex;
@@ -62,7 +65,6 @@ namespace WFO_PROJECT
         List<CheckBox> OptionsList = new List<CheckBox>();
         CheckBox box = new CheckBox();
 
-        DataGridCheckBoxColumn datacheckboxescolumn = new DataGridCheckBoxColumn();
 
 
 
@@ -128,7 +130,7 @@ namespace WFO_PROJECT
                 // Open document 
                 file_Name = dlg.FileName;
 
-                File_Label.Content = System.IO.Path.GetFileName(file_Name);
+                File_Label.Text = System.IO.Path.GetFileName(file_Name);
 
                 FileInfo f = new FileInfo(file_Name);
                 filesize = f.Length;
@@ -140,14 +142,14 @@ namespace WFO_PROJECT
                 if (fileCheck != ".txt" && fileCheck != ".log")
                 {
                     MessageBox.Show("Invalid file format.\nPlease use file types with the extensions .log or .txt.", "Invalid file", System.Windows.Forms.MessageBoxButtons.OK, System.Windows.Forms.MessageBoxIcon.Error);
-                    File_Label.Content = string.Empty;
+                    File_Label.Text = string.Empty;
                     return;
 
                 }
                 else
                 {
-                    outputFileLabel.Content = System.IO.Path.GetDirectoryName(file_Name);
-                    File_Label.Content = System.IO.Path.GetFileName(file_Name);
+                    outputFileLabel.Text = System.IO.Path.GetDirectoryName(file_Name);
+                    File_Label.Text = System.IO.Path.GetFileName(file_Name);
                 }
             }
         }
@@ -161,7 +163,6 @@ namespace WFO_PROJECT
                 fileRemoval = System.IO.Path.GetFileName(file_Name);
                 outputFilePathIndex = file_Name.IndexOf("\\" + fileRemoval);
                 outputFileName = file_Name.Remove(outputFilePathIndex);
-
             }
             else if (outputFileName != null && file_Name != null)
             {
@@ -173,11 +174,7 @@ namespace WFO_PROJECT
             int selectcount = 0;
             foreach (ListViewItems stuff in ListDataGrid.ItemsSource)
             {
-                //count++;
                 string scriptName = stuff.gridNameColumn;
-                //bool scriptCheckbox = stuff.gridCheckboxColumn;
-
-
                 foreach (int selected in selectionlist)
                 {
                     if (selectcount == selected)
@@ -186,22 +183,12 @@ namespace WFO_PROJECT
                     }
                 }
                 selectcount++;
-
-
-
-
-                //if (scriptCheckbox == true)
-                //{
-                //    scriptsToDelete.Add(scriptName);
-                //}
             }
-
             if (file_Name == null)
             {
                 MessageBox.Show("No Log File Selected", "Data Error", System.Windows.Forms.MessageBoxButtons.OK, System.Windows.Forms.MessageBoxIcon.Error);
                 return;
             }
-
             else if (scriptsToDelete.Count == 0 && startTime == null && endTime == null)
             {
                 MessageBox.Show("No Scripts Selected or Dates Selected", "Input Error", System.Windows.Forms.MessageBoxButtons.OK, System.Windows.Forms.MessageBoxIcon.Error);
@@ -224,112 +211,71 @@ namespace WFO_PROJECT
             }
             else if (scriptsToDelete.Count != 0 && startTime == null && endTime == null)
             {
+
                 count = 0;
                 ListDataGrid.ItemsSource.GetEnumerator();
-                //listReload();
-                //Console.WriteLine("options" + OptionsList);
-
-
                 Regex intregex = new Regex(@"\d+");
                 Regex stringRegex = new Regex(@"[\D\d]+");
-
-
-
                 string searchWord = "";
-
-                //searchWord = searchWord.Remove();
-                //Console.WriteLine(file_Name);
-                //int lineCount = 0;            
                 char[] MyCharList = { '\\', '*', '.', '"', ']', '[' };
-                //string tempPerlFileAddress = Directory.GetCurrentDirectory() + @"\TempScript.txt";
                 int selectcount2 = 0;
-
                 foreach (ListViewItems Option in ListDataGrid.ItemsSource)
-                ////foreach (CheckBox Option in OptionsList)
                 {
-                    //Console.WriteLine(Option.gridCheckboxColumn);
-                    //    //ListView1.Items.Refresh();
-                    //    Console.WriteLine(Option.gridCheckboxColumn);
                     string nextLine = "";
-                    //    //lineCount += 1;
-                    //    //Option.Checked == true;
-                    //if (Option.gridCheckboxColumn == true)
+                    string line;
+                    var fileName = Directory.GetCurrentDirectory() + @"\ListViewScriptsTwo.txt";
+                    StreamReader filePathing = new StreamReader(fileName);
+                    while ((line = filePathing.ReadLine()) != null)
                     {
-                        //        //searchWord = String.Empty;
-                        string line;
-                        var fileName = Directory.GetCurrentDirectory() + @"\ListViewScriptsTwo.txt";
-
-                        StreamReader filePathing = new StreamReader(fileName);
-                        //        //StreamWriter writefile = new StreamWriter(fileName);
-
-                        while ((line = filePathing.ReadLine()) != null)
+                        Regex regex = new Regex("name :");
+                        if (regex.IsMatch(line))
                         {
-
-                            Regex regex = new Regex("name :");
-                            if (regex.IsMatch(line))
+                            foreach (int selected in selectionlist)
                             {
-                                //                //writefile.WriteAsync("aaah");
-                                string[] script_CheckboxName = line.Split(':');
-                                //if (script_CheckboxName[1] == Option.gridNameColumn)
-                                foreach (int selected in selectionlist)
+                                if (selectcount2 == selected)
                                 {
-                                    if (selectcount2 == selected)
+                                    while ((nextLine = filePathing.ReadLine()) != "--")
                                     {
-
-                                        while ((nextLine = filePathing.ReadLine()) != "--")
+                                        string[] args = Regex.Split(nextLine, "[;]");
+                                        if (args.Length == 3)
                                         {
-                                            string[] args = Regex.Split(nextLine, "[;]");
-                                            if (args.Length == 3)
+                                            args[0] = args[0].TrimEnd('[');
+                                            args[1] = args[1].Trim(MyCharList);
+                                            args[2] = args[2].Trim(MyCharList);
+                                            int num1;
+                                            bool res = int.TryParse(args[2], out num1);
+                                            if (args[2] == "DATE")
                                             {
-
-                                                args[0] = args[0].TrimEnd('[');
-                                                args[1] = args[1].Trim(MyCharList);
-                                                args[2] = args[2].Trim(MyCharList);
-                                                int num1;
-                                                bool res = int.TryParse(args[2], out num1);
-
-                                                //string arg = args[4];
-                                                if (args[2] == "DATE")
-                                                {
-                                                    searchWord = searchWord + " \"" + args[0] + ";!;" + args[1] + ";!;" + args[2] + "!;!" + "type1" + "\"";
-                                                    count++;
-                                                }
-                                                else if (stringRegex.IsMatch(args[0]) && args[1] == "" && stringRegex.IsMatch(args[2]))
-                                                {
-                                                    searchWord = searchWord + " \"" + args[0] + ";!;" + " " + ";!;" + args[2] + "!;!" + "type2" + "\"";
-                                                    count++;
-                                                }
-                                                else if (stringRegex.IsMatch(args[0]) && stringRegex.IsMatch(args[1]) && args[2] == "")
-                                                {
-                                                    searchWord = searchWord + " \"" + args[0] + ";!;" + args[1] + ";!;" + " " + "!;!" + "type2" + "\"";
-                                                    count++;
-                                                }
-                                                else if (res == false)
-                                                {
-                                                    searchWord = searchWord + " \"" + args[0] + ";!;" + args[1] + ";!;" + args[2] + "!;!" + "type4" + "\"";
-                                                    count++;
-                                                }
-                                                else if (res == true)
-                                                {
-                                                    searchWord = searchWord + " \"" + args[0] + ";!;" + args[1] + ";!;" + args[2] + "!;!" + "type3" + "\"";
-                                                    count++;
-                                                }
-
+                                                searchWord = searchWord + " \"" + args[0] + ";!;" + args[1] + ";!;" + args[2] + "!;!" + "type1" + "\"";
+                                            }
+                                            else if (stringRegex.IsMatch(args[0]) && args[1] == "" && stringRegex.IsMatch(args[2]))
+                                            {
+                                                searchWord = searchWord + " \"" + args[0] + ";!;" + " " + ";!;" + args[2] + "!;!" + "type2" + "\"";
+                                            }
+                                            else if (stringRegex.IsMatch(args[0]) && stringRegex.IsMatch(args[1]) && args[2] == "")
+                                            {
+                                                searchWord = searchWord + " \"" + args[0] + ";!;" + args[1] + ";!;" + " " + "!;!" + "type2" + "\"";
+                                            }
+                                            else if (res == false)
+                                            {
+                                                searchWord = searchWord + " \"" + args[0] + ";!;" + args[1] + ";!;" + args[2] + "!;!" + "type4" + "\"";
+                                            }
+                                            else if (res == true)
+                                            {
+                                                searchWord = searchWord + " \"" + args[0] + ";!;" + args[1] + ";!;" + args[2] + "!;!" + "type3" + "\"";
                                             }
 
                                         }
                                     }
-                                    selectcount2++;
-                               }
+                                }
                             }
+                            selectcount2++;
                         }
-                        filePathing.Close();
                     }
+                    filePathing.Close();
                 }
-
                 string searchWordEile = searchWord;
                 perlCalled(searchWordEile);
-
             }
             else if (scriptsToDelete.Count == 0 && startTime != null && endTime != null && outputFileName != null && file_Name != null)
             {
@@ -338,17 +284,14 @@ namespace WFO_PROJECT
                 startTime = null;
                 endTime = null;
             }
-
         }
-
 
         Process perlprocess;
         List<Process> processList = new List<Process>();
         int processCount = 0;
         private void perlCalled(string searchWord2)
         {
-            double time;
-            double timeTwo;
+           
             int fileCheck;
             if (Hex == null && Exclude != null)
             {
@@ -376,7 +319,7 @@ namespace WFO_PROJECT
 
 
             perlprocess = new Process();
-            if (processCount < 3)
+            if (processCount < 2)
             {
                 processList.Add(perlprocess);
 
@@ -390,6 +333,36 @@ namespace WFO_PROJECT
                 //Process perl = new Process();
                 perlprocess.StartInfo = perlStartInfo;
 
+                if (filesize > 400000000)
+                {
+                    fileCheck = ((int)filesize / 100000000);
+                    time = ((fileCheck * 7) * count) / 60;
+                    timeTwo = ((fileCheck * 10) * count) / 60;
+                    time = Math.Ceiling(time);
+                    timeTwo = Math.Ceiling(timeTwo);
+                    MessageBox.Show("This is a large file, Estimated Time of completion will be between " + time + " to " + timeTwo + " minutes", "File Size Alert", System.Windows.Forms.MessageBoxButtons.OK, System.Windows.Forms.MessageBoxIcon.Information);
+                    time = time * 60;
+                    progressBar.Visibility = Visibility.Visible;
+                    progressTimer();
+                }
+                else if (filesize < 400000000)
+                {
+
+                    fileCheck = ((int)filesize / 100000000);
+                    time = (((fileCheck * 7) * count) / 60);
+                    timeTwo = (((fileCheck * 10) * count) / 60);
+                    MessageBox.Show("Estimated Time of completion is less than one minute", "File Size Alert", System.Windows.Forms.MessageBoxButtons.OK, System.Windows.Forms.MessageBoxIcon.Information);
+                    if (time == 0  && fileCheck > 2)
+                    {
+                        time = 1;
+                    }
+                    time = time * 60;
+                    progressBar.Visibility = Visibility.Visible;
+                    progressTimer();
+                    
+
+                }
+
 
                 perlprocess.Start();
                 //Worker workerObject = new Worker();
@@ -397,23 +370,7 @@ namespace WFO_PROJECT
                 Thread workerThread = new Thread(thread);
                 workerThread.Start();
 
-                if (filesize > 400000000)
-                {
-                    fileCheck = ((int)filesize / 100000000);
-                    time = ((fileCheck * .081) * count);
-                    timeTwo = ((fileCheck * .120) * count);
-                    time = Math.Ceiling(time);
-                    timeTwo = Math.Ceiling(timeTwo);
-                    MessageBox.Show("This is a large file, Estimated Time of completion will be between " + time + " to " + timeTwo + " minutes" , "File Size Alert", System.Windows.Forms.MessageBoxButtons.OK, System.Windows.Forms.MessageBoxIcon.Information);
-                }
-                else if (filesize < 400000000)
-                {
-                    fileCheck = ((int)filesize / 100000000);
-                    time = (((fileCheck * 5) * count) / 10);
-                    timeTwo = (((fileCheck * 10) * count) / 10); 
-                    MessageBox.Show("Estimated Time of completion will be between " + time + " to " + timeTwo + " Seconds", "File Size Alert", System.Windows.Forms.MessageBoxButtons.OK, System.Windows.Forms.MessageBoxIcon.Information);
-                  
-                }
+                
             }
             else
             {
@@ -433,8 +390,15 @@ namespace WFO_PROJECT
             Exclude = null;
             if (perlprocesswaskilled == false && processCount == 0)
             {
+
+
+                this.Dispatcher.Invoke((Action)(() =>
+                {
+                    progressBar.Visibility = Visibility.Hidden;
+                }));                
                 if (MessageBox.Show("Log file created.\n\nDo you wish to open the output folder? ", "Open New File Location", System.Windows.Forms.MessageBoxButtons.YesNo, System.Windows.Forms.MessageBoxIcon.Question) == System.Windows.Forms.DialogResult.Yes)
                 {
+                   
                     Process.Start(outputFileName);
 
                 }
@@ -464,7 +428,7 @@ namespace WFO_PROJECT
         private void Checkbox_Loaded(object sender, RoutedEventArgs e)
         {
         }
-        CheckBox gridcheckbox;
+        //CheckBox gridcheckbox;
         private void DataReload(Regex regex)
         {
             List<Details> datalist = new List<Details>();
@@ -542,6 +506,7 @@ namespace WFO_PROJECT
             DataGrid1.SelectedIndex = 0;
         }
 
+        bool listcheck = false;
 
         private void listReload2()
         {
@@ -555,21 +520,27 @@ namespace WFO_PROJECT
                 if (regex.IsMatch(line))
                 {
                     string[] words = line.Split(':');
-                    comboBox = new CheckBox();
+                    ListViewItems list = new ListViewItems();
+                    list.gridNameColumn = words[1].ToString();
+                    list.gridCheckboxColumn = listcheck;
+                    anotherListViewList.Add(list);
+                    //anotherListViewList.Add(words[1]).ToString());
 
+                    //comboBox = new CheckBox();
 
                     //listcheckbox = new CheckBox();
 
                     //ListDataGrid.Columns.
 
-                    anotherListViewList.Add(new ListViewItems { gridNameColumn = (words[1]).ToString() });
+                    //anotherListViewList.Add(new ListViewItems { gridNameColumn = (words[1]).ToString() });
                 }
             }
             ListDataGrid.ItemsSource = anotherListViewList;
-            CheckBox listcheckbox = new CheckBox();
-            listcheckbox.Checked += listCheckBox_Checked;
+            //CheckBox listcheckboxtop = new CheckBox();
 
-            ListDataGrid.Columns[0].Header = listcheckbox;
+            //listcheckboxtop.Checked += listCheckBoxtop_Checked;
+
+            //ListDataGrid.Columns[0].Header = listcheckboxtop;
             ListDataGrid.Columns[1].Header = "Select Script to Parse With";
 
             //ListDataGrid.Columns[0].CellStyle = ListDataGrid.Columns[0].;
@@ -583,9 +554,10 @@ namespace WFO_PROJECT
 
         public class ListViewItems
         {
-            
 
+            //public bool comboBox { get; set; }
             public string gridNameColumn { get; set; }
+            public bool gridCheckboxColumn { get; set; }
         }
 
         private void ComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
@@ -884,7 +856,7 @@ namespace WFO_PROJECT
             comboBox.ItemsSource = data;
 
             // ... Make the first item selected.
-            comboBox.SelectedIndex = 0;
+            comboBox.SelectedIndex = 1;
 
         }
 
@@ -979,7 +951,7 @@ namespace WFO_PROJECT
             // Open folder for output and show in label 
             outputFileName = dlg.SelectedPath;
             string[] splitName = outputFileName.Split('\\');
-            outputFileLabel.Content = splitName.Last();
+            outputFileLabel.Text = splitName.Last();
 
         }
 
@@ -1710,7 +1682,7 @@ namespace WFO_PROJECT
                             {
 
                             }
-                            
+
                             selectcount2++;
 
                         }
@@ -1883,14 +1855,15 @@ namespace WFO_PROJECT
 
 
 
-        private void listCheckBox_Checked(object sender, RoutedEventArgs e)
+        private void listCheckBoxtop_Checked(object sender, RoutedEventArgs e)
         {
             Console.WriteLine("damn checkboxes!");
         }
 
         private void gridCheckBox_Checked(object sender, RoutedEventArgs e)
         {
-            Console.WriteLine("damn checkboxes!");
+            //Console.WriteLine("damn checkboxes!");
+
         }
 
         List<Details> copyLinesList;
@@ -2193,6 +2166,28 @@ namespace WFO_PROJECT
 
         private void ListDataGrid_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
+            //Console.WriteLine(ListDataGrid.SelectedIndex);
+            foreach (ListViewItems selected in ListDataGrid.ItemsSource)
+            {
+                if (selected == ListDataGrid.SelectedValue)
+                {
+                    //ComboOne.Initialized;
+                    //ComboOne.AllowDrop = true;
+                    //ComboOne.Text = selected.gridNameColumn;
+                    //ComboOne.SelectionChanged += ComboOne_SelectionChanged;
+
+                    //ComboOne.Loaded += ComboBox_Loaded;
+                    //ComboOne.SelectedItem = selected.gridNameColumn;
+                    //ComboBox_Reload();
+                    //ComboOne.IsDropDownOpen = true;
+                    //ListDataGrid.SelectionChanged += ComboBox_SelectionChanged;
+                    //ComboOne
+                    //ComboOne.IsDropDownOpen = true;
+                    ComboOne.SelectedItem = selected.gridNameColumn;
+
+                    Console.WriteLine(selected.gridNameColumn);
+                }
+            }
             Console.WriteLine(ListDataGrid.SelectedValue);
 
 
@@ -2286,8 +2281,6 @@ namespace WFO_PROJECT
             string splitstartTime = "";
             int hours;
             string ABG;
-            long CheckCount;
-            long CheckCountTwo;
 
             try
             {
@@ -2553,6 +2546,115 @@ namespace WFO_PROJECT
         {
             selectiondata.Remove(DataGrid1.SelectedIndex);
         }
+
+
+
+        private void progressTimer() {
+            BackgroundWorker worker = new BackgroundWorker();
+            worker.WorkerReportsProgress = true;
+            worker.DoWork += worker_DoWork;
+            worker.ProgressChanged += worker_ProgressChanged;
+            worker.RunWorkerAsync();
+        
+        
+        }
+
+        void worker_DoWork(object sender, DoWorkEventArgs e)
+        {
+            try 
+	        {
+
+                int j = Convert.ToInt32(time * .97);
+                if (j < 100)
+                {
+                    j = j * 10;
+                }
+                for (int i = 0; i < 100; i++)
+                {
+                    (sender as BackgroundWorker).ReportProgress(i);
+                    Thread.Sleep(j);
+                    //j += 100 / Convert.ToInt32(timeTwo);
+                }
+	        }
+	        catch (Exception)
+	        {
+		       
+	        }
+            
+          
+        }
+
+        void worker_ProgressChanged(object sender, ProgressChangedEventArgs e)
+        {
+            progressBar.Value = e.ProgressPercentage;
+        }
+
+
+        List<ListViewItems> allcheckedlist = new List<ListViewItems>();
+        private void listcheckboxheader_Checked(object sender, RoutedEventArgs e)
+        {
+            selectionlist.Clear();
+            int count = 1;
+            comboBox.IsChecked = true;
+            allcheckedlist.Clear();
+            Console.WriteLine("checked");
+            foreach (ListViewItems tocheck in ListDataGrid.ItemsSource)
+            {
+                //Console.WriteLine(tocheck.gridCheckboxColumn);
+                ListViewItems list = new ListViewItems();
+
+                list.gridNameColumn = tocheck.gridNameColumn;
+                tocheck.gridCheckboxColumn = true;
+                list.gridCheckboxColumn = tocheck.gridCheckboxColumn;
+                allcheckedlist.Add(list);
+                selectionlist.Add(count);
+                count++;
+            }
+            //ListDataGrid.ItemsSource = allcheckedlist;
+            allchecked();
+        }
+
+        private void listcheckboxheader_Unchecked(object sender, RoutedEventArgs e)
+        {
+            selectionlist.Clear();
+            allcheckedlist.Clear();
+            Console.WriteLine("unchecked");
+
+            foreach (ListViewItems tocheck in ListDataGrid.ItemsSource)
+            {
+                //Console.WriteLine(tocheck.gridCheckboxColumn);
+                ListViewItems list = new ListViewItems();
+
+                list.gridNameColumn = tocheck.gridNameColumn;
+                tocheck.gridCheckboxColumn = false;
+                list.gridCheckboxColumn = tocheck.gridCheckboxColumn;
+                allcheckedlist.Add(list);
+                selectionlist.Remove(count);
+                count++;
+            }
+            allchecked();
+        }
+
+        private void allchecked()
+        {
+            List<ListViewItems> alistoflists = new List<ListViewItems>();
+            foreach(ListViewItems checkstuff in allcheckedlist)
+            {
+                ListViewItems alist = new ListViewItems();
+                alist.gridNameColumn = checkstuff.gridNameColumn;
+                alist.gridCheckboxColumn = checkstuff.gridCheckboxColumn;
+                alistoflists.Add(alist);
+            }
+            
+            ListDataGrid.ItemsSource=alistoflists;
+        }
+
+
     }
 }
 
+
+               
+
+                
+        

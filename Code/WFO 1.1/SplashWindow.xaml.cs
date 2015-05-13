@@ -14,13 +14,15 @@ using System.Windows.Media.Animation;
 using System.Threading;
 using System.Windows.Threading;
 
-
 namespace WFO_PROJECT
 {
 
     /// <summary>
     /// Interaction logic for splash.xaml
     /// </summary>
+    /// 
+
+
     public partial class SplashWindow : Window
     {
         Thread loadingThread;
@@ -30,6 +32,7 @@ namespace WFO_PROJECT
         private delegate void HideDelegate();
         ShowDelegate showDelegate;
         HideDelegate hideDelegate;
+       
 
         public SplashWindow()
         {
@@ -42,25 +45,40 @@ namespace WFO_PROJECT
             loadingThread.Start();
         }
 
+
+
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
 
         }
         private void load()
         {
+
+
+            //System.Reflection.Assembly thisExe;
+            //thisExe = System.Reflection.Assembly.GetExecutingAssembly();
+            //System.IO.Stream file =
+            //    thisExe.GetManifestResourceStream("AssemblyName.ImageFile.jpg");
+            //this.pictureBox1.Image = Image.FromStream(file);
+
+
+           this.Dispatcher.Invoke((Action)(() =>
+    {
+        versiontextblock.Text = System.Reflection.Assembly.GetExecutingAssembly().GetName().Version.ToString();
+    }));
+
+           
             Thread.Sleep(2000);
-            this.Dispatcher.Invoke(showDelegate, "Starting...");
+            this.Dispatcher.Invoke(showDelegate, "Starting..." );
             Thread.Sleep(2000);
             //load data 
             this.Dispatcher.Invoke(hideDelegate);
 
-            Thread.Sleep(2000);
-            this.Dispatcher.Invoke(showDelegate, String.Format"Version {0}", AssemblyVersion);
-
-            //String.Format("Version {0}", AssemblyVersion);
-            Thread.Sleep(2000);
-            //load data
-            this.Dispatcher.Invoke(hideDelegate);
+            //Thread.Sleep(2000);
+            //this.Dispatcher.Invoke(showDelegate, "Loading:  Plugins" );
+            //Thread.Sleep(2000);
+            ////load data
+            //this.Dispatcher.Invoke(hideDelegate);
 
 
             //Thread.Sleep(2000);
@@ -85,6 +103,9 @@ namespace WFO_PROJECT
         {
             BeginStoryboard(Hideboard);
         }
+               
+        }
 
     }
-}
+
+
