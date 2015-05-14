@@ -30,7 +30,6 @@ namespace WFO_PROJECT
     /// </summary>
     public partial class MainWindow : Window
     {
-
         string value;
         double time;
         double timeTwo;
@@ -52,6 +51,8 @@ namespace WFO_PROJECT
         string belowValue;
         string file_Name;
         CheckBox comboBox = new CheckBox();
+        CheckBox gridCheckAllBox = new CheckBox();
+
         string startTime;
         string endTime;
         string Hex;
@@ -175,7 +176,7 @@ namespace WFO_PROJECT
             foreach (ListViewItems stuff in ListDataGrid.ItemsSource)
             {
                 string scriptName = stuff.gridNameColumn;
-                foreach (int selected in selectionlist)
+                foreach (int selected in listIntSelection)
                 {
                     if (selectcount == selected)
                     {
@@ -230,7 +231,7 @@ namespace WFO_PROJECT
                         Regex regex = new Regex("name :");
                         if (regex.IsMatch(line))
                         {
-                            foreach (int selected in selectionlist)
+                            foreach (int selected in listIntSelection)
                             {
                                 if (selectcount2 == selected)
                                 {
@@ -291,7 +292,7 @@ namespace WFO_PROJECT
         int processCount = 0;
         private void perlCalled(string searchWord2)
         {
-           
+         
             int fileCheck;
             if (Hex == null && Exclude != null)
             {
@@ -338,12 +339,22 @@ namespace WFO_PROJECT
                     fileCheck = ((int)filesize / 100000000);
                     time = ((fileCheck * 7) * count) / 60;
                     timeTwo = ((fileCheck * 10) * count) / 60;
-                    time = Math.Ceiling(time);
-                    timeTwo = Math.Ceiling(timeTwo);
-                    MessageBox.Show("This is a large file, Estimated Time of completion will be between " + time + " to " + timeTwo + " minutes", "File Size Alert", System.Windows.Forms.MessageBoxButtons.OK, System.Windows.Forms.MessageBoxIcon.Information);
-                    time = time * 60;
-                    progressBar.Visibility = Visibility.Visible;
-                    progressTimer();
+                    if (time == 0 && timeTwo == 0)
+                    {
+                        time = (fileCheck * 7);
+                        MessageBox.Show("This is a large file, Estimated Time of completion will be less than 2 minutes", "FilSize Alert", System.Windows.Forms.MessageBoxButtons.OK, System.Windows.Forms.MessageBoxIcon.Information);
+
+                    }
+                    else
+                    {
+                        time = Math.Ceiling(time);
+                        timeTwo = Math.Ceiling(timeTwo);
+                        MessageBox.Show("This is a large file, Estimated Time of completion will be between " + time + " to " + timeTwo + " minutes", "File Size Alert", System.Windows.Forms.MessageBoxButtons.OK, System.Windows.Forms.MessageBoxIcon.Information);
+                        time = time * 60;
+                        progressBar.Visibility = Visibility.Visible;
+                        Progress_label.Visibility = Visibility.Visible;
+                        progressTimer();
+                    }
                 }
                 else if (filesize < 400000000)
                 {
@@ -358,19 +369,16 @@ namespace WFO_PROJECT
                     }
                     time = time * 60;
                     progressBar.Visibility = Visibility.Visible;
+                    Progress_label.Visibility = Visibility.Visible;
                     progressTimer();
                     
 
                 }
-
-
                 perlprocess.Start();
                 //Worker workerObject = new Worker();
                 processCount++;
                 Thread workerThread = new Thread(thread);
-                workerThread.Start();
-
-                
+                workerThread.Start();     
             }
             else
             {
@@ -383,18 +391,27 @@ namespace WFO_PROJECT
         bool perlprocesswaskilled = false;
         private void thread()
         {
+
+            this.Dispatcher.Invoke((Action)(() =>
+            {
+                BtnCancel.IsEnabled = true;
+                BtnCancel.Background = Brushes.Red;
+            })); 
+
             perlprocess.WaitForExit();
+
             //processList.Remove(perlprocess);
             processCount--;
             Hex = null;
             Exclude = null;
             if (perlprocesswaskilled == false && processCount == 0)
             {
-
-
                 this.Dispatcher.Invoke((Action)(() =>
                 {
+                    BtnCancel.IsEnabled = false;
+
                     progressBar.Visibility = Visibility.Hidden;
+                    Progress_label.Visibility = Visibility.Hidden;
                 }));                
                 if (MessageBox.Show("Log file created.\n\nDo you wish to open the output folder? ", "Open New File Location", System.Windows.Forms.MessageBoxButtons.YesNo, System.Windows.Forms.MessageBoxIcon.Question) == System.Windows.Forms.DialogResult.Yes)
                 {
@@ -417,6 +434,7 @@ namespace WFO_PROJECT
                 GrepButton.IsEnabled = true;
             }
             deleteScriptsButton.IsEnabled = true;
+           
 
         }
 
@@ -451,7 +469,13 @@ namespace WFO_PROJECT
                         string nextLine = null;
                         //gridcheckbox = null;
                         int count = 0;
-                        datalist.Add(new Details { singleString = "Add New Line", linesAbove = "", linesBelow = "" });
+
+                        Details dataForGrid = new Details();
+                        //dataForGrid.gridCheckbox = null;
+                        dataForGrid.singleString = "Add New Line";
+                        dataForGrid.linesAbove = "";
+                        dataForGrid.linesBelow = "";
+                        datalist.Add(dataForGrid);
 
                         while ((nextLine = scriptReader.ReadLine()) != "--")
                         {
@@ -477,16 +501,21 @@ namespace WFO_PROJECT
                             {
                                 belowMarker = "";
                             }
+                            Details getDataForGrid = new Details();
 
+                            getDataForGrid.singleString = argsvalue[0].TrimEnd(mycharlist);
+                            getDataForGrid.linesAbove = aboveMarker;
+                            getDataForGrid.linesBelow = belowMarker;
+                            datalist.Add(getDataForGrid);
                             //string aboveMarker = (argsvalue[1]);
                             //string belowMarker = (argsvalue[2]);
-                            datalist.Add(new Details { singleString = argsvalue[0].TrimEnd(mycharlist), linesAbove = aboveMarker, linesBelow = belowMarker });
+                            //datalist.Add(new Details { singleString = argsvalue[0].TrimEnd(mycharlist), linesAbove = aboveMarker, linesBelow = belowMarker });
 
                         }
                         DataGrid1.ItemsSource = datalist;
-                        CheckBox checkAll = new CheckBox();
-                        checkAll.Checked += checkAll_Checked;
-                        DataGrid1.Columns[0].Header = checkAll;
+                        //CheckBox checkAll = new CheckBox();
+                        //checkAll.Checked += checkAll_Checked;
+                        //DataGrid1.Columns[0].Header = checkAll;
                         DataGrid1.Columns[1].Header = "String";
                         DataGrid1.Columns[2].Header = "Top Marker";
                         DataGrid1.Columns[3].Header = "Bottom Marker";
@@ -564,7 +593,12 @@ namespace WFO_PROJECT
         {
             if (ComboOne.SelectedItem != null)
             {
+                DataGrid1.Columns[0].Visibility = Visibility.Visible;
+                DataGrid1.Columns[1].Visibility = Visibility.Visible;
+                DataGrid1.Columns[2].Visibility = Visibility.Visible;
+                DataGrid1.Columns[3].Visibility = Visibility.Visible;
 
+                datacheckboxheader.IsChecked = false;
                 // File.WriteAllText(Directory.GetCurrentDirectory() + "\\RegScript2DontDelete.txt", string.Empty);
                 var search_Name = Directory.GetCurrentDirectory() + "\\ListViewScriptsTwo.txt";
                 splitName = System.IO.Path.GetFileName(search_Name);
@@ -635,6 +669,14 @@ namespace WFO_PROJECT
                 editScriptNameTextbox.IsEnabled = true;
 
             }
+            else
+            {
+                DataGrid1.ItemsSource = null;
+                DataGrid1.Columns[0].Visibility = Visibility.Hidden;
+                DataGrid1.Columns[1].Visibility = Visibility.Hidden;
+                DataGrid1.Columns[2].Visibility = Visibility.Hidden;
+                DataGrid1.Columns[3].Visibility = Visibility.Hidden;
+            }
         }
 
         private void ComboBox_Loaded(object sender, RoutedEventArgs e)
@@ -644,6 +686,7 @@ namespace WFO_PROJECT
 
         private void clearEditBoxes()
         {
+            editScriptNameTextbox.Clear();
             Add_New_Line_Textbox_1.Clear();
             Add_New_Line_Textbox__2.Clear();
             Add_New_Line_Textbox__3.Clear();
@@ -856,7 +899,7 @@ namespace WFO_PROJECT
             comboBox.ItemsSource = data;
 
             // ... Make the first item selected.
-            comboBox.SelectedIndex = 1;
+            //comboBox.SelectedIndex = 1;
 
         }
 
@@ -968,11 +1011,11 @@ namespace WFO_PROJECT
         string startString;
         string startLinesAbove;
         string startLinesBelow;
-        bool selectionChecked;
+        //bool selectionChecked;
 
         public class Details
         {
-            //public bool gridCheckbox { get; set; }
+            public bool gridCheckbox { get; set; }
             public string singleString { get; set; }
             public string linesAbove { get; set; }
             public string linesBelow { get; set; }
@@ -1234,6 +1277,11 @@ namespace WFO_PROJECT
             //Console.WriteLine(editScriptNameTextbox.Text);
             //Console.WriteLine(ComboOne.SelectedValue);
 
+            if(ComboOne.SelectedItem == null)
+            {
+                return;
+            }
+
             if ((editedString == testnew || string.IsNullOrWhiteSpace(editedString)) && (editScriptNameTextbox.Text == ComboOne.SelectedValue.ToString()))
             {
                 //main string is not empty or says Add New Line
@@ -1479,7 +1527,7 @@ namespace WFO_PROJECT
                     
                 }
             }
-            selectionlist.Clear();
+            listIntSelection.Clear();
         }
 
         string Delimiter = "[;]";
@@ -1630,7 +1678,7 @@ namespace WFO_PROJECT
 
                 //}
 
-                foreach (int selected in selectionlist)
+                foreach (int selected in listIntSelection)
                 {
                     if (selectcount == selected)
                     {
@@ -1654,7 +1702,7 @@ namespace WFO_PROJECT
                         foreach (ListViewItems stuff in ListDataGrid.ItemsSource)
                         {
                             string scriptName = stuff.gridNameColumn;
-                            foreach (int selected in selectionlist)
+                            foreach (int selected in listIntSelection)
                             {
 
                                 if (selectcount2 == selected)
@@ -1687,6 +1735,7 @@ namespace WFO_PROJECT
 
                         }
                     }
+                    listIntSelection.Clear();
                 }
                 else
                 {
@@ -1697,7 +1746,7 @@ namespace WFO_PROJECT
                         {
                             string scriptName = stuff.gridNameColumn;
 
-                            foreach (int selected in selectionlist)
+                            foreach (int selected in listIntSelection)
                             {
                                 if (selectcount2 == selected)
                                 {
@@ -1723,10 +1772,11 @@ namespace WFO_PROJECT
                             selectcount2++;
                         }
                     }
+                    listIntSelection.Clear();
 
                 }
             }
-            selectionlist.Clear();
+            
         }
 
 
@@ -1766,9 +1816,10 @@ namespace WFO_PROJECT
             //stringCheckBox.IsEnabled = true;
         }
 
-        List<Details> deleteLinesList;
         private void deleteMultipleLinesButton_Click(object sender, RoutedEventArgs e)
         {
+            List<Details> deleteLinesList;
+
             deleteLinesList = null;
             if (DataGrid1.Items.Count == 0)
             {
@@ -1789,7 +1840,7 @@ namespace WFO_PROJECT
                     if (stringCheck != "Add New Line")
                     {
                         //if (checkboxCheck == true)
-                        foreach (int selected in selectiondata)
+                        foreach (int selected in dataIntSelection)
                         {
                             if (selectcount == selected)
                             {
@@ -1814,6 +1865,9 @@ namespace WFO_PROJECT
                                 string stringSelected = lines.singleString;
                                 deleteMultipleLines(stringSelected);
                             }
+                            datacheckboxheader.IsChecked = false;
+                            deleteLinesList.Clear();
+                            dataIntSelection.Clear();
                         }
                     }
                     else
@@ -1824,7 +1878,11 @@ namespace WFO_PROJECT
                             {
                                 string stringSelected = lines.singleString;
                                 deleteMultipleLines(stringSelected);
+
                             }
+                            datacheckboxheader.IsChecked = false;
+                            deleteLinesList.Clear();
+                            dataIntSelection.Clear();
                         }
                     }
 
@@ -1834,7 +1892,7 @@ namespace WFO_PROJECT
                     MessageBox.Show("No Lines Selected", "Deletion Error", System.Windows.Forms.MessageBoxButtons.OK, System.Windows.Forms.MessageBoxIcon.Error);
                 }
             }
-            selectiondata.Clear();
+            //dataIntSelection.Clear();
         }
 
         List<string> selectedLinesList = new List<string>();
@@ -1884,7 +1942,7 @@ namespace WFO_PROJECT
                     string stringCheck = stuff.singleString;
                     //bool checkboxCheck = stuff.gridCheckbox;
                     //if (checkboxCheck == true)
-                    foreach (int selected in selectiondata)
+                    foreach (int selected in dataIntSelection)
                     {
                         if (selectcount == selected)
                         {
@@ -1908,7 +1966,7 @@ namespace WFO_PROJECT
                     MessageBox.Show("No Lines Selected.", "Copy Error", System.Windows.Forms.MessageBoxButtons.OK, System.Windows.Forms.MessageBoxIcon.Error);
                 }
             }
-            selectiondata.Clear();
+            dataIntSelection.Clear();
         }
 
         private void pasteButton_Click(object sender, RoutedEventArgs e)
@@ -2236,9 +2294,6 @@ namespace WFO_PROJECT
                 process.Kill();
             }
             processList.Clear();
-
-            //perlprocess.Kill();
-
         }
 
         private void BtnCancel_Click(object sender, RoutedEventArgs e)
@@ -2525,28 +2580,20 @@ namespace WFO_PROJECT
             //Console.WriteLine("aaah stuff");
         }
 
-        List<int> selectionlist = new List<int>();
+        List<int> listIntSelection = new List<int>();
         private void listcheckbox_Checked(object sender, RoutedEventArgs e)
         {
-            selectionlist.Add(ListDataGrid.SelectedIndex);
+            listIntSelection.Add(ListDataGrid.SelectedIndex);
         }
 
         private void listcheckbox_Unchecked(object sender, RoutedEventArgs e)
         {
-            selectionlist.Remove(ListDataGrid.SelectedIndex);
+            listIntSelection.Remove(ListDataGrid.SelectedIndex);
         }
 
-        List<int> selectiondata = new List<int>();
-        private void DataCheckBox_Checked(object sender, RoutedEventArgs e)
-        {
-            selectiondata.Add(DataGrid1.SelectedIndex);
-        }
 
-        private void DataCheckBox_Unchecked(object sender, RoutedEventArgs e)
-        {
-            selectiondata.Remove(DataGrid1.SelectedIndex);
-        }
 
+        List<ListViewItems> listAllChecked = new List<ListViewItems>();
 
 
         private void progressTimer() {
@@ -2593,10 +2640,10 @@ namespace WFO_PROJECT
         List<ListViewItems> allcheckedlist = new List<ListViewItems>();
         private void listcheckboxheader_Checked(object sender, RoutedEventArgs e)
         {
-            selectionlist.Clear();
+            listIntSelection.Clear();
             int count = 1;
             comboBox.IsChecked = true;
-            allcheckedlist.Clear();
+            listAllChecked.Clear();
             Console.WriteLine("checked");
             foreach (ListViewItems tocheck in ListDataGrid.ItemsSource)
             {
@@ -2606,18 +2653,18 @@ namespace WFO_PROJECT
                 list.gridNameColumn = tocheck.gridNameColumn;
                 tocheck.gridCheckboxColumn = true;
                 list.gridCheckboxColumn = tocheck.gridCheckboxColumn;
-                allcheckedlist.Add(list);
-                selectionlist.Add(count);
+                listAllChecked.Add(list);
+                listIntSelection.Add(count);
                 count++;
             }
             //ListDataGrid.ItemsSource = allcheckedlist;
-            allchecked();
+            allCheckedInList();
         }
 
         private void listcheckboxheader_Unchecked(object sender, RoutedEventArgs e)
         {
-            selectionlist.Clear();
-            allcheckedlist.Clear();
+            listIntSelection.Clear();
+            listAllChecked.Clear();
             Console.WriteLine("unchecked");
 
             foreach (ListViewItems tocheck in ListDataGrid.ItemsSource)
@@ -2628,17 +2675,17 @@ namespace WFO_PROJECT
                 list.gridNameColumn = tocheck.gridNameColumn;
                 tocheck.gridCheckboxColumn = false;
                 list.gridCheckboxColumn = tocheck.gridCheckboxColumn;
-                allcheckedlist.Add(list);
-                selectionlist.Remove(count);
+                listAllChecked.Add(list);
+                listIntSelection.Remove(count);
                 count++;
             }
-            allchecked();
+            allCheckedInList();
         }
 
-        private void allchecked()
+        private void allCheckedInList()
         {
             List<ListViewItems> alistoflists = new List<ListViewItems>();
-            foreach(ListViewItems checkstuff in allcheckedlist)
+            foreach(ListViewItems checkstuff in listAllChecked)
             {
                 ListViewItems alist = new ListViewItems();
                 alist.gridNameColumn = checkstuff.gridNameColumn;
@@ -2649,6 +2696,114 @@ namespace WFO_PROJECT
             ListDataGrid.ItemsSource=alistoflists;
         }
 
+
+
+
+/// <summary>
+/// ///////////////////////////////////////////////////////////////////////////////////////////
+/// </summary>
+
+
+
+        List<int> dataIntSelection = new List<int>();
+        private void datagridcheckbox_Checked(object sender, RoutedEventArgs e)
+        {
+            dataIntSelection.Add(DataGrid1.SelectedIndex);
+        }
+
+        private void datagridcheckbox_Unchecked(object sender, RoutedEventArgs e)
+        {
+            dataIntSelection.Remove(DataGrid1.SelectedIndex);
+        }
+
+        List<Details> dataAllChecked = new List<Details>();
+        private void datacheckboxheader_Checked(object sender, RoutedEventArgs e)
+        {
+            dataIntSelection.Clear();
+            int count = 1;
+            gridCheckAllBox.IsChecked = true;
+            dataAllChecked.Clear();
+            foreach (Details tocheck in DataGrid1.ItemsSource)
+            {
+                //Console.WriteLine(tocheck.gridCheckboxColumn);
+                Details list = new Details();
+
+                tocheck.gridCheckbox = true;
+                list.gridCheckbox = tocheck.gridCheckbox;
+                list.singleString = tocheck.singleString;
+                list.linesAbove = tocheck.linesAbove;
+                list.linesBelow = tocheck.linesBelow;
+
+                dataAllChecked.Add(list);
+                dataIntSelection.Add(count);
+                count++;
+            }
+            //ListDataGrid.ItemsSource = allcheckedlist;
+            allCheckedInData();
+        }
+
+        private void datacheckboxheader_Unchecked(object sender, RoutedEventArgs e)
+        {
+            dataIntSelection.Clear();
+            int count = 1;
+            gridCheckAllBox.IsChecked = false;
+            dataAllChecked.Clear();
+            foreach (Details tocheck in DataGrid1.ItemsSource)
+            {
+                //Console.WriteLine(tocheck.gridCheckboxColumn);
+                Details list = new Details();
+
+                tocheck.gridCheckbox = false;
+                list.gridCheckbox = tocheck.gridCheckbox;
+                list.singleString = tocheck.singleString;
+                list.linesAbove = tocheck.linesAbove;
+                list.linesBelow = tocheck.linesBelow;
+
+                dataAllChecked.Add(list);
+                dataIntSelection.Remove(count);
+                count++;
+            }
+            //ListDataGrid.ItemsSource = allcheckedlist;
+            allCheckedInData();
+        }
+
+        private void allCheckedInData()
+        {
+            List<Details> alistoflists = new List<Details>();
+            foreach (Details checkstuff in dataAllChecked)
+            {
+                Details alist = new Details();
+                alist.gridCheckbox = checkstuff.gridCheckbox;
+                alist.singleString = checkstuff.singleString;
+                alist.linesAbove = checkstuff.linesAbove;
+                alist.linesBelow = checkstuff.linesBelow;
+                alistoflists.Add(alist);
+            }
+
+            DataGrid1.ItemsSource = alistoflists;
+        }
+
+        EditForDiagramWindow diagramEditingWindow = new EditForDiagramWindow();
+        private void editForGraph_Click(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                diagramEditingWindow.Show();
+                diagramEditingWindow.Activate();
+            }
+            catch (Exception)
+            {
+                diagramEditingWindow = new EditForDiagramWindow();
+                diagramEditingWindow.Show();
+                diagramEditingWindow.Activate();
+            }
+            diagramEditingWindow.Closed += diagramEditingWindow_Closed;
+        }
+
+        void diagramEditingWindow_Closed(object sender, EventArgs e)
+        {
+
+        }
 
     }
 }

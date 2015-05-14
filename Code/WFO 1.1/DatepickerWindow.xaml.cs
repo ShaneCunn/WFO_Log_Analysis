@@ -183,27 +183,27 @@ namespace WFO_PROJECT
 
         public string startOne
         {
-            set { startDateValue = startDateValue; }
+            set {}
             get { return startDateValue; }
 
         }
 
         public string endOne
         {
-            set { endDateValue = endDateValue; }
+            set {}
             get { return endDateValue; }
         }
 
         public string excludeString
         {
-            set { Exclude = Exclude; }
+            set {}
             get { return Exclude; }
 
         }
 
         public string hexString
         {
-            set { Hex = Hex; }
+            set {}
             get { return Hex; }
         }
 

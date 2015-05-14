@@ -75,13 +75,6 @@
   </PropertyGroup>
   <PropertyGroup />
   <ItemGroup>
-    <Reference Include="Sparrow.BulletGraph.Wpf.40">
-      <HintPath>packages\Sparrow.BulletGraph.Wpf.13.1.0.118\lib\net40\Sparrow.BulletGraph.Wpf.40.dll</HintPath>
-    </Reference>
-
-    <Reference Include="Sparrow.Chart.Wpf.40">
-      <HintPath>packages\Sparrow.Chart.Wpf.13.1.0.118\lib\net40\Sparrow.Chart.Wpf.40.dll</HintPath>
-    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
@@ -132,9 +125,16 @@
     <Compile Include="DatepickerWindow.xaml.cs">
       <DependentUpon>DatepickerWindow.xaml</DependentUpon>
     </Compile>
+    <Compile Include="EditForDiagramWindow.xaml.cs">
+      <DependentUpon>EditForDiagramWindow.xaml</DependentUpon>
+    </Compile>
     <Compile Include="SplashWindow.xaml.cs">
       <DependentUpon>SplashWindow.xaml</DependentUpon>
     </Compile>
+    <Page Include="EditForDiagramWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -186,7 +186,6 @@
     <EmbeddedResource Include="bin\Debug\StringSearchWithNLines.pl">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </EmbeddedResource>
-    <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -235,7 +234,6 @@
   <ItemGroup>
     <Resource Include="bin\Debug\ListViewScriptsTwo.txt" />
   </ItemGroup>
-
   <ItemGroup>
     <None Include="Resources\350px-Avaya_Logo.svg.png" />
   </ItemGroup>
@@ -265,7 +263,9 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </SplashScreen>
   </ItemGroup>
-
+  <ItemGroup>
+    <Resource Include="graphOptions.txt" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
