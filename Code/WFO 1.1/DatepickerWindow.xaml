@@ -68,19 +68,34 @@
         <Separator HorizontalAlignment="Left" Height="12" Margin="10,105,-14,0" VerticalAlignment="Top" Width="413"/>
 
         <!--OK Button-->
-        <Button Content="OK" HorizontalAlignment="Right" Margin="0,0,15,15" Width="75" Click="Button_Click" RenderTransformOrigin="0.4,0.045" FontWeight="Bold" Height="25" VerticalAlignment="Bottom" ClipToBounds="True"  TabIndex="8">
+        <Button Content="OK" HorizontalAlignment="Right" Margin="0,0,15,15" Width="75" Click="Button_Click" RenderTransformOrigin="0.4,0.045" FontWeight="Bold" Height="25" 
+                VerticalAlignment="Bottom" ClipToBounds="True"  TabIndex="8" Foreground="White" >
+
+            <Button.Background>
+                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                    <GradientStop Color="Black" Offset="0"/>
+                    <GradientStop Color="#FF424242" Offset="1"/>
+                </LinearGradientBrush>
+            </Button.Background>
 
             <!-- Adds a style override, change the background colours and mouseover colours to a orange theme -->
             <Button.Style>
                 <Style TargetType="{x:Type Button}">
-                    <Setter Property="Background" Value="#FFECB14D"/>
+                    <!--<Setter Property="Background" Value="#636363"/>-->
                     <Setter Property="Template">
                         <Setter.Value>
                             <ControlTemplate TargetType="{x:Type Button}">
 
                                 <!--Sets button corner radius from square to 3px radius -->
                                 <Border Background="{TemplateBinding Background}" CornerRadius="3"
-                                                BorderThickness="1" BorderBrush="#DCA953">
+                                                BorderThickness="1" >
+                                    <Border.BorderBrush>
+                                        <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                                            <GradientStop Color="Black" Offset="0"/>
+                                            <GradientStop Color="#FF000003" Offset="1"/>
+                                        </LinearGradientBrush>
+                                    </Border.BorderBrush>
+                                    <!--BorderBrush="#DCA953">-->
                                     <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
                                 </Border>
                             </ControlTemplate>
@@ -90,7 +105,8 @@
 
                         <!--Change mouseover to an orange gradient-->
                         <Trigger Property="IsMouseOver" Value="True">
-                            <Setter Property="Background">
+                            <!--<Setter Property="Background" Value="Red">-->
+                                <Setter Property="Background">
                                 <Setter.Value>
                                     <LinearGradientBrush EndPoint="0,1" StartPoint="0,0">
                                         <GradientStop Color="#FFEFCE92" Offset="0"/>

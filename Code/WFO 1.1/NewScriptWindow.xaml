@@ -12,43 +12,39 @@
         <!-- Save button -->
         <Button Content="Save" HorizontalAlignment="Right" Margin="0,0,12,16" VerticalAlignment="Bottom" Width="75" Click="Button_Click" Height="25" RenderTransformOrigin="0.48,1" FontWeight="Bold">
 
-            <!-- Adds a style override, change the background colours and mouseover colours to a orange theme -->
             <Button.Style>
                 <Style TargetType="{x:Type Button}">
-                    <Setter Property="Background" Value="#FFECB14D"/>
+                    <Setter Property="Foreground" Value="#ffffff"/>
+                    <Setter Property="Background">
+                        <Setter.Value>
+                            <LinearGradientBrush EndPoint="0,1" StartPoint="0,0">
+                                <GradientStop Color="#636363" Offset="0"/>
+                                <GradientStop Color="#FF000003" Offset="1"/>
+                            </LinearGradientBrush>
+                        </Setter.Value>
+                    </Setter>
+
                     <Setter Property="Template">
                         <Setter.Value>
                             <ControlTemplate TargetType="{x:Type Button}">
 
                                 <!--Sets button corner radius from square to 3px radius -->
                                 <Border Background="{TemplateBinding Background}" CornerRadius="3"
-                					BorderThickness="1" BorderBrush="#DCA953">
+                					BorderThickness="1" BorderBrush="#c5c5c5">
                                     <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
                                 </Border>
                             </ControlTemplate>
                         </Setter.Value>
                     </Setter>
+
+                    <!--Change mouseover to an orange gradient-->
                     <Style.Triggers>
-
-                        <!--Change mouseover to an orange gradient-->
                         <Trigger Property="IsMouseOver" Value="True">
-                            <Setter Property="Background">
-                                <Setter.Value>
-                                    <LinearGradientBrush EndPoint="0,1" StartPoint="0,0">
-                                        <GradientStop Color="#FFEFCE92" Offset="0"/>
-                                        <GradientStop Color="#F6C56E" Offset="0.5"/>
-                                        <GradientStop Color="#FFF7D089" Offset="0.5"/>
-                                        <GradientStop Color="#FFEDA529" Offset="1"/>
-                                    </LinearGradientBrush>
-
-                                </Setter.Value>
-                            </Setter>
-
+                            <Setter Property="Background" Value="#464646"/>
                         </Trigger>
                     </Style.Triggers>
                 </Style>
             </Button.Style>
         </Button>
-
     </Grid>
 </Window>

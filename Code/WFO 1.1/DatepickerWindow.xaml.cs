@@ -88,10 +88,6 @@ namespace WFO_PROJECT
                  return;                 
              }
         }     
-
-
-        
-            
         private void Button_Click(object sender, RoutedEventArgs e)
         {
 
@@ -104,9 +100,6 @@ namespace WFO_PROJECT
                 string[] starttime = startdatetime[1].Split(':');
 
             DateTime date1 = new DateTime(Convert.ToInt32(startdate[2]), Convert.ToInt32(startdate[0]), Convert.ToInt32(startdate[1]), Convert.ToInt32(starttime[0]), Convert.ToInt32(starttime[1]), Convert.ToInt32(starttime[2]));
-
-
-
                 enddatetime = endDateValue.Split(' ');
                 string[] enddate = enddatetime[0].Split('/');
                 string[] endtime = enddatetime[1].Split(':');

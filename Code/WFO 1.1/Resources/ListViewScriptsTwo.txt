@@ -1,0 +1,200 @@
+name :Call_id
+e0c74cce-6ad2-44e1-8b48-42a30a80b1a9[;]0[;]0[;]ACR[;]AACC
+callId=0x01AA2FC3[;]0[;]0[;]ACR[;]AACC
+--
+name :CC_Elite_and_AACC_and_POM_Messages
+onCSTADeliveredEvent=CSTADeliveredEvent[;]DATE[;]DATE[;]ACR[;]AACC
+onCSTAEstablishedEvent=CSTAEstablishedEvent[;]DATE[;]DATE[;]ACR[;]AACC
+onSnapshotCall=CSTASnapshotCallConfEvent[;]DATE[;]DATE[;]ACR[;]AACC
+onCSTAEstablishedEvent=CSTAEstablishedEvent[;]DATE[;]DATE[;]ACR[;]AACC
+CSTAConferencedEvent[;]DATE[;]DATE[;]ACR[;]AACC
+onCSTAConnectionClearedEvent=CSTAConnectionClearedEvent[;]DATE[;]DATE[;]ACR[;]AACC
+onCSTAConferencedEvent observer/silent monitor[;]DATE[;]DATE[;]ACR[;]AACC
+Recording port joining call Ignoring[;]DATE[;]DATE[;]ACR[;]AACC
+onCSTAHeldEvent=CSTAHeldEvent[;]DATE[;]DATE[;]ACR[;]AACC
+onCSTARetrievedEvent=CSTARetrievedEvent[;]DATE[;]DATE[;]ACR[;]AACC
+onCSTATransferredEvent=CSTATransferredEvent[;]DATE[;]DATE[;]ACR[;]AACC
+Attempting to join[;]DATE[;]DATE[;]ACR[;]AACC
+<MediaStartEvent[;]DATE[;]DATE[;]ACR[;]AACC
+Attempting connection to dialler POM[;]DATE[;]DATE[;]ACR[;]AACC
+POMDialer - starting POM dialer[;]DATE[;]DATE[;]ACR[;]AACC
+POM read thread started[;]DATE[;]DATE[;]ACR[;]AACC
+<LoginResponse[;]DATE[;]DATE[;]ACR[;]AACC
+<AgentAcquireEvent[;]DATE[;]DATE[;]ACR[;]AACC
+<AgentReleaseEvent[;]DATE[;]DATE[;]ACR[;]AACC
+<MediaInfoEvent[;]DATE[;]DATE[;]ACR[;]AACC
+<MediaCompleteEvent[;]DATE[;]DATE[;]ACR[;]AACC
+<ListAgentsRequest[;]DATE[;]DATE[;]ACR[;]AACC
+<ListAgentsResponse[;]DATE[;]DATE[;]ACR[;]AACC
+c=Pass[;]DATE[;]DATE[;]ACR[;]AACC
+providerName=Pass[;]DATE[;]DATE[;]ACR[;]AACC
+type=LOGIN[;]DATE[;]DATE[;]ACR[;]AACC
+type=LOGOUT[;]DATE[;]DATE[;]ACR[;]AACC
+type=READY[;]DATE[;]DATE[;]ACR[;]AACC
+type=NOT_READY[;]DATE[;]DATE[;]ACR[;]AACC
+SIP start[;]DATE[;]DATE[;]ACR[;]AACC
+SIP stop[;]DATE[;]DATE[;]ACR[;]AACC
+CCTException[;]DATE[;]DATE[;]ACR[;]AACC
+CSeq:[;]DATE[;]DATE[;]ACR[;]AACC
+Sent SIP OK[;]DATE[;]DATE[;]ACR[;]AACC
+Attempting to join[;]DATE[;]DATE[;]ACR[;]AACC
+--
+name :CS1K SIP Hybrid
+Application Registration Message[;]DATE[;]DATE[;]ACR[;]AACC
+Application Registration Response[;]DATE[;]DATE[;]ACR[;]AACC
+Directory Number Registration Message[;]DATE[;]DATE[;]ACR[;]AACC
+Directory Number Registration Response Message[;]DATE[;]DATE[;]ACR[;]AACC
+Directory Number Release Message[;]DATE[;]DATE[;]ACR[;]AACC
+Directory Number Release Response Message[;]DATE[;]DATE[;]ACR[;]AACC
+Set Feature Login Notification[;]DATE[;]DATE[;]ACR[;]AACC
+Status Change Message[;]DATE[;]DATE[;]ACR[;]AACC
+Call Offered Message[;]DATE[;]DATE[;]ACR[;]AACC
+Answer Indication Message[;]DATE[;]DATE[;]ACR[;]AACC
+Set Feature Start Record[;]DATE[;]DATE[;]ACR[;]AACC
+Set Feature Activity Code[;]DATE[;]DATE[;]ACR[;]AACC
+Release Indication Message[;]DATE[;]DATE[;]ACR[;]AACC
+Set Feature Stop Record[;]DATE[;]DATE[;]ACR[;]AACC
+c=Pass[;]DATE[;]DATE[;]ACR[;]AACC
+a=LOGIN[;]DATE[;]DATE[;]ACR[;]AACC
+a=LOGOUT[;]DATE[;]DATE[;]ACR[;]AACC
+a=READY[;]DATE[;]DATE[;]ACR[;]AACC
+a=NOT_READY[;]DATE[;]DATE[;]ACR[;]AACC
+SIP start[;]DATE[;]DATE[;]ACR[;]AACC
+SIP stop[;]DATE[;]DATE[;]ACR[;]AACC
+CCTException[;]DATE[;]DATE[;]ACR[;]AACC
+CSeq:[;]DATE[;]DATE[;]ACR[;]AACC
+Sent SIP OK[;]DATE[;]DATE[;]ACR[;]AACC
+--
+name :CM_SIP_HYBRID_Messages
+onCSTA[;]DATE[;]DATE[;]ACR[;]AACC
+CSTASnapshotCallConfEvent[;]DATE[;]DATE[;]ACR[;]AACC
+c=Pass[;]DATE[;]DATE[;]ACR[;]AACC
+a=LOGIN[;]DATE[;]DATE[;]ACR[;]AACC
+SIP start[;]DATE[;]DATE[;]ACR[;]AACC
+SIP stop[;]DATE[;]DATE[;]ACR[;]AACC
+CCTException[;]DATE[;]DATE[;]ACR[;]AACC
+CSeq:[;]DATE[;]DATE[;]ACR[;]AACC
+Sent SIP OK[;]DATE[;]DATE[;]ACR[;]AACC
+Attempting to join[;]DATE[;]DATE[;]ACR[;]AACC
+--
+name :CS1k_SIP_HYBRID_ACR12
+Application Registration Message[;]DATE[;]DATE[;]ACR[;]AACC
+Application Registration Response[;]DATE[;]DATE[;]ACR[;]AACC
+Directory Number Registration Message[;]DATE[;]DATE[;]ACR[;]AACC
+Directory Number Registration Response Message[;]DATE[;]DATE[;]ACR[;]AACC
+Directory Number Release Message[;]DATE[;]DATE[;]ACR[;]AACC
+Directory Number Release Response Message[;]DATE[;]DATE[;]ACR[;]AACC
+Set Feature Login Notification[;]DATE[;]DATE[;]ACR[;]AACC
+Status Change Message[;]DATE[;]DATE[;]ACR[;]AACC
+Call Offered Message[;]DATE[;]DATE[;]ACR[;]AACC
+Answer Indication Message[;]DATE[;]DATE[;]ACR[;]AACC
+Set Feature Start Record[;]DATE[;]DATE[;]ACR[;]AACC
+Set Feature Activity Code[;]DATE[;]DATE[;]ACR[;]AACC
+Release Indication Message[;]DATE[;]DATE[;]ACR[;]AACC
+Set Feature Stop Record[;]DATE[;]DATE[;]ACR[;]AACC
+providerName=Pass[;]DATE[;]DATE[;]ACR[;]AACC
+type=LOGIN[;]DATE[;]DATE[;]ACR[;]AACC
+type=LOGOUT[;]DATE[;]DATE[;]ACR[;]AACC
+type=READY[;]DATE[;]DATE[;]ACR[;]AACC
+type=NOT_READY[;]DATE[;]DATE[;]ACR[;]AACC
+SIP start[;]DATE[;]DATE[;]ACR[;]AACC
+SIP stop[;]DATE[;]DATE[;]ACR[;]AACC
+CCTException[;]DATE[;]DATE[;]ACR[;]AACC
+CSeq:[;]DATE[;]DATE[;]ACR[;]AACC
+Sent SIP OK[;]DATE[;]DATE[;]ACR[;]AACC
+stuff[;]0[;]0
+--
+name :CSTA_Only
+onCSTA[;]DATE[;]DATE[;]ACR[;]AACC
+CSTASnapshotCallConfEvent[;]DATE[;]DATE[;]ACR[;]AACC
+Attempting to join[;]DATE[;]DATE[;]ACR[;]AACC
+--
+name :misc_CAUSE_2034
+--
+name :NES_Legacy_Messages
+Application Registration Message[;]DATE[;]DATE[;]ACR[;]AACC
+Application Registration Response[;]DATE[;]DATE[;]ACR[;]AACC
+Directory Number Registration Message[;]DATE[;]DATE[;]ACR[;]AACC
+Directory Number Registration Response Message[;]DATE[;]DATE[;]ACR[;]AACC
+Directory Number Release Message[;]DATE[;]DATE[;]ACR[;]AACC
+Directory Number Release Response Message[;]DATE[;]DATE[;]ACR[;]AACC
+Set Feature Login Notification[;]DATE[;]DATE[;]ACR[;]AACC
+Status Change Message[;]DATE[;]DATE[;]ACR[;]AACC
+Call Offered Message[;]DATE[;]DATE[;]ACR[;]AACC
+Answer Indication Message[;]DATE[;]DATE[;]ACR[;]AACC
+Set Feature Start Record[;]DATE[;]DATE[;]ACR[;]AACC
+Set Feature Activity Code[;]DATE[;]DATE[;]ACR[;]AACC
+Release Indication Message[;]DATE[;]DATE[;]ACR[;]AACC
+Set Feature Stop Record[;]DATE[;]DATE[;]ACR[;]AACC
+service acr starting[;]DATE[;]DATE[;]ACR[;]AACC
+--
+name :NES_Legacy_Messages_Call_ids
+0x96  Call ID -  length=6, callId=0x[;]DATE[;]DATE[;]ACR[;]AACC
+--
+name :NES_Legacy_POM
+Application Registration Message[;]DATE[;]DATE[;]ACR[;]AACC
+Application Registration Response[;]DATE[;]DATE[;]ACR[;]AACC
+Directory Number Registration Message[;]DATE[;]DATE[;]ACR[;]AACC
+Directory Number Registration Response Message[;]DATE[;]DATE[;]ACR[;]AACC
+Directory Number Release Message[;]DATE[;]DATE[;]ACR[;]AACC
+Directory Number Release Response Message[;]DATE[;]DATE[;]ACR[;]AACC
+Set Feature Login Notification[;]DATE[;]DATE[;]ACR[;]AACC
+Status Change Message[;]DATE[;]DATE[;]ACR[;]AACC
+Call Offered Message[;]DATE[;]DATE[;]ACR[;]AACC
+Answer Indication Message[;]DATE[;]DATE[;]ACR[;]AACC
+Set Feature Start Record[;]DATE[;]DATE[;]ACR[;]AACC
+Set Feature Activity Code[;]DATE[;]DATE[;]ACR[;]AACC
+Release Indication Message[;]DATE[;]DATE[;]ACR[;]AACC
+Set Feature Stop Record[;]DATE[;]DATE[;]ACR[;]AACC
+service acr starting[;]0[;]0[;]ACR[;]AACC
+Attempting connection to dialler POM[;]DATE[;]DATE[;]ACR[;]AACC
+POMDialer - starting POM dialer[;]DATE[;]DATE[;]ACR[;]AACC
+POM read thread started'[;]DATE[;]DATE[;]ACR[;]AACC
+<LoginResponse[;]DATE[;]DATE[;]ACR[;]AACC
+<AgentAcquireEvent[;]DATE[;]DATE[;]ACR[;]AACC
+<AgentReleaseEvent[;]DATE[;]DATE[;]ACR[;]AACC
+<MediaInfoEvent[;]DATE[;]DATE[;]ACR[;]AACC
+<MediaCompleteEvent[;]DATE[;]DATE[;]ACR[;]AACC
+<ListAgentsRequest[;]DATE[;]DATE[;]ACR[;]AACC
+<ListAgentsResponse[;]DATE[;]DATE[;]ACR[;]AACC
+--
+name :NES_Legacy_POM_Call_ids
+0x96  Call ID -  length=6, callId=0x[;]DATE[;]DATE[;]ACR[;]AACC
+--
+name :Original_template
+onCSTA[;]DATE[;]DATE[;]ACR[;]AACC
+CSTASnapshotCallConfEvent[;]DATE[;]DATE[;]ACR[;]AACC
+c=Pass[;]DATE[;]DATE[;]ACR[;]AACC
+a=[A-Z][;]DATE[;]DATE[;]ACR[;]AACC
+SIP Start[;]DATE[;]DATE[;]ACR[;]AACC
+SIP Stop[;]DATE[;]DATE[;]ACR[;]AACC
+a=[A-Z][;]DATE[;]DATE[;]ACR[;]AACC
+--
+name :SIP_only_Messages
+c=Pass[;]DATE[;]DATE[;]ACR[;]AACC
+a=LOGIN[;]DATE[;]DATE[;]ACR[;]AACC
+a=READY[;]DATE[;]DATE[;]ACR[;]AACC
+a=NOT READY[;]DATE[;]DATE[;]ACR[;]AACC
+SIP start[;]DATE[;]DATE[;]ACR[;]AACC
+SIP stop[;]DATE[;]DATE[;]ACR[;]AACC
+CCTException[;]DATE[;]DATE[;]ACR[;]AACC
+CSeq:[;]DATE[;]DATE[;]ACR[;]AACC
+Sent SIP OK[;]DATE[;]DATE[;]ACR[;]AACC
+--
+name :script1
+line1[;]DATE[;]DATE[;]PC[;]SBC
+line2[;]0[;]0[;]PC[;]SBC
+line3[;]0[;]0[;]SBC[;]PC
+line4[;]0[;]0[;]ACR[;]AACC
+--
+name :script2 
+line1[;]DATE[;]DATE[;]PC[;]SBC
+line2[;]0[;]0[;]PC[;]SBC
+line3[;]0[;]0[;]SBC[;]PC
+line4[;]0[;]0[;]ACR[;]AACC
+--
+name :testscript
+test1[;]0[;]0[;][;]
+test2[;]DATE[;]DATE[;][;]
+test3[;]0[;]0[;][;]
+--

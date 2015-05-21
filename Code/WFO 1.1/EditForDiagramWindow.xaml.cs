@@ -84,5 +84,11 @@ namespace WFO_PROJECT
         {
 
         }
+
+        private void graphOptionsAdd_Click(object sender, RoutedEventArgs e)
+        {
+            graphOptionDataGrid.IsReadOnly = false;
+            graphOptionDataGrid.CanUserAddRows = true;
+        }
     }
 }
