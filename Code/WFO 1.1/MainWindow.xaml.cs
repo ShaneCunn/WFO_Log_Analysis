@@ -91,6 +91,12 @@ namespace WFO_PROJECT
         {
             InitializeComponent();
             //new SplashWindow().ShowDialog();
+
+            this.Dispatcher.Invoke((Action)(() =>
+            {
+                webBrowser1.Navigate(@"C:\Users\cunningham9\Dropbox\AvayaWork\WFO\Code\WFO 1.1\HTMLPage1.html");
+            }));
+
             if (!File.Exists("ListViewScriptsTwo.txt"))
             {
                 MessageBox.Show("You are missing a necessary file, please contact your provider.", "Missing file", System.Windows.Forms.MessageBoxButtons.OK, System.Windows.Forms.MessageBoxIcon.Error);
@@ -103,6 +109,7 @@ namespace WFO_PROJECT
 
         private void ChooseFileButton_Click(object sender, RoutedEventArgs e)
         {
+            FileLabel.IsEnabled = true;
             Microsoft.Win32.OpenFileDialog dlg = new Microsoft.Win32.OpenFileDialog();
             dlg.Filter = "LOG Files (.log)|*.log|Text Files (.txt)|*.txt";
             Nullable<bool> result = dlg.ShowDialog();
@@ -140,6 +147,7 @@ namespace WFO_PROJECT
 
         private void ChooseOutputFolderButton_Click(object sender, RoutedEventArgs e)
         {
+            OutputLabel.IsEnabled = true;
             var dlg = new System.Windows.Forms.FolderBrowserDialog();
             if (file_Name != null)
             {
@@ -383,6 +391,9 @@ namespace WFO_PROJECT
 
         private void GrepButton_Click(object sender, RoutedEventArgs e)
         {
+            List<string> graphlist = new List<string>();
+
+
             string fileRemoval;
             int outputFilePathIndex;
             if (outputFileName == null && file_Name != null)
@@ -489,7 +500,12 @@ namespace WFO_PROJECT
                                             }
                                             else if (res == true)
                                             {
+
+                                                //searchWord = searchWord + " \"" + args[0] + ";!;" + args[1] + ";!;" + args[2] + "!;!" + "type3" + "\"";
                                                 searchWord = searchWord + " \"" + args[0] + ";!;" + args[1] + ";!;" + args[2] + "!;!" + "type3" + "\"";
+
+                                                graphlist.Add(args[0]);
+                                                Console.WriteLine(args[0]);
                                             }
 
                                         }
@@ -518,6 +534,7 @@ namespace WFO_PROJECT
         int processCount = 0;
         private void perlCalled(string searchWord2)
         {
+           
             int fileCheck;
             if (Hex == null && Exclude != null)
             {
@@ -1887,15 +1904,6 @@ namespace WFO_PROJECT
         {
             progressBar.Value = e.ProgressPercentage;
         }
-
-
-
-
-
-
-
-
-
         /*
          * end of menu etc
         */
