@@ -1,0 +1,153 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<HelpKI>
+  <HelpKINode Title="App class">
+    <HelpKINode Title="App Class" Url="html/b68490db-192b-9812-8278-ce475dab5909.htm" />
+    <HelpKINode Title="about App class" Url="html/b68490db-192b-9812-8278-ce475dab5909.htm" />
+    <HelpKINode Title="constructor" Url="html/6ee776e3-3bc7-9a68-6b55-45f0e5629b2d.htm" />
+    <HelpKINode Title="events" Url="html/2bab3eb9-8765-6890-36f1-a7c9eb023d07.htm" />
+    <HelpKINode Title="methods" Url="html/f2ed0084-8445-60f4-ca84-f262b2513bd4.htm" />
+    <HelpKINode Title="properties" Url="html/5005ccec-7f9c-19d1-b087-7990d753e0c7.htm" />
+  </HelpKINode>
+  <HelpKINode Title="App.App constructor" Url="html/6ee776e3-3bc7-9a68-6b55-45f0e5629b2d.htm" />
+  <HelpKINode Title="App.InitializeComponent method" Url="html/837c9711-7b6a-06ca-a6d7-d4d76b278697.htm" />
+  <HelpKINode Title="App.Main method" Url="html/96365c07-00e0-504c-29b2-dedef62fef4c.htm" />
+  <HelpKINode Title="Details class">
+    <HelpKINode Title="methods" Url="html/6573d0a5-e835-0fbe-b8a4-94e925247cce.htm" />
+    <HelpKINode Title="properties" Url="html/bdfa1321-8c28-1d27-c58c-363d64b67d16.htm" />
+  </HelpKINode>
+  <HelpKINode Title="EditForDiagramWindow class">
+    <HelpKINode Title="EditForDiagramWindow Class" Url="html/0f4c15e1-2763-7222-62a8-0b7865c3f14d.htm" />
+    <HelpKINode Title="about EditForDiagramWindow class" Url="html/0f4c15e1-2763-7222-62a8-0b7865c3f14d.htm" />
+    <HelpKINode Title="constructor" Url="html/4ebb8e74-4b5f-70c8-8deb-25833711f88c.htm" />
+    <HelpKINode Title="events" Url="html/e22e8507-bcfa-0ad3-59c3-6d69c5e82a3e.htm" />
+    <HelpKINode Title="methods" Url="html/379eb2b1-ca50-5631-55f5-686e2c14a241.htm" />
+    <HelpKINode Title="properties" Url="html/a018ecde-82a7-89d8-2b47-1e119d042592.htm" />
+  </HelpKINode>
+  <HelpKINode Title="EditForDiagramWindow.EditForDiagramWindow constructor" Url="html/4ebb8e74-4b5f-70c8-8deb-25833711f88c.htm" />
+  <HelpKINode Title="EditForDiagramWindow.graphViewItems class">
+    <HelpKINode Title="EditForDiagramWindow.graphViewItems Class" Url="html/721f0e3f-6b4e-37f9-f27a-4bfff15b830c.htm" />
+    <HelpKINode Title="about EditForDiagramWindow.graphViewItems class" Url="html/721f0e3f-6b4e-37f9-f27a-4bfff15b830c.htm" />
+    <HelpKINode Title="constructor" Url="html/cc7d7d04-0daf-683e-49c3-28c97227ea33.htm" />
+  </HelpKINode>
+  <HelpKINode Title="EditForDiagramWindow.graphViewItems.graphNameColumn property" Url="html/75ee47d0-ddb5-e0b6-3f1d-66839cffd43c.htm" />
+  <HelpKINode Title="EditForDiagramWindow.graphViewItems.graphViewItems constructor" Url="html/cc7d7d04-0daf-683e-49c3-28c97227ea33.htm" />
+  <HelpKINode Title="EditForDiagramWindow.InitializeComponent method" Url="html/66fb88d1-610d-bb48-5184-9153eef3da36.htm" />
+  <HelpKINode Title="endOne property" Url="html/e417067d-4783-ec92-843b-e298af691ed8.htm" />
+  <HelpKINode Title="excludeString property" Url="html/bb4a4bdb-54fe-f2fe-cdd3-397b6e8c71e2.htm" />
+  <HelpKINode Title="graphNameColumn property" Url="html/75ee47d0-ddb5-e0b6-3f1d-66839cffd43c.htm" />
+  <HelpKINode Title="graphViewItems class">
+    <HelpKINode Title="methods" Url="html/fc03395e-3626-292e-c7bb-0d702c5d2f24.htm" />
+    <HelpKINode Title="properties" Url="html/d2d8f072-3272-c6ad-756b-7ee1ff59bbc9.htm" />
+  </HelpKINode>
+  <HelpKINode Title="gridCheckbox property" Url="html/0176d145-56f3-f25d-3cdf-3937f99fdbea.htm" />
+  <HelpKINode Title="gridCheckboxColumn property" Url="html/8aa43d9f-8851-2676-4597-66a036389b1d.htm" />
+  <HelpKINode Title="gridNameColumn property" Url="html/ce78d84c-c507-b04e-16a0-fb3e0bde099a.htm" />
+  <HelpKINode Title="hexString property" Url="html/52d6d9d2-8ca8-dee0-3265-3e98858c30a7.htm" />
+  <HelpKINode Title="InitializeComponent method">
+    <HelpKINode Title="App.InitializeComponent Method " Url="html/837c9711-7b6a-06ca-a6d7-d4d76b278697.htm" />
+    <HelpKINode Title="EditForDiagramWindow.InitializeComponent Method " Url="html/66fb88d1-610d-bb48-5184-9153eef3da36.htm" />
+    <HelpKINode Title="MainWindow.InitializeComponent Method " Url="html/fb6b982e-ac2e-c607-15ac-5ed0590671f3.htm" />
+    <HelpKINode Title="NewScriptWindow.InitializeComponent Method " Url="html/96271ce4-f224-0316-883d-680fd1de0a09.htm" />
+    <HelpKINode Title="SplashWindow.InitializeComponent Method " Url="html/267c650c-aaff-21e0-33b3-fc566248748a.htm" />
+    <HelpKINode Title="Window1.InitializeComponent Method " Url="html/cbe3f04a-560d-e940-7f70-c2a8f8b4efa3.htm" />
+  </HelpKINode>
+  <HelpKINode Title="linesAbove property" Url="html/a875e9a7-7b2d-4239-7f45-507c7af67fdc.htm" />
+  <HelpKINode Title="linesBelow property" Url="html/b92cb6f3-dfe9-2dc9-b1f4-201514e51d23.htm" />
+  <HelpKINode Title="ListViewItems class">
+    <HelpKINode Title="methods" Url="html/948a27fe-dd1b-e549-998e-a49436f4fa1c.htm" />
+    <HelpKINode Title="properties" Url="html/8fab251f-ee63-8f05-79d9-9b3a16ae3e3f.htm" />
+  </HelpKINode>
+  <HelpKINode Title="Main method" Url="html/96365c07-00e0-504c-29b2-dedef62fef4c.htm" />
+  <HelpKINode Title="MainWindow class">
+    <HelpKINode Title="MainWindow Class" Url="html/49175330-fbde-0ee2-254f-7a32d76e7c99.htm" />
+    <HelpKINode Title="about MainWindow class" Url="html/49175330-fbde-0ee2-254f-7a32d76e7c99.htm" />
+    <HelpKINode Title="constructor" Url="html/c2231e27-738c-f075-0618-792dc0119820.htm" />
+    <HelpKINode Title="events" Url="html/206ea715-7e6e-8561-d3c8-aaf6c673b6c6.htm" />
+    <HelpKINode Title="methods" Url="html/97b9de5d-4c64-1758-fa44-dd5bdfdd7b46.htm" />
+    <HelpKINode Title="properties" Url="html/0cd8049e-0748-c0ec-235d-f25d4c327017.htm" />
+  </HelpKINode>
+  <HelpKINode Title="MainWindow.Details class">
+    <HelpKINode Title="MainWindow.Details Class" Url="html/5e08de7d-30dd-b7bf-4a24-40f89d5f47bb.htm" />
+    <HelpKINode Title="about MainWindow.Details class" Url="html/5e08de7d-30dd-b7bf-4a24-40f89d5f47bb.htm" />
+    <HelpKINode Title="constructor" Url="html/a2d78c16-2385-803d-f5e1-d4dca1a24963.htm" />
+  </HelpKINode>
+  <HelpKINode Title="MainWindow.Details.Details constructor" Url="html/a2d78c16-2385-803d-f5e1-d4dca1a24963.htm" />
+  <HelpKINode Title="MainWindow.Details.gridCheckbox property" Url="html/0176d145-56f3-f25d-3cdf-3937f99fdbea.htm" />
+  <HelpKINode Title="MainWindow.Details.linesAbove property" Url="html/a875e9a7-7b2d-4239-7f45-507c7af67fdc.htm" />
+  <HelpKINode Title="MainWindow.Details.linesBelow property" Url="html/b92cb6f3-dfe9-2dc9-b1f4-201514e51d23.htm" />
+  <HelpKINode Title="MainWindow.Details.selectionOne property" Url="html/73070205-de4c-6791-d542-58aacafe8bbe.htm" />
+  <HelpKINode Title="MainWindow.Details.selectionTwo property" Url="html/c15b9a37-7da2-a1b7-bb27-b5b6ecc28fec.htm" />
+  <HelpKINode Title="MainWindow.Details.singleString property" Url="html/8aa475c1-e2dc-3cca-4405-98cc88c83ea4.htm" />
+  <HelpKINode Title="MainWindow.InitializeComponent method" Url="html/fb6b982e-ac2e-c607-15ac-5ed0590671f3.htm" />
+  <HelpKINode Title="MainWindow.ListViewItems class">
+    <HelpKINode Title="MainWindow.ListViewItems Class" Url="html/a7373088-6aea-7071-95da-576fa8d5b5fd.htm" />
+    <HelpKINode Title="about MainWindow.ListViewItems class" Url="html/a7373088-6aea-7071-95da-576fa8d5b5fd.htm" />
+    <HelpKINode Title="constructor" Url="html/c4274fe0-6a9a-b85e-f999-47c8cfa87764.htm" />
+  </HelpKINode>
+  <HelpKINode Title="MainWindow.ListViewItems.gridCheckboxColumn property" Url="html/8aa43d9f-8851-2676-4597-66a036389b1d.htm" />
+  <HelpKINode Title="MainWindow.ListViewItems.gridNameColumn property" Url="html/ce78d84c-c507-b04e-16a0-fb3e0bde099a.htm" />
+  <HelpKINode Title="MainWindow.ListViewItems.ListViewItems constructor" Url="html/c4274fe0-6a9a-b85e-f999-47c8cfa87764.htm" />
+  <HelpKINode Title="MainWindow.MainWindow constructor" Url="html/c2231e27-738c-f075-0618-792dc0119820.htm" />
+  <HelpKINode Title="MainWindow.ScriptingHelper class">
+    <HelpKINode Title="MainWindow.ScriptingHelper Class" Url="html/0fa68c23-a664-d128-9272-593b6941c895.htm" />
+    <HelpKINode Title="about MainWindow.ScriptingHelper class" Url="html/0fa68c23-a664-d128-9272-593b6941c895.htm" />
+    <HelpKINode Title="constructor" Url="html/9c3fceda-25d0-edd2-32a5-4b0665707a18.htm" />
+  </HelpKINode>
+  <HelpKINode Title="MainWindow.ScriptingHelper.ScriptingHelper constructor" Url="html/9c3fceda-25d0-edd2-32a5-4b0665707a18.htm" />
+  <HelpKINode Title="MainWindow.ScriptingHelper.ShowMessage method" Url="html/1f8a3aea-1cb9-19e9-1cb4-6ffc50ee7340.htm" />
+  <HelpKINode Title="MainWindow.textBoxControl method" Url="html/c939919e-67f5-d5bb-b642-0d03561a4e4c.htm" />
+  <HelpKINode Title="NewScriptWindow class">
+    <HelpKINode Title="NewScriptWindow Class" Url="html/2410f312-ab15-626b-a508-f4af0b54af09.htm" />
+    <HelpKINode Title="about NewScriptWindow class" Url="html/2410f312-ab15-626b-a508-f4af0b54af09.htm" />
+    <HelpKINode Title="constructor" Url="html/d9554187-5db6-2f3f-406e-ac7d805741ff.htm" />
+    <HelpKINode Title="events" Url="html/53d98cfc-0f97-753d-0532-7cf6459bbae5.htm" />
+    <HelpKINode Title="methods" Url="html/e11f7b6a-0501-fbeb-e6fc-9c60e1bb8d78.htm" />
+    <HelpKINode Title="properties" Url="html/6388e2ac-f437-e929-c4cb-5df1a9ea8396.htm" />
+  </HelpKINode>
+  <HelpKINode Title="NewScriptWindow.InitializeComponent method" Url="html/96271ce4-f224-0316-883d-680fd1de0a09.htm" />
+  <HelpKINode Title="NewScriptWindow.NewScriptWindow constructor" Url="html/d9554187-5db6-2f3f-406e-ac7d805741ff.htm" />
+  <HelpKINode Title="ScriptingHelper class">
+    <HelpKINode Title="methods" Url="html/ea384f53-2ccf-3530-b7c7-ac6fcfa55883.htm" />
+  </HelpKINode>
+  <HelpKINode Title="selectionOne property" Url="html/73070205-de4c-6791-d542-58aacafe8bbe.htm" />
+  <HelpKINode Title="selectionTwo property" Url="html/c15b9a37-7da2-a1b7-bb27-b5b6ecc28fec.htm" />
+  <HelpKINode Title="ShowMessage method" Url="html/1f8a3aea-1cb9-19e9-1cb4-6ffc50ee7340.htm" />
+  <HelpKINode Title="singleString property" Url="html/8aa475c1-e2dc-3cca-4405-98cc88c83ea4.htm" />
+  <HelpKINode Title="SplashWindow class">
+    <HelpKINode Title="SplashWindow Class" Url="html/8f13ae5c-b8ee-3b71-d27a-0a9fb0f4458b.htm" />
+    <HelpKINode Title="about SplashWindow class" Url="html/8f13ae5c-b8ee-3b71-d27a-0a9fb0f4458b.htm" />
+    <HelpKINode Title="constructor" Url="html/3f08bdde-20c0-d8be-0936-e698ec774360.htm" />
+    <HelpKINode Title="events" Url="html/c44e0eab-f88c-b341-802b-caafd05a2a82.htm" />
+    <HelpKINode Title="methods" Url="html/34df4c8a-1e18-d288-1782-d9890950ea76.htm" />
+    <HelpKINode Title="properties" Url="html/8028fcfa-3459-83aa-ea74-778bcf64169b.htm" />
+  </HelpKINode>
+  <HelpKINode Title="SplashWindow.InitializeComponent method" Url="html/267c650c-aaff-21e0-33b3-fc566248748a.htm" />
+  <HelpKINode Title="SplashWindow.SplashWindow constructor" Url="html/3f08bdde-20c0-d8be-0936-e698ec774360.htm" />
+  <HelpKINode Title="startOne property" Url="html/ec6962ee-c1d5-e8b5-d034-2da693f2c2de.htm" />
+  <HelpKINode Title="textBoxControl method" Url="html/c939919e-67f5-d5bb-b642-0d03561a4e4c.htm" />
+  <HelpKINode Title="WFO_PROJECT namespace" Url="html/a83354d3-4cfe-75c2-0e75-da1f1dc0e14d.htm" />
+  <HelpKINode Title="WFO_PROJECT.App class" Url="html/b68490db-192b-9812-8278-ce475dab5909.htm" />
+  <HelpKINode Title="WFO_PROJECT.EditForDiagramWindow class" Url="html/0f4c15e1-2763-7222-62a8-0b7865c3f14d.htm" />
+  <HelpKINode Title="WFO_PROJECT.EditForDiagramWindow.graphViewItems class" Url="html/721f0e3f-6b4e-37f9-f27a-4bfff15b830c.htm" />
+  <HelpKINode Title="WFO_PROJECT.MainWindow class" Url="html/49175330-fbde-0ee2-254f-7a32d76e7c99.htm" />
+  <HelpKINode Title="WFO_PROJECT.MainWindow.Details class" Url="html/5e08de7d-30dd-b7bf-4a24-40f89d5f47bb.htm" />
+  <HelpKINode Title="WFO_PROJECT.MainWindow.ListViewItems class" Url="html/a7373088-6aea-7071-95da-576fa8d5b5fd.htm" />
+  <HelpKINode Title="WFO_PROJECT.MainWindow.ScriptingHelper class" Url="html/0fa68c23-a664-d128-9272-593b6941c895.htm" />
+  <HelpKINode Title="WFO_PROJECT.NewScriptWindow class" Url="html/2410f312-ab15-626b-a508-f4af0b54af09.htm" />
+  <HelpKINode Title="WFO_PROJECT.SplashWindow class" Url="html/8f13ae5c-b8ee-3b71-d27a-0a9fb0f4458b.htm" />
+  <HelpKINode Title="WFO_PROJECT.Window1 class" Url="html/c48a0f83-42ae-5459-f15b-bef24c999e6e.htm" />
+  <HelpKINode Title="Window1 class">
+    <HelpKINode Title="Window1 Class" Url="html/c48a0f83-42ae-5459-f15b-bef24c999e6e.htm" />
+    <HelpKINode Title="about Window1 class" Url="html/c48a0f83-42ae-5459-f15b-bef24c999e6e.htm" />
+    <HelpKINode Title="constructor" Url="html/c36dd760-a485-4a46-dcfc-e3a02f76092c.htm" />
+    <HelpKINode Title="events" Url="html/b4df6e06-3372-f2e2-d032-27a2c0d45c62.htm" />
+    <HelpKINode Title="methods" Url="html/9abcd5f1-16bc-c98d-a443-3bba1e4f1d32.htm" />
+    <HelpKINode Title="properties" Url="html/2e2734a8-363d-5ce7-127c-8102926da526.htm" />
+  </HelpKINode>
+  <HelpKINode Title="Window1.endOne property" Url="html/e417067d-4783-ec92-843b-e298af691ed8.htm" />
+  <HelpKINode Title="Window1.excludeString property" Url="html/bb4a4bdb-54fe-f2fe-cdd3-397b6e8c71e2.htm" />
+  <HelpKINode Title="Window1.hexString property" Url="html/52d6d9d2-8ca8-dee0-3265-3e98858c30a7.htm" />
+  <HelpKINode Title="Window1.InitializeComponent method" Url="html/cbe3f04a-560d-e940-7f70-c2a8f8b4efa3.htm" />
+  <HelpKINode Title="Window1.startOne property" Url="html/ec6962ee-c1d5-e8b5-d034-2da693f2c2de.htm" />
+  <HelpKINode Title="Window1.Window1 constructor" Url="html/c36dd760-a485-4a46-dcfc-e3a02f76092c.htm" />
+</HelpKI>
