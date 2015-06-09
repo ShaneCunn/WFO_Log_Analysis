@@ -1,7 +1,7 @@
 ﻿<Window x:Name="NewScriptWindow1" x:Class="WFO_PROJECT.NewScriptWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        Title="Create a new Script" Height="159" Width="279" ResizeMode="NoResize" Icon="Icon.ico">
+        Title="Create a new Script" Height="159" Width="279" ResizeMode="NoResize" Icon="Icon.ico" WindowStartupLocation="CenterScreen">
     <Grid Margin="0" Background="#FFDEE7EF">
 
         <Label Content="Enter New Script Name" HorizontalAlignment="Left" Margin="10,0,0,83" VerticalAlignment="Bottom" Width="171" Height="26" RenderTransformOrigin="4.267,4.963" ToolTip="Type in the name of the new script and click save"/>

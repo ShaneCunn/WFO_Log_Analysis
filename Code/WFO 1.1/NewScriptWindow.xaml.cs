@@ -33,6 +33,7 @@ namespace WFO_PROJECT
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
+            
             List<string> scriptList = new List<string>();
             string line;
             var fileName = Directory.GetCurrentDirectory() + "\\ListViewScriptsTwo.txt";

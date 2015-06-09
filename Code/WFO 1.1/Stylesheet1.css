@@ -29,11 +29,11 @@
             letter-spacing: 0.1em;
             font-size: 90%;
             border-bottom: 1px dashed black;
-            text-align: right;
+            text-align: left;
             width: 10%;
         }
 
-        tr {
+       tr {
           
            /*border-right:1px solid black;*/
           
@@ -57,29 +57,46 @@ color:midnightblue;
 
 hr {
     
-margin-left: 100px;
-border: 1.5px dashed green;
+margin-left: 0px;
+border: 1.5px dashed green ;
 float:left;
 display:table-cell;
 
 
 
- 
+
 }
 
 .c {
-   color: red;
-  text-align: left;
-  border-right:dotted 1px solid red;
- 
+  color: black;
 
 }
 
-text {
-   display: inline-block;
-   color:yellow;
-   background-color:azure;
-   margin: 100px;
-   display:table-cell;
+.side {
+
+    border: 1.5px dashed red ;
+float:right;
+
 }
 
+.top_a {
+
+color: green;
+float:left;
+}
+
+
+.top_b {
+
+color: red;
+float:right;
+}
+
+.top_c {
+
+padding-left:-100px;
+}
+
+
+
+ button.link {float:left; height:16px; color:black; vertical-align:top; border:none; background:none; cursor:pointer; }

@@ -1,5 +1,4 @@
-﻿
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.IO;
 using System.ComponentModel;
@@ -21,6 +20,10 @@ using System.Collections.ObjectModel;
 using Xceed.Wpf.Toolkit;
 using MessageBox = System.Windows.Forms.MessageBox;
 using System.Threading;
+using System.Web.UI;
+using Newtonsoft.Json;
+using System.Runtime.InteropServices;
+
 
 namespace WFO_PROJECT
 {
@@ -29,73 +32,185 @@ namespace WFO_PROJECT
     /// </summary>
     public partial class MainWindow : Window
     {
-        //seperator
+
+        
+        /// <summary>
+        /// The delimiter
+        /// </summary>
         string Delimiter = "[;]";
         //contains the selected value in scriptselectcombo
+        /// <summary>
+        /// The selected value in scriptselectcombo
+        /// </summary>
         string selectedValue;
         //assigned in scriptselectcombo_selectionchanged, this contains the file that contains all the scripts
+        /// <summary>
+        /// The split name assigned in scriptselectcombo_selectionchanged, this contains the file that contains all the scripts
+        /// </summary>
         string splitName = "";
         //assigned in chooseoutputfolderbutton_click, this contains the folder to save to ! should also be used in select file if created there automatically
+        /// <summary>
+        /// The output file name 
+        /// </summary>
         string outputFileName;
         //is entire address of selected file
+        /// <summary>
+        /// The file_ name
+        /// </summary>
         string file_Name;
         //used in win2 closed
+        /// <summary>
+        /// The start time
+        /// </summary>
         string startTime;
         //used in win2 closed
+        /// <summary>
+        /// The end time
+        /// </summary>
         string endTime;
         //used in win2 closed
+        /// <summary>
+        /// The hexadecimal
+        /// </summary>
         string Hex;
         //used in win2 closed
+        /// <summary>
+        /// The exclude
+        /// </summary>
         string Exclude;
+        //contains the starting main string from the editdatagrid
+        /// <summary>
+        /// The start string
+        /// </summary>
         string startString;
+        //contains the starting lines above (or date or string) string from the editdatagrid
+        /// <summary>
+        /// The start lines above
+        /// </summary>
         string startLinesAbove;
+        //contains the starting lines below (or date or string) string from the editdatagrid
+        /// <summary>
+        /// The start lines below
+        /// </summary>
         string startLinesBelow;
+        //contains the starting 'from' value string from the editdatagrid
+        /// <summary>
+        /// The start selection one
+        /// </summary>
         string startSelectionOne;
+        //contains the starting 'to' value string from the editdatagrid
+        /// <summary>
+        /// The start selection two
+        /// </summary>
         string startSelectionTwo;
-
+        //minimum time required to complete the parse
+        /// <summary>
+        /// The time
+        /// </summary>
         double time;
+        //maximum time required to complete the parse
+        /// <summary>
+        /// The time two
+        /// </summary>
         double timeTwo;
 
+        /// <summary>
+        /// The count
+        /// </summary>
         int count = 0;
 
+
+        int scriptcount = 0;
+        /// <summary>
+        /// The filesize
+        /// </summary>
         long filesize;
 
+
+        /// <summary>
+        /// The listcheck
+        /// </summary>
         bool listcheck = false;
 
+        /// <summary>
+        /// The combo box
+        /// </summary>
         CheckBox comboBox = new CheckBox();
+        /// <summary>
+        /// The grid check all box
+        /// </summary>
         CheckBox gridCheckAllBox = new CheckBox();
+        /// <summary>
+        /// The box
+        /// </summary>
         CheckBox box = new CheckBox();
 
+        /// <summary>
+        /// The selected details
+        /// </summary>
         Details selectedDetails;
 
+        /// <summary>
+        /// The aboutboxwindow
+        /// </summary>
         AboutBox1 aboutboxwindow = new AboutBox1();
 
+        /// <summary>
+        /// The word_ grep line
+        /// </summary>
         string[] word_GrepLine;
 
+        /// <summary>
+        /// The data
+        /// </summary>
         List<string> data = new List<string>();
+        /// <summary>
+        /// The selected lines list
+        /// </summary>
         List<string> selectedLinesList = new List<string>();
 
+        /// <summary>
+        /// The listint
+        /// </summary>
         List<int> listint = new List<int>();
-        List<int> listIntSelection = new List<int>();
-        List<int> dataIntSelection = new List<int>();
 
+        List<string> linelist;
+        /// <summary>
+        /// The list int selection
+        /// </summary>
+        List<int> listIntSelection = new List<int>();
+        //List<int> dataIntSelection = new List<int>();
+
+        /// <summary>
+        /// The options list
+        /// </summary>
         List<CheckBox> OptionsList = new List<CheckBox>();
 
-        List<Details> copyLinesList;
+        /// <summary>
+        /// The copy lines list
+        /// </summary>
+        List<Details> copyLinesList = new List<Details>();
+        /// <summary>
+        /// The data all checked
+        /// </summary>
         List<Details> dataAllChecked = new List<Details>();
 
+        /// <summary>
+        /// The list all checked
+        /// </summary>
         List<ListViewItems> listAllChecked = new List<ListViewItems>();
+        /// <summary>
+        /// The allcheckedlist
+        /// </summary>
         List<ListViewItems> allcheckedlist = new List<ListViewItems>();
-
+        /// <summary>
+        /// Initializes a new instance of the <see cref="MainWindow" /> class.
+        /// </summary>
         public MainWindow()
         {
             InitializeComponent();
             //new SplashWindow().ShowDialog();
 
-            this.Dispatcher.Invoke((Action)(() =>
-            {
-                webBrowser1.Navigate(@"C:\Users\cunningham9\Dropbox\AvayaWork\WFO\Code\WFO 1.1\HTMLPage1.html");
-            }));
 
             if (!File.Exists("ListViewScriptsTwo.txt"))
             {
@@ -145,6 +260,11 @@ namespace WFO_PROJECT
             }
         }
 
+        /// <summary>
+        /// Handles the Click event of the ChooseOutputFolderButton control.
+        /// </summary>
+        /// <param name="sender">The source of the event.</param>
+        /// <param name="e">The <see cref="RoutedEventArgs"/> instance containing the event data.</param>
         private void ChooseOutputFolderButton_Click(object sender, RoutedEventArgs e)
         {
             OutputLabel.IsEnabled = true;
@@ -164,19 +284,21 @@ namespace WFO_PROJECT
             OutputLabel.Text = getName.Last();
         }
 
+        // The Xaml for this window is caleed: DatepickerWindow.xaml
         Window1 win2 = new Window1();
         private void ExtraOptionsButton_Click(object sender, RoutedEventArgs e)
         {
 
             try
             {
-                win2.Show();
-
+                win2.ShowDialog();
+                win2.Focus();
             }
             catch (Exception)
             {
                 win2 = new Window1();
-                win2.Show();
+                win2.ShowDialog();
+                win2.Focus();
             }
             win2.Closed += win2_Closed;
         }
@@ -391,8 +513,9 @@ namespace WFO_PROJECT
 
         private void GrepButton_Click(object sender, RoutedEventArgs e)
         {
-            List<string> graphlist = new List<string>();
 
+            List<string> graphArguments = new List<string>();
+            int argumentCount = 0;
 
             string fileRemoval;
             int outputFilePathIndex;
@@ -413,12 +536,13 @@ namespace WFO_PROJECT
             foreach (ListViewItems stuff in ListDataGrid.ItemsSource)
             {
                 string scriptName = stuff.gridNameColumn;
-                foreach (int selected in listIntSelection)
+                if (stuff.gridCheckboxColumn == true)
+                //foreach (int selected in listIntSelection)
                 {
-                    if (selectcount == selected)
-                    {
-                        scriptsToDelete.Add(scriptName);
-                    }
+                    //if (selectcount == selected)
+                    //{
+                    scriptsToDelete.Add(scriptName);
+                    //}
                 }
                 selectcount++;
             }
@@ -450,14 +574,14 @@ namespace WFO_PROJECT
             else if (scriptsToDelete.Count != 0 && startTime == null && endTime == null)
             {
 
-                count = 0;
                 ListDataGrid.ItemsSource.GetEnumerator();
                 Regex intregex = new Regex(@"\d+");
                 Regex stringRegex = new Regex(@"[\D\d]+");
                 string searchWord = "";
                 char[] MyCharList = { '\\', '*', '.', '"', ']', '[' };
                 int selectcount2 = 0;
-                foreach (ListViewItems Option in ListDataGrid.ItemsSource)
+                //foreach (ListViewItems Option in ListDataGrid.ItemsSource)
+                foreach (string items in scriptsToDelete)
                 {
                     string nextLine = "";
                     string line;
@@ -465,82 +589,115 @@ namespace WFO_PROJECT
                     StreamReader filePathing = new StreamReader(fileName);
                     while ((line = filePathing.ReadLine()) != null)
                     {
-                        Regex regex = new Regex("name :");
-                        if (regex.IsMatch(line))
+                        //foreach (string items in scriptsToDelete)
                         {
-                            foreach (int selected in listIntSelection)
+                            Console.WriteLine(items);
+                            Regex regex = new Regex("name :" + items);
+                            if (regex.IsMatch(line))
                             {
-                                if (selectcount2 == selected)
+                                //if (Option.gridCheckboxColumn == true)
+                                //foreach (int selected in listIntSelection)
+                                //{
+                                //if (selectcount2 == selected)
+                                //{
+                                while ((nextLine = filePathing.ReadLine()) != "--")
                                 {
-                                    while ((nextLine = filePathing.ReadLine()) != "--")
+                                    string[] args = Regex.Split(nextLine, Delimiter);
+                                    if (args.Length == 5)
                                     {
-                                        string[] args = Regex.Split(nextLine, Delimiter);
-                                        if (args.Length == 5)
+
+                                        args = Regex.Split(nextLine, "[;]");
+                                        if (args.Length <= 5)
                                         {
                                             args[0] = args[0].TrimEnd('[');
                                             args[1] = args[1].Trim(MyCharList);
                                             args[2] = args[2].Trim(MyCharList);
+                                            args[3] = args[3].Trim(MyCharList);
+                                            args[4] = args[4].Trim(MyCharList);
                                             int num1;
                                             bool res = int.TryParse(args[2], out num1);
+
                                             if (args[2] == "DATE")
                                             {
                                                 searchWord = searchWord + " \"" + args[0] + ";!;" + args[1] + ";!;" + args[2] + "!;!" + "type1" + "\"";
+                                                graphArguments.Add(args[0]);
+                                                graphArguments.Add(args[3]);
+                                                graphArguments.Add(args[4]);
+                                                argumentCount++;
                                             }
                                             else if (stringRegex.IsMatch(args[0]) && args[1] == "" && stringRegex.IsMatch(args[2]))
                                             {
                                                 searchWord = searchWord + " \"" + args[0] + ";!;" + " " + ";!;" + args[2] + "!;!" + "type2" + "\"";
+                                                graphArguments.Add(args[0]);
+                                                graphArguments.Add(args[3]);
+                                                graphArguments.Add(args[4]);
+                                                argumentCount++;
                                             }
                                             else if (stringRegex.IsMatch(args[0]) && stringRegex.IsMatch(args[1]) && args[2] == "")
                                             {
                                                 searchWord = searchWord + " \"" + args[0] + ";!;" + args[1] + ";!;" + " " + "!;!" + "type2" + "\"";
+                                                graphArguments.Add(args[0]);
+                                                graphArguments.Add(args[3]);
+                                                graphArguments.Add(args[4]);
+                                                argumentCount++;
                                             }
                                             else if (res == false)
                                             {
                                                 searchWord = searchWord + " \"" + args[0] + ";!;" + args[1] + ";!;" + args[2] + "!;!" + "type4" + "\"";
+                                                graphArguments.Add(args[0]);
+                                                graphArguments.Add(args[3]);
+                                                graphArguments.Add(args[4]);
+                                                argumentCount++;
                                             }
                                             else if (res == true)
                                             {
-
-                                                //searchWord = searchWord + " \"" + args[0] + ";!;" + args[1] + ";!;" + args[2] + "!;!" + "type3" + "\"";
                                                 searchWord = searchWord + " \"" + args[0] + ";!;" + args[1] + ";!;" + args[2] + "!;!" + "type3" + "\"";
-
-                                                graphlist.Add(args[0]);
-                                                Console.WriteLine(args[0]);
+                                                graphArguments.Add(args[0]);
+                                                graphArguments.Add(args[3]);
+                                                graphArguments.Add(args[4]);
+                                                argumentCount++;
                                             }
 
+
                                         }
+
                                     }
                                 }
+                                //}
+                                //}
+                                selectcount2++;
                             }
-                            selectcount2++;
                         }
                     }
                     filePathing.Close();
                 }
+                Console.WriteLine(graphArguments);
                 string searchWordEile = searchWord;
-                perlCalled(searchWordEile);
+
+                perlCalled(searchWordEile, graphArguments, argumentCount);
+
             }
             else if (scriptsToDelete.Count == 0 && startTime != null && endTime != null && outputFileName != null && file_Name != null)
             {
                 string perlDateString = startTime + "*!*" + endTime;
-                perlCalled(perlDateString);
+                perlCalled(perlDateString, graphArguments, argumentCount);
                 startTime = null;
                 endTime = null;
             }
         }
 
+
         Process perlprocess;
         List<Process> processList = new List<Process>();
         int processCount = 0;
-        private void perlCalled(string searchWord2)
+        private void perlCalled(string searchWord2, List<string> graph, int argCount)
         {
-           
+
             int fileCheck;
             if (Hex == null && Exclude != null)
             {
                 searchWord2 = "\"" + file_Name + "\"" + " " + "\"" + outputFileName + "\"" + " " + searchWord2 + "@;;@" + Hex + "@;;@" + Exclude;
                 string processname = "perlprocess" + processCount.ToString();
-
             }
             else if (Hex != null && Exclude == null)
             {
@@ -560,25 +717,29 @@ namespace WFO_PROJECT
                 string processname = "perlprocess" + processCount.ToString();
             }
             perlprocess = new Process();
+            processList.Add(perlprocess);
             if (processCount < 2)
             {
-                processList.Add(perlprocess);
+                progressBar.Value = 0;
                 ProcessStartInfo perlStartInfo = new ProcessStartInfo("perl.exe");
                 perlStartInfo.Arguments = string.Format("StringSearchWithNLines.pl" + " " + searchWord2);
                 perlStartInfo.UseShellExecute = false;
                 perlStartInfo.RedirectStandardOutput = true;
                 perlStartInfo.RedirectStandardError = true;
                 perlStartInfo.CreateNoWindow = true;
+                //Process perl = new Process();
                 perlprocess.StartInfo = perlStartInfo;
+
                 if (filesize > 400000000)
                 {
                     fileCheck = ((int)filesize / 100000000);
-                    time = ((fileCheck * 7) * count) / 60;
-                    timeTwo = ((fileCheck * 10) * count) / 60;
+                    time = ((fileCheck * 7) * argCount) / 60;
+                    timeTwo = ((fileCheck * 10) * argCount) / 60;
                     if (time == 0 && timeTwo == 0)
                     {
                         time = (fileCheck * 7);
                         MessageBox.Show("This is a large file, Estimated Time of completion will be less than 2 minutes", "FilSize Alert", System.Windows.Forms.MessageBoxButtons.OK, System.Windows.Forms.MessageBoxIcon.Information);
+
                     }
                     else
                     {
@@ -589,13 +750,15 @@ namespace WFO_PROJECT
                         progressBar.Visibility = Visibility.Visible;
                         Progress_label.Visibility = Visibility.Visible;
                         progressTimer();
+                        progressBar.Value = 0;
                     }
                 }
                 else if (filesize < 400000000)
                 {
                     fileCheck = ((int)filesize / 100000000);
-                    time = (((fileCheck * 7) * count) / 60);
-                    timeTwo = (((fileCheck * 10) * count) / 60);
+
+                    time = (((fileCheck * 7) * argCount) / 60);
+
                     MessageBox.Show("Estimated Time of completion is less than one minute", "File Size Alert", System.Windows.Forms.MessageBoxButtons.OK, System.Windows.Forms.MessageBoxIcon.Information);
                     if (time == 0 && fileCheck > 2)
                     {
@@ -605,10 +768,16 @@ namespace WFO_PROJECT
                     progressBar.Visibility = Visibility.Visible;
                     Progress_label.Visibility = Visibility.Visible;
                     progressTimer();
+                    progressBar.Value = 0;
+
                 }
                 perlprocess.Start();
+                //Worker workerObject = new Worker();
                 processCount++;
-                Thread workerThread = new Thread(thread);
+
+                Thread workerThread = new Thread(() => thread(graph));
+
+
                 workerThread.Start();
             }
             else
@@ -618,33 +787,106 @@ namespace WFO_PROJECT
         }
 
         bool perlprocesswaskilled = false;
-        private void thread()
+        private void thread(List<string> graphArg)
         {
+
             this.Dispatcher.Invoke((Action)(() =>
             {
+
+                // Changes the stop button to Red when the run script button is active
+
+                // BtnCancel.Background = Brushes.OrangeRed;
+                // enable the stop button when the run script button is active
                 GrepButton.IsEnabled = false;
-                StopButton.IsEnabled = true;
-                StopButton.Background = Brushes.Red;
+                BtnCancel.IsEnabled = true;
+                BtnCancel.Background = Brushes.Red;
             }));
+
+            //BtnCancel.IsDefault = true;
+
+
             perlprocess.WaitForExit();
+            string outputPerlFile = perlprocess.StandardOutput.ReadToEnd();
+
+
+
+            //processList.Remove(perlprocess);
             processCount--;
             Hex = null;
             Exclude = null;
             if (perlprocesswaskilled == false && processCount == 0)
             {
+
                 this.Dispatcher.Invoke((Action)(() =>
                 {
                     GrepButton.IsEnabled = true;
-                    StopButton.IsEnabled = false;
+                    BtnCancel.IsEnabled = false;
                     progressBar.Visibility = Visibility.Hidden;
                     Progress_label.Visibility = Visibility.Hidden;
                 }));
-                if (MessageBox.Show("Log file created.\n\nDo you wish to open the output folder? ", "Open New File Location", System.Windows.Forms.MessageBoxButtons.YesNo, System.Windows.Forms.MessageBoxIcon.Question) == System.Windows.Forms.DialogResult.Yes)
+                if (MessageBox.Show("Log file created.\n\nDo you wish to create a call graph of the output file? ", "Call Graph", System.Windows.Forms.MessageBoxButtons.YesNo, System.Windows.Forms.MessageBoxIcon.Question) == System.Windows.Forms.DialogResult.Yes)
+                {
+                    var json = JsonConvert.SerializeObject(graphArg);
+                    List<string> lineParameters = new List<string>();
+                    foreach (string options in toCombo.ItemsSource)
+                    {
+                        lineParameters.Add(options);
+                    }
+
+                    var jsonPara = JsonConvert.SerializeObject(lineParameters);
+                    using (FileStream fs = new FileStream(Directory.GetCurrentDirectory() + "\\HTMLPage2.htm", FileMode.Create))
+                    {
+                        using (StreamWriter w = new StreamWriter(fs, Encoding.UTF8))
+                        {
+                            w.WriteLine("<!DOCTYPE>");
+                            w.WriteLine("<html>");
+                            w.WriteLine("<head>");
+                            w.WriteLine("<meta http-equiv=\"X-UA-Compatible\" content=\"IE = 9\" />");
+                            w.WriteLine("<title>Table Properties</title>");
+                            w.WriteLine("<style type=\"text/css\"></style>");
+                            w.WriteLine("<link href=\"Stylesheet1.css\" rel=\"stylesheet\"/>");
+                            w.WriteLine("<script src=\"JavaScript1.js\"></script>");
+
+                            w.WriteLine("</head>");
+                            w.WriteLine("<body>");
+
+                            w.WriteLine("<table id=\"myTable\">");
+                            w.WriteLine(" <thead>");
+                            w.WriteLine("<tr>");
+                            w.WriteLine("<th >Arguments</th>");
+                            w.WriteLine("</tr>");
+
+                            w.WriteLine(" </thead>");
+                            w.WriteLine("</table>");
+                            //w.WriteLine("<style>var city1 = " + json + ";</style>");
+                            w.WriteLine("<script>tableCreate(" + json + "," + jsonPara + ");</script>");
+                            w.WriteLine("</body>");
+                            w.WriteLine("</html>");
+
+
+                        }
+                        StreamReader reader = new StreamReader(outputPerlFile);
+                        this.Dispatcher.Invoke((Action)(() =>
+                        {
+                            webBrowser1.Navigate(Directory.GetCurrentDirectory() + "\\HTMLPage2.htm");
+                            this.webBrowser1.ObjectForScripting = new ScriptingHelper();
+                            Graph_Tab.IsSelected = true;
+                            txtBox.Text = reader.ReadToEnd();
+
+                        }));
+
+
+                    }
+
+
+                }
+                else if (MessageBox.Show("Log file created.\n\nDo you wish to open the output folder? ", "Open New File Location", System.Windows.Forms.MessageBoxButtons.YesNo, System.Windows.Forms.MessageBoxIcon.Question) == System.Windows.Forms.DialogResult.Yes)
                 {
                     Process.Start(outputFileName);
                 }
             }
         }
+
 
         private void StopButton_Click(object sender, RoutedEventArgs e)
         {
@@ -675,18 +917,25 @@ namespace WFO_PROJECT
             }
         }
 
+
+        public void textBoxControl()
+        {
+
+            this.Title = "gdfgdfg";
+        }
+
         NewScriptWindow scriptWindow = new NewScriptWindow();
         private void ScriptCreationButton_Click(object sender, RoutedEventArgs e)
         {
             try
             {
-                scriptWindow.Show();
+                scriptWindow.ShowDialog();
                 scriptWindow.Activate();
             }
             catch (Exception)
             {
                 scriptWindow = new NewScriptWindow();
-                scriptWindow.Show();
+                scriptWindow.ShowDialog();
                 scriptWindow.Activate();
             }
             scriptWindow.Closed += scriptWindow_Closed;
@@ -701,24 +950,26 @@ namespace WFO_PROJECT
             {
                 newscript = last.gridNameColumn;
             }
+            ScriptSelectCombo.SelectedValue = null;
             ScriptSelectCombo.SelectedValue = newscript;
         }
 
         private void DeleteScriptsButton_Click(object sender, RoutedEventArgs e)
         {
             List<string> scriptsToDelete = new List<string>();
-            int selectcount = 0;
+            //int selectcount = 0;
             foreach (ListViewItems stuff in ListDataGrid.ItemsSource)
             {
                 string scriptName = stuff.gridNameColumn;
-                foreach (int selected in listIntSelection)
+                if (stuff.gridCheckboxColumn == true)
+                //foreach (int selected in listIntSelection)
                 {
-                    if (selectcount == selected)
-                    {
-                        scriptsToDelete.Add(scriptName);
-                    }
+                    //if (selectcount == selected)
+                    //{
+                    scriptsToDelete.Add(scriptName);
+                    //}
                 }
-                selectcount++;
+                //selectcount++;
             }
             if (scriptsToDelete.Count == 0)
             {
@@ -730,13 +981,14 @@ namespace WFO_PROJECT
                 {
                     if (MessageBox.Show("Are you sure you wish to delete this script?", "Delete Confirmation", System.Windows.Forms.MessageBoxButtons.YesNo, System.Windows.Forms.MessageBoxIcon.Question) == System.Windows.Forms.DialogResult.Yes)
                     {
-                        int selectcount2 = 0;
+                        //int selectcount2 = 0;
                         foreach (ListViewItems stuff in ListDataGrid.ItemsSource)
                         {
                             string scriptName = stuff.gridNameColumn;
-                            foreach (int selected in listIntSelection)
+                            if (stuff.gridCheckboxColumn == true)
+                            //foreach (int selected in listIntSelection)
                             {
-                                if (selectcount2 == selected)
+                                //if (selectcount2 == selected)
                                 {
                                     deleteScriptsFunction(scriptName);
                                 }
@@ -752,41 +1004,41 @@ namespace WFO_PROJECT
                             catch
                             {
                             }
-                            selectcount2++;
+                            //selectcount2++;
                         }
                     }
-                    listIntSelection.Clear();
+                    //listIntSelection.Clear();
                 }
                 else
                 {
                     if (MessageBox.Show("Are you sure you wish to delete these scripts?", "Delete Confirmation", System.Windows.Forms.MessageBoxButtons.YesNo, System.Windows.Forms.MessageBoxIcon.Question) == System.Windows.Forms.DialogResult.Yes)
                     {
-                        int selectcount2 = 0;
+                        //int selectcount2 = 0;
                         foreach (ListViewItems stuff in ListDataGrid.ItemsSource)
                         {
                             string scriptName = stuff.gridNameColumn;
-
-                            foreach (int selected in listIntSelection)
+                            if (stuff.gridCheckboxColumn == true)
+                            //foreach (int selected in listIntSelection)
                             {
-                                if (selectcount2 == selected)
+                                //if (selectcount2 == selected)
+                                // {
+                                deleteScriptsFunction(scriptName);
+                                try
                                 {
-                                    deleteScriptsFunction(scriptName);
-                                    try
+                                    if (ScriptSelectCombo.SelectedValue.ToString() == scriptName)
                                     {
-                                        if (ScriptSelectCombo.SelectedValue.ToString() == scriptName)
-                                        {
-                                            ScriptSelectCombo.SelectedValue = null;
-                                        }
-                                    }
-                                    catch
-                                    {
+                                        ScriptSelectCombo.SelectedValue = null;
                                     }
                                 }
+                                catch
+                                {
+                                }
+                                //}
                             }
-                            selectcount2++;
+                            //selectcount2++;
                         }
                     }
-                    listIntSelection.Clear();
+                    //listIntSelection.Clear();
                 }
             }
         }
@@ -916,6 +1168,7 @@ namespace WFO_PROJECT
         {
             if (EditDataGrid.SelectedItem != null)
             {
+                //get data from editdatagrid
                 topDateTypeCheckbox.IsChecked = false;
                 selectedDetails = (Details)EditDataGrid.SelectedItem;
                 startString = selectedDetails.singleString;
@@ -923,6 +1176,8 @@ namespace WFO_PROJECT
                 startLinesBelow = selectedDetails.singleString;
                 startSelectionOne = selectedDetails.selectionOne;
                 startSelectionTwo = selectedDetails.selectionTwo;
+
+                //insert into textboxes
                 EditStringTextbox.Text = selectedDetails.singleString;
                 EditTopMarkerTextbox.Text = selectedDetails.linesAbove.ToString();
                 EditBottomMarkerTextbox.Text = selectedDetails.linesBelow.ToString();
@@ -947,7 +1202,7 @@ namespace WFO_PROJECT
         {
             List<Details> datalist = new List<Details>();
             EditDataGrid.IsReadOnly = false;
-            char[] mycharlist = { ']', '[' };
+            //char[] mycharlist = { ']', '[' };
             string scriptLine;
             var scriptFileName = Directory.GetCurrentDirectory() + @"\ListViewScriptsTwo.txt";
             StreamReader scriptReader = new StreamReader(scriptFileName);
@@ -979,7 +1234,7 @@ namespace WFO_PROJECT
                             string[] argsvalue = Regex.Split(nextLine, @"\[;\]");
                             try
                             {
-                                aboveMarker = argsvalue[1].Trim(mycharlist);
+                                aboveMarker = argsvalue[1];
                             }
                             catch
                             {
@@ -988,7 +1243,7 @@ namespace WFO_PROJECT
 
                             try
                             {
-                                belowMarker = argsvalue[2].Trim(mycharlist);
+                                belowMarker = argsvalue[2];
                             }
                             catch
                             {
@@ -997,7 +1252,7 @@ namespace WFO_PROJECT
                             }
                             try
                             {
-                                from = argsvalue[3].Trim(mycharlist);
+                                from = argsvalue[3];
                             }
                             catch
                             {
@@ -1005,14 +1260,14 @@ namespace WFO_PROJECT
                             }
                             try
                             {
-                                to = argsvalue[4].Trim(mycharlist);
+                                to = argsvalue[4];
                             }
                             catch
                             {
                                 to = "";
                             }
                             Details getDataForGrid = new Details();
-                            getDataForGrid.singleString = argsvalue[0].TrimEnd(mycharlist);
+                            getDataForGrid.singleString = argsvalue[0];
                             getDataForGrid.linesAbove = aboveMarker;
                             getDataForGrid.linesBelow = belowMarker;
                             getDataForGrid.selectionOne = from;
@@ -1057,14 +1312,15 @@ namespace WFO_PROJECT
                     string stringCheck = stuff.singleString;
                     if (stringCheck != "Add New Line")
                     {
-                        foreach (int selected in dataIntSelection)
+                        if (stuff.gridCheckbox == true)
+                        //foreach (int selected in dataIntSelection)
                         {
-                            if (selectcount == selected)
-                            {
-                                {
-                                    deleteLinesList.Add(stuff);
-                                }
-                            }
+                            //if (selectcount == selected)
+                            //{
+                            //    {
+                            deleteLinesList.Add(stuff);
+                            //    }
+                            //}
                         }
                     }
                     selectcount++;
@@ -1083,7 +1339,7 @@ namespace WFO_PROJECT
                             }
                             datacheckboxheader.IsChecked = false;
                             deleteLinesList.Clear();
-                            dataIntSelection.Clear();
+                            //dataIntSelection.Clear();
                         }
                     }
                     else
@@ -1097,7 +1353,7 @@ namespace WFO_PROJECT
                             }
                             datacheckboxheader.IsChecked = false;
                             deleteLinesList.Clear();
-                            dataIntSelection.Clear();
+                            //dataIntSelection.Clear();
                         }
                     }
                 }
@@ -1160,47 +1416,89 @@ namespace WFO_PROJECT
 
         private void copyMultipleLinesButton_Click(object sender, RoutedEventArgs e)
         {
-            int selectcount = 0;
-            copyLinesList = null;
+            //int selectcount = 0;
+            copyLinesList = new List<Details>();
+
             if (EditDataGrid.Items.Count == 0)
             {
                 MessageBox.Show("No Script Selected.", "Copy Error", System.Windows.Forms.MessageBoxButtons.OK, System.Windows.Forms.MessageBoxIcon.Error);
+                return;
             }
-            else
+
+            int countselected = 0;
+            foreach (Details checkcheck in EditDataGrid.ItemsSource)
             {
-                copyLinesList = new List<Details>();
-                foreach (Details stuff in EditDataGrid.ItemsSource)
+                string stringCheck = checkcheck.singleString;
+                if (checkcheck.gridCheckbox == true)
                 {
-                    string stringCheck = stuff.singleString;
-                    foreach (int selected in dataIntSelection)
+                    if (stringCheck != "Add New Line")
                     {
-                        if (selectcount == selected)
-                        {
-                            if (stringCheck != "Add New Line")
-                            {
-                                copyLinesList.Add(stuff);
-                            }
-                        }
-                        else
-                        {
-                        }
+                        countselected++;
                     }
-                    selectcount++;
-                }
-                if (copyLinesList.Count != 0)
-                {
-                    pasteButton.IsEnabled = IsEnabled;
-                }
-                else
-                {
-                    MessageBox.Show("No Lines Selected.", "Copy Error", System.Windows.Forms.MessageBoxButtons.OK, System.Windows.Forms.MessageBoxIcon.Error);
                 }
             }
-            dataIntSelection.Clear();
+
+            if (countselected == 0)
+            {
+                MessageBox.Show("No Lines Selected.", "Copy Error", System.Windows.Forms.MessageBoxButtons.OK, System.Windows.Forms.MessageBoxIcon.Error);
+                return;
+            }
+
+            foreach (Details checkcheck in EditDataGrid.ItemsSource)
+            {
+                string stringCheck = checkcheck.singleString;
+                if (checkcheck.gridCheckbox == true)
+                {
+                    if (stringCheck != "Add New Line")
+                    {
+                        copyLinesList.Add(checkcheck);
+                    }
+                }
+            }
+            pasteButton.IsEnabled = IsEnabled;
+
+
+            //if (EditDataGrid.Items.Count == 0)
+            //{
+            //    MessageBox.Show("No Script Selected.", "Copy Error", System.Windows.Forms.MessageBoxButtons.OK, System.Windows.Forms.MessageBoxIcon.Error);
+            //}
+            //else
+            //{
+            //    copyLinesList = new List<Details>();
+            //    foreach (Details stuff in EditDataGrid.ItemsSource)
+            //    {
+            //        string stringCheck = stuff.singleString;
+            //        foreach (int selected in dataIntSelection)
+            //        {
+            //            if (selectcount == selected)
+            //            {
+            //                if (stringCheck != "Add New Line")
+            //                {
+            //                    copyLinesList.Add(stuff);
+            //                }
+            //            }
+            //            else
+            //            {
+            //            }
+            //        }
+            //        selectcount++;
+            //    }
+            //    if (copyLinesList.Count != 0)
+            //    {
+            //        pasteButton.IsEnabled = IsEnabled;
+            //    }
+            //    else
+            //    {
+            //        MessageBox.Show("No Lines Selected.", "Copy Error", System.Windows.Forms.MessageBoxButtons.OK, System.Windows.Forms.MessageBoxIcon.Error);
+            //    }
+            // }
+            //dataIntSelection.Clear();
         }
 
         private void pasteButton_Click(object sender, RoutedEventArgs e)
         {
+            datacheckboxheader.IsChecked = false;
+
             List<Details> donotreplace = new List<Details>();
             List<Details> replace = new List<Details>();
             foreach (Details linesInScript in EditDataGrid.ItemsSource)
@@ -1333,17 +1631,17 @@ namespace WFO_PROJECT
 
         private void datagridcheckbox_Checked(object sender, RoutedEventArgs e)
         {
-            dataIntSelection.Add(EditDataGrid.SelectedIndex);
+            //dataIntSelection.Add(EditDataGrid.SelectedIndex);
         }
 
         private void datagridcheckbox_Unchecked(object sender, RoutedEventArgs e)
         {
-            dataIntSelection.Remove(EditDataGrid.SelectedIndex);
+            //dataIntSelection.Remove(EditDataGrid.SelectedIndex);
         }
 
         private void datacheckboxheader_Checked(object sender, RoutedEventArgs e)
         {
-            dataIntSelection.Clear();
+            //dataIntSelection.Clear();
             int count = 1;
             gridCheckAllBox.IsChecked = true;
             dataAllChecked.Clear();
@@ -1358,7 +1656,7 @@ namespace WFO_PROJECT
                 list.selectionOne = tocheck.selectionOne;
                 list.selectionTwo = tocheck.selectionTwo;
                 dataAllChecked.Add(list);
-                dataIntSelection.Add(count);
+                //dataIntSelection.Add(count);
                 count++;
             }
             allCheckedInData();
@@ -1366,7 +1664,7 @@ namespace WFO_PROJECT
 
         private void datacheckboxheader_Unchecked(object sender, RoutedEventArgs e)
         {
-            dataIntSelection.Clear();
+            //dataIntSelection.Clear();
             int count = 1;
             gridCheckAllBox.IsChecked = false;
             dataAllChecked.Clear();
@@ -1383,7 +1681,7 @@ namespace WFO_PROJECT
                     list.selectionOne = tocheck.selectionOne;
                     list.selectionTwo = tocheck.selectionTwo;
                     dataAllChecked.Add(list);
-                    dataIntSelection.Remove(count);
+                    //dataIntSelection.Remove(count);
                     count++;
                 }
                 allCheckedInData();
@@ -1441,13 +1739,15 @@ namespace WFO_PROJECT
                     data.Add(line_words[1].ToString());
                 }
             }
-            ScriptSelectCombo.ItemsSource = data;
+
             file.Close();
+            ScriptSelectCombo.ItemsSource = null;
+            ScriptSelectCombo.ItemsSource = data;
         }
 
         private void ScriptSelectCombo_PreviewMouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
-            ScriptSelectCombo.SelectedValue = null;
+            //ScriptSelectCombo.SelectedValue = null;
         }
 
         private void ScriptSelectCombo_SelectionChanged(object sender, SelectionChangedEventArgs e)
@@ -1488,6 +1788,13 @@ namespace WFO_PROJECT
                 EditDataGrid.Columns[3].Visibility = Visibility.Hidden;
                 EditDataGrid.Columns[4].Visibility = Visibility.Hidden;
                 EditDataGrid.Columns[5].Visibility = Visibility.Hidden;
+
+                editScriptNameTextbox.Text = null;
+                EditStringTextbox.Text = null;
+                EditTopMarkerTextbox.Text = null;
+                EditBottomMarkerTextbox.Text = null;
+                fromCombo.SelectedValue = null;
+                toCombo.SelectedValue = null;
             }
         }
 
@@ -1513,6 +1820,11 @@ namespace WFO_PROJECT
 
         private void fromCombo_Loaded(object sender, RoutedEventArgs e)
         {
+            fromcomboReload();
+        }
+
+        private void fromcomboReload()
+        {
             List<string> fromList = new List<string>();
             string line;
             StreamReader fromReader = new StreamReader(Directory.GetCurrentDirectory() + "\\graphOptions.txt");
@@ -1530,6 +1842,11 @@ namespace WFO_PROJECT
         }
 
         private void toCombo_Loaded(object sender, RoutedEventArgs e)
+        {
+            toComboReload();
+        }
+
+        private void toComboReload()
         {
             List<string> toList = new List<string>();
             string line;
@@ -1562,82 +1879,208 @@ namespace WFO_PROJECT
             string editedLinesBelow = EditBottomMarkerTextbox.Text;
             string editedFromString = fromCombo.Text;
             string editedToString = toCombo.Text;
+            string startScript = ScriptSelectCombo.SelectedValue.ToString();
+            string editedScript = editScriptNameTextbox.Text;
             string testnew = "Add New Line";
-            if (editedString == testnew)
-            {
-                editedString = "";
-            }
+            //if (editedString == testnew)
+            //{
+            //    editedString = null;
+            //}
             int inttemp;
             if (ScriptSelectCombo.SelectedItem == null)
             {
                 return;
             }
-            if ((string.IsNullOrWhiteSpace(editedString)) && (editScriptNameTextbox.Text == ScriptSelectCombo.SelectedValue.ToString()))
+
+            List<string> stringList = new List<string>();
+            List<string> scriptList = new List<string>();
+            foreach (Details fromGrid in EditDataGrid.ItemsSource)
             {
-                //main string is not empty or says Add New Line
-                MessageBox.Show("You must enter a main string in the text area.", "Input Error", System.Windows.Forms.MessageBoxButtons.OK, System.Windows.Forms.MessageBoxIcon.Error);
+                string mainstring = fromGrid.singleString;
+                stringList.Add(mainstring);
             }
-            else if (string.IsNullOrWhiteSpace(editScriptNameTextbox.Text))
+
+            foreach (ListViewItems fromList in ListDataGrid.ItemsSource)
             {
-                MessageBox.Show("You must enter a valid script name", "Input Error", System.Windows.Forms.MessageBoxButtons.OK, System.Windows.Forms.MessageBoxIcon.Error);
+                string script = fromList.gridNameColumn;
+                scriptList.Add(script);
             }
-            else if ((int.TryParse(editedString, out inttemp)))
+
+            stringList.Remove(startString);
+            scriptList.Remove(startScript);
+            //removing the starting selections from stringlist and scriptlist
+
+            startString = selectedDetails.singleString;
+            startLinesAbove = selectedDetails.linesAbove;
+            startLinesBelow = selectedDetails.linesBelow;
+            startSelectionOne = selectedDetails.selectionOne;
+            startSelectionTwo = selectedDetails.selectionTwo;
+
+            if ((startScript != editedScript) || (startString != editedString) || (startLinesAbove != editedLinesAbove) ||
+                (startLinesBelow != editedLinesBelow) || (startSelectionOne != editedFromString) || (startSelectionTwo != editedToString))
             {
-                MessageBox.Show("You must enter a main string in the text area.", "Input Error", System.Windows.Forms.MessageBoxButtons.OK, System.Windows.Forms.MessageBoxIcon.Error);
-            }
-            else if ((int.TryParse(editedLinesAbove, out inttemp)) && (!string.IsNullOrWhiteSpace(editedLinesBelow)) && (!int.TryParse(editedLinesBelow, out inttemp)))
-            {
-                //linesabove is int and linesbelow is not empty and not an int
-                MessageBox.Show("Please enter a string with a string or an int with an int", "Invalid Input", System.Windows.Forms.MessageBoxButtons.OK, System.Windows.Forms.MessageBoxIcon.Error);
-            }
-            else if ((int.TryParse(editedLinesBelow, out inttemp)) && (!int.TryParse(editedLinesAbove, out inttemp)) && (!string.IsNullOrWhiteSpace(editedLinesAbove)))
-            {
-                //linesbelow is int and linesabove is not empty but not an int
-                MessageBox.Show("Please enter a string with a string or an int with an int", "Invalid Input", System.Windows.Forms.MessageBoxButtons.OK, System.Windows.Forms.MessageBoxIcon.Error);
-            }
-            else if ((int.TryParse(editedLinesAbove, out inttemp)) && (string.IsNullOrWhiteSpace(editedLinesBelow)))
-            {
-                //linesabove is int and linesbelow is empty
-                editedLinesBelow = "0";
-                saveChangesToLines(testnew, editedLinesBelow, editedLinesAbove, editedString, editedToString, editedFromString);
-            }
-            else if ((int.TryParse(editedLinesBelow, out inttemp)) && (string.IsNullOrWhiteSpace(editedLinesAbove)))
-            {
-                //linesbelow is int and linesabove is empty
-                editedLinesAbove = "0";
-                saveChangesToLines(testnew, editedLinesBelow, editedLinesAbove, editedString, editedToString, editedFromString);
-            }
-            else if ((!int.TryParse(editedLinesBelow, out inttemp)) && (!string.IsNullOrWhiteSpace(editedLinesBelow)) && (string.IsNullOrWhiteSpace(editedLinesAbove)))
-            {
-                //linesbelow not int and not empty and linesabove is empty
-                editedLinesAbove = "";
-                saveChangesToLines(testnew, editedLinesBelow, editedLinesAbove, editedString, editedToString, editedFromString);
-            }
-            else if ((!int.TryParse(editedLinesAbove, out inttemp)) && (!string.IsNullOrWhiteSpace(editedLinesAbove)) && (string.IsNullOrWhiteSpace(editedLinesBelow)))
-            {
-                //linesabove not int and not empty and linesbelow is empty
-                //must set linesbelow to editedstring, editedstring to linesabove and linesabove to empty
-                editedLinesBelow = "";
-                saveChangesToLines(testnew, editedLinesBelow, editedLinesAbove, editedString, editedToString, editedFromString);
-            }
-            else if ((string.IsNullOrWhiteSpace(editedLinesAbove)) && (string.IsNullOrWhiteSpace(editedLinesBelow)))
-            {
-                //if both lineabove and linesbelow are empty, enter 0
-                editedLinesAbove = "0";
-                editedLinesBelow = "0";
-                saveChangesToLines(testnew, editedLinesBelow, editedLinesAbove, editedString, editedToString, editedFromString);
+                //if any changes made
+                if ((!string.IsNullOrWhiteSpace(editedScript)) && (!scriptList.Contains(editedScript)))
+                {
+                    //if edited script is not empty or not in scriptlist
+                    if ((!string.IsNullOrWhiteSpace(editedString)) && (!stringList.Contains(editedString)))
+                    {
+                        //if edited string is not bland or not in stringlist
+                        if (((string.IsNullOrWhiteSpace(editedFromString)) && (string.IsNullOrWhiteSpace(editedToString)))
+                            || ((!string.IsNullOrWhiteSpace(editedFromString)) && (!string.IsNullOrWhiteSpace(editedToString))))
+                        //if from and to are both not empty or from and to are both empty
+                        {
+                            //if from and to are both null or from and to are both not null
+                            if (((int.TryParse(editedLinesAbove, out inttemp)) && ((int.TryParse(editedLinesBelow, out inttemp)) || (string.IsNullOrWhiteSpace(editedLinesBelow))))
+                                //if top marker is int and (bottom marker is int or null) 
+                                || ((int.TryParse(editedLinesBelow, out inttemp)) && ((int.TryParse(editedLinesAbove, out inttemp)) || (string.IsNullOrWhiteSpace(editedLinesAbove))))
+                                //if bottom marker is int and (top marker is int or null)
+                                || (((!int.TryParse(editedLinesAbove, out inttemp)) && (!string.IsNullOrWhiteSpace(editedLinesAbove)))
+                                //if top marker is not int or empty ie it's a string
+                                && (((!int.TryParse(editedLinesBelow, out inttemp)) && (!string.IsNullOrWhiteSpace(editedLinesBelow))) || (string.IsNullOrWhiteSpace(editedLinesBelow))))
+                                //and bottom marker is not int or empty ie it's a string or null
+                                || ((!int.TryParse(editedLinesBelow, out inttemp)) && (!string.IsNullOrWhiteSpace(editedLinesBelow))
+                                //or bottom marker is not int or empty ie it's a string
+                                && (((!int.TryParse(editedLinesAbove, out inttemp)) && (!string.IsNullOrWhiteSpace(editedLinesAbove))) || (string.IsNullOrWhiteSpace(editedLinesAbove))))
+                                //and top marker is not int or empty ie it's a string or null
+                                || ((editedLinesAbove == "DATE") && (editedLinesBelow == "DATE"))
+                                //or both are dates
+                                || ((string.IsNullOrWhiteSpace(editedLinesAbove)) && (string.IsNullOrWhiteSpace(editedLinesBelow))))
+                            //or both are null
+                            {
+                                if (((!string.IsNullOrWhiteSpace(editedLinesAbove)) && (!int.TryParse(editedLinesAbove, out inttemp))) && (string.IsNullOrWhiteSpace(editedLinesBelow)))
+                                {
+                                    //if above is not empty and not an int ie a string, and below is empty
+                                    editedLinesBelow = editedString;
+                                    editedString = editedLinesAbove;
+                                    editedLinesAbove = "";
+
+                                }
+                                else if (((!string.IsNullOrWhiteSpace(editedLinesBelow)) && (!int.TryParse(editedLinesBelow, out inttemp))) && (string.IsNullOrWhiteSpace(editedLinesAbove)))
+                                {
+                                    editedLinesAbove = "";
+                                }
+                                else if ((int.TryParse(editedLinesAbove, out inttemp)) && (string.IsNullOrWhiteSpace(editedLinesBelow)))
+                                {
+                                    editedLinesBelow = "0";
+                                }
+                                else if ((int.TryParse(editedLinesBelow, out inttemp)) && (string.IsNullOrWhiteSpace(editedLinesAbove)))
+                                {
+                                    editedLinesAbove = "0";
+                                }
+                                else if ((string.IsNullOrWhiteSpace(editedLinesBelow)) && (string.IsNullOrWhiteSpace(editedLinesAbove)))
+                                {
+                                    editedLinesAbove = "0";
+                                    editedLinesBelow = "0";
+                                }
+
+                                saveChangesToLines(testnew, editedScript, editedLinesBelow, editedLinesAbove, editedString, editedToString, editedFromString);
+
+                            }
+                            else
+                            {
+
+                                MessageBox.Show("Top Marker and Bottom Marker must be of same type.", "Input Error", System.Windows.Forms.MessageBoxButtons.OK, System.Windows.Forms.MessageBoxIcon.Error);
+                            }
+                        }
+                        else
+                        {
+                            MessageBox.Show("From and To selections must be both selected or both left blank.", "Input Error", System.Windows.Forms.MessageBoxButtons.OK, System.Windows.Forms.MessageBoxIcon.Error);
+                        }
+                    }
+                    else
+                    {
+                        MessageBox.Show("Invalid Main String, textbox is empty or matches an existing line in this script.", "Input Error", System.Windows.Forms.MessageBoxButtons.OK, System.Windows.Forms.MessageBoxIcon.Error);
+
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("Invalid Script Name, textbox is empty or matches an existing Script.", "Input Error", System.Windows.Forms.MessageBoxButtons.OK, System.Windows.Forms.MessageBoxIcon.Error);
+                }
             }
             else
             {
-                //save changes to line
-                saveChangesToLines(testnew, editedLinesBelow, editedLinesAbove, editedString, editedToString, editedFromString);
+                MessageBox.Show("No changes to save.", "Input Error", System.Windows.Forms.MessageBoxButtons.OK, System.Windows.Forms.MessageBoxIcon.Error);
+
             }
+
+
+
+
+            //if ((string.IsNullOrWhiteSpace(editedString)) && (editScriptNameTextbox.Text == ScriptSelectCombo.SelectedValue.ToString()))
+            //{
+            //    //main string is empty or says Add New Line
+            //    MessageBox.Show("You must enter a main string in the text area.", "Input Error", System.Windows.Forms.MessageBoxButtons.OK, System.Windows.Forms.MessageBoxIcon.Error);
+            //}
+            //else if (string.IsNullOrWhiteSpace(editScriptNameTextbox.Text))
+            //{
+            //    //script name is empty
+            //    MessageBox.Show("You must enter a valid script name", "Input Error", System.Windows.Forms.MessageBoxButtons.OK, System.Windows.Forms.MessageBoxIcon.Error);
+            //}
+            //else if ((int.TryParse(editedString, out inttemp)))
+            //{
+            //    //main string is an int
+            //    MessageBox.Show("You must enter a main string in the text area.", "Input Error", System.Windows.Forms.MessageBoxButtons.OK, System.Windows.Forms.MessageBoxIcon.Error);
+            //}
+            //else if ((int.TryParse(editedLinesAbove, out inttemp)) && (!string.IsNullOrWhiteSpace(editedLinesBelow)) && (!int.TryParse(editedLinesBelow, out inttemp)))
+            //{
+            //    //linesabove is int and linesbelow is not empty and not an int
+            //    MessageBox.Show("Please enter a string with a string or an int with an int", "Invalid Input", System.Windows.Forms.MessageBoxButtons.OK, System.Windows.Forms.MessageBoxIcon.Error);
+            //}
+            //else if ((int.TryParse(editedLinesBelow, out inttemp)) && (!int.TryParse(editedLinesAbove, out inttemp)) && (!string.IsNullOrWhiteSpace(editedLinesAbove)))
+            //{
+            //    //linesbelow is int and linesabove is not empty but not an int
+            //    MessageBox.Show("Please enter a string with a string or an int with an int", "Invalid Input", System.Windows.Forms.MessageBoxButtons.OK, System.Windows.Forms.MessageBoxIcon.Error);
+            //}
+            //else if (((string.IsNullOrWhiteSpace(editedFromString)) && (editedToString != null)) || ((string.IsNullOrWhiteSpace(editedToString)) && (editedFromString != null)))
+            //{
+            //    //to is empty and from is selected or from is empty and to is selected
+            //    MessageBox.Show("Only one message direction has been selected. Please select another or leave both empty.", "Input Error", System.Windows.Forms.MessageBoxButtons.OK, System.Windows.Forms.MessageBoxIcon.Error);
+            //}
+            //else if ((int.TryParse(editedLinesAbove, out inttemp)) && (string.IsNullOrWhiteSpace(editedLinesBelow)))
+            //{
+            //    //linesabove is int and linesbelow is empty
+            //    editedLinesBelow = "0";
+            //    saveChangesToLines(testnew, editedLinesBelow, editedLinesAbove, editedString, editedToString, editedFromString);
+            //}
+            //else if ((int.TryParse(editedLinesBelow, out inttemp)) && (string.IsNullOrWhiteSpace(editedLinesAbove)))
+            //{
+            //    //linesbelow is int and linesabove is empty
+            //    editedLinesAbove = "0";
+            //    saveChangesToLines(testnew, editedLinesBelow, editedLinesAbove, editedString, editedToString, editedFromString);
+            //}
+            //else if ((!int.TryParse(editedLinesBelow, out inttemp)) && (!string.IsNullOrWhiteSpace(editedLinesBelow)) && (string.IsNullOrWhiteSpace(editedLinesAbove)))
+            //{
+            //    //linesbelow not int and not empty and linesabove is empty
+            //    editedLinesAbove = "";
+            //    saveChangesToLines(testnew, editedLinesBelow, editedLinesAbove, editedString, editedToString, editedFromString);
+            //}
+            //else if ((!int.TryParse(editedLinesAbove, out inttemp)) && (!string.IsNullOrWhiteSpace(editedLinesAbove)) && (string.IsNullOrWhiteSpace(editedLinesBelow)))
+            //{
+            //    //linesabove not int and not empty and linesbelow is empty
+            //    //must set linesbelow to editedstring, editedstring to linesabove and linesabove to empty
+            //    editedLinesBelow = "";
+            //    saveChangesToLines(testnew, editedLinesBelow, editedLinesAbove, editedString, editedToString, editedFromString);
+            //}
+            //else if ((string.IsNullOrWhiteSpace(editedLinesAbove)) && (string.IsNullOrWhiteSpace(editedLinesBelow)))
+            //{
+            //    //if both lineabove and linesbelow are empty, enter 0
+            //    editedLinesAbove = "0";
+            //    editedLinesBelow = "0";
+            //    saveChangesToLines(testnew, editedLinesBelow, editedLinesAbove, editedString, editedToString, editedFromString);
+            //}
+            //else
+            //{
+            //    //save changes to line
+            //    saveChangesToLines(testnew, editedLinesBelow, editedLinesAbove, editedString, editedToString, editedFromString);
+            //}
         }
 
-        private void saveChangesToLines(string testnew, string editedLinesBelow, string editedLinesAbove, string editedString, string editedToString, string editedFromString)
+        private void saveChangesToLines(string testnew, string editedScript, string editedLinesBelow, string editedLinesAbove, string editedString, string editedToString, string editedFromString)
         {
             {
-                string newscript = editScriptNameTextbox.Text;
+                //string newscript = editScriptNameTextbox.Text;
                 bool exists = false;
                 foreach (Details stuff in EditDataGrid.ItemsSource)
                 {
@@ -1671,6 +2114,7 @@ namespace WFO_PROJECT
                         }
                     }
                 }
+
                 if (exists == true)
                 {
                     exists = false;
@@ -1764,18 +2208,21 @@ namespace WFO_PROJECT
                     }
                     tempWriterForEditing.Close();
                     scriptReaderForEditing.Close();
+                    File.Delete(tempfile);
                     clearEditBoxes();
                     topDateTypeCheckbox.IsChecked = false;
                     SaveLineEditButton.IsEnabled = false;
+
                     DataReload(regex);
                     listReload();
+                    ScriptSelectCombo.ItemsSource = null;
                     ComboBox_Reload();
-                    ScriptSelectCombo.SelectedValue = newscript;
-                    editScriptNameTextbox.Text = newscript;
-                    File.Delete(tempfile);
+                    ScriptSelectCombo.SelectedValue = editedScript;
+                    editScriptNameTextbox.Text = editedScript;
                 }
             }
             listIntSelection.Clear();
+
         }
 
         private void topDateTypeCheckbox_Checked(object sender, RoutedEventArgs e)
@@ -1800,13 +2247,13 @@ namespace WFO_PROJECT
 
             try
             {
-                diagramEditingWindow.Show();
+                diagramEditingWindow.ShowDialog();
                 diagramEditingWindow.Activate();
             }
             catch (Exception)
             {
                 diagramEditingWindow = new EditForDiagramWindow();
-                diagramEditingWindow.Show();
+                diagramEditingWindow.ShowDialog();
                 diagramEditingWindow.Activate();
             }
             diagramEditingWindow.Closed += diagramEditingWindow_Closed;
@@ -1814,7 +2261,8 @@ namespace WFO_PROJECT
 
         void diagramEditingWindow_Closed(object sender, EventArgs e)
         {
-
+            toComboReload();
+            fromcomboReload();
         }
 
         /*
@@ -1833,8 +2281,10 @@ namespace WFO_PROJECT
 
         private void WFO_Grep_Tool_Closed(object sender, EventArgs e)
         {
+
             scriptWindow.Close();
             win2.Close();
+
             perlprocesswaskilled = true;
             foreach (Process process in processList)
             {
@@ -1903,9 +2353,248 @@ namespace WFO_PROJECT
         void worker_ProgressChanged(object sender, ProgressChangedEventArgs e)
         {
             progressBar.Value = e.ProgressPercentage;
+
         }
         /*
          * end of menu etc
         */
+
+        [ComVisible(true)]
+        public class ScriptingHelper
+        {
+
+            public void ShowMessage(string message)
+            {
+                MessageBox.Show(message);
+
+            }
+
+        }
+
+
+        private void CopyToNewScript_Click(object sender, RoutedEventArgs e)
+        {
+
+            scriptcount = 0;
+            linelist = new List<string>();
+            List<string> copylist = new List<string>();
+
+            foreach (ListViewItems stuff in ListDataGrid.ItemsSource)
+            {
+                scriptcount++;
+                string scriptName = stuff.gridNameColumn;
+                if (stuff.gridCheckboxColumn == true)
+                {
+                    copylist.Add(scriptName);
+                }
+            }
+
+            foreach (string items in copylist)
+            {
+                string nextLine = "";
+                string line;
+                var fileName = Directory.GetCurrentDirectory() + @"\ListViewScriptsTwo.txt";
+                StreamReader filePathing = new StreamReader(fileName);
+                while ((line = filePathing.ReadLine()) != null)
+                {
+                    {
+                        Regex regex = new Regex("name :" + items);
+                        if (regex.IsMatch(line))
+                        {
+                            while ((nextLine = filePathing.ReadLine()) != "--")
+                            {
+                                linelist.Add(nextLine);
+                            }
+                        }
+                    }
+                }
+                filePathing.Close();
+            }
+            CreateNewScript();
+        }
+
+        private void CreateNewScript()
+        {
+            try
+            {
+                //scriptWindow.Show();
+                scriptWindow.Topmost = true;
+                scriptWindow.ShowDialog();
+                scriptWindow.Activate();
+                if (scriptWindow.DialogResult != null)
+                {
+                    scriptWindow_Closed();
+                }
+            }
+            catch (Exception)
+            {
+                scriptWindow = new NewScriptWindow();
+                //scriptWindow.Show();
+                scriptWindow.Topmost = true;
+                scriptWindow.ShowDialog();
+                scriptWindow.Activate();
+                if (scriptWindow.DialogResult != null)
+                {
+                    scriptWindow_Closed();
+                }
+            }
+            //scriptWindow.Closed += scriptWindow_Closed;
+        }
+
+
+        void scriptWindow_Closed()
+        {
+            listReload();
+            string newscript = "";
+            ComboBox_Reload();
+            foreach (ListViewItems last in ListDataGrid.ItemsSource)
+            {
+                newscript = last.gridNameColumn;
+            }
+            ScriptSelectCombo.SelectedValue = null;
+            ScriptSelectCombo.SelectedValue = newscript;
+
+            if (linelist != null)
+            {
+                copyWholeScripts();
+            }
+        }
+
+        private void copyWholeScripts()
+        {
+            var scriptFileName = Directory.GetCurrentDirectory() + @"\ListViewScriptsTwo.txt";
+            StreamReader pasteReader = new StreamReader(scriptFileName);
+            string tempfile = System.IO.Path.GetTempFileName();
+            StreamWriter pasteWriter = new StreamWriter(tempfile);
+            string scriptLine;
+            if (scriptcount < ScriptSelectCombo.Items.Count)
+            {
+                List<string> totalduplicates = new List<string>();
+                List<string> duplicates = new List<string>();
+                foreach (string duplicatecheck in linelist)
+                {
+                    string[] duplicateOne = duplicatecheck.Split(new[] { Delimiter }, StringSplitOptions.None);
+                    foreach (string duplicatecheck2 in linelist)
+                    {
+
+                        string[] duplicateTwo = duplicatecheck2.Split(new[] { Delimiter }, StringSplitOptions.None);
+                        if (duplicatecheck == duplicatecheck2)
+                        {
+                            if (!totalduplicates.Contains(duplicatecheck))
+                            {
+                                totalduplicates.Add(duplicatecheck);
+                            }
+                        }
+                        else if (duplicateOne[0] == duplicateTwo[0])
+                        {
+                            if (!duplicates.Contains(duplicatecheck))
+                            {
+                                duplicates.Add(duplicatecheck);
+                            }
+                            if (!duplicates.Contains(duplicatecheck2))
+                            {
+                                duplicates.Add(duplicatecheck2);
+                            }
+                        }
+                    }
+                }
+                foreach (string dups in duplicates)
+                {
+                    totalduplicates.Remove(dups);
+                }
+                if (duplicates.Count > 0)
+                {
+                    List<string> dupdone = new List<string>();
+                    List<List<string>> eachdup = new List<List<string>>();
+                    foreach (string dups in duplicates)
+                    {
+                        List<string> dup = new List<string>();
+                        string[] dupsSplit = dups.Split(new[] { Delimiter }, StringSplitOptions.None);
+                        if ((!dup.Contains(dups)) && (!dupdone.Contains(dups)))
+                        {
+                            dup.Add(dups);
+                            dupdone.Add(dups);
+                            foreach (string dups2 in duplicates)
+                            {
+                                string[] dupsSplit2 = dups2.Split(new[] { Delimiter }, StringSplitOptions.None);
+                                if ((dupsSplit[0] == dupsSplit2[0]) && (dups != dups2))
+                                {
+                                    dup.Add(dups2);
+                                    dupdone.Add(dups2);
+                                }
+                            }
+                            eachdup.Add(dup);
+                        }
+                    }
+                    while ((scriptLine = pasteReader.ReadLine()) != null)
+                    {
+                        pasteWriter.WriteLine(scriptLine);
+                        if (scriptLine == "name :" + ScriptSelectCombo.SelectedItem)
+                        {
+                            foreach (string copying in totalduplicates)
+                            {
+                                pasteWriter.WriteLine(copying);
+                            }
+                        }
+                    }
+                    pasteReader.Close();
+                    pasteWriter.Close();
+                    pasteReader = new StreamReader(tempfile);
+                    pasteWriter = new StreamWriter(scriptFileName);
+                    while ((scriptLine = pasteReader.ReadLine()) != null)
+                    {
+                        pasteWriter.WriteLine(scriptLine);
+                    }
+                    pasteReader.Close();
+                    pasteWriter.Close();
+                    foreach (List<string> dupdup in eachdup)
+                    {
+                        DuplicateOptionsWindow dupWin = new DuplicateOptionsWindow(dupdup, ScriptSelectCombo.SelectedItem.ToString());
+                        dupWin.ShowDialog();
+                        //dupWin.Show();
+                        if (dupWin.DialogResult != null)
+                        {
+                            Regex regex = new Regex(ScriptSelectCombo.SelectedItem.ToString());
+                            DataReload(regex);
+                            Console.WriteLine("someotherstuff");
+                        }
+                        //dupWin.Closed += dupWin_Closed;
+                    }
+                }
+            }
+        }
+
+
+        //private void ListDataGrid_KeyDown(object sender, KeyEventArgs e)
+        //{
+        //    Console.WriteLine("keypressed");
+        //    if (e.Key == Key.Delete)
+        //    {
+        //        Console.WriteLine("deletekey");
+
+        //        e.Handled = true;
+        //    }
+        //}
+
+        private void ListDataGrid_PreviewKeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.Key == Key.Delete)
+            {
+                Console.WriteLine("deletekey");
+
+                e.Handled = true;
+            }
+        }
+
+        private void EditDataGrid_PreviewKeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.Key == Key.Delete)
+            {
+                Console.WriteLine("deletekey");
+
+                e.Handled = true;
+            }
+        }
+
     }
 }

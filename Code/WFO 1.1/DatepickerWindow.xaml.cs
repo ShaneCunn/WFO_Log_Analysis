@@ -108,7 +108,7 @@ namespace WFO_PROJECT
             DateTime date2 = new DateTime(Convert.ToInt32(enddate[2]), Convert.ToInt32(enddate[0]), Convert.ToInt32(enddate[1]), Convert.ToInt32(endtime[0]), Convert.ToInt32(endtime[1]), Convert.ToInt32(endtime[2]));
 
             int comparedates = DateTime.Compare(date1, date2);
-
+            
 
                 if (comparedates < 0)
                     Windowpopup.Close();
@@ -176,6 +176,7 @@ namespace WFO_PROJECT
 
         public string startOne
         {
+
             set {}
             get { return startDateValue; }
 
@@ -183,6 +184,7 @@ namespace WFO_PROJECT
 
         public string endOne
         {
+            
             set {}
             get { return endDateValue; }
         }
