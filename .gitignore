@@ -203,6 +203,7 @@ Code/WFO 1.1/ACR\ Logging\ Tool
 
 ACR_Installer/
 Documents/Help/*
+Documents/Help*
 Code/ParsingScripts/Acr.MessageOUT*
 Code/WFO 1.1/HTMLPage1.html
 Code/WFO 1.1/JavaScript1.js
