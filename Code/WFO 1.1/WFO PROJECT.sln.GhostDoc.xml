@@ -13,7 +13,7 @@
   </SpellChecker>
 <HelpConfigurations selected="HelpFile">
   <HelpConfiguration name="HelpFile">
-    <OutputPath>.\Help</OutputPath>
+    <OutputPath>..\..\</OutputPath>
     <HelpFileName>WFO PROJECT</HelpFileName>
     <ImageFolderPath />
     <HtmlFormats>
@@ -33,8 +33,8 @@
       <TagList />
     </IncludeScopes>
     <ResolveCrefLinks>true</ResolveCrefLinks>
-    <HeaderText />
-    <FooterText />
+    <HeaderText>Test help file</HeaderText>
+    <FooterText>test footer</FooterText>
     <SelectedProjects />
   </HelpConfiguration>
 </HelpConfigurations>

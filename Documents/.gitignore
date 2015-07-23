@@ -196,17 +196,11 @@ FakesAssemblies/
 *.opt
 
 #ignore examples scripts
-Code/ParsingScripts/examples/
-Code/WFO 1.1/ACR_Logging_Tool
-Code/WFO 1.1/ACR\ Logging\ Tool
-Documents/Help/
-
-ACR_Installer/
 
 
-Code/ParsingScripts/Acr.MessageOUT*
-Code/WFO 1.1/HTMLPage1.html
-Code/WFO 1.1/JavaScript1.js
-Code/WFO 1.1/Stylesheet1.css
-Code/WFO 1.1/HTMLPage3.htm
-Code/WFO 1.1/HTMLPage2.htm
+
+Help
+HelpFiles
+
+
+

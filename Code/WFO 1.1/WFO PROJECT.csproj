@@ -152,6 +152,9 @@
     <Compile Include="EditForDiagramWindow.xaml.cs">
       <DependentUpon>EditForDiagramWindow.xaml</DependentUpon>
     </Compile>
+    <Compile Include="ImportDuplicateNameChange.xaml.cs">
+      <DependentUpon>ImportDuplicateNameChange.xaml</DependentUpon>
+    </Compile>
     <Compile Include="SplashWindow.xaml.cs">
       <DependentUpon>SplashWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
@@ -163,6 +166,10 @@
     <Page Include="EditForDiagramWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
+    </Page>
+    <Page Include="ImportDuplicateNameChange.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
@@ -288,15 +295,21 @@
     </Resource>
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\AvayaSplash.png" />
+    <Resource Include="Resources\AvayaSplash.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
   </ItemGroup>
   <ItemGroup>
     <SplashScreen Include="SplashScreen1.png" />
   </ItemGroup>
   <ItemGroup>
     <Resource Include="bin\Debug\graphOptions.txt" />
-    <Content Include="HTMLPage1.html" />
-    <Content Include="JavaScript1.js" />
+    <Content Include="ACR_Help.html">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Resource Include="bin\Debug\ACR 1.jpg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Resources\ListViewScriptsTwo.txt">
@@ -304,7 +317,13 @@
     </Resource>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="HTMLPage1.html" />
+    <Resource Include="Resources\clipboard.png" />
+    <Resource Include="Resources\ACR 1.jpg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Resources\ACR_Help.html">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
     <Content Include="Stylesheet1.css" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

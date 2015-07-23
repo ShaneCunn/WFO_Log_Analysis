@@ -93,7 +93,6 @@ namespace WFO_PROJECT
 
         private void graphOptionsClose_Click(object sender, RoutedEventArgs e)
         {
-            bool change = false;
             int listCount = stuffs.Count();
             List<string> newList = new List<string>();
             foreach (graphViewItems Stuffa in graphOptionDataGrid.ItemsSource)

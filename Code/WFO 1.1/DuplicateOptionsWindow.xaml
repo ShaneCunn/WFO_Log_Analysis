@@ -1,15 +1,22 @@
 ﻿<Window x:Name="duplicatesWindow" x:Class="WFO_PROJECT.DuplicateOptionsWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        Title="DuplicateOptionsWindow" Height="300" Width="300" Closing="duplicatesWindow_Closing">
+        Title="DuplicateOptionsWindow" Height="300" Width="Auto" Closing="duplicatesWindow_Closing" Topmost="True" WindowStartupLocation="CenterOwner" ResizeMode="NoResize" SizeToContent="Width">
     <Grid>
-        <ListView x:Name="duplicatesListView" HorizontalAlignment="Left" Height="193" Margin="10,67,0,0" VerticalAlignment="Top" Width="272" Loaded="duplicatesListView_Loaded" SelectionChanged="duplicatesListView_SelectionChanged">
-            <ListView.View>
-                <GridView>
-                    <GridViewColumn/>
-                </GridView>
-            </ListView.View>
-        </ListView>
-        <TextBox HorizontalAlignment="Left" Height="52" Margin="10,10,0,0" TextWrapping="Wrap" Text="There are duplicates in the scripts you are copying, please select which of these you would like to add to the new script." VerticalAlignment="Top" Width="272"/>
+        <TextBox HorizontalAlignment="Left" Height="52" Margin="10,10,0,0" TextWrapping="Wrap" Text="There are duplicates in the scripts you are copying, please select which of these you would like to add to the new script." VerticalAlignment="Top" Width="350" IsReadOnly="True"/>
+        <DataGrid x:Name="DupsDataGrid" Background="#FFF0F0F0" BorderThickness="2,2,2,10" AlternationCount="2" RowBackground="#FFF7F7FF"
+                  AlternatingRowBackground="White" AutoGenerateColumns="False" BorderBrush="#FF4A494A" CanUserAddRows="False"
+                  HorizontalAlignment="Stretch" HorizontalContentAlignment="Stretch" ColumnWidth="*" Loaded="DupsDataGrid_Loaded" 
+                  Margin="10,57,10,0" SelectionChanged="DupsDataGrid_SelectionChanged" Height="193" Width="Auto">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="String" Visibility="Hidden" Binding="{Binding singleString}" Width="Auto" />
+                <DataGridTextColumn Header="From" Visibility="Hidden" Binding="{Binding selectionOne}" Width="Auto"/>
+                <DataGridTextColumn Header="To" Visibility="Hidden" Binding="{Binding selectionTwo}" Width="Auto"/>
+                <DataGridTextColumn Header="XML" Visibility="Hidden" Binding="{Binding xml}" Width="Auto"/>
+                <DataGridTextColumn Header="Top Marker" Visibility="Hidden" Binding="{Binding linesAbove}" Width="Auto" />
+                <DataGridTextColumn Header="Bottom Marker" Visibility="Hidden" Binding="{Binding linesBelow}" Width="Auto"/>
+                <DataGridTextColumn Header="Exclude" Visibility="Hidden" Binding="{Binding exclude}" Width="Auto"/>
+            </DataGrid.Columns>
+        </DataGrid>
     </Grid>
 </Window>

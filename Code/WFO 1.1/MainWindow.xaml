@@ -1,474 +1,1088 @@
-<Window xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" 
-        xmlns:Properties="clr-namespace:WFO_PROJECT.Properties" xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
-        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:xctk="http://schemas.xceed.com/wpf/xaml/toolkit" 
-        xmlns:Anno="http://schemas.microsoft.com/expression/blend/extensions/annotations/2008" mc:Ignorable="d Anno" x:Name="WFO_Grep_Tool" 
-        x:Class="WFO_PROJECT.MainWindow" Title="ACR logging tool" Height="720" Width="1135" Icon="Icon.ico" Closed="WFO_Grep_Tool_Closed" 
-        Background="#FFDEE7EF" WindowStyle="ThreeDBorderWindow"  xmlns:sparrow="http://sparrowtoolkit.codeplex.com/wpf" >
-    <Grid>
+﻿<Window x:Class="WFO_PROJECT.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:Anno="http://schemas.microsoft.com/expression/blend/extensions/annotations/2008"
+        xmlns:Properties="clr-namespace:WFO_PROJECT.Properties"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:sparrow="http://sparrowtoolkit.codeplex.com/wpf"
+        xmlns:xctk="http://schemas.xceed.com/wpf/xaml/toolkit"
+        x:Name="WFO_Grep_Tool"
+        Title="ACR logging tool"
+        Width="1135"
+        Height="720"
+        Background="#FFDEE7EF"
+        Closed="WFO_Grep_Tool_Closed"
+        Icon="Icon.ico"
+        WindowStyle="ThreeDBorderWindow"
+        mc:Ignorable="d Anno">
+    <Grid Margin="0,0,0,2">
         <Grid.RowDefinitions>
-            <RowDefinition/>
+            <RowDefinition />
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition/>
+            <ColumnDefinition />
         </Grid.ColumnDefinitions>
-        <Menu VerticalAlignment="Top" Height="21">
 
-            <!--top menu background gradient-->
+
+        <!--  ********************** File menu grouping  **********************  -->
+        <!--  Left Border label  -->
+        <Border x:Name="Left_Border"
+                Width="341"
+                Margin="11,61,0,49"
+                HorizontalAlignment="Left"
+                BorderBrush="#FF4A494A"
+                BorderThickness="2,35" />
+
+
+        <!--  ********************** File menu grouping  **********************  -->
+        <Menu Height="21"
+              Margin="0"
+              VerticalAlignment="Top">
+
+            <!--  top menu background gradient  -->
             <Menu.Background>
-                <LinearGradientBrush EndPoint="0,1" StartPoint="0,0">
-                    <GradientStop Color="#FFF6F6F6" Offset="0.25"/>
-                    <GradientStop Color="#FFEAE8E8" Offset="0.25"/>
-                    <GradientStop Color="#FFD9DADC" Offset="0.8"/>
-                    <GradientStop Color="#FFFFFCFC" Offset="1"/>
+                <LinearGradientBrush StartPoint="0,0" EndPoint="0,1">
+                    <GradientStop Offset="0.25" Color="#FFF6F6F6" />
+                    <GradientStop Offset="0.25" Color="#FFEAE8E8" />
+                    <GradientStop Offset="0.8" Color="#FFD9DADC" />
+                    <GradientStop Offset="1" Color="#FFFFFCFC" />
                 </LinearGradientBrush>
             </Menu.Background>
-            <!--File menu tab-->
-            <MenuItem x:Name="Btn_file_tab" Header="File&#xA;" TabIndex="1" >
-                <MenuItem x:Name="exitBtn" Header="Exit" HorizontalAlignment="Left" Width="140" Click="MenuItem_exitBtn" ToolTip="Click Exit to close the application"/>
-            </MenuItem>
-            <MenuItem Header="Help" TabIndex="2">
-                <!--About button-->
-                <MenuItem x:Name="AboutButton" Header="About ACR Logging Tool" Click="MenuItem_AboutButton"/>
-                <Separator HorizontalAlignment="Left" Width="160"/>
 
-                <!-- Help Button -->
-                <MenuItem x:Name="HelpButton" Header="View Help" HorizontalAlignment="Left" Width="160" Click="MenuItem_HelpButton"/>
-                <!-- <MenuItem Header="MenuItem" HorizontalAlignment="Left" Width="160"/> -->
+            <!--    -->
+
+            <!--  File menu tab  -->
+            <MenuItem x:Name="Btn_file_tab"
+                      Header="File&#10;"
+                      TabIndex="1">
+                <!--  File menu Exit button that closes the program  -->
+                <MenuItem x:Name="exitBtn"
+                          Width="140"
+                          HorizontalAlignment="Left"
+                          Click="MenuItem_exitBtn"
+                          Header="Exit"
+                          ToolTip="Click Exit to close the application" />
+            </MenuItem>
+
+            <!--  Help menu Tab  -->
+            <MenuItem Click="MenuItem_HelpButton"
+                      Header="Help"
+                      TabIndex="2">
+
+                <!--  About button opens a about window  -->
+                <MenuItem x:Name="AboutButton"
+                          Click="MenuItem_AboutButton"
+                          Header="About ACR Logging Tool" />
+
+                <!--  Separator between About and Help menu buttons  -->
+                <Separator Width="160" HorizontalAlignment="Left" />
+
+                <!--  Help Button that opens a HTML help page  -->
+                <MenuItem x:Name="HelpButton"
+                          Width="160"
+                          HorizontalAlignment="Left"
+                          Click="MenuItem_HelpButton"
+                          Header="View Help" />
+
             </MenuItem>
         </Menu>
-        <Rectangle HorizontalAlignment="Left" Margin="0,640,0,0" Stroke="red" VerticalAlignment="Top" Height="1" Width="1" Fill="#FFBC0000"/>
-        <TabControl Margin="0,21,0,0" BorderThickness="1,1,1,35" BorderBrush="#FF4A494A">
+
+
+        <!--  Select log label  -->
+        <Label x:Name="Select_Log_Label"
+               Margin="20,62,0,0"
+               HorizontalAlignment="Left"
+               VerticalAlignment="Top"
+               BorderBrush="Black"
+               Content="Select Log File"
+               FontWeight="Bold"
+               Foreground="#FFF3F1F1" />
+
+        <!--  Groupbox for file input and output  -->
+        <GroupBox x:Name="SourceFileGroupbox"
+                  Width="325"
+                  Height="126"
+                  Margin="19,105,0,0"
+                  HorizontalAlignment="Left"
+                  VerticalAlignment="Top"
+                  Header="Source &amp; Output" />
+
+        <!--  Choose output folder Label Box  -->
+        <Label Height="26"
+               Margin="33,118,0,0"
+               HorizontalAlignment="Left"
+               VerticalAlignment="Top"
+               Content="Source Log file:"
+               RenderTransformOrigin="-0.237,0.308"
+               ToolTip="Source of the Log File, Please click the Choose File button." />
+
+        <!--  Source file label for source file  -->
+        <TextBox x:Name="FileLabel"
+                 Width="202"
+                 Height="23"
+                 Margin="33,146,0,0"
+                 HorizontalAlignment="Left"
+                 VerticalAlignment="Top"
+                 IsEnabled="False"
+                 IsReadOnly="True"
+                 Text="Select log file "
+                 TextWrapping="Wrap" />
+
+        <!--  Choose File button that opens a Open File Dialog Box  -->
+        <Button x:Name="ChooseFileButton"
+                Width="95"
+                Height="23"
+                Margin="240,145,0,0"
+                HorizontalAlignment="Left"
+                VerticalAlignment="Top"
+                Click="ChooseFileButton_Click"
+                Content="Choose File"
+                Cursor="Hand"
+                FontWeight="Bold"
+                RenderTransformOrigin="7,2.091"
+                TabIndex="4"
+                ToolTip="Select directory location of log file to parse">
+            <Button.Style>
+                <Style TargetType="{x:Type Button}">
+                    <Setter Property="Foreground" Value="#ffffff" />
+                    <Setter Property="Background">
+                        <Setter.Value>
+                            <LinearGradientBrush StartPoint="0,0" EndPoint="0,1">
+                                <GradientStop Offset="0" Color="#636363" />
+                                <GradientStop Offset="1" Color="#FF000003" />
+                            </LinearGradientBrush>
+                        </Setter.Value>
+                    </Setter>
+
+                    <Setter Property="Template">
+                        <Setter.Value>
+                            <ControlTemplate TargetType="{x:Type Button}">
+
+                                <!--  Sets button corner radius from square to 3px radius  -->
+                                <Border Background="{TemplateBinding Background}"
+                                        BorderBrush="#c5c5c5"
+                                        BorderThickness="1"
+                                        CornerRadius="3">
+                                    <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" />
+                                </Border>
+                            </ControlTemplate>
+                        </Setter.Value>
+                    </Setter>
+
+                    <!--  Change mouseover to an orange gradient  -->
+                    <Style.Triggers>
+                        <Trigger Property="IsMouseOver" Value="True">
+                            <Setter Property="Background" Value="#464646" />
+                        </Trigger>
+                    </Style.Triggers>
+                </Style>
+            </Button.Style>
+        </Button>
+
+        <!--  Choose output folder button that open a Save File Dialog Box  -->
+        <Button x:Name="ChooseOutputFolderButton"
+                Width="95"
+                Height="23"
+                Margin="239,193,0,0"
+                HorizontalAlignment="Left"
+                VerticalAlignment="Top"
+                Click="ChooseOutputFolderButton_Click"
+                Content="Choose Output"
+                Cursor="Hand"
+                FontWeight="Bold"
+                RenderTransformOrigin="1.231,0.273"
+                TabIndex="5"
+                ToolTip="Select/Create output directory to output the parsed log file">
+            <Button.Style>
+                <Style TargetType="{x:Type Button}">
+                    <Setter Property="Foreground" Value="#ffffff" />
+                    <Setter Property="Background">
+                        <Setter.Value>
+                            <LinearGradientBrush StartPoint="0,0" EndPoint="0,1">
+                                <GradientStop Offset="0" Color="#636363" />
+                                <GradientStop Offset="1" Color="#FF000003" />
+                            </LinearGradientBrush>
+                        </Setter.Value>
+                    </Setter>
+
+                    <Setter Property="Template">
+                        <Setter.Value>
+                            <ControlTemplate TargetType="{x:Type Button}">
+
+                                <!--  Sets button corner radius from square to 3px radius  -->
+                                <Border Background="{TemplateBinding Background}"
+                                        BorderBrush="#c5c5c5"
+                                        BorderThickness="1"
+                                        CornerRadius="3">
+                                    <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" />
+                                </Border>
+                            </ControlTemplate>
+                        </Setter.Value>
+                    </Setter>
+
+                    <!--  Change mouseover to an orange gradient  -->
+                    <Style.Triggers>
+                        <Trigger Property="IsMouseOver" Value="True">
+                            <Setter Property="Background" Value="#464646" />
+                        </Trigger>
+                    </Style.Triggers>
+                </Style>
+            </Button.Style>
+        </Button>
+
+        <!--  Source File Label  -->
+        <Label x:Name="Output_Label"
+               Height="26"
+               Margin="34,169,0,0"
+               HorizontalAlignment="Left"
+               VerticalAlignment="Top"
+               Content="Output Folder:"
+               ToolTip="Folder where the parsed log file will be generated" />
+
+
+        <!--  Output file label for output folder  -->
+        <TextBox x:Name="OutputLabel"
+                 Width="202"
+                 Height="23"
+                 Margin="32,193,0,0"
+                 HorizontalAlignment="Left"
+                 VerticalAlignment="Top"
+                 IsEnabled="False"
+                 IsReadOnly="True"
+                 Text="Select output folder"
+                 TextWrapping="Wrap" />
+
+        <!--  Extra options button opens DatepickerWindow that allow to choose a date range and exclude string options  -->
+        <Button x:Name="ExtraOptionsButton"
+                Width="146"
+                Height="25"
+                Margin="20,245,0,0"
+                HorizontalAlignment="Left"
+                VerticalAlignment="Top"
+                Click="ExtraOptionsButton_Click"
+                Content="Extra Options"
+                FontWeight="Bold"
+                RenderTransformOrigin="0.333,-0.318"
+                TabIndex="6"
+                ToolTip="Options such as Date Range &amp; Exclude Group">
+            <Button.Style>
+                <Style TargetType="{x:Type Button}">
+                    <Setter Property="Foreground" Value="#ffffff" />
+                    <Setter Property="Background">
+                        <Setter.Value>
+                            <LinearGradientBrush StartPoint="0,0" EndPoint="0,1">
+                                <GradientStop Offset="0" Color="#636363" />
+                                <GradientStop Offset="1" Color="#FF000003" />
+                            </LinearGradientBrush>
+                        </Setter.Value>
+                    </Setter>
+                    <Setter Property="Template">
+                        <Setter.Value>
+                            <ControlTemplate TargetType="{x:Type Button}">
+
+                                <!--  Sets button corner radius from square to 3px radius  -->
+                                <Border Background="{TemplateBinding Background}"
+                                        BorderBrush="#c5c5c5"
+                                        BorderThickness="1"
+                                        CornerRadius="3">
+                                    <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" />
+                                </Border>
+                            </ControlTemplate>
+                        </Setter.Value>
+                    </Setter>
+
+                    <!--  Change mouseover to an orange gradient  -->
+                    <Style.Triggers>
+                        <Trigger Property="IsMouseOver" Value="True">
+                            <Setter Property="Background" Value="#464646" />
+                        </Trigger>
+                    </Style.Triggers>
+                </Style>
+            </Button.Style>
+        </Button>
+
+
+
+        <DataGrid x:Name="GroupDataGrid"
+                  Width="341"
+                  Margin="11,326,0,79"
+                  HorizontalAlignment="Left"
+                  HorizontalContentAlignment="Stretch"
+                  AlternatingRowBackground="White"
+                  AlternationCount="2"
+                  AutoGenerateColumns="False"
+                  Background="#FFF0F0F0"
+                  BorderBrush="#FF4A494A"
+                  BorderThickness="2"
+                  CanUserAddRows="False"
+                  ColumnWidth="*"
+                  Loaded="GroupDataGrid_Loaded"
+                  PreviewKeyDown="GroupDataGrid_PreviewKeyDown"
+                  RowBackground="#FFF7F7FF"
+                  SelectionChanged="GroupDataGrid_SelectionChanged"
+                  ToolTip="Please select a Script to Run">
+            <DataGrid.Columns>
+                <DataGridTemplateColumn CanUserReorder="False"
+                                        CanUserSort="True"
+                                        ClipboardContentBinding="{x:Null}">
+                    <DataGridTemplateColumn.Header>
+                        <CheckBox x:Name="listcheckboxheader"
+                                  Checked="listcheckboxheader_Checked"
+                                  Unchecked="listcheckboxheader_Unchecked" />
+                    </DataGridTemplateColumn.Header>
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <CheckBox x:Name="listcheckbox"
+                                      HorizontalAlignment="Center"
+                                      IsChecked="{Binding gridCheckboxColumn,
+                                                          BindingGroupName=comboBox,
+                                                          UpdateSourceTrigger=PropertyChanged}" />
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+                <DataGridTextColumn Binding="{Binding gridNameColumn}" Header="MyString" />
+            </DataGrid.Columns>
+        </DataGrid>
+
+        <!--  Run Button  -->
+        <Button x:Name="Run_Button"
+                Width="56"
+                Height="23"
+                Margin="18,0,0,54"
+                HorizontalAlignment="Left"
+                VerticalAlignment="Bottom"
+                HorizontalContentAlignment="Center"
+                VerticalContentAlignment="Center"
+                BorderThickness="1"
+                Click="Run_Button_Click"
+                Content="Run"
+                Cursor="Hand"
+                FontWeight="Bold"
+                RenderTransformOrigin="0,0.5"
+                TabIndex="7"
+                ToolTip="Click Run to parse a log file">
+            <!--  Adds a style override, change the background colours and mouseover colours to a orange theme  -->
+            <Button.Style>
+                <Style TargetType="{x:Type Button}">
+                    <Setter Property="Background" Value="#FFECB14D" />
+                    <Setter Property="Template">
+                        <Setter.Value>
+                            <ControlTemplate TargetType="{x:Type Button}">
+                                <!--  Sets button corner radius from square to 3px radius  -->
+                                <Border Background="{TemplateBinding Background}"
+                                        BorderBrush="#553213"
+                                        BorderThickness="1"
+                                        CornerRadius="3">
+                                    <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" />
+                                </Border>
+                            </ControlTemplate>
+                        </Setter.Value>
+                    </Setter>
+                    <Style.Triggers>
+                        <!--  Change mouseover to an orange gradient  -->
+                        <Trigger Property="IsMouseOver" Value="True">
+                            <Setter Property="Background">
+                                <Setter.Value>
+                                    <LinearGradientBrush StartPoint="0,0" EndPoint="0,1">
+                                        <GradientStop Offset="0" Color="#FFEFCE92" />
+                                        <GradientStop Offset="0.5" Color="#F6C56E" />
+                                        <GradientStop Offset="0.5" Color="#FFF7D089" />
+                                        <GradientStop Offset="1" Color="#FFEDA529" />
+                                    </LinearGradientBrush>
+                                </Setter.Value>
+                            </Setter>
+                        </Trigger>
+
+                        <Trigger Property="IsEnabled" Value="False">
+                            <Setter Property="Background" Value="#FFEEEEEE" />
+                            <Setter Property="Foreground" Value="#FF888888" />
+                            <!--<Setter Property="BorderBrush" Value="Red"/>-->
+                        </Trigger>
+                    </Style.Triggers>
+                </Style>
+            </Button.Style>
+        </Button>
+
+        <!--  Stop button  -->
+        <Button x:Name="BtnCancel"
+                Grid.ColumnSpan="2"
+                Width="50"
+                Height="22.5"
+                Margin="81.5,0,0,54"
+                HorizontalAlignment="Left"
+                VerticalAlignment="Bottom"
+                Background="#FFDF5152"
+                BorderBrush="#FFD74A4A"
+                Click="StopButton_Click"
+                Content="Stop"
+                FontWeight="Bold"
+                IsCancel="True"
+                IsEnabled="False"
+                RenderTransformOrigin="-0.16,0.412"
+                TabIndex="8"
+                ToolTip="Click Stop if you want to stop a Running Script" />
+
+        <!--  Delete rules Button  -->
+        <Button x:Name="DeleteScriptsButton"
+                Grid.ColumnSpan="2"
+                Height="23"
+                Margin="139.5,0,0,54"
+                HorizontalAlignment="Left"
+                VerticalAlignment="Bottom"
+                Click="DeleteScriptsButton_Click"
+                Content="Delete Group"
+                FontWeight="Bold"
+                RenderTransformOrigin="0.5,0.5"
+                TabIndex="10"
+                ToolTip="Please tick the tick box on the group you want to be deleted and then click Delete Group">
+            <Button.Background>
+                <LinearGradientBrush StartPoint="0,0" EndPoint="0,1">
+                    <GradientStop Offset="0" Color="#FFF3F3F3" />
+                    <GradientStop Offset="0.5" Color="#FFDDDDDD" />
+                    <GradientStop Offset="0.428" Color="#FFDDDDDD" />
+                    <GradientStop Offset="1" Color="#FFCDCDCD" />
+                </LinearGradientBrush>
+            </Button.Background>
+        </Button>
+
+        <!--  Copy to new Rules button  -->
+        <Button x:Name="CopyToNewRules"
+                Grid.ColumnSpan="2"
+                Height="23"
+                Margin="227.5,0,0,54"
+                HorizontalAlignment="Left"
+                VerticalAlignment="Bottom"
+                Click="CopyToNewScript_Click"
+                Content="Copy to new Group"
+                FontWeight="Bold"
+                RenderTransformOrigin="0.5,0.5"
+                TabIndex="10">
+            <Button.Background>
+                <LinearGradientBrush StartPoint="0,0" EndPoint="0,1">
+                    <GradientStop Offset="0" Color="#FFF3F3F3" />
+                    <GradientStop Offset="0.5" Color="#FFDDDDDD" />
+                    <GradientStop Offset="0.428" Color="#FFDDDDDD" />
+                    <GradientStop Offset="1" Color="#FFCDCDCD" />
+                </LinearGradientBrush>
+            </Button.Background>
+        </Button>
+
+        <!--  Progress label  -->
+        <Label x:Name="Progress_label"
+               Width="60"
+               Margin="10,0,0,5"
+               HorizontalAlignment="Left"
+               VerticalAlignment="Bottom"
+               Content="Progress"
+               FontWeight="Bold"
+               Foreground="#FFF3F1F1"
+               RenderTransformOrigin="0.5,2.308"
+               ToolTip="Select how many lines above the search you wish to parse"
+               Visibility="Hidden" />
+
+        <!--  animated progress bar  -->
+        <ProgressBar x:Name="progressBar"
+                     Width="172"
+                     Height="20"
+                     Margin="69,0,0,7"
+                     HorizontalAlignment="Left"
+                     VerticalAlignment="Bottom"
+                     Foreground="Green"
+                     IsIndeterminate="True"
+                     Maximum="100"
+                     Visibility="Hidden" />
+
+        <!--  current lines  label  -->
+        <Label x:Name="Top_Right_Label"
+               Grid.ColumnSpan="2"
+               Margin="371,63,0,0"
+               HorizontalAlignment="Left"
+               VerticalAlignment="Top"
+               Content="Current Lines"
+               FontWeight="Bold"
+               Foreground="#FFF3F1F1" />
+
+        <TabControl Margin="1,21,0,0"
+                    Panel.ZIndex="-1"
+                    BorderBrush="#FF4A494A"
+                    BorderThickness="1,1,1,35">
             <TabControl.Background>
-                <ImageBrush/>
+                <ImageBrush />
             </TabControl.Background>
-            <TabItem Header="Home"  Margin="8,0,-10,0"  TabIndex="3" Height="22.96" VerticalAlignment="Bottom" Width="50" >
+
+
+            <!--  Home Tab  -->
+            <TabItem x:Name="Home_Tab"
+                     Width="50"
+                     Height="22.96"
+                     Margin="8,0,-10,0"
+                     VerticalAlignment="Bottom"
+                     Header="Home"
+                     TabIndex="3">
                 <TabItem.Background>
-                    <LinearGradientBrush EndPoint="0,1" StartPoint="0,0">
-                        <GradientStop Color="#FFF3F3F3" Offset="0"/>
-                        <GradientStop Color="#FFEBEBEB" Offset="0.5"/>
-                        <GradientStop Color="#FFDDDDDD" Offset="0.5"/>
-                        <GradientStop Color="#FFCDCDCD" Offset="0.996"/>
+                    <LinearGradientBrush StartPoint="0,0" EndPoint="0,1">
+                        <GradientStop Offset="0" Color="#FFF3F3F3" />
+                        <GradientStop Offset="0.5" Color="#FFEBEBEB" />
+                        <GradientStop Offset="0.5" Color="#FFDDDDDD" />
+                        <GradientStop Offset="0.996" Color="#FFCDCDCD" />
                     </LinearGradientBrush>
                 </TabItem.Background>
-                <Grid Background="#FFDEE7EF" Margin="0,-1.965,0,6">
+                <Grid Margin="0,-1.965,6,6" Background="#FFDEE7EF">
                     <Grid.RowDefinitions>
-                        <RowDefinition/>
+                        <RowDefinition />
                     </Grid.RowDefinitions>
                     <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="0*"/>
-                        <ColumnDefinition/>
+                        <ColumnDefinition Width="0*" />
+                        <ColumnDefinition />
                     </Grid.ColumnDefinitions>
                     <Anno:AnnotationManager.Annotations>
-                        <Anno:Annotation AuthorInitials="SC" Author="Shane Cunningham" Left="935" SerialNumber="1" Top="73.995" 
-                                         Timestamp="04/29/2015 16:44:28"/>
+
+                        <Anno:Annotation Author="Shane Cunningham"
+                                         AuthorInitials="SC"
+                                         Left="935"
+                                         SerialNumber="1"
+                                         Timestamp="04/29/2015 16:44:28"
+                                         Top="73.995" />
                     </Anno:AnnotationManager.Annotations>
-                    <Border x:Name="border_left" BorderBrush="#FF4A494A" BorderThickness="2,33" Margin="5,10,0,5" Width="341" HorizontalAlignment="Left" 
-                            Grid.ColumnSpan="2">
-                        <!-- Left Datagrid for search scripts -->
-                        <DataGrid x:Name="ListDataGrid"  Margin="-1,170,-2,38" Width="340" Loaded="ListDataGrid_Loaded" 
-                                  SelectionChanged="ListDataGrid_SelectionChanged" CanUserAddRows="False" Background="#FFF0F0F0" BorderThickness="2" 
-                                  AlternationCount="2" RowBackground="#FFF7F7FF" AlternatingRowBackground="White" BorderBrush="#FF4A494A" 
-                                  AutoGenerateColumns="False" PreviewKeyDown="ListDataGrid_PreviewKeyDown" HorizontalAlignment="Left" HorizontalContentAlignment="Stretch" ColumnWidth="*" 
-                                  ToolTip="Please select a Script to Run">
-                            <DataGrid.Columns>
-                                <DataGridTemplateColumn ClipboardContentBinding="{x:Null}" CanUserSort="True" CanUserReorder="False">
-                                    <DataGridTemplateColumn.Header>
-                                        <CheckBox x:Name="listcheckboxheader" Checked="listcheckboxheader_Checked" Unchecked="listcheckboxheader_Unchecked" />
-                                    </DataGridTemplateColumn.Header>
-                                    <DataGridTemplateColumn.CellTemplate>
-                                        <DataTemplate>
-                                            <CheckBox x:Name="listcheckbox" HorizontalAlignment="Center" 
-                                                      IsChecked="{Binding BindingGroupName=comboBox, Path=gridCheckboxColumn, UpdateSourceTrigger=PropertyChanged}"
-                                                      Checked="listcheckbox_Checked" Unchecked="listcheckbox_Unchecked"/>
-                                        </DataTemplate>
-                                    </DataGridTemplateColumn.CellTemplate>
-                                </DataGridTemplateColumn>
-                                <DataGridTextColumn Header="MyString" Binding="{Binding gridNameColumn}" />
-                            </DataGrid.Columns>
-                        </DataGrid>
-                    </Border>
-                    <Grid Grid.ColumnSpan="2" Margin="303,10,3,5">
+
+
+
+
+                    <Grid Grid.ColumnSpan="2" Margin="351,10,3,5">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="40*" />
+                            <RowDefinition Height="541*" />
+                        </Grid.RowDefinitions>
                         <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="0*"/>
-                            <ColumnDefinition/>
+                            <ColumnDefinition />
                         </Grid.ColumnDefinitions>
-                        <!--Border right for edit a line in the current script-->
-                        <Border x:Name="Border_Right" BorderBrush="#FF4A494A" BorderThickness="2,33" Margin="53,0,10,0" Grid.ColumnSpan="2" 
-                                Background="#FFDEE7EF"/>
-                        <Label Content="Select Log File" HorizontalAlignment="Left" Margin="-296,3,0,0" VerticalAlignment="Top" BorderBrush="Black" 
-                               Foreground="#FFF3F1F1" FontWeight="Bold"/>
-                        <!--Progress label-->
-                        <Label x:Name="Progress_label" Content="Progress" HorizontalAlignment="Left" Margin="-309,0,0,-45" VerticalAlignment="Bottom" 
-                               Width="60" RenderTransformOrigin="0.5,2.308" ToolTip="Select how many lines above the search you wish to parse" 
-                               Foreground="#FFF3F1F1" FontWeight="Bold" Visibility="Hidden"/>
+
+
+                        <!--  Border right for edit a line in the current script  -->
+                        <Border x:Name="Border_Right"
+                                Grid.RowSpan="2"
+                                Margin="0,2,0,0"
+                                Background="#FFDEE7EF"
+                                BorderBrush="#FF4A494A"
+                                BorderThickness="2,33">
+                            <Border Height="33"
+                                    Margin="-2,0,-2,92"
+                                    VerticalAlignment="Bottom"
+                                    Background="#FF4A494A"
+                                    BorderBrush="#FF4A494A"
+                                    BorderThickness="1" />
+                        </Border>
+
+                        <!--  Groupbox for editor  -->
+                        <GroupBox x:Name="ScriptName_Editor"
+                                  Grid.Row="1"
+                                  Width="511"
+                                  Height="70"
+                                  Margin="17,0,0,44"
+                                  HorizontalAlignment="Left"
+                                  VerticalAlignment="Bottom"
+                                  Header="Editor" />
+
+                        <Label x:Name="Script_edit_label"
+                               Grid.Row="1"
+                               Width="132"
+                               Margin="35,0,0,66"
+                               HorizontalAlignment="Left"
+                               VerticalAlignment="Bottom"
+                               Background="{x:Null}"
+                               Content="Current Group name :" />
+
+                        <!--  Paste Button will paste into a different set of rule that selected  -->
+                        <Button x:Name="pasteButton"
+                                Grid.Row="1"
+                                Width="56"
+                                Height="23"
+                                Margin="17,0,0,130"
+                                HorizontalAlignment="Left"
+                                VerticalAlignment="Bottom"
+                                Click="pasteButton_Click"
+                                Content="Paste"
+                                FontWeight="Bold"
+                                IsEnabled="False"
+                                RenderTransformOrigin="-0.711,0.609"
+                                TabIndex="11" />
+
+                        <!--  Copy lines button one or more lines in current lines to a new set of rules  -->
+                        <Button x:Name="copyMultipleLinesButton"
+                                Grid.Row="1"
+                                Width="56"
+                                Height="23"
+                                Margin="81,0,0,130"
+                                HorizontalAlignment="Left"
+                                VerticalAlignment="Bottom"
+                                Click="copyMultipleLinesButton_Click"
+                                Content="Copy"
+                                FontWeight="Bold"
+                                RenderTransformOrigin="0.161,0.565"
+                                TabIndex="12"
+                                ToolTip="Tick the lines you want to copy" />
+
+                        <!--  Delete Button will delete one or more lines in current lines  -->
+                        <Button x:Name="deleteMultipleLinesButton"
+                                Grid.Row="1"
+                                Width="56"
+                                Height="23"
+                                Margin="147,0,0,130"
+                                HorizontalAlignment="Left"
+                                VerticalAlignment="Bottom"
+                                Panel.ZIndex="99999"
+                                Click="deleteMultipleLinesButton_Click"
+                                Content="Delete"
+                                FontWeight="Bold"
+                                RenderTransformOrigin="0.696,0.174"
+                                TabIndex="13"
+                                ToolTip="Tick the lines you want to Delete">
+                            <Button.Background>
+                                <LinearGradientBrush StartPoint="0,0" EndPoint="0,1">
+                                    <GradientStop Offset="0" Color="#FFF3F3F3" />
+                                    <GradientStop Offset="0.5" Color="#FFEBEBEB" />
+                                    <GradientStop Offset="0.5" Color="#FFDDDDDD" />
+                                    <GradientStop Offset="1" Color="#FFCDCDCD" />
+                                </LinearGradientBrush>
+                            </Button.Background>
+                        </Button>
                     </Grid>
-                    <!-- Run Button -->
-                    <Button x:Name="GrepButton" Content="Run" HorizontalAlignment="Left" Margin="10,0,0,9" VerticalAlignment="Bottom" Width="56" 
-                            RenderTransformOrigin="0,0.5" Click="GrepButton_Click" ToolTip="Click Run to parse a log file" Height="23" 
-                            HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Cursor="Hand" Grid.ColumnSpan="2" FontWeight="Bold" 
-                            BorderThickness="1" TabIndex="7">
-                        <!-- Adds a style override, change the background colours and mouseover colours to a orange theme -->
-                        <Button.Style>
-                            <Style TargetType="{x:Type Button}">
-                                <Setter Property="Background" Value="#FFECB14D"/>
-                                <Setter Property="Template">
-                                    <Setter.Value>
-                                        <ControlTemplate TargetType="{x:Type Button}">
-                                            <!--Sets button corner radius from square to 3px radius -->
-                                            <Border Background="{TemplateBinding Background}" CornerRadius="3" BorderThickness="1" BorderBrush="#553213">
-                                                <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
-                                            </Border>
-                                        </ControlTemplate>
-                                    </Setter.Value>
-                                </Setter>
-                                <Style.Triggers>
-                                    <!--Change mouseover to an orange gradient-->
-                                    <Trigger Property="IsMouseOver" Value="True">
-                                        <Setter Property="Background">
-                                            <Setter.Value>
-                                                <LinearGradientBrush EndPoint="0,1" StartPoint="0,0">
-                                                    <GradientStop Color="#FFEFCE92" Offset="0"/>
-                                                    <GradientStop Color="#F6C56E" Offset="0.5"/>
-                                                    <GradientStop Color="#FFF7D089" Offset="0.5"/>
-                                                    <GradientStop Color="#FFEDA529" Offset="1"/>
-                                                </LinearGradientBrush>
-                                            </Setter.Value>
-                                        </Setter>
-                                    </Trigger>
 
-                                    <Trigger Property="IsEnabled" Value="False">
-                                        <Setter Property="Background" Value="#FFEEEEEE"/>
-                                        <Setter Property="Foreground" Value="#FF888888"/>
-                                        <!--<Setter Property="BorderBrush" Value="Red"/>-->
+                    <DataGrid x:Name="LineDataGrid"
+                              Grid.ColumnSpan="2"
+                              Margin="351,43,3,164"
+                              HorizontalAlignment="Stretch"
+                              HorizontalContentAlignment="Stretch"
+                              Panel.ZIndex="1"
+                              AlternatingRowBackground="White"
+                              AlternationCount="2"
+                              AutoGenerateColumns="False"
+                              Background="#FFF0F0F0"
+                              BorderBrush="#FF4A494A"
+                              BorderThickness="2"
+                              CanUserAddRows="False"
+                              ColumnWidth="*"
+                              IsReadOnly="True"
+                              RowBackground="#FFF7F7FF"
+                              SelectedIndex="0"
+                              ToolTip="Please select a Script to Edit">
 
-                                    </Trigger>
-                                </Style.Triggers>
-                            </Style>
-                        </Button.Style>
-                    </Button>
-                    <!-- Stop button -->
-                    <Button x:Name="BtnCancel" Content="Stop" HorizontalAlignment="Left" Margin="68,0,0,9" VerticalAlignment="Bottom" Width="56" 
-                            IsCancel="True" Height="23" RenderTransformOrigin="-0.16,0.412" Grid.ColumnSpan="2" FontWeight="Bold" Click="StopButton_Click" 
-                            TabIndex="8" ToolTip="Click Stop if you want to stop a Running Script" Background="#FFDF5152" BorderBrush="#FFD74A4A" 
-                            IsEnabled="False"/>
-                    <!-- Choose output folder button -->
-                    <Button x:Name="ChooseOutputFolderButton" Content="Choose Output" HorizontalAlignment="Left" Margin="244,139,0,0" VerticalAlignment="Top" 
-                            Width="90" Click="ChooseOutputFolderButton_Click" ToolTip="Select/Create output directory to output the parsed log file" 
-                            RenderTransformOrigin="1.231,0.273" Height="23" Cursor="Hand" Grid.ColumnSpan="2"  TabIndex="5">
-                        <Button.Style>
-                            <Style TargetType="{x:Type Button}">
-                                <Setter Property="Foreground" Value="#ffffff"/>
-                                <Setter Property="Background">
-                                    <Setter.Value>
-                                        <LinearGradientBrush EndPoint="0,1" StartPoint="0,0">
-                                            <GradientStop Color="#636363" Offset="0"/>
-                                            <GradientStop Color="#FF000003" Offset="1"/>
-                                        </LinearGradientBrush>
-                                    </Setter.Value>
-                                </Setter>
-
-                                <Setter Property="Template">
-                                    <Setter.Value>
-                                        <ControlTemplate TargetType="{x:Type Button}">
-
-                                            <!--Sets button corner radius from square to 3px radius -->
-                                            <Border Background="{TemplateBinding Background}" CornerRadius="3"
-                					BorderThickness="1" BorderBrush="#c5c5c5">
-                                                <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
-                                            </Border>
-                                        </ControlTemplate>
-                                    </Setter.Value>
-                                </Setter>
-
-                                <!--Change mouseover to an orange gradient-->
-                                <Style.Triggers>
-                                    <Trigger Property="IsMouseOver" Value="True">
-                                        <Setter Property="Background" Value="#464646"/>
-                                    </Trigger>
-                                </Style.Triggers>
-                            </Style>
-                        </Button.Style>
-                    </Button>
-                    <!-- Choose output folder Label Box -->
-                    <Label Content="Source Log file:" HorizontalAlignment="Left" Margin="27,43,0,0" VerticalAlignment="Top" RenderTransformOrigin="-0.237,0.308" Height="26" Grid.ColumnSpan="2" ToolTip="Source of the Log File, Please click the Choose File button."/>
-                    <!--Edit script input textbox-->
-                    <TextBox x:Name="editScriptNameTextbox" HorizontalAlignment="Left" Height="22" Margin="578,0,0,172" TextWrapping="Wrap" 
-                             VerticalAlignment="Bottom" Width="360" Grid.ColumnSpan="2" TextChanged="editScriptNameTextbox_TextChanged" 
-                             IsEnabled="False" TabIndex="15" ToolTip="Edit the name or rename the script here"/>
-                    <!-- Search string textbox -->
-                    <TextBox x:Name="EditStringTextbox" HorizontalAlignment="Left" IsEnabled="False" Margin="466,0,0,138" TextWrapping="Wrap" 
-                             VerticalAlignment="Bottom" Width="472" Height="23" Grid.ColumnSpan="2" 
-                             TextChanged="EditStringTextbox_TextChanged" TabIndex="16" />
-                    <!-- Time Stamp Checkbox-->
-                    <CheckBox x:Name="topDateTypeCheckbox" Content="Timestamps" HorizontalAlignment="Left"  Margin="857,0,0,83" VerticalAlignment="Bottom" 
-                              RenderTransformOrigin="4.235,18.813" Checked="topDateTypeCheckbox_Checked" Unchecked="topDateTypeCheckbox_Unchecked" 
-                              Height="23" IsEnabled="False" Grid.ColumnSpan="2" />
-                    <!-- Top marker textbox -->
-                    <TextBox x:Name="EditTopMarkerTextbox" HorizontalAlignment="Left" IsEnabled="False" Height="23" Margin="466,0,0,83" TextWrapping="Wrap" 
-                             VerticalAlignment="Bottom" Width="374" RenderTransformOrigin="0.443,0.217" Grid.ColumnSpan="2" 
-                             TextChanged="EditTopMarkerTextbox_TextChanged" TabIndex="17" />
-                    <!-- Bottom marker textbox -->
-                    <TextBox x:Name="EditBottomMarkerTextbox" HorizontalAlignment="Left" IsEnabled="False" Margin="466,0,0,47" TextWrapping="Wrap" 
-                             VerticalAlignment="Bottom" Width="374" Grid.ColumnSpan="2" TextChanged="EditBottomMarkerTextbox_TextChanged" Height="23" 
-                             TabIndex="18" />
-                    <!-- Save button -->
-                    <Button x:Name="SaveLineEditButton" Content="Save Changes" HorizontalAlignment="Left" Margin="373,0,0,9" VerticalAlignment="Bottom" Width="96"
-                            RenderTransformOrigin="0.583,2.615" Height="23" Click="SaveLineEditButton_Click" Cursor="Hand" 
-                            ToolTip="Click Save to write changes to the script" Grid.ColumnSpan="2" TabIndex="19" FontWeight="Bold" IsEnabled="False"/>
-                    <!-- Choose File button -->
-                    <Button x:Name="ChooseFileButton" Content="Choose File" HorizontalAlignment="Left" Margin="244,74,0,0" VerticalAlignment="Top" Width="90" 
-                            Click="ChooseFileButton_Click" Height="23" ToolTip="Select directory location of log file to parse" RenderTransformOrigin="7,2.091" 
-                            Cursor="Hand" Grid.ColumnSpan="2" TabIndex="4">
-                        <Button.Style>
-                            <Style TargetType="{x:Type Button}">
-                                <Setter Property="Foreground" Value="#ffffff"/>
-                                <Setter Property="Background">
-                                    <Setter.Value>
-                                        <LinearGradientBrush EndPoint="0,1" StartPoint="0,0">
-                                            <GradientStop Color="#636363" Offset="0"/>
-                                            <GradientStop Color="#FF000003" Offset="1"/>
-                                        </LinearGradientBrush>
-                                    </Setter.Value>
-                                </Setter>
-
-                                <Setter Property="Template">
-                                    <Setter.Value>
-                                        <ControlTemplate TargetType="{x:Type Button}">
-
-                                            <!--Sets button corner radius from square to 3px radius -->
-                                            <Border Background="{TemplateBinding Background}" CornerRadius="3"
-                					BorderThickness="1" BorderBrush="#c5c5c5">
-                                                <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
-                                            </Border>
-                                        </ControlTemplate>
-                                    </Setter.Value>
-                                </Setter>
-
-                                <!--Change mouseover to an orange gradient-->
-                                <Style.Triggers>
-                                    <Trigger Property="IsMouseOver" Value="True">
-                                        <Setter Property="Background" Value="#464646"/>
-                                    </Trigger>
-                                </Style.Triggers>
-                            </Style>
-                        </Button.Style>
-                    </Button>
-                    <!-- Source File Label box, displays source file location -->
-                    <Label Content="Output Folder:" HorizontalAlignment="Left" Margin="27,108,0,0" VerticalAlignment="Top" Grid.ColumnSpan="2" 
-                           Height="26" ToolTip="Folder where the parsed log file will be generated"/>
-                    <!--Search string label-->
-                    <Label Content="Search String:" HorizontalAlignment="Left" Margin="378.24,0,0,134.04" VerticalAlignment="Bottom" 
-                           RenderTransformOrigin="0.833,0.518" Height="28" Grid.ColumnSpan="2" ToolTip="Enter the string you wish to [parse"/>
-                    <!--top marker label-->
-                    <Label Content="Top Marker:" HorizontalAlignment="Left" Margin="387.04,0,0,80.04" VerticalAlignment="Bottom" 
-                           RenderTransformOrigin="0.538,1.083" Grid.ColumnSpan="2" ToolTip="Select how many lines above the search you wish to parse"/>
-                    <!-- Edit script Right Datagrid -->
-                    <DataGrid x:Name="EditDataGrid" Margin="356,43,14,238" CanUserAddRows="False" SelectionChanged="EditDataGrid_SelectionChanged" 
-                              IsReadOnly="True" Background="#FFF0F0F0" BorderThickness="2,2,2,10" AlternationCount="2" RowBackground="#FFF7F7FF"
-                              AlternatingRowBackground="White" Grid.ColumnSpan="2" AutoGenerateColumns="False" BorderBrush="#FF4A494A" 
-                              HorizontalAlignment="Stretch" HorizontalContentAlignment="Stretch" ColumnWidth="*" PreviewKeyDown="EditDataGrid_PreviewKeyDown" ToolTip="Please select a Script to Edit">
+                        <!--  Datagrid Columns  -->
                         <DataGrid.Columns>
-                            <DataGridTemplateColumn ClipboardContentBinding="{x:Null}" Visibility="Hidden" CanUserSort="True" Width="24" CanUserReorder="False">
+                            <DataGridTemplateColumn Width="24"
+                                                    CanUserReorder="False"
+                                                    CanUserSort="True"
+                                                    ClipboardContentBinding="{x:Null}"
+                                                    Visibility="Hidden">
                                 <DataGridTemplateColumn.Header>
-                                    <CheckBox x:Name="datacheckboxheader" Checked="datacheckboxheader_Checked" Unchecked="datacheckboxheader_Unchecked" />
+                                    <CheckBox x:Name="datacheckboxheader"
+                                              Checked="datacheckboxheader_Checked"
+                                              Unchecked="datacheckboxheader_Unchecked" />
                                 </DataGridTemplateColumn.Header>
                                 <DataGridTemplateColumn.CellTemplate>
                                     <DataTemplate>
-                                        <CheckBox x:Name="datagridcheckbox" HorizontalAlignment="Center" 
-                                                  IsChecked="{Binding BindingGroupName=gridCheckAllBox, Path=gridCheckbox, UpdateSourceTrigger=PropertyChanged}" />
+                                        <CheckBox x:Name="datagridcheckbox"
+                                                  HorizontalAlignment="Center"
+                                                  IsChecked="{Binding gridCheckbox,
+                                                                      BindingGroupName=gridCheckAllBox,
+                                                                      UpdateSourceTrigger=PropertyChanged}" />
+
                                     </DataTemplate>
                                 </DataGridTemplateColumn.CellTemplate>
                             </DataGridTemplateColumn>
-                            <DataGridTextColumn Header="String" Visibility="Hidden" Binding="{Binding singleString}" />
-                            <DataGridTextColumn Header="Top Marker" Visibility="Hidden" Binding="{Binding linesAbove}" />
-                            <DataGridTextColumn Header="Bottom Marker" Visibility="Hidden" Binding="{Binding linesBelow}" />
-                            <DataGridTextColumn Header="From" Visibility="Hidden" Binding="{Binding selectionOne}" />
-                            <DataGridTextColumn Header="To" Visibility="Hidden" Binding="{Binding selectionTwo}" />
+
+                            <!--  Column String,  to rename the column Name edit EditDataGrid.Columns[1].Header in the mainwindow.xaml.cs  -->
+                            <DataGridTextColumn Width="*"
+                                                Binding="{Binding searchString}"
+                                                Header="String"
+                                                ToolTipService.ToolTip="Search string to parse"
+                                                Visibility="Hidden">
+                                <DataGridTextColumn.HeaderStyle>
+                                    <Style TargetType="{x:Type DataGridColumnHeader}">
+                                        <Setter Property="ToolTip" Value="{Binding Column.(ToolTipService.ToolTip), RelativeSource={RelativeSource Self}}" />
+                                    </Style>
+                                </DataGridTextColumn.HeaderStyle>
+                            </DataGridTextColumn>
+
+                            <!--  Column From,  to rename the column Name edit EditDataGrid.Columns[2].Header in the mainwindow.xaml.cs  -->
+                            <DataGridTemplateColumn Width="*"
+                                                    CanUserReorder="True"
+                                                    CanUserSort="True"
+                                                    ClipboardContentBinding="{x:Null}"
+                                                    Header="From"
+                                                    ToolTipService.ToolTip="From System component"
+                                                    Visibility="Hidden">
+                                <DataGridTemplateColumn.HeaderStyle>
+                                    <Style TargetType="{x:Type DataGridColumnHeader}">
+                                        <Setter Property="ToolTip" Value="{Binding Column.(ToolTipService.ToolTip), RelativeSource={RelativeSource Self}}" />
+                                    </Style>
+                                </DataGridTemplateColumn.HeaderStyle>
+                                <DataGridTemplateColumn.CellTemplate>
+                                    <DataTemplate>
+                                        <ComboBox x:Name="from2"
+                                                  Background="White"
+                                                  BorderBrush="DarkCyan"
+                                                  IsReadOnly="False"
+                                                  ItemsSource="{Binding fromCollection}"
+                                                  SelectedValue="{Binding selectionFrom,
+                                                                          Mode=TwoWay,
+                                                                          UpdateSourceTrigger=PropertyChanged}"
+                                                  ToolTip="test tip" />
+                                    </DataTemplate>
+                                </DataGridTemplateColumn.CellTemplate>
+                            </DataGridTemplateColumn>
+
+                            <!--  Column To, to rename the column Name edit EditDataGrid.Columns[3].Header in the mainwindow.xaml.cs  -->
+                            <DataGridTemplateColumn Width="*"
+                                                    CanUserReorder="True"
+                                                    CanUserSort="True"
+                                                    ClipboardContentBinding="{x:Null}"
+                                                    Header="To"
+                                                    ToolTipService.ToolTip="To System component"
+                                                    Visibility="Hidden">
+                                <DataGridTemplateColumn.HeaderStyle>
+                                    <Style TargetType="{x:Type DataGridColumnHeader}">
+                                        <Setter Property="ToolTip" Value="{Binding Column.(ToolTipService.ToolTip), RelativeSource={RelativeSource Self}}" />
+                                    </Style>
+                                </DataGridTemplateColumn.HeaderStyle>
+                                <DataGridTemplateColumn.CellTemplate>
+                                    <DataTemplate>
+                                        <ComboBox x:Name="to2"
+                                                  Background="White"
+                                                  BorderBrush="DarkCyan"
+                                                  IsReadOnly="False"
+                                                  ItemsSource="{Binding toCollection}"
+                                                  SelectedItem="{Binding selectionTo,
+                                                                         Mode=TwoWay,
+                                                                         UpdateSourceTrigger=PropertyChanged}" />
+                                    </DataTemplate>
+                                </DataGridTemplateColumn.CellTemplate>
+                            </DataGridTemplateColumn>
+
+                            <!--  Column XML, to rename the column Name edit EditDataGrid.Columns[4].Header in the mainwindow.xaml.cs  -->
+                            <DataGridTemplateColumn Width="48"
+                                                    CanUserReorder="True"
+                                                    CanUserSort="True"
+                                                    ClipboardContentBinding="{x:Null}"
+                                                    Header="XML"
+                                                    ToolTipService.ToolTip="XML Parsing"
+                                                    Visibility="Hidden">
+                                <DataGridTemplateColumn.HeaderStyle>
+                                    <Style TargetType="{x:Type DataGridColumnHeader}">
+                                        <Setter Property="ToolTip" Value="{Binding Column.(ToolTipService.ToolTip), RelativeSource={RelativeSource Self}}" />
+                                    </Style>
+                                </DataGridTemplateColumn.HeaderStyle>
+                                <DataGridTemplateColumn.CellTemplate>
+                                    <DataTemplate>
+                                        <CheckBox x:Name="xmlcheckbox"
+                                                  HorizontalAlignment="Center"
+                                                  IsChecked="{Binding xml,
+                                                                      UpdateSourceTrigger=PropertyChanged}" />
+                                    </DataTemplate>
+                                </DataGridTemplateColumn.CellTemplate>
+                            </DataGridTemplateColumn>
+
+
+                            <!--  Column Top Marker, to rename the column Name edit EditDataGrid.Columns[5].Header in the mainwindow.xaml.cs  -->
+                            <DataGridTextColumn x:Name="topMarker"
+                                                Width="*"
+                                                Binding="{Binding linesAbove}"
+                                                Header="Top Marker"
+                                                ToolTipService.ToolTip=""
+                                                Visibility="Hidden">
+                                <DataGridTextColumn.HeaderStyle>
+                                    <Style TargetType="{x:Type DataGridColumnHeader}">
+                                        <Setter Property="ToolTip" Value="{Binding Column.(ToolTipService.ToolTip), RelativeSource={RelativeSource Self}}" />
+                                    </Style>
+                                </DataGridTextColumn.HeaderStyle>
+                            </DataGridTextColumn>
+
+                            <!--  Column Bottom Marker, to rename the column Name edit EditDataGrid.Columns[6].Header in the mainwindow.xaml.cs  -->
+                            <DataGridTextColumn x:Name="bottomMarker"
+                                                Width="*"
+                                                Binding="{Binding linesBelow}"
+                                                Header="Bottom Marker"
+                                                ToolTipService.ToolTip="A short explanation of Column B"
+                                                Visibility="Hidden">
+
+                                <DataGridTextColumn.HeaderStyle>
+                                    <Style TargetType="{x:Type DataGridColumnHeader}">
+                                        <Setter Property="ToolTip" Value="{Binding Column.(ToolTipService.ToolTip), RelativeSource={RelativeSource Self}}" />
+                                    </Style>
+                                </DataGridTextColumn.HeaderStyle>
+                            </DataGridTextColumn>
+
+                            <!--  Column Exclude, to rename the column Name edit EditDataGrid.Columns[7].Header in the mainwindow.xaml.cs  -->
+                            <DataGridTemplateColumn Width="52"
+                                                    CanUserReorder="False"
+                                                    CanUserSort="True"
+                                                    ClipboardContentBinding="{x:Null}"
+                                                    Header="Exclude"
+                                                    ToolTipService.ToolTip="Exclude this Search String"
+                                                    Visibility="Hidden">
+                                <DataGridTemplateColumn.HeaderStyle>
+                                    <Style TargetType="{x:Type DataGridColumnHeader}">
+                                        <Setter Property="ToolTip" Value="{Binding Column.(ToolTipService.ToolTip), RelativeSource={RelativeSource Self}}" />
+                                    </Style>
+                                </DataGridTemplateColumn.HeaderStyle>
+                                <DataGridTemplateColumn.CellTemplate>
+                                    <DataTemplate>
+                                        <CheckBox x:Name="datagridcheckbox"
+                                                  HorizontalAlignment="Center"
+                                                  IsChecked="{Binding exclude,
+                                                                      UpdateSourceTrigger=PropertyChanged}" />
+
+                                    </DataTemplate>
+                                </DataGridTemplateColumn.CellTemplate>
+
+                            </DataGridTemplateColumn>
+
                         </DataGrid.Columns>
                     </DataGrid>
-                    <Border BorderThickness="1,25,1,1" Margin="358,0,15,212" VerticalAlignment="Bottom" Background="#FFEC1919" Grid.ColumnSpan="2">
-                        <Border.BorderBrush>
-                            <LinearGradientBrush EndPoint="0.5,1" MappingMode="RelativeToBoundingBox" StartPoint="0.5,0">
-                                <GradientStop Color="#FF7B8E94" Offset="1"/>
-                                <GradientStop Color="#FFA5AEB5"/>
-                            </LinearGradientBrush>
-                        </Border.BorderBrush>
-                    </Border>
-                    <!--Bottom marker label-->
-                    <Label Content="Bottom Marker:" HorizontalAlignment="Left" Margin="368,0,0,44.08" VerticalAlignment="Bottom" 
-                           RenderTransformOrigin="0.5,2.308" Grid.ColumnSpan="2" ToolTip="Select how many lines above the search you wish to parse"/>
-                    <!-- Copy lines Button -->
-                    <Button x:Name="copyMultipleLinesButton" Content="Copy Selected Lines" HorizontalAlignment="Right" Margin="0,15,179,0" 
-                            VerticalAlignment="Top" Width="136" Click="copyMultipleLinesButton_Click" Grid.ColumnSpan="2" 
-                            ToolTip="Tick the lines you want to copy" Height="23" FontWeight="Bold" TabIndex="12"/>
-                    <!-- Delete lines button -->
-                    <Button x:Name="deleteMultipleLinesButton" Content="Delete Selected Lines" HorizontalAlignment="Right" Margin="0,15,36,0" 
-                            VerticalAlignment="Top" Width="140" Click="deleteMultipleLinesButton_Click" Grid.ColumnSpan="2" 
-                            ToolTip="Tick the lines you want to Delete" Height="23" FontWeight="Bold" TabIndex="13"/>
-                    <!-- Paste Button -->
-                    <Button x:Name="pasteButton" Content="Paste" HorizontalAlignment="Right" Margin="0,15,421,0" VerticalAlignment="Top" Width="76" 
-                            Click="pasteButton_Click" Grid.ColumnSpan="2" IsEnabled="False" Height="23" FontWeight="Bold" TabIndex="11" RenderTransformOrigin="-0.711,0.609"/>
-                    <!--Edit line label-->
-                    <Label Grid.ColumnSpan="2" Content="Edit a line in the Current Script" HorizontalAlignment="Left" Margin="368,0,0,212" 
-                           VerticalAlignment="Bottom" Foreground="White" FontWeight="Bold" Height="26" Width="199"/>
-                    <!-- Extra options button -->
-                    <Button x:Name="ExtraOptionsButton" Grid.ColumnSpan="2" Content="Extra Options" HorizontalAlignment="Left" Margin="32,182,0,0" VerticalAlignment="Top" Width="92" 
-                            Click="ExtraOptionsButton_Click" RenderTransformOrigin="0.333,-0.318" Height="23" TabIndex="6" 
-                            ToolTip="Extra options such as a Time range, Exclude string and convert Hex to Decimal">
-                        <Button.Style>
-                            <Style TargetType="{x:Type Button}">
-                                <Setter Property="Foreground" Value="#ffffff"/>
-                                <Setter Property="Background">
-                                    <Setter.Value>
-                                        <LinearGradientBrush EndPoint="0,1" StartPoint="0,0">
-                                            <GradientStop Color="#636363" Offset="0"/>
-                                            <GradientStop Color="#FF000003" Offset="1"/>
-                                        </LinearGradientBrush>
-                                    </Setter.Value>
-                                </Setter>
-                                <Setter Property="Template">
-                                    <Setter.Value>
-                                        <ControlTemplate TargetType="{x:Type Button}">
 
-                                            <!--Sets button corner radius from square to 3px radius -->
-                                            <Border Background="{TemplateBinding Background}" CornerRadius="3"
-                					BorderThickness="1" BorderBrush="#c5c5c5">
-                                                <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
-                                            </Border>
-                                        </ControlTemplate>
-                                    </Setter.Value>
-                                </Setter>
-
-                                <!--Change mouseover to an orange gradient-->
-                                <Style.Triggers>
-                                    <Trigger Property="IsMouseOver" Value="True">
-                                        <Setter Property="Background" Value="#464646"/>
-                                    </Trigger>
-                                </Style.Triggers>
-                            </Style>
-                        </Button.Style>
-                    </Button>
-
-                    <!-- Create Script button -->
-                    <Button x:Name="ScriptCreationButton" Content="Create Script" Margin="0,15,320,0" VerticalAlignment="Top" Click="ScriptCreationButton_Click"
-                            ToolTip="Click here to create a new script" Width="96" HorizontalAlignment="Right" Height="23" RenderTransformOrigin="0.568,-0.857" 
-                            FontWeight="Bold" Grid.ColumnSpan="2" TabIndex="9">
+                    <!--  Diagram options button opens EditForDiagramWindow  which allow to edit Diagram Options  -->
+                    <Button x:Name="EditGraphOptionsButton"
+                            Grid.ColumnSpan="2"
+                            Width="113"
+                            Height="23"
+                            Margin="0,0,19,136"
+                            HorizontalAlignment="Right"
+                            VerticalAlignment="Bottom"
+                            Click="EditGraphOptionsButton_Click"
+                            Content="Diagram Options"
+                            Cursor="Hand"
+                            FontWeight="Bold"
+                            RenderTransformOrigin="1.147,-1.826"
+                            TabIndex="19"
+                            ToolTip="Click to edit choices for diagram">
                         <Button.Background>
-                            <LinearGradientBrush EndPoint="0,1" StartPoint="0,0">
-                                <GradientStop Color="#FFF3F3F3" Offset="0"/>
-                                <GradientStop Color="#FFEBEBEB" Offset="0.5"/>
-                                <GradientStop Color="#FFDDDDDD" Offset="0.5"/>
-                                <GradientStop Color="#FFCDCDCD" Offset="1"/>
+                            <LinearGradientBrush StartPoint="0,0" EndPoint="0,1">
+                                <GradientStop Offset="0" Color="#FFF3F3F3" />
+                                <GradientStop Offset="0.5" Color="#FFDDDDDD" />
+                                <GradientStop Offset="0.428" Color="#FFDDDDDD" />
+                                <GradientStop Offset="1" Color="#FFCDCDCD" />
                             </LinearGradientBrush>
                         </Button.Background>
                     </Button>
 
-                    <!-- Delete Script Button -->
-                    <Button x:Name="DeleteScriptsButton" Content="Delete Script" HorizontalAlignment="Left" Margin="126,0,0,9" VerticalAlignment="Bottom" 
-                            Width="88" Click="DeleteScriptsButton_Click" Height="23" 
-                            ToolTip="Please tick the tick box on the script you want to be deleted and then click Delete Script button" Grid.ColumnSpan="2" 
-                            FontWeight="Bold" RenderTransformOrigin="0.5,0.5" TabIndex="10">
+                    <!--  Select a rule name combobox  -->
+                    <ComboBox x:Name="ScriptSelectCombo"
+                              Grid.ColumnSpan="2"
+                              Width="301"
+                              Height="23"
+                              Margin="543,0,0,107"
+                              HorizontalAlignment="Left"
+                              VerticalAlignment="Bottom"
+                              IsEditable="True"
+                              IsEnabled="True"
+                              IsReadOnly="True"
+                              Loaded="ScriptSelectCombo_Loaded"
+                              MaxDropDownHeight="200"
+                              SelectionChanged="ScriptSelectCombo_SelectionChanged"
+                              TabIndex="14"
+                              ToolTip="Select a search script to edit"
+                              Visibility="Hidden" />
+
+                    <!--  Edit Rule name textbox  -->
+                    <TextBox x:Name="editScriptNameTextbox"
+                             Grid.ColumnSpan="2"
+                             Width="301"
+                             Height="22"
+                             Margin="543,0,0,71"
+                             HorizontalAlignment="Left"
+                             VerticalAlignment="Bottom"
+                             IsEnabled="False"
+                             TabIndex="15"
+                             TextWrapping="Wrap"
+                             ToolTip="Edit the name or rename the script here" />
+
+                    <!--  Save button save line and rule names in the Right Data grid for Current lines and Editor  -->
+                    <Button x:Name="Save"
+                            Grid.ColumnSpan="2"
+                            Width="57"
+                            Height="23"
+                            Margin="0,0,19,10"
+                            HorizontalAlignment="Right"
+                            VerticalAlignment="Bottom"
+                            Panel.ZIndex="10"
+                            Click="Save_Click"
+                            Content="Save"
+                            Cursor="Hand"
+                            FontWeight="Bold"
+                            IsDefault="True"
+                            RenderTransformOrigin="0.356,0.174"
+                            TabIndex="19"
+                            ToolTip="Click to save changes in current line">
                         <Button.Background>
-                            <LinearGradientBrush EndPoint="0,1" StartPoint="0,0">
-                                <GradientStop Color="#FFF3F3F3" Offset="0"/>
-                                <GradientStop Color="#FFDDDDDD" Offset="0.5"/>
-                                <GradientStop Color="#FFDDDDDD" Offset="0.428"/>
-                                <GradientStop Color="#FFCDCDCD" Offset="1"/>
-                            </LinearGradientBrush>
-                        </Button.Background>
-                    </Button>
-                    <Label Grid.ColumnSpan="2" Content="Enter a search string" HorizontalAlignment="Left" Margin="465.766,0,0,112.52" VerticalAlignment="Bottom" 
-                           FontSize="10.667" Height="25"/>
-                    <!--label for current lines in script-->
-                    <Label Grid.ColumnSpan="2" Content="Current Lines in Script" HorizontalAlignment="Left" Margin="368,14,0,0" VerticalAlignment="Top" 
-                           Foreground="#FFF3F1F1" FontWeight="Bold"/>
-                    <!--Dropdown menu for please select a script to edit-->
-                    <ComboBox x:Name="ScriptSelectCombo" IsEditable="True" MaxDropDownHeight="200" Text="&lt;Please select a script to edit&gt;" VerticalAlignment="Bottom" 
-                              Loaded="ScriptSelectCombo_Loaded" IsEnabled="True" SelectionChanged="ScriptSelectCombo_SelectionChanged" Height="23" 
-                              Width="191" HorizontalAlignment="Left" ToolTip="Select a search script to edit" Margin="372,0,0,172" IsReadOnly="True" 
-                              TabIndex="14" Grid.ColumnSpan="2"/>
-                    <!--Source file label for source file-->
-                    <TextBox x:Name="FileLabel" HorizontalAlignment="Left" Height="23" Margin="32,74,0,0" TextWrapping="Wrap" VerticalAlignment="Top" 
-                             Width="196" IsReadOnly="True" Grid.ColumnSpan="2" IsEnabled="False" Text="Select a Log file "/>
-                    <!--Output file label for output folder-->
-
-                    <TextBox x:Name="OutputLabel" HorizontalAlignment="Left" Height="23" Margin="32,139,0,0" TextWrapping="Wrap" VerticalAlignment="Top" 
-                             Width="196" IsReadOnly="True" Grid.ColumnSpan="2" Text="Select a Output folder" IsEnabled="False"/>
-                    <GroupBox Header="Diagram options" HorizontalAlignment="Left" Margin="960,0,0,83" VerticalAlignment="Bottom" Height="122" Width="125" Grid.ColumnSpan="2"/>
-
-                    <Button x:Name="EditGraphOptionsButton" Content="Diagram Options" HorizontalAlignment="Left" Margin="478,0,0,9" 
-                            VerticalAlignment="Bottom" Width="108"  FontWeight="Bold" RenderTransformOrigin="0.5,0.5" Height="23" 
-                            Cursor="Hand" ToolTip="Click to edit choices for diagram" Grid.ColumnSpan="2" 
-                            TabIndex="19" Click="EditGraphOptionsButton_Click">
-                        <Button.Background>
-                            <LinearGradientBrush EndPoint="0,1" StartPoint="0,0">
-                                <GradientStop Color="#FFF3F3F3" Offset="0"/>
-                                <GradientStop Color="#FFDDDDDD" Offset="0.5"/>
-                                <GradientStop Color="#FFDDDDDD" Offset="0.428"/>
-                                <GradientStop Color="#FFCDCDCD" Offset="1"/>
-                            </LinearGradientBrush>
-                        </Button.Background>
-                    </Button>
-                    <!-- From combobox dropdown -->
-
-                    <!--Groupbox for Unicorn cage-->
-                    <!--  -->
-
-
-                    <!-- to combobox dropdown -->
-                    <Label Grid.ColumnSpan="2" Content="From:" HorizontalAlignment="Left" Margin="969,0,0,109" VerticalAlignment="Bottom" 
-                           RenderTransformOrigin="1.125,-0.501"/>
-                    <Label Grid.ColumnSpan="2" Content="To:" HorizontalAlignment="Left" Margin="983,0,0,144" VerticalAlignment="Bottom" RenderTransformOrigin="0.691,1.617"/>
-                    <ComboBox x:Name="fromCombo" Grid.ColumnSpan="2" HorizontalAlignment="Left" Margin="1014,0,0,113" VerticalAlignment="Bottom" Width="60" 
-                              IsReadOnly="True" IsEditable="True" Loaded="fromCombo_Loaded" PreviewMouseLeftButtonDown="fromCombo_PreviewMouseLeftButtonDown"/>
-                    <ComboBox x:Name="toCombo" Grid.ColumnSpan="2" HorizontalAlignment="Left" Margin="1014,0,0,152" VerticalAlignment="Bottom" Width="60" 
-                              IsReadOnly="True" IsEditable="True" Loaded="toCombo_Loaded" PreviewMouseLeftButtonDown="toCombo_PreviewMouseLeftButtonDown" MinWidth="60" RenderTransformOrigin="2.267,6.864"/>
-
-
-
-                    <Button x:Name="CopyToNewScript" Content="Copy To New Script" HorizontalAlignment="Left" Margin="216,0,0,9" VerticalAlignment="Bottom" 
-                            Width="124" Click="CopyToNewScript_Click" Height="23" 
-                            ToolTip="" Grid.ColumnSpan="2" 
-                            FontWeight="Bold" RenderTransformOrigin="0.5,0.5" TabIndex="10">
-                        <Button.Background>
-                            <LinearGradientBrush EndPoint="0,1" StartPoint="0,0">
-                                <GradientStop Color="#FFF3F3F3" Offset="0"/>
-                                <GradientStop Color="#FFDDDDDD" Offset="0.5"/>
-                                <GradientStop Color="#FFDDDDDD" Offset="0.428"/>
-                                <GradientStop Color="#FFCDCDCD" Offset="1"/>
+                            <LinearGradientBrush StartPoint="0,0" EndPoint="0,1">
+                                <GradientStop Offset="0" Color="#FFF3F3F3" />
+                                <GradientStop Offset="0.5" Color="#FFDDDDDD" />
+                                <GradientStop Offset="0.428" Color="#FFDDDDDD" />
+                                <GradientStop Offset="1" Color="#FFCDCDCD" />
                             </LinearGradientBrush>
                         </Button.Background>
                     </Button>
 
 
-
-                    <!-- to Label -->
 
                 </Grid>
             </TabItem>
-            <!--Graph tab button-->
-            <TabItem x:Name="Graph_Tab" Header="Graph" HorizontalAlignment="Right" Height="22.96" VerticalAlignment="Top" Width="57.32" Margin="0,0,-10,0">
-                <TabItem.Background>
-                    <LinearGradientBrush EndPoint="0,1" StartPoint="0,0">
-                        <GradientStop Color="#FFDEE7EF" Offset="0"/>
-                        <GradientStop Color="#FFDEE7EF" Offset="0.5"/>
-                        <GradientStop Color="#FFDEE7EF" Offset="0.5"/>
-                        <GradientStop Color="#FFDEE7EF" Offset="0.996"/>
-                    </LinearGradientBrush>
-                </TabItem.Background>
-                <Grid Background="#FFDEE7EF" RenderTransformOrigin="0.064,0.422">
 
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition/>
-                    </Grid.ColumnDefinitions>
-
-                    <WebBrowser x:Name="webBrowser1"  Margin="0,0,0,254"  />
-                    <TextBox x:Name="txtBox" TextWrapping="Wrap" Height="240" VerticalAlignment="Bottom"/>
-
-                </Grid>
-            </TabItem>
         </TabControl>
-        <ProgressBar HorizontalAlignment="Left" Height="20" Margin="69,0,0,7" VerticalAlignment="Bottom" Width="172" Name="progressBar" Maximum="100" 
-                     Foreground="Green" Visibility="Hidden"/>
+
+        <Label x:Name="Bottom_right_helper_label"
+               Width="258"
+               Height="29"
+               Margin="545,0,0,90"
+               HorizontalAlignment="Left"
+               VerticalAlignment="Bottom"
+               Content="To edit a Group Name, change above and save."
+               FontSize="11" />
+        <!--  export script button opens a Save File Dialog Box  -->
+        <Button x:Name="ExportButton"
+                Width="146"
+                Height="23"
+                Margin="20,285,0,0"
+                HorizontalAlignment="Left"
+                VerticalAlignment="Top"
+                Click="ExportButton_Click"
+                Content="Export Group"
+                FontWeight="Bold"
+                RenderTransformOrigin="0.333,-0.318"
+                TabIndex="6">
+            <Button.Style>
+                <Style TargetType="{x:Type Button}">
+                    <Setter Property="Foreground" Value="#ffffff" />
+                    <Setter Property="Background">
+                        <Setter.Value>
+                            <LinearGradientBrush StartPoint="0,0" EndPoint="0,1">
+                                <GradientStop Offset="0" Color="#636363" />
+                                <GradientStop Offset="1" Color="#FF000003" />
+                            </LinearGradientBrush>
+                        </Setter.Value>
+                    </Setter>
+                    <Setter Property="Template">
+                        <Setter.Value>
+                            <ControlTemplate TargetType="{x:Type Button}">
+
+                                <!--  Sets button corner radius from square to 3px radius  -->
+                                <Border Background="{TemplateBinding Background}"
+                                        BorderBrush="#c5c5c5"
+                                        BorderThickness="1"
+                                        CornerRadius="3">
+                                    <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" />
+                                </Border>
+                            </ControlTemplate>
+                        </Setter.Value>
+                    </Setter>
+
+                    <!--  Change mouseover to an orange gradient  -->
+                    <Style.Triggers>
+                        <Trigger Property="IsMouseOver" Value="True">
+                            <Setter Property="Background" Value="#464646" />
+                        </Trigger>
+                    </Style.Triggers>
+                </Style>
+            </Button.Style>
+        </Button>
+        <!--  Import Script button that opens a Open File Dialog Box  -->
+        <Button x:Name="ImportButton"
+                Width="146"
+                Height="23"
+                Margin="179,285,0,0"
+                HorizontalAlignment="Left"
+                VerticalAlignment="Top"
+                Click="ImportButton_Click"
+                Content="Import Group"
+                FontWeight="Bold"
+                RenderTransformOrigin="0.333,-0.318"
+                TabIndex="6">
+            <Button.Style>
+                <Style TargetType="{x:Type Button}">
+                    <Setter Property="Foreground" Value="#ffffff" />
+                    <Setter Property="Background">
+                        <Setter.Value>
+                            <LinearGradientBrush StartPoint="0,0" EndPoint="0,1">
+                                <GradientStop Offset="0" Color="#636363" />
+                                <GradientStop Offset="1" Color="#FF000003" />
+                            </LinearGradientBrush>
+                        </Setter.Value>
+                    </Setter>
+                    <Setter Property="Template">
+                        <Setter.Value>
+                            <ControlTemplate TargetType="{x:Type Button}">
+
+                                <!--  Sets button corner radius from square to 3px radius  -->
+                                <Border Background="{TemplateBinding Background}"
+                                        BorderBrush="#c5c5c5"
+                                        BorderThickness="1"
+                                        CornerRadius="3">
+                                    <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" />
+                                </Border>
+                            </ControlTemplate>
+                        </Setter.Value>
+                    </Setter>
+
+                    <!--  Change mouseover to an orange gradient  -->
+                    <Style.Triggers>
+                        <Trigger Property="IsMouseOver" Value="True">
+                            <Setter Property="Background" Value="#464646" />
+                        </Trigger>
+                    </Style.Triggers>
+                </Style>
+            </Button.Style>
+        </Button>
+        <Button x:Name="ScriptCreationButton"
+                Width="146"
+                Height="23"
+                Margin="179,245,0,0"
+                HorizontalAlignment="Left"
+                VerticalAlignment="Top"
+                Click="ScriptCreationButton_Click"
+                Content="Create New Group"
+                FontWeight="Bold"
+                RenderTransformOrigin="0.333,-0.318"
+                TabIndex="6"
+                ToolTip="Click here to create a new Group">
+            <Button.Style>
+                <Style TargetType="{x:Type Button}">
+                    <Setter Property="Foreground" Value="#ffffff" />
+                    <Setter Property="Background">
+                        <Setter.Value>
+                            <LinearGradientBrush StartPoint="0,0" EndPoint="0,1">
+                                <GradientStop Offset="0" Color="#636363" />
+                                <GradientStop Offset="1" Color="#FF000003" />
+                            </LinearGradientBrush>
+                        </Setter.Value>
+                    </Setter>
+                    <Setter Property="Template">
+                        <Setter.Value>
+                            <ControlTemplate TargetType="{x:Type Button}">
+
+                                <!--  Sets button corner radius from square to 3px radius  -->
+                                <Border Background="{TemplateBinding Background}"
+                                        BorderBrush="#c5c5c5"
+                                        BorderThickness="1"
+                                        CornerRadius="3">
+                                    <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" />
+                                </Border>
+                            </ControlTemplate>
+                        </Setter.Value>
+                    </Setter>
+
+                    <!--  Change mouseover to an orange gradient  -->
+                    <Style.Triggers>
+                        <Trigger Property="IsMouseOver" Value="True">
+                            <Setter Property="Background" Value="#464646" />
+                        </Trigger>
+                    </Style.Triggers>
+                </Style>
+            </Button.Style>
+
+
+        </Button>
+
+        <!--  **********************  End of right side Grouping **********************  -->
     </Grid>
 </Window>

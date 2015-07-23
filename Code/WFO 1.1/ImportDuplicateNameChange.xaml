@@ -1,42 +1,41 @@
-﻿<Window x:Class="WFO_PROJECT.EditForDiagramWindow"
+﻿<Window x:Class="WFO_PROJECT.ImportDuplicateNameChange"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        x:Name="diagramWindow"
-        Title="Edit Diagram Selection"
+        x:Name="ImportDuplicateNameChangeWindow"
+        Title="Rename a Duplicate "
         Width="300"
-        Height="300"
+        Height="170"
+        Background="#FFDEE7EF"
         Icon="Icon.ico"
-        ResizeMode="NoResize"
-        SizeToContent="Height"
-        Topmost="True"
-        WindowStartupLocation="CenterScreen">
-    <Grid Background="#FFDEE7EF">
-        <DataGrid x:Name="graphOptionDataGrid"
-                  Height="213"
-                  Margin="10,10,10,0"
-                  HorizontalAlignment="Left"
-                  VerticalAlignment="Top"
-                  AlternatingRowBackground="White"
-                  AlternationCount="2"
-                  AutoGenerateColumns="False"
-                  BorderBrush="#FF4A494A"
-                  BorderThickness="2"
-                  ColumnWidth="*"
-                  Loaded="graphOptionDataGrid_Loaded"
-                  RowBackground="#FFF7F7FF"
-                  SelectionChanged="graphOptionDataGrid_SelectionChanged">
-            <DataGrid.Columns>
-                <DataGridTextColumn Binding="{Binding graphNameColumn}" Header="Diagram Options" />
-            </DataGrid.Columns>
-        </DataGrid>
+        ResizeMode="NoResize">
+    <Grid>
+
+        <!--  Top Label  -->
+        <TextBlock x:Name="VeryTopLabel"
+                   Width="249"
+                   Margin="15,15,15,0"
+                   VerticalAlignment="Top"
+                   Text="The Group you are trying to import is already exists, Please rename it in the box below."
+                   TextWrapping="Wrap" />
+
+        <!--  Textbox  -->
+        <TextBox x:Name="duplicateScriptRenameTextbox"
+                 Width="250"
+                 Height="23"
+                 Margin="15,58,15,0"
+                 VerticalAlignment="Top"
+                 Loaded="duplicateScriptRenameTextbox_Loaded"
+                 TextWrapping="Wrap" />
+
+
         <!--  Save Button  -->
-        <Button x:Name="graphOptionsSave"
-                Width="75"
+        <Button x:Name="saveNewScriptnameButton"
+                Width="80"
                 Height="25"
-                Margin="57,15,0,10"
+                Margin="100,0,0,18"
                 HorizontalAlignment="Left"
                 VerticalAlignment="Bottom"
-                Click="graphOptionsSave_Click"
+                Click="saveNewScriptnameButton_Click"
                 Content="Save"
                 FontWeight="Bold">
             <Button.Style>
@@ -76,17 +75,15 @@
             </Button.Style>
         </Button>
 
-
-
-        <!--  Close Button  -->
-        <Button x:Name="graphOptionsClose"
-                Width="75"
+        <!--  Cancel Button  -->
+        <Button x:Name="CancelImportButton"
+                Width="81"
                 Height="25"
-                Margin="150,238,0,10"
+                Margin="191,0,0,18"
                 HorizontalAlignment="Left"
                 VerticalAlignment="Bottom"
-                Click="graphOptionsClose_Click"
-                Content="Close"
+                Click="CancelImportButton_Click"
+                Content="Cancel"
                 FontWeight="Bold">
             <Button.Style>
                 <Style TargetType="{x:Type Button}">
@@ -124,5 +121,7 @@
                 </Style>
             </Button.Style>
         </Button>
+
+
     </Grid>
 </Window>

@@ -21,6 +21,7 @@ namespace WFO_PROJECT
     {
 
         string startDateValue;
+
         string endDateValue;
         string Hex;
         string Exclude;
@@ -150,16 +151,6 @@ namespace WFO_PROJECT
         private void ExcludeCheckbox_Unchecked(object sender, RoutedEventArgs e)
         {
             ExcludeTxtBox.IsEnabled = false;
-        }
-
-        private void SwapCheckbox_Checked(object sender, RoutedEventArgs e)
-        {
-            SwapTxtBox.IsEnabled = true;
-        }
-
-        private void SwapCheckbox_Unchecked(object sender, RoutedEventArgs e)
-        {
-            SwapTxtBox.IsEnabled = false;
         }
 
         private void ExcludeTxtBox_TextChanged(object sender, TextChangedEventArgs e)

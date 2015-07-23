@@ -7,11 +7,11 @@ using System.Windows;
 // General Information about an assembly is controlled through the following 
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("ACR logging tool")]
-[assembly: AssemblyDescription("ACR Logging Tool. This tool will parse large log files. Either by pulling out Nth lines above and below a search string or filtering by a time range.")]
+[assembly: AssemblyTitle("WpfApplication1")]
+[assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("Avaya")]
-[assembly: AssemblyProduct("ACR logging tool")]
+[assembly: AssemblyProduct("WpfApplication1")]
 [assembly: AssemblyCopyright("Copyright © Avaya 2015")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
@@ -51,9 +51,5 @@ using System.Windows;
 // You can specify all the values or you can default the Build and Revision Numbers 
 // by using the '*' as shown below:
 // [assembly: AssemblyVersion("1.0.*")]
-
-[assembly: AssemblyVersion("1.3.5.1")]
-[assembly: AssemblyFileVersion("1.3.5.1")]
-
-
-
+[assembly: AssemblyVersion("1.0.0.0")]
+[assembly: AssemblyFileVersion("1.0.0.0")]

@@ -85,5 +85,12 @@ namespace WFO_PROJECT
             sWriter.Close();
             NewScriptWindow1.Close();
         }
+
+       
+
+        private void scriptNamebox_Loaded(object sender, RoutedEventArgs e)
+        {
+            scriptNamebox.Focus();
+        }
     }
 }

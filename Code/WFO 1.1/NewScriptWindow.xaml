@@ -1,25 +1,53 @@
-﻿<Window x:Name="NewScriptWindow1" x:Class="WFO_PROJECT.NewScriptWindow"
+﻿<Window x:Class="WFO_PROJECT.NewScriptWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        Title="Create a new Script" Height="159" Width="279" ResizeMode="NoResize" Icon="Icon.ico" WindowStartupLocation="CenterScreen">
+        x:Name="NewScriptWindow1"
+        Title="Create a new Group"
+        Width="279"
+        Height="159"
+        Icon="Icon.ico"
+        ResizeMode="NoResize"
+        WindowStartupLocation="CenterScreen">
     <Grid Margin="0" Background="#FFDEE7EF">
 
-        <Label Content="Enter New Script Name" HorizontalAlignment="Left" Margin="10,0,0,83" VerticalAlignment="Bottom" Width="171" Height="26" RenderTransformOrigin="4.267,4.963" ToolTip="Type in the name of the new script and click save"/>
+        <!--  Edit new script label  -->
+        <Label Width="171"
+               Height="26"
+               Margin="10,0,0,83"
+               HorizontalAlignment="Left"
+               VerticalAlignment="Bottom"
+               Content="Enter New Script Name"
+               RenderTransformOrigin="4.267,4.963"
+               ToolTip="Type in the name of the new script and click save" />
 
-        <!-- Script input Textbox -->
-        <TextBox x:Name="scriptNamebox" Margin="10,0,12,53" TextWrapping="Wrap" VerticalAlignment="Bottom" Height="25" />
+        <!--  Script input Textbox  -->
+        <TextBox x:Name="scriptNamebox"
+                 Height="25"
+                 Margin="10,0,12,53"
+                 VerticalAlignment="Bottom"
+                 TextWrapping="Wrap"
+                 Loaded="scriptNamebox_Loaded"
+                 />
 
-        <!-- Save button -->
-        <Button Content="Save" HorizontalAlignment="Right" Margin="0,0,12,16" VerticalAlignment="Bottom" Width="75" Click="Button_Click" Height="25" RenderTransformOrigin="0.48,1" FontWeight="Bold">
+        <!--  Save button  -->
+        <Button Width="75"
+                Height="25"
+                Margin="0,0,12,16"
+                HorizontalAlignment="Right"
+                VerticalAlignment="Bottom"
+                Click="Button_Click"
+                Content="Save"
+                FontWeight="Bold"
+                RenderTransformOrigin="0.48,1">
 
             <Button.Style>
                 <Style TargetType="{x:Type Button}">
-                    <Setter Property="Foreground" Value="#ffffff"/>
+                    <Setter Property="Foreground" Value="#ffffff" />
                     <Setter Property="Background">
                         <Setter.Value>
-                            <LinearGradientBrush EndPoint="0,1" StartPoint="0,0">
-                                <GradientStop Color="#636363" Offset="0"/>
-                                <GradientStop Color="#FF000003" Offset="1"/>
+                            <LinearGradientBrush StartPoint="0,0" EndPoint="0,1">
+                                <GradientStop Offset="0" Color="#636363" />
+                                <GradientStop Offset="1" Color="#FF000003" />
                             </LinearGradientBrush>
                         </Setter.Value>
                     </Setter>
@@ -28,19 +56,21 @@
                         <Setter.Value>
                             <ControlTemplate TargetType="{x:Type Button}">
 
-                                <!--Sets button corner radius from square to 3px radius -->
-                                <Border Background="{TemplateBinding Background}" CornerRadius="3"
-                					BorderThickness="1" BorderBrush="#c5c5c5">
-                                    <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                                <!--  Sets button corner radius from square to 3px radius  -->
+                                <Border Background="{TemplateBinding Background}"
+                                        BorderBrush="#c5c5c5"
+                                        BorderThickness="1"
+                                        CornerRadius="3">
+                                    <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" />
                                 </Border>
                             </ControlTemplate>
                         </Setter.Value>
                     </Setter>
 
-                    <!--Change mouseover to an orange gradient-->
+                    <!--  Change mouseover to an orange gradient  -->
                     <Style.Triggers>
                         <Trigger Property="IsMouseOver" Value="True">
-                            <Setter Property="Background" Value="#464646"/>
+                            <Setter Property="Background" Value="#464646" />
                         </Trigger>
                     </Style.Triggers>
                 </Style>
