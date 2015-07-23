@@ -199,11 +199,10 @@ FakesAssemblies/
 Code/ParsingScripts/examples/
 Code/WFO 1.1/ACR_Logging_Tool
 Code/WFO 1.1/ACR\ Logging\ Tool
-Documents/Help/
+
 
 ACR_Installer/
-
-
+Documents/Help/
 Code/ParsingScripts/Acr.MessageOUT*
 Code/WFO 1.1/HTMLPage1.html
 Code/WFO 1.1/JavaScript1.js
